@@ -18,12 +18,12 @@
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\defs.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\defs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Mar.io\defs.cpp" />
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Mar.io\defs.h" />
     <ClInclude Include="..\..\src\Mar.io\MarIo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
