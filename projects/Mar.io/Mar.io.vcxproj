@@ -74,7 +74,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)TapiocaEngine\buildEngine.bat
+      <Command>$(SolutionDir)updateSubmodule.bat
 xcopy "$(SolutionDir)bin\game_d.dll" "$(SolutionDir)TapiocaEngine\bin\" /y /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -96,7 +96,7 @@ xcopy "$(SolutionDir)bin\game_d.dll" "$(SolutionDir)TapiocaEngine\bin\" /y /r</C
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)TapiocaEngine\buildEngine.bat
+      <Command>$(SolutionDir)updateSubmodule.bat
 xcopy "$(SolutionDir)bin\game.dll" "$(SolutionDir)TapiocaEngine\bin\" /y /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
