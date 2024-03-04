@@ -1,107 +1,41 @@
 scenes = {
     Escena1={
-            {
-                Transform = {
-                    positionX = 0.0,
-                    positionY = 0.0,
-                    positionZ = 0.0,
-                    scaleX = 1.0,
-                    scaleY = 1.0,
-                    scaleZ = 1.0,
-                    rotationX = 90.0,
-                    rotationY = 0.0,
-                    rotationZ = 0.0
-                },
-                MeshRenderer = {
-                    meshName = "racoon/mapache.mesh"
-                }--]]--
+        Player={
+            Transform = {
+                positionX = 0.0,
+                positionY = 3.0,
+                positionZ = 0.0,
+                scaleX = 0.01,
+                scaleY = 0.02,
+                scaleZ = 0.01,
+                rotationX = 0.0,
+                rotationY = 0.0,
+                rotationZ = 0.0
             },
-            Entity1={
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-                -- + componentes 
+            MeshRenderer = {    
+                meshName = "meshes/sphere.mesh",
+                materialName= "red"
+            }--]]--
+        },
+        Ground={
+            Transform = {
+                positionX = 0.0,
+                positionY = 0.0,
+                positionZ = 0.0,
+                scaleX = 0.15,
+                scaleY = 0.02,
+                scaleZ = 0.1,
+                rotationX = 90.0,
+                rotationY = 0.0,
+                rotationZ = 0.0
             },
-            {
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-            },
-            Entity2={
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-                    -- + componentes
-            },
-            {
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-            },
-            {
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-            }
-            -- + entidades
-    }--[[,
-    Escena2={
-            Entity3={
-                Transform = {
-                    positionX = 22.0,
-                    positionY = 12.0,
-                    positionZ = -56.0,
-                    scaleX = 25.0,
-                    scaleY = 25.0,
-                    scaleZ = 25.0,
-                    rotationX = 25.0,
-                    rotationY = 25.0,
-                    rotationZ = 25.0
-                }
-                    -- + componentes
-            -- + entidades
+            MeshRenderer = {    
+                meshName = "meshes/cube.mesh",
+                materialName= "green"
+            }--]]--
         }
+        
     
     -- + escenas
-    }]]--
+    }
 }
