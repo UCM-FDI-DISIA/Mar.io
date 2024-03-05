@@ -1,15 +1,20 @@
 #include "MarIo.h"
-#include "Structure/ComponentBuilder.h"
-#include "defs.h"
 
-JUEGO_API void function(const char* var)
-{
-    std::cout << "I love Mar.io" << var << "<3\n";
+#include "Structure/FactoryManager.h"
+#include "Structure/ComponentBuilder.h"
+#include "EjemploComponentFactory.h"
+
+#ifdef _DEBUG
+#include <iostream>
+#endif
+
+JUEGO_API void init(Tapioca::FactoryManager* manager) { 
+	addComponentFactories(manager);
 }
 
-JUEGO_API FactoryInfo** getComponentFactories(int& count)
-{
-    count = 0;
-    FactoryInfo** factories = new FactoryInfo*[count];
-    return factories;
+JUEGO_API void addComponentFactories(Tapioca::FactoryManager* manager) {
+#ifdef _DEBUG
+	std::cout << "Anadiendo las factorias del juego\n";
+#endif
+	manager->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
 }

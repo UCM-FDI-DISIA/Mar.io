@@ -11,10 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Mar.io\EjemploComponent.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\EjemploComponentFactory.cpp" />
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\defs.h" />
+    <ClInclude Include="..\..\src\Mar.io\EjemploComponent.h" />
+    <ClInclude Include="..\..\src\Mar.io\EjemploComponentFactory.h" />
     <ClInclude Include="..\..\src\Mar.io\MarIo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -51,12 +55,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\</OutDir>
+    <OutDir>$(SolutionDir)TapiocaEngine\bin\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>game_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\</OutDir>
+    <OutDir>$(SolutionDir)TapiocaEngine\bin\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>game</TargetName>
   </PropertyGroup>
