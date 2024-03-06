@@ -5,21 +5,17 @@
 #include "Structure/ComponentBuilder.h"
 #include "EjemploComponentFactory.h"
 
-#ifdef _DEBUG
-#include <iostream>
-#endif
-
-JUEGO_API void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
+void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
     name();
-	addComponentFactories(factMngr);
-	sceneMngr->loadScene("MarIo.lua");
+    addComponentFactories(factMngr);
+    sceneMngr->loadScene("MarIo.lua");
 }
 
-JUEGO_API void name() { std::cout << "Mar.io\n"; }
+void name() { std::cout << "Mar.io\n"; }
 
-JUEGO_API void addComponentFactories(Tapioca::FactoryManager* factMngr) {
+void addComponentFactories(Tapioca::FactoryManager* factMngr) {
 #ifdef _DEBUG
-	std::cout << "Anadiendo las factorias del juego\n";
+    std::cout << "Anadiendo las factorias del juego\n";
 #endif
     factMngr->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
 }

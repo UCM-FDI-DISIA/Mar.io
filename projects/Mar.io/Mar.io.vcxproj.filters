@@ -35,5 +35,8 @@
     <ClInclude Include="..\..\src\Mar.io\EjemploComponentFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
