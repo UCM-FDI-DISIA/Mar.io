@@ -8,9 +8,12 @@
 #include <iostream>
 #endif
 
-JUEGO_API void init(Tapioca::FactoryManager* manager) { 
+JUEGO_API void init(Tapioca::FactoryManager* manager) {
+    name();
 	addComponentFactories(manager);
 }
+
+JUEGO_API void name() { std::cout << "Mar.io\n"; }
 
 JUEGO_API void addComponentFactories(Tapioca::FactoryManager* manager) {
 #ifdef _DEBUG

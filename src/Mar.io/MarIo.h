@@ -7,6 +7,10 @@ namespace Tapioca {
 
 extern "C" {
 /*
+* @brief Nombre del juego
+*/
+JUEGO_API void name();
+/*
 * @brief Saluda a una persona
 * @param nombre Nombre de la persona a saludar
 */
