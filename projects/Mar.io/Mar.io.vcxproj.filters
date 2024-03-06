@@ -29,9 +29,6 @@
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\defs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\EjemploComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
