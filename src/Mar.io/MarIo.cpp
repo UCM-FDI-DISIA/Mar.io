@@ -1,6 +1,7 @@
 #include "MarIo.h"
 
 #include "Structure/FactoryManager.h"
+#include "SceneManager.h"
 #include "Structure/ComponentBuilder.h"
 #include "EjemploComponentFactory.h"
 
@@ -8,16 +9,17 @@
 #include <iostream>
 #endif
 
-JUEGO_API void init(Tapioca::FactoryManager* manager) {
+JUEGO_API void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
     name();
-	addComponentFactories(manager);
+	addComponentFactories(factMngr);
+	sceneMngr->loadScene("MarIo.lua");
 }
 
 JUEGO_API void name() { std::cout << "Mar.io\n"; }
 
-JUEGO_API void addComponentFactories(Tapioca::FactoryManager* manager) {
+JUEGO_API void addComponentFactories(Tapioca::FactoryManager* factMngr) {
 #ifdef _DEBUG
 	std::cout << "Anadiendo las factorias del juego\n";
 #endif
-	manager->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
+    factMngr->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
 }
