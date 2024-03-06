@@ -1,6 +1,8 @@
-scenes = {
-    Escena1={
-        Player={
+
+scene={
+    Player={
+        components= {
+
             Transform = {
                 positionX = 0.0,
                 positionY = 3.0,
@@ -15,27 +17,53 @@ scenes = {
             MeshRenderer = {    
                 meshName = "meshes/sphere.mesh",
                 materialName= "red"
-            }--]]--
-        },
-        Ground={
-            Transform = {
-                positionX = 0.0,
-                positionY = 0.0,
-                positionZ = 0.0,
-                scaleX = 0.15,
-                scaleY = 0.02,
-                scaleZ = 0.1,
-                rotationX = 90.0,
-                rotationY = 0.0,
-                rotationZ = 0.0
             },
-            MeshRenderer = {    
-                meshName = "meshes/cube.mesh",
-                materialName= "green"
-            }--]]--
+            RigidBody = {    
+                colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+                colliderScaleX=2.0,
+                colliderScaleY=2.0,
+                colliderScaleZ=2.0,
+                isTrigger=false,
+                movementType=0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+                friction=1.0,
+                mass=3.0,
+                bounciness=0.0
+            }
+      }
+    },
+    Ground={
+        components={
+
+        Transform = {
+            positionX = 0.0,
+            positionY = 0.0,
+            positionZ = 0.0,
+            scaleX = 0.15,
+            scaleY = 0.02,
+            scaleZ = 0.1,
+            rotationX = 90.0,
+            rotationY = 0.0,
+            rotationZ = 0.0
+        },
+        MeshRenderer = {    
+            meshName = "meshes/cube.mesh",
+            materialName= "green"
+        },
+        RigidBody = {    
+            colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+            colliderScaleX=4.0,
+            colliderScaleY=1.0,
+            colliderScaleZ=2.0,
+            isTrigger=false,
+            movementType=1, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+            friction=1.0,
+            mass=0,
+            bounciness=0.0
         }
-        
-    
-    -- + escenas
     }
+    }
+    
+
+-- + escenas
 }
+
