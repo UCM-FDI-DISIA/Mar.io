@@ -11,7 +11,11 @@ void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
     sceneMngr->loadScene("MarIo.lua", factMngr);
 }
 
-void name() { std::cout << "Mar.io\n"; }
+void name() {
+#ifdef _DEBUG
+    std::cout << "Mar.io\n";
+#endif
+}
 
 void addComponentFactories(Tapioca::FactoryManager* factMngr) {
 #ifdef _DEBUG
