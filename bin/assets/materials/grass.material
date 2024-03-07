@@ -1,0 +1,14 @@
+material grass {
+    technique {
+        pass {
+           
+            // - base_color_texture
+            texture_unit {
+                texture textures/grass.png
+                tex_address_mode wrap
+                colour_op modulate
+            }
+        }
+        
+    }
+}
