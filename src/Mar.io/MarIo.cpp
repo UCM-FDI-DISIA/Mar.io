@@ -8,7 +8,7 @@
 void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
     name();
     addComponentFactories(factMngr);
-    sceneMngr->loadScene("MarIo.lua");
+    sceneMngr->loadScene("MarIo.lua", factMngr);
 }
 
 void name() { std::cout << "Mar.io\n"; }
