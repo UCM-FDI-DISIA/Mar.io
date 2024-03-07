@@ -68,7 +68,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>JUEGO_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>JUEGO_EXPORTS;TAPIOCA_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)TapiocaEngine\src\Bridge\;$(SolutionDir)TapiocaEngine\src\Core\;$(SolutionDir)TapiocaEngine\src\Graphics\;$(SolutionDir)TapiocaEngine\src\Input\;$(SolutionDir)TapiocaEngine\src\Physics\;$(SolutionDir)TapiocaEngine\src\UI\</AdditionalIncludeDirectories>
@@ -90,7 +90,7 @@ xcopy "$(SolutionDir)bin\game_d.dll" "$(SolutionDir)TapiocaEngine\bin\" /y /r</C
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>JUEGO_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>JUEGO_EXPORTS;TAPIOCA_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)TapiocaEngine\src\Bridge\;$(SolutionDir)TapiocaEngine\src\Core\;$(SolutionDir)TapiocaEngine\src\Graphics\;$(SolutionDir)TapiocaEngine\src\Input\;$(SolutionDir)TapiocaEngine\src\Physics\;$(SolutionDir)TapiocaEngine\src\UI\</AdditionalIncludeDirectories>
