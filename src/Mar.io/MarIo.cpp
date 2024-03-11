@@ -4,6 +4,8 @@
 #include "SceneManager.h"
 #include "Structure/ComponentBuilder.h"
 #include "EjemploComponentFactory.h"
+#include <Structure/BasicBuilder.h>
+#include "Components/PlayerMovementController.h"
 
 void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
     name();
@@ -22,4 +24,5 @@ void addComponentFactories(Tapioca::FactoryManager* factMngr) {
     std::cout << "Anadiendo las factorias del juego\n";
 #endif
     factMngr->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
+    factMngr->addFactory("PlayerMovementController", new Tapioca::BasicBuilder<PlayerMovementController>());
 }

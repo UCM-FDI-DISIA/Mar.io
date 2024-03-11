@@ -28,6 +28,9 @@ scene={
                 friction=1.0,
                 damping=0.4,
                 bounciness=2.0
+            },
+            PlayerMovementController = {
+
             }
       }
     },

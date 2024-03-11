@@ -69,5 +69,20 @@ events = {
         src = "ie_mouseButtonUp",
         control = 3     -- SDL_BUTTON_RIGHT
     },
-
+    ev_MOVEFORWARD = {
+        src = "ie_keyDown",
+        control = 66
+    },
+    ev_MOVELEFT = {
+        src = "ie_keyDown",
+        control = 44
+    },
+    ev_MOVEBACK = {
+        src = "ie_keyDown",
+        control = 62
+    },
+    ev_MOVERIGHT = {
+        src = "ie_keyDown",
+        control = 47
+    }
 }
