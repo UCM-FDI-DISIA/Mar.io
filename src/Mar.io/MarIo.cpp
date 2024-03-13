@@ -7,10 +7,10 @@
 #include <Structure/BasicBuilder.h>
 #include "Components/PlayerMovementController.h"
 
-void init(Tapioca::FactoryManager* factMngr, Tapioca::SceneManager* sceneMngr) {
+void init() {
     name();
-    addComponentFactories(factMngr);
-    sceneMngr->loadScene("MarIo.lua");
+    addComponentFactories();
+    Tapioca::SceneManager::instance()->loadScene("MarIo.lua");
 }
 
 void name() {
@@ -19,10 +19,11 @@ void name() {
 #endif
 }
 
-void addComponentFactories(Tapioca::FactoryManager* factMngr) {
+void addComponentFactories() {
 #ifdef _DEBUG
     std::cout << "Anadiendo las factorias del juego\n";
 #endif
+    Tapioca::FactoryManager* factMngr = Tapioca::FactoryManager::instance();
     factMngr->addFactory("EjemploComponent", new MarIo::EjemploComponentFactory());
-    factMngr->addFactory("PlayerMovementController", new Tapioca::BasicBuilder<PlayerMovementController>());
+    //factMngr->addFactory("PlayerMovementController", new Tapioca::BasicBuilder<PlayerMovementController>());
 }

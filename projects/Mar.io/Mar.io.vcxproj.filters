@@ -41,7 +41,7 @@
     <ClInclude Include="..\..\src\Mar.io\EjemploComponentFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\defs.h">
+    <ClInclude Include="..\..\src\Mar.io\gameDefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h">

@@ -29,9 +29,9 @@ scene={
                 damping=0.4,
                 bounciness=2.0
             },
-            PlayerMovementController = {
+            -- PlayerMovementController = {
 
-            }
+            -- }
       }
     },
     Ground={

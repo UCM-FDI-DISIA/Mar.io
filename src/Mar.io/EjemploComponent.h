@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
 #include "Structure/Component.h"
+#include "gameDefs.h"
 
 namespace MarIo {
-class TAPIOCA_API EjemploComponent : public Tapioca::Component {
+class JUEGO_API EjemploComponent : public Tapioca::Component {
 private:
     int a;
     float b;
