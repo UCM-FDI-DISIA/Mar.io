@@ -7,10 +7,20 @@
 #include <Structure/BasicBuilder.h>
 #include "Components/PlayerMovementController.h"
 
+// TODO: PRUEBA
+#include "GraphicsEngine.h"
+#include "Viewport.h"
+
 void init() {
     name();
     addComponentFactories();
     Tapioca::SceneManager::instance()->loadScene("MarIo.lua");
+
+    auto graphics = Tapioca::GraphicsEngine::instance();
+    auto nodeCamera = graphics->createNode(Tapioca::Vector3(20.0f, 0.0f, 20.0f));
+    auto camera = graphics->createCamera(nodeCamera, "Hola");
+    auto viewport = graphics->createViewport(camera, 1);
+    viewport->setBackground(Tapioca::Vector3(0.925f, 0.698f, 0.941f));
 }
 
 void name() {
