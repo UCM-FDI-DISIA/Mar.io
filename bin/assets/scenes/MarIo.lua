@@ -65,6 +65,38 @@ scene={
             bounciness=0.01
         }
     }
+    },
+    {
+        components={
+
+        Transform = {
+            positionX = 0.0,
+            positionY = 10.0,
+            positionZ = 1.0,
+            scaleX = 1.0,
+            scaleY = 1.0,
+            scaleZ = 1.0,
+            rotationX = 0.0,
+            rotationY = 0.0,
+            rotationZ = 0.0
+        },
+        MeshRenderer = {    
+            meshName = "meshes/cube2.mesh",
+            materialName= "grass"
+        },
+        RigidBody = {    
+            colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+            colliderScaleX=1.0,
+            colliderScaleY=1.0,
+            colliderScaleZ=1.0,
+            isTrigger=false,
+            movementType=0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+            mass=1.0,
+            friction=1.0,
+            damping=0.0,
+            bounciness=0.01
+        }
+    }
     }
     
 
