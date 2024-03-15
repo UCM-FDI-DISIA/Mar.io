@@ -1,11 +1,13 @@
 #pragma once
 #include <Structure/Component.h>
+#include "../gameDefs.h"
 
 namespace Tapioca {
 class Transform;
 }
 
-class PlayerMovementController : public Tapioca::Component {
+namespace MarIo {
+class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
     Tapioca::Transform* trans;
 
@@ -20,3 +22,4 @@ public:
     void update(const uint64_t deltaTime) override;
     void handleEvent(std::string const& id, void* info) override;
 };
+}

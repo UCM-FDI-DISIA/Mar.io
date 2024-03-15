@@ -11,16 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Mar.io\Components\CoinComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\EjemploComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\EjemploComponentFactory.cpp" />
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Mar.io\Components\CoinComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h" />
     <ClInclude Include="..\..\src\Mar.io\gameDefs.h" />
-    <ClInclude Include="..\..\src\Mar.io\EjemploComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\EjemploComponentFactory.h" />
     <ClInclude Include="..\..\src\Mar.io\MarIo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
