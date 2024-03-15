@@ -11,10 +11,9 @@
 #include "GraphicsEngine.h"
 #include "Viewport.h"
 
-void init() {
+bool init() {
     name();
     addComponentFactories();
-    Tapioca::SceneManager::instance()->loadScene("MarIo.lua");
 
     // PRUEBA (deja memory leaks)
     auto graphics = Tapioca::GraphicsEngine::instance();
@@ -24,6 +23,8 @@ void init() {
     viewport->setBackground(Tapioca::Vector3(0.925f, 0.698f, 0.941f));
     auto node = graphics->createNode();
     auto light = graphics->createLightDirectional(node, Tapioca::Vector3(0.0f, -1.0f, -1.0f));
+
+    return Tapioca::SceneManager::instance()->loadScene("MarIo.lua");
 }
 
 void name() {
