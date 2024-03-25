@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\src\Mar.io\Components\FistComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\ChestComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
@@ -45,6 +48,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\FistComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\ChestComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,8 +13,8 @@ scene  = {
 				rotationZ = 0.0
 			},
 			MeshRenderer = {    
-				meshName = "meshes/cube2.mesh",
-				materialName= "grass"
+				meshName = "meshes/coin.mesh",
+				materialName= "gold_coin_texture"
 			},
 			RigidBody = {    
 				colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
@@ -28,10 +28,10 @@ scene  = {
 				damping=0.0,
 				bounciness=0.01
 			},
-			CoinComponent={
+			ChestComponent={
 
-			},
-			Collider={}
+			}
+			
    	 	}
 	},
 	Player={
