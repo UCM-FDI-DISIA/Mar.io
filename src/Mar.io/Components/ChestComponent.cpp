@@ -53,8 +53,7 @@ void ChestComponent::CreatCoins(int n) {
         coin->addComponent(rb, rb->id);
 
         Tapioca::MeshRenderer* mesh = new Tapioca::MeshRenderer();
-        mesh->setMeshName("meshes/coin.mesh");
-        mesh->setMaterialName("gold_coin_texture");
+        mesh->setMeshName("coin/coin.mesh");
         coin->addComponent(mesh, mesh->id);
 
         coin->addComponent<CoinComponent>();
