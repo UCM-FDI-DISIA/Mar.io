@@ -71,18 +71,18 @@ events = {
     },
     ev_MOVEFORWARD = {
         src = "ie_keyDown",
-        control = 66
+        control = 119   -- SDLK_w
     },
     ev_MOVELEFT = {
         src = "ie_keyDown",
-        control = 44
+        control = 97    --SDLK_a
     },
     ev_MOVEBACK = {
         src = "ie_keyDown",
-        control = 62
+        control = 115    --SDLK_s
     },
     ev_MOVERIGHT = {
         src = "ie_keyDown",
-        control = 47
+        control = 100    --SDLK_d
     }
 }

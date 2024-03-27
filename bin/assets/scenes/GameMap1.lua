@@ -34,8 +34,7 @@ scene = {
 				rotationZ = 0.0
 			},
 			MeshRenderer = {    
-				meshName = "meshes/coin.mesh",
-				materialName= "gold_coin_texture"
+				meshName = "coin/coin.mesh",
 			},
 			RigidBody = {    
 				colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
@@ -48,10 +47,11 @@ scene = {
 				friction=1.0,
 				damping=0.0,
 				bounciness=0.01
-			},
-			ChestComponent={
-
 			}
+			-- ,
+			-- ChestComponent={
+
+			-- }
 			
    	 	}
 	},
@@ -73,7 +73,7 @@ scene = {
 					meshName = "racoon/pirateRaccoon/PirateRacoon.mesh"
 				},
 				RigidBody = {    
-					colShape=3, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+					colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
 					colliderScaleX=2.0,
 					colliderScaleY=5.0,
 					colliderScaleZ=2.0,
@@ -84,10 +84,10 @@ scene = {
 					damping=0.4,
 					bounciness=2.0
 				},
-				Collider={}
-				-- PlayerMovementController = {
+				Collider={},
+				PlayerMovementController = {
 
-				-- }
+				}
 			}
 		},
 		{
