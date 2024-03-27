@@ -7,6 +7,8 @@
 #include "Components/PlayerMovementController.h"
 #include "Components/CoinComponent.h"
 #include "Components/ChestComponent.h"
+#include "Components/PlayerSetting.h"
+#include "Components/FistComponent.h"
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
@@ -44,4 +46,6 @@ void addComponentFactories() {
     factMngr->addFactory("PlayerMovementController", new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
     factMngr->addFactory("CoinComponent", new Tapioca::BasicBuilder<MarIo::CoinComponent>());
     factMngr->addFactory("ChestComponent", new Tapioca::BasicBuilder<MarIo::ChestComponent>());
+    factMngr->addFactory("PlayerSetting", new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
+    factMngr->addFactory("FistComponent", new Tapioca::BasicBuilder<MarIo::FistComponent>());
 }

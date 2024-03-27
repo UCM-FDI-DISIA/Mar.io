@@ -84,5 +84,9 @@ events = {
     ev_MOVERIGHT = {
         src = "ie_keyDown",
         control = 100    --SDLK_d
+    },
+    ev_MELEATTACK = {
+        src = "ie_keyDown",
+        control = 102    --SDLK_f
     }
 }

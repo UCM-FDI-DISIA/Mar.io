@@ -5,6 +5,7 @@
 #include "Components/Transform.h"
 #include "Components/RigidBody.h"
 #include "Components/MeshRenderer.h"
+#include "FistComponent.h"
 #include "CoinComponent.h"
 #include "Structure/Scene.h"
 #include "Structure/GameObject.h"
@@ -20,9 +21,9 @@ bool ChestComponent::initComponent(const CompMap& variables) { return true; }
 
 void ChestComponent::handleEvent(std::string const& id, void* info) {
     //TODO: luego se cambia id por meleAttack
-    if (id == "onCollisionEnter") {
+    if (id == "onCollisionStay") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
-        if (player->getHandler() == "Player") {
+        if (player->getComponent<FistComponent>() != nullptr && player->getComponent<FistComponent>()->isAttack()) {
             CreatCoins(8);
             object->die();
         }

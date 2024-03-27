@@ -10,31 +10,40 @@ FistComponent::FistComponent() { }
 
 FistComponent::~FistComponent() { }
 
-bool FistComponent::initComponent(const CompMap& variables) { 
-     cont = 0;
-     bool coolDownSet = setValueFromMap(coolDown, "coolDown", variables);
-    return coolDownSet;
+bool FistComponent::initComponent(const CompMap& variables) {
+    cont = 0;
+    canHit = false;
+    onAttack = false;
+    bool coolDownSet = setValueFromMap(coolDown, "coolDown", variables);
+    bool durationSet = setValueFromMap(duration, "duration", variables);
+    return coolDownSet && durationSet;
 }
 
 void FistComponent::update(const uint64_t deltaTime) {
-    cont += deltaTime;
-    if (cont > coolDown) {
-        cont = 0;
-        for (Tapioca::Component* comp : object->getAllComponents()) {
-            comp->setActive(false);
+    if (!canHit && !onAttack) {
+        cont += deltaTime;
+        if (cont > coolDown) {
+            cont = 0;
+            canHit = true;
+        }
+    }
+    if (onAttack) {
+        cont += deltaTime;
+        if (cont > duration) {
+            cont = 0;
+            onAttack = false;
         }
     }
 }
 
+
 void FistComponent::handleEvent(std::string const& id, void* info) {
-    if (id == "meleAttack") {
-        Tapioca::GameObject* player = (Tapioca::GameObject*)info;
-        if (player->getHandler() == "Player") {
-            //coins++
-            for (Tapioca::Component* comp : object->getAllComponents()) {
-                comp->setActive(true);
-            }
-        }
+    if (id == "ev_MELEATTACK" && canHit) {
+        canHit = false;
+        onAttack = true;
     }
 }
+
+bool FistComponent::isAttack() { return onAttack; }
+
 }

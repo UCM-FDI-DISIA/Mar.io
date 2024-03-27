@@ -23,7 +23,7 @@ scene = {
     {
         components={
 			Transform = {
-				positionX = 0.0,
+				positionX = 10.0,
 				positionY = 10.0,
 				positionZ = 1.0,
 				scaleX = 1.0,
@@ -34,13 +34,13 @@ scene = {
 				rotationZ = 0.0
 			},
 			MeshRenderer = {    
-				meshName = "coin/coin.mesh",
+				meshName = "meshes/Cofre1.mesh",
 			},
 			RigidBody = {    
 				colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
-				colliderScaleX=1.0,
-				colliderScaleY=1.0,
-				colliderScaleZ=1.0,
+				colliderScaleX=2.0,
+				colliderScaleY=4.0,
+				colliderScaleZ=4.0,
 				isTrigger=false,
 				movementType=0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
 				mass=1.0,
@@ -48,10 +48,10 @@ scene = {
 				damping=0.0,
 				bounciness=0.01
 			}
-			-- ,
-			-- ChestComponent={
+			,
+			ChestComponent={
 
-			-- }
+			}
 			
    	 	}
 	},
@@ -73,7 +73,7 @@ scene = {
 					meshName = "racoon/pirateRaccoon/PirateRacoon.mesh"
 				},
 				RigidBody = {    
-					colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+					colShape=3, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
 					colliderScaleX=2.0,
 					colliderScaleY=5.0,
 					colliderScaleZ=2.0,
@@ -87,8 +87,48 @@ scene = {
 				Collider={},
 				PlayerMovementController = {
 
+				},
+				PlayerSetting={}
+			},
+			children={
+				{
+					components = {
+						Transform = {
+							positionX = 0.0,
+							positionY = 0.0,
+							positionZ = 5.0,
+							scaleX = 1.0,
+							scaleY = 1.0,
+							scaleZ = 1.2,
+							rotationX = 0.0,
+							rotationY = 0.0,
+							rotationZ = 0.0
+						},
+						RigidBody = {
+							colliderScaleX = 1.0,
+							colliderScaleY = 1.0,
+							colliderScaleZ = 1.2,
+							isTrigger = true,
+							mass = 0.0,
+							friction = 1.0,
+							damping = 0.4,
+							bounciness = 0.0,
+							colShape = 0,
+							movementType = 2
+						}
+						-- ,
+						-- MeshRenderer = {
+						-- 	meshName  = "meshes/cube2.mesh",
+						-- }
+						,
+						FistComponent={
+							coolDown= 1000.0,
+							duration=100.0
+						}
+					}
 				}
 			}
+
 		},
 		{
 			components = {
