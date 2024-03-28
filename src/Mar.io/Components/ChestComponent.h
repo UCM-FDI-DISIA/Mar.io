@@ -16,6 +16,8 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
 private:
+    bool open;
     void CreatCoins(int n);
+    void CreatOpenChest();
 };
 }
