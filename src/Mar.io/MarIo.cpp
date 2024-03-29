@@ -9,6 +9,7 @@
 #include "Components/ChestComponent.h"
 #include "Components/PlayerSetting.h"
 #include "Components/FistComponent.h"
+#include "Components/CameraFollowComponent.h"
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
@@ -48,4 +49,5 @@ void addComponentFactories() {
     factMngr->addFactory("ChestComponent", new Tapioca::BasicBuilder<MarIo::ChestComponent>());
     factMngr->addFactory("PlayerSetting", new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
     factMngr->addFactory("FistComponent", new Tapioca::BasicBuilder<MarIo::FistComponent>());
+    factMngr->addFactory("CameraFollowComponent", new Tapioca::BasicBuilder<CameraFollowComponent>());
 }

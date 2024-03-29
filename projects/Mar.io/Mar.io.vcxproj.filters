@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\CameraFollowComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
@@ -57,6 +60,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerSetting.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\CameraFollowComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>

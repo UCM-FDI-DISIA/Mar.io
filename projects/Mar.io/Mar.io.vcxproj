@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Mar.io\Components\CameraFollowComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\ChestComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\CoinComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\FistComponent.cpp" />
@@ -19,6 +20,7 @@
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Mar.io\Components\CameraFollowComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\ChestComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\CoinComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\FistComponent.h" />
