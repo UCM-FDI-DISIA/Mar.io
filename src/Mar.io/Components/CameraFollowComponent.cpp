@@ -92,20 +92,12 @@ void CameraFollowComponent::handleEvent(std::string const& id, void* info) {
 void CameraFollowComponent::update(const uint64_t deltaTime) {
     Tapioca::Vector3 nextPos = targetTransform->getPosition() + offset;
 
-    if (smoothSpeed < 0) smoothSpeed = 0;
-    else if (smoothSpeed > 1) smoothSpeed = 1;
-    float x = (1 - smoothSpeed) * transform->getPosition().x + smoothSpeed * nextPos.x;
-    float y = (1 - smoothSpeed) * transform->getPosition().y + smoothSpeed * nextPos.y;
-    float z = (1 - smoothSpeed) * transform->getPosition().z + smoothSpeed * nextPos.z;
-    Tapioca::Vector3 smoothPos = {x, y, z};
+    Tapioca::Vector3 smoothPos = Tapioca::Vector3::lerp(transform->getPosition(), nextPos, smoothSpeed);;
 
-    //Tapioca::Quaternion desiredRot ;
+    Tapioca::Quaternion desiredRot =
+        Tapioca::Quaternion::lookAt(targetTransform->getPosition() - transform->getPosition(), targetTransform->up());
 
     transform->setPosition(smoothPos);
+    //transform->setRotation(desiredRot.euler());
     camera->lookAt(targetTransform->getPosition());
-#ifdef _DEBUG
-    std::cout << transform->getRotation().x << ' ' << transform->getRotation().y << ' ' << transform->getRotation().z << '\n';
-#endif   // _DEBUG
-
-    //transform->setRotation(targetTransform->getRotation());
 }
