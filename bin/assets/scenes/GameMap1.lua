@@ -2,6 +2,40 @@ scene = {
 	{
 		components = {
 			Transform = {
+				positionX = 10.0,
+				positionY = 4.0,
+				positionZ = 10.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = -45.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			MeshRenderer = {
+				meshName = "corals/Coral1.mesh",
+				initRotationX = -45.0
+			},
+			RigidBody = {  
+				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+				colliderScaleX = 1.5,
+				colliderScaleY = 2.2,
+				colliderScaleZ = 1.5,
+				isTrigger = false,
+				movementType = 1, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.4,
+				bounciness = 2.0
+			},
+			DoDamageComponent = {
+				damage = 1
+			}
+		}
+	},
+	{
+		components = {
+			Transform = {
 				positionX = 0.0,
 				positionY = 0.0,
 				positionZ = 0.0,
@@ -31,8 +65,8 @@ scene = {
 			}
 		}
 	},
-    {
-        components={
+  {
+    components = {
 			Transform = {
 				positionX = 10.0,
 				positionY = 10.0,
@@ -44,32 +78,29 @@ scene = {
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
-			MeshRenderer = {    
+			MeshRenderer = {  
 				meshName = "meshes/Cofre1.mesh",
 			},
-			RigidBody = {    
-				colShape=0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
-				colliderScaleX=2.0,
-				colliderScaleY=4.0,
-				colliderScaleZ=4.0,
-				isTrigger=false,
-				movementType=0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
-				mass=1.0,
-				friction=1.0,
-				damping=0.0,
-				bounciness=0.01
+			RigidBody = {  
+				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+				colliderScaleX = 2.0,
+				colliderScaleY = 4.0,
+				colliderScaleZ = 4.0,
+				isTrigger = false,
+				movementType = 0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 0.01
 			}
 			,
-			ChestComponent={
+			ChestComponent = {
 
-			},
-			DoDamageComponent = {
-				damage = 1
 			}
-   	 	}
+  	 	}
 	},
-	Player={
-			components= {
+	Player = {
+			components = {
 				Transform = {
 					positionX = 0.0,
 					positionY = 3.0,
@@ -85,30 +116,30 @@ scene = {
 					meshName = "racoon/pirateRaccoon/PirateRacoon.mesh",
 					initRotationY = 0.0
 				},
-				RigidBody = {    
-					colShape=3, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
-					colliderScaleX=2.0,
-					colliderScaleY=5.0,
-					colliderScaleZ=2.0,
-					isTrigger=false,
-					movementType=0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
-					mass=3.0,
-					friction=1.0,
-					damping=0.4,
-					bounciness=2.0
+				RigidBody = {  
+					colShape = 3, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+					colliderScaleX = 2.0,
+					colliderScaleY = 5.0,
+					colliderScaleZ = 2.0,
+					isTrigger = false,
+					movementType = 0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+					mass = 3.0,
+					friction = 1.0,
+					damping = 0.4,
+					bounciness = 2.0
 				},
-				Collider={},
+				Collider = {},
 				PlayerMovementController = {
 
 				},
-				PlayerSetting={},
+				PlayerSetting = {},
 				HealthComponent = {
 					maxHealth = 2,
 					currHealth = 1,
 					gracePeriod = 1.0
 				}
 			},
-			children={
+			children = {
 				{
 					components = {
 						Transform = {
@@ -139,9 +170,9 @@ scene = {
 						-- 	meshName  = "meshes/cube2.mesh",
 						-- }
 						,
-						FistComponent={
-							coolDown= 1000.0,
-							duration=100.0
+						FistComponent = {
+							coolDown = 1000.0,
+							duration = 100.0
 						}
 					}
 				}
