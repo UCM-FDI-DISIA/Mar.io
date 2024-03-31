@@ -88,9 +88,6 @@ void CameraFollowComponent::start() {
     transform->setPosition(targetTransform->getGlobalPosition() + offset);
 }
 
-void CameraFollowComponent::handleEvent(std::string const& id, void* info) {
-    
-}
 
 void CameraFollowComponent::update(const uint64_t deltaTime) {
     Tapioca::Vector3 nextPos = targetTransform->getPosition() + offset;

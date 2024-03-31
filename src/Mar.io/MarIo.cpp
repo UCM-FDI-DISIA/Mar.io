@@ -10,6 +10,8 @@
 #include "Components/PlayerSetting.h"
 #include "Components/FistComponent.h"
 #include "Components/CameraFollowComponent.h"
+#include "Components/HealthComponent.h"
+#include "Components/DoDamageComponent.h"
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
@@ -30,7 +32,6 @@ bool init() {
 
 
     return Tapioca::SceneManager::instance()->loadScene("GameMap1.lua");
-
 }
 
 void name() {
@@ -50,4 +51,6 @@ void addComponentFactories() {
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FistComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollowComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<HealthComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<DoDamageComponent>());
 }

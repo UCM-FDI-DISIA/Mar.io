@@ -52,13 +52,5 @@ public:
 
     void start() override;
 
-    /*
-    * @brief Metodo que se usa para recibir eventos.
-    * Se llama nada mas se recibe el evento, si es un evento de ventana se recibe en el pushEvent.
-    * @param Id indica el tipo de mensaje
-    * @param info puntero a void para pasar parametros
-    */
-    void handleEvent(std::string const& id, void* info) override;
-
     void update(const uint64_t deltaTime) override;
 };

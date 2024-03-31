@@ -62,13 +62,14 @@ scene = {
 			,
 			ChestComponent={
 
+			},
+			DoDamageComponent = {
+				damage = 1
 			}
-			
    	 	}
 	},
 	Player={
 			components= {
-
 				Transform = {
 					positionX = 0.0,
 					positionY = 3.0,
@@ -100,7 +101,12 @@ scene = {
 				PlayerMovementController = {
 
 				},
-				PlayerSetting={}
+				PlayerSetting={},
+				HealthComponent = {
+					maxHealth = 2,
+					currHealth = 1,
+					gracePeriod = 1.0
+				}
 			},
 			children={
 				{
