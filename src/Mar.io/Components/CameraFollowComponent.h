@@ -50,6 +50,8 @@ public:
     */
     void awake() override;
 
+    void start() override;
+
     /*
     * @brief Metodo que se usa para recibir eventos.
     * Se llama nada mas se recibe el evento, si es un evento de ventana se recibe en el pushEvent.

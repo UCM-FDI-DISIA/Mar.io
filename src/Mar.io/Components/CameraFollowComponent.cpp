@@ -82,7 +82,10 @@ void CameraFollowComponent::awake() {
         std::cerr << "Error: CameraFollow: no se ha podido obtener el transform del objetivo.\n";
 #endif
     }
+}
 
+void CameraFollowComponent::start() {
+    transform->setPosition(targetTransform->getGlobalPosition() + offset);
 }
 
 void CameraFollowComponent::handleEvent(std::string const& id, void* info) {
@@ -91,13 +94,7 @@ void CameraFollowComponent::handleEvent(std::string const& id, void* info) {
 
 void CameraFollowComponent::update(const uint64_t deltaTime) {
     Tapioca::Vector3 nextPos = targetTransform->getPosition() + offset;
-
-    Tapioca::Vector3 smoothPos = Tapioca::Vector3::lerp(transform->getPosition(), nextPos, smoothSpeed);;
-
-    Tapioca::Quaternion desiredRot =
-        Tapioca::Quaternion::lookAt(targetTransform->getPosition() - transform->getPosition(), targetTransform->up());
-
+    Tapioca::Vector3 smoothPos = Tapioca::Vector3::lerp(transform->getPosition(), nextPos, smoothSpeed);
     transform->setPosition(smoothPos);
-    //transform->setRotation(desiredRot.euler());
-    camera->lookAt(targetTransform->getPosition());
+
 }

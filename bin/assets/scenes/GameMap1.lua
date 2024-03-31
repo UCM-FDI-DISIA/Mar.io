@@ -2,9 +2,9 @@ scene = {
 	{
 		components = {
 			Transform = {
-				positionX = 50.0,
-				positionY = 50.0,
-				positionZ = 50.0,
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
 				scaleX = 1.0,
 				scaleY = 1.0,
 				scaleZ = 1.0,
@@ -16,12 +16,15 @@ scene = {
 				zOrder = 0,
 				bgColorR = 0.925,
 				bgColorG = 0.698,
-				bgColorB = 0.941
+				bgColorB = 0.941,
+				directionX = 0.0,
+				directionY = 0.0,
+				directionZ = -1.0
 			},
 			CameraFollowComponent = {
 				target = "Player",
 				offsetX = 0.0,
-				offsetY = 20.0,
+				offsetY = 8.0,
 				offsetZ = 40.0,
 				smoothSpeed = 0.125,
 				rotationSpeed = 0.1
@@ -74,11 +77,12 @@ scene = {
 					scaleY = 2.0,
 					scaleZ = 2.0,
 					rotationX = 0.0,
-					rotationY = 0.0,
+					rotationY = 180.0,
 					rotationZ = 0.0
 				},
 				MeshRenderer = {
-					meshName = "racoon/pirateRaccoon/PirateRacoon.mesh"
+					meshName = "racoon/pirateRaccoon/PirateRacoon.mesh",
+					initRotationY = 0.0
 				},
 				RigidBody = {    
 					colShape=3, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
