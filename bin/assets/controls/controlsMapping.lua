@@ -88,5 +88,9 @@ events = {
     ev_MELEATTACK = {
         src = "ie_keyDown",
         control = 102    --SDLK_f
+    },
+	ev_JUMP = {
+        src = "ie_keyDown",
+        control = 32    --SDLK_SPACE
     }
 }

@@ -4,12 +4,16 @@
 
 namespace Tapioca {
 class Transform;
+class RigidBody;
 }
 
 namespace MarIo {
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
+    bool grounded = true;
+    int jumps = 0;
     Tapioca::Transform* trans;
+    Tapioca::RigidBody* rigidBody;
 
 public:
     COMPONENT_ID("PlayerMovementController");
