@@ -8,13 +8,12 @@ scene = {
 				scaleX = 1.0,
 				scaleY = 1.0,
 				scaleZ = 1.0,
-				rotationX = -45.0,
+				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName = "corals/Coral1.mesh",
-				initRotationX = -45.0
+				meshName = "corals/Coral1.mesh"
 			},
 			RigidBody = {  
 				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
