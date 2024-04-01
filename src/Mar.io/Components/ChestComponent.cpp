@@ -13,7 +13,7 @@
 namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::ChestComponent>;
 
-ChestComponent::ChestComponent() { }
+ChestComponent::ChestComponent() : open(false) { }
 
 ChestComponent::~ChestComponent() { }
 
@@ -35,13 +35,13 @@ void ChestComponent::handleEvent(std::string const& id, void* info) {
     }
 }
 void ChestComponent::CreatCoins(int n) {
-    float degree = 360.0 / n;
+    float degree = 360.0f / n;
     Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getGlobalPosition();
     for (int i = 0; i < n; ++i) {
         Tapioca::GameObject* coin = new Tapioca::GameObject();
         Tapioca::Transform* tr = new Tapioca::Transform();
 
-        float angle = degree * i * 3.14 / 180.0;   // Convertir a radianes
+        float angle = degree * i * 3.14f / 180.0f;   // Convertir a radianes
         //// Calcular el seno y el coseno
         float sinValue = std::sinf(angle);
         float cosValue = std::cosf(angle);

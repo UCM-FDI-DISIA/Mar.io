@@ -6,7 +6,7 @@
 namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::FistComponent>;
 
-FistComponent::FistComponent() { }
+FistComponent::FistComponent():onAttack(false),duration(0),coolDown(0),cont(0),canHit(true) { }
 
 FistComponent::~FistComponent() { }
 
