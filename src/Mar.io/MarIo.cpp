@@ -1,6 +1,7 @@
 #include "MarIo.h"
 
 #include "Structure/FactoryManager.h"
+#include "WindowManager.h"
 #include "SceneManager.h"
 #include "Structure/ComponentBuilder.h"
 #include <Structure/BasicBuilder.h>
@@ -18,6 +19,7 @@
 #include "LightDirectional.h"
 
 bool init() {
+    Tapioca::WindowManager::instance()->setWindowName("Mar.io");
     name();
     addComponentFactories();
 
