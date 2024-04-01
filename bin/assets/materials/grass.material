@@ -1,6 +1,8 @@
-material grass {
+import ShadowTemplateTexture from "Shadows.material"
+
+material grass : ShadowTemplateTexture {
     technique {
-        pass {
+        pass Decal {
            
             // - base_color_texture
             texture_unit {

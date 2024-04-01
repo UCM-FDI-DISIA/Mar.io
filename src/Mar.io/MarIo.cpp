@@ -15,7 +15,7 @@
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
-#include "Viewport.h"
+#include "LightDirectional.h"
 
 bool init() {
     name();
@@ -23,13 +23,9 @@ bool init() {
 
     // PRUEBA (deja memory leaks)
     auto graphics = Tapioca::GraphicsManager::instance();
-    /*auto nodeCamera = graphics->createNode(Tapioca::Vector3(50.0f, 50.0f, 50.0f));
-    auto camera = graphics->createCamera(nodeCamera, "Hola");
-    auto viewport = graphics->createViewport(camera, 1);
-    viewport->setBackground(Tapioca::Vector3(0.925f, 0.698f, 0.941f));*/
     auto node = graphics->createNode();
     auto light = graphics->createLightDirectional(node, Tapioca::Vector3(0.0f, -1.0f, -1.0f));
-
+    light->produceShadows(true);
 
     return Tapioca::SceneManager::instance()->loadScene("GameMap1.lua");
 }
