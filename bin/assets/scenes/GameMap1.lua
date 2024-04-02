@@ -1,9 +1,9 @@
 scene = {
-	{
+	coral1 = {
 		components = {
 			Transform = {
 				positionX = 10.0,
-				positionY = 4.0,
+				positionY = 3.0,
 				positionZ = 10.0,
 				scaleX = 1.0,
 				scaleY = 1.0,
@@ -18,8 +18,8 @@ scene = {
 			RigidBody = {  
 				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
 				colliderScaleX = 1.5,
-				colliderScaleY = 2.2,
-				colliderScaleZ = 1.5,
+				colliderScaleY = 2.0,
+				colliderScaleZ = 2.0,
 				isTrigger = false,
 				movementType = 1, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
 				mass = 1.0,
@@ -50,7 +50,7 @@ scene = {
 				bgColorR = 0.925,
 				bgColorG = 0.698,
 				bgColorB = 0.941,
-				directionX = 0.0,
+				directionX = 1.0,
 				directionY = 0.0,
 				directionZ = -1.0
 			},
