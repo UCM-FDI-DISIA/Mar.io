@@ -59,7 +59,7 @@ void ChestComponent::CreatCoins(int n) {
         coin->addComponent(rb, rb->id);
 
         Tapioca::MeshRenderer* mesh = new Tapioca::MeshRenderer();
-        mesh->setMeshName("coin/coin.mesh");
+        mesh->setMeshName("models/coin/coin.mesh");
         coin->addComponent(mesh, mesh->id);
 
         coin->addComponent<CoinComponent>();
@@ -89,7 +89,7 @@ void ChestComponent::CreatOpenChest() {
     chest->addComponent(rb, rb->id);
 
     Tapioca::MeshRenderer* mesh = new Tapioca::MeshRenderer();
-    mesh->setMeshName("meshes/Cofre2.mesh");
+    mesh->setMeshName("models/chest/chest2.mesh");
     chest->addComponent(mesh, mesh->id);
     object->getScene()->addObject(chest);
 

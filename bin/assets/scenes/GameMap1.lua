@@ -50,9 +50,6 @@ scene = {
 				bgColorR = 0.925,
 				bgColorG = 0.698,
 				bgColorB = 0.941,
-				directionX = 1.0,
-				directionY = 0.0,
-				directionZ = -1.0
 			},
 			CameraFollowComponent = {
 				target = "Player",
