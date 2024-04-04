@@ -85,6 +85,22 @@ events = {
         src = "ie_keyDown",
         control = 100    --SDLK_d
     },
+    ev_MOVEFORWARDEND = {
+        src = "ie_keyUp",
+        control = 119   -- SDLK_w
+    },
+    ev_MOVELEFTEND = {
+        src = "ie_keyUp",
+        control = 97    --SDLK_a
+    },
+    ev_MOVEBACKEND = {
+        src = "ie_keyUp",
+        control = 115    --SDLK_s
+    },
+    ev_MOVERIGHTEND = {
+        src = "ie_keyUp",
+        control = 100    --SDLK_d
+    },
     ev_MELEATTACK = {
         src = "ie_keyDown",
         control = 102    --SDLK_f

@@ -15,6 +15,8 @@ private:
     bool jump = false;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
+    int moveX, moveZ;
+    float speed;
 
 public:
     COMPONENT_ID("PlayerMovementController");

@@ -120,7 +120,7 @@ scene = {
 				isTrigger = false,
 				movementType = 0, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
 				mass = 3.0,
-				friction = 1.0,
+				friction = 0.6,
 				damping = 0.4,
 				bounciness = 2.0
 			},
