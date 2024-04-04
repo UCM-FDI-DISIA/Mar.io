@@ -7,7 +7,7 @@
 namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
 
-PlayerMovementController::PlayerMovementController() : trans(nullptr) { }
+PlayerMovementController::PlayerMovementController() : trans(nullptr), rigidBody(nullptr) { }
 
 PlayerMovementController::~PlayerMovementController() { }
 
@@ -19,6 +19,13 @@ void PlayerMovementController::start() {
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {  }
+
+void PlayerMovementController::fixedUpdate() {
+    if (jump) {
+        rigidBody->addImpulse(Tapioca::Vector3(0, 50, 0));
+        jump = false;
+    }
+}
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     Tapioca::Vector3 movement;
@@ -37,8 +44,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "ev_JUMP") 
     {
         if (jumps < 2 || grounded) {
+            jump = true;
             grounded = false;
-            rigidBody->addImpulse(Tapioca::Vector3(0, 50, 0));
             jumps++;
         }   
     }

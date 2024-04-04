@@ -328,5 +328,39 @@ scene = {
 				materialName = "white"
 			}
 		}
+	},
+	{
+		components = {
+			Transform = {
+				positionX = 15.2,
+				positionY = 11.3,
+				positionZ = 20.00,
+				scaleX = 4.0,
+				scaleY = 1.0,
+				scaleZ = 2.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 90.0
+			},
+			RigidBody = {
+				colliderScaleX = 4.0,
+				colliderScaleY = 1.0,
+				colliderScaleZ = 2.0,
+				isTrigger = false,
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.4,
+				bounciness = 0.0,
+				colShape = 0,
+				movementType = 2
+			},
+			MeshRenderer = {
+				meshName  = "models/cube2.mesh",
+				materialName = "white"
+			},
+			MorenaMovementComponent = {
+
+			}
+  	 	}
 	}
 }
