@@ -18,7 +18,12 @@ void PlayerMovementController::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
 }
 
-void PlayerMovementController::update(const uint64_t deltaTime) { }
+void PlayerMovementController::update(const uint64_t deltaTime) { 
+    if (moveX != 0 || moveZ != 0) {
+        float angle = std::atan2f(moveX, moveZ);
+        trans->setRotation(Tapioca::Vector3(0, angle * 180 / 3.1415, 0));
+    }
+    }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "ev_MOVEFORWARD") {
@@ -73,10 +78,11 @@ void PlayerMovementController::fixedUpdate() {
 
         rigidBody->setVelocity(v);
 
-        //std::cout << moveX << " /" << moveZ<< "\n ";
-        float angle = std::atan2f(moveX, moveZ);
+    }
 
-        trans->setRotation(Tapioca::Vector3(0, angle*180/3.1415, 0));
+     Tapioca::Vector3 vel = rigidBody->getVelocity();
+    if (abs(vel.x) > 0 || abs(vel.z) > 0) {
+        rigidBody->setVelocity(Tapioca::Vector3(vel.x*0.9,vel.y,vel.z*0.9));
     }
 
 
