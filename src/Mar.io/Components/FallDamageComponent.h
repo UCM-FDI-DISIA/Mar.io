@@ -4,26 +4,21 @@
 
 namespace Tapioca {
 class Transform;
-class RigidBody;
 }
 
+class HealthComponent;
+
 namespace MarIo {
-class JUEGO_API PlayerMovementController : public Tapioca::Component {
+class JUEGO_API FallDamageComponent : public Tapioca::Component {
 private:
-    bool grounded = true;
-    int jumps = 0;
-    bool jump = false;
+    HealthComponent* health;
     Tapioca::Transform* trans;
-    Tapioca::RigidBody* rigidBody;
-    int moveX, moveZ;
-    float speed;
-    float jumpSpeed = 20;
 
 public:
-    COMPONENT_ID("PlayerMovementController");
+    COMPONENT_ID("FallDamageComponent");
 
-    PlayerMovementController();
-    ~PlayerMovementController();
+    FallDamageComponent();
+    ~FallDamageComponent();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;

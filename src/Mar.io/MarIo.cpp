@@ -14,6 +14,7 @@
 #include "Components/HealthComponent.h"
 #include "Components/DoDamageComponent.h"
 #include "Components/MorenaMovementComponent.h"
+#include "components/FallDamageComponent.h"
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
@@ -53,4 +54,5 @@ void addComponentFactories() {
     factMngr->addFactory(new Tapioca::BasicBuilder<HealthComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<DoDamageComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamageComponent>());
 }

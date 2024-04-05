@@ -15,6 +15,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\ChestComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\CoinComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\DoDamageComponent.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\FallDamageComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\FistComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\HealthComponent.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovementComponent.cpp" />
@@ -27,6 +28,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\ChestComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\CoinComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\DoDamageComponent.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\FallDamageComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\FistComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\HealthComponent.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovementComponent.h" />
