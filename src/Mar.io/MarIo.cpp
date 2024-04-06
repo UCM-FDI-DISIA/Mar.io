@@ -12,7 +12,7 @@
 #include "Components/FistComponent.h"
 #include "Components/CameraFollowComponent.h"
 #include "Components/HealthComponent.h"
-#include "Components/DoDamageComponent.h"
+#include "Components/CoralComponent.h"
 #include "Components/MorenaMovementComponent.h"
 #include "components/FallDamageComponent.h"
 
@@ -42,7 +42,7 @@ void addComponentFactories() {
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FistComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollowComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<HealthComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<DoDamageComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<CoralComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamageComponent>());
 }

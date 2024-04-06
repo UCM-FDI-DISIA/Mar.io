@@ -80,7 +80,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\HealthComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\DoDamageComponent.h">
+    <ClInclude Include="..\..\src\Mar.io\Components\CoralComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovementComponent.h">

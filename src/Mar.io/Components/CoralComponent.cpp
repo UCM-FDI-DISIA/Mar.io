@@ -1,4 +1,4 @@
-#include "DoDamageComponent.h"
+#include "CoralComponent.h"
 
 #include "Structure/BasicBuilder.h"
 
@@ -7,29 +7,29 @@
 #include <Structure/Game.h>
 #include <Structure/Scene.h>
 
-template class JUEGO_API Tapioca::BasicBuilder<DoDamageComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<CoralComponent>;
 
 
-DoDamageComponent::DoDamageComponent() : damage(0), player(nullptr) { }
+CoralComponent::CoralComponent() : damage(0), player(nullptr) { }
 
-DoDamageComponent::~DoDamageComponent() { }
+CoralComponent::~CoralComponent() { }
 
-bool DoDamageComponent::initComponent(const CompMap& variables) { 
+bool CoralComponent::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(damage, "damage", variables)) {
 #ifdef _DEBUG
-        std::cerr << "Error: DoDamageComponent: no se ha establecido dano a realizar.\n";
+        std::cerr << "Error: CoralComponent: no se ha establecido dano a realizar.\n";
 #endif
         return false;
     }
     return true;
 }
 
-void DoDamageComponent::awake() {
+void CoralComponent::awake() {
     player = Tapioca::Game::instance()->getTopScene()->getHandler("Player"); 
 }
 
-void DoDamageComponent::handleEvent(std::string const& id, void* info) {
+void CoralComponent::handleEvent(std::string const& id, void* info) {
     //TODO: luego se cambia id por meleAttack
     if (id == "onCollisionStay") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
