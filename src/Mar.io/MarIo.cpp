@@ -20,9 +20,7 @@
 #include "GraphicsManager.h"
 #include "LightDirectional.h"
 
-bool init() {
-    Tapioca::WindowManager::instance()->setWindowName("Mar.io");
-    name();
+void init() {
     addComponentFactories();
 
     // PRUEBA (deja memory leaks)
@@ -30,14 +28,6 @@ bool init() {
     auto node = graphics->createNode();
     auto light = graphics->createLightDirectional(node, Tapioca::Vector3(0.0f, -1.0f, -1.0f));
     light->produceShadows(true);
-
-    return Tapioca::SceneManager::instance()->loadScene("GameMap1.lua");
-}
-
-void name() {
-#ifdef _DEBUG
-    std::cout << "Mar.io\n";
-#endif
 }
 
 void addComponentFactories() {
@@ -56,3 +46,7 @@ void addComponentFactories() {
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamageComponent>());
 }
+
+std::string getWindowName() { return "Mar.io"; }
+
+std::string getInitScene() { return "GameMap1.lua"; }
