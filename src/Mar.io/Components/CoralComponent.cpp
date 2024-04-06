@@ -30,19 +30,14 @@ void CoralComponent::awake() {
 }
 
 void CoralComponent::handleEvent(std::string const& id, void* info) {
-    //TODO: luego se cambia id por meleAttack
     if (id == "onCollisionStay") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
-        HealthComponent* health = object->getComponent<HealthComponent>();
-        if (health != nullptr) {
-            health->loseHP(damage);
+        if (object == player) {
+            HealthComponent* health = object->getComponent<HealthComponent>();
+            if (health != nullptr) {
+                health->loseHP(damage);
 
-            if (object == player && health->getHP() <= 0) {
-                // TODO: Terminar la partida
-            }
-            else {
-                // TODO: Matar a enemigo en especifico
-                object->die();
+                if (health->getHP() <= 0) pushEvent("ev_GameOver", this, true);
             }
         }
     }

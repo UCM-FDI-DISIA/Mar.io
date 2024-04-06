@@ -5,6 +5,8 @@
 #include "SceneManager.h"
 #include "Structure/ComponentBuilder.h"
 #include <Structure/BasicBuilder.h>
+
+#include "Components/GameManager.h"
 #include "Components/PlayerMovementController.h"
 #include "Components/CoinComponent.h"
 #include "Components/ChestComponent.h"
@@ -35,12 +37,15 @@ void addComponentFactories() {
     std::cout << "Anadiendo las factorias del juego\n";
 #endif
     Tapioca::FactoryManager* factMngr = Tapioca::FactoryManager::instance();
+    factMngr->addFactory(new MarIo::GameManagerBuilder());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::CoinComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::ChestComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FistComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollowComponent>());
+
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::CoinComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::ChestComponent>());
+
     factMngr->addFactory(new Tapioca::BasicBuilder<HealthComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<CoralComponent>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>());

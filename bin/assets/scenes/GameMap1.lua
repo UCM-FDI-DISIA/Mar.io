@@ -1,40 +1,55 @@
 scene = {
--- Coral 1
-{
-    components = {
-        Transform = {
-            positionX = 10.0,
-            positionY = 3.0,
-            positionZ = 10.0,
-            scaleX = 1.0,
-            scaleY = 1.0,
-            scaleZ = 1.0,
-            rotationX = 0.0,
-            rotationY = 0.0,
-            rotationZ = 0.0
-        },
-        MeshRenderer = {
-            meshName = "models/corals/Coral1.mesh"
-        },
-        RigidBody = {  
-            colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
-            colliderScaleX = 1.36,
-            colliderScaleY = 1.92,
-            colliderScaleZ = 2.30,
-            isTrigger = false,
-            movementType = 1, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
-            mass = 1.0,
-            friction = 0.0,
-            damping = 0.0,
-            bounciness = 0.0
-        },
-        CoralComponent = {
-            damage = 1
-        }
-    }
-},
+	GameManager = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			GameManager = {},
+		},
 
-
+	},
+	-- Coral 1
+	{
+		components = {
+			Transform = {
+				positionX = 10.0,
+				positionY = 3.0,
+				positionZ = 10.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			MeshRenderer = {
+				meshName = "models/corals/Coral1.mesh"
+			},
+			RigidBody = {  
+				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
+				colliderScaleX = 1.36,
+				colliderScaleY = 1.92,
+				colliderScaleZ = 2.30,
+				isTrigger = false,
+				movementType = 1, --0 DYNAMIC , 1 STATIC, 2 KINEMATIC
+				mass = 1.0,
+				friction = 0.0,
+				damping = 0.0,
+				bounciness = 0.0
+			},
+			CoralComponent = {
+				damage = 1
+			}
+		}
+	},
 
 	{
 		components = {
