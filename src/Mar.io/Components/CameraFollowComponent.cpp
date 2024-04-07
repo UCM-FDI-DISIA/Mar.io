@@ -68,7 +68,7 @@ void CameraFollowComponent::awake() {
 
 
     // Si el objetivo no esta en la escena
-    Tapioca::GameObject* target = Tapioca::Game::instance()->getTopScene()->getHandler(targetName);
+    Tapioca::GameObject* target = Tapioca::Game::instance()->getScene("GameMap1")->getHandler(targetName);
     if (target == nullptr) {
 #ifdef _DEBUG
         std::cerr << "Error: CameraFollow: el objetivo " << targetName << " no esta en la escena.\n";

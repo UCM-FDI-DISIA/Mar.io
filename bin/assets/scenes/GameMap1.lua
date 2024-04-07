@@ -69,12 +69,17 @@ scene = {
 				bgColorR = 0.925,
 				bgColorG = 0.698,
 				bgColorB = 0.941,
+				
+				--directionX = 0.0,
+				--directionY = 0.0,
+				--directionZ = 1.0,
 			},
 			CameraFollowComponent = {
 				target = "Player",
 				offsetX = 0.0,
 				offsetY = 8.0,
 				offsetZ = 40.0,
+				--offsetZ = -10.0,
 				smoothSpeed = 0.125,
 				rotationSpeed = 0.1
 			}

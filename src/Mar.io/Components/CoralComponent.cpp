@@ -26,7 +26,7 @@ bool CoralComponent::initComponent(const CompMap& variables) {
 }
 
 void CoralComponent::awake() {
-    player = Tapioca::Game::instance()->getTopScene()->getHandler("Player"); 
+    player = Tapioca::Game::instance()->getScene("GameMap1")->getHandler("Player"); 
 }
 
 void CoralComponent::handleEvent(std::string const& id, void* info) {
