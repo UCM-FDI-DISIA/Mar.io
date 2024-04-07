@@ -8,7 +8,7 @@ namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(10) { }
+    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20) { }
 
 PlayerMovementController::~PlayerMovementController() { }
 

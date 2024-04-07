@@ -17,7 +17,7 @@ private:
     Tapioca::RigidBody* rigidBody;
     int moveX, moveZ;
     float speed;
-    float jumpSpeed = 20;
+    float jumpSpeed = 30;
 
 public:
     COMPONENT_ID("PlayerMovementController");
