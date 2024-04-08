@@ -23,15 +23,15 @@ scene = {
 				positionX = 10.0,
 				positionY = 3.0,
 				positionZ = 10.0,
-				scaleX = 1.0,
-				scaleY = 1.0,
-				scaleZ = 1.0,
+				scaleX = 4.0,
+				scaleY = 4.0,
+				scaleZ = 4.0,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName = "models/corals/Coral1.mesh"
+				meshName = "models/turtle/Turtle.mesh"
 			},
 			RigidBody = {  
 				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
