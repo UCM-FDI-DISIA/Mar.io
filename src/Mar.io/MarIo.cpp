@@ -19,18 +19,8 @@
 #include "components/FallDamage.h"
 #include "Components/SideMovement.h"
 
-// TODO: PRUEBA
-#include "GraphicsManager.h"
-#include "LightDirectional.h"
-
 void init() {
     addComponentFactories();
-
-    // PRUEBA (deja memory leaks)
-    auto graphics = Tapioca::GraphicsManager::instance();
-    auto node = graphics->createNode();
-    auto light = graphics->createLightDirectional(node, Tapioca::Vector3(0.0f, -1.0f, -1.0f));
-    light->produceShadows(true);
 }
 
 void addComponentFactories() {
