@@ -1,19 +1,19 @@
-#include "HealthComponent.h"
+#include "Health.h"
 
 #include "Structure/BasicBuilder.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<HealthComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<Health>;
 
 
-HealthComponent::HealthComponent() : currHealth(0), maxHealth(0), gracePeriod(0.0f), timer(0), invulnerable(false) { }
+Health::Health() : currHealth(0), maxHealth(0), gracePeriod(0.0f), timer(0), invulnerable(false) { }
 
-HealthComponent::~HealthComponent() { }
+Health::~Health() { }
 
-bool HealthComponent::initComponent(const CompMap& variables) { 
+bool Health::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(maxHealth, "maxHealth", variables)) {
 #ifdef _DEBUG
-        std::cerr << "Error: HealthComponent: no se ha establecido vida maxima.\n";
+        std::cerr << "Error: Health: no se ha establecido vida maxima.\n";
 #endif
         return false;
     }
@@ -21,7 +21,7 @@ bool HealthComponent::initComponent(const CompMap& variables) {
         // Si no hay vida actual especificada, se le pone la vida maxima por defecto
     if (!setValueFromMap(currHealth, "currHealth", variables)) {
 #ifdef _DEBUG
-        std::cout << "HealthComponent: no se ha establecido vida actual, se pondra a " << maxHealth
+        std::cout << "Health: no se ha establecido vida actual, se pondra a " << maxHealth
                   << " por defecto.\n ";
 #endif
         currHealth = maxHealth;
@@ -30,7 +30,7 @@ bool HealthComponent::initComponent(const CompMap& variables) {
     // Hay que especificar vida maxima
     if (!setValueFromMap(gracePeriod, "gracePeriod", variables)) {
 #ifdef _DEBUG
-        std::cerr << "Error: HealthComponent: no se ha establecido periodo de gracia.\n";
+        std::cerr << "Error: Health: no se ha establecido periodo de gracia.\n";
 #endif
         return false;
     }
@@ -38,7 +38,7 @@ bool HealthComponent::initComponent(const CompMap& variables) {
     return true;
 }
 
-void HealthComponent::update(const uint64_t deltaTime) {
+void Health::update(const uint64_t deltaTime) {
     if (invulnerable) {
         timer += deltaTime;
         if (timer / 1000.0f >= gracePeriod) {
@@ -48,7 +48,7 @@ void HealthComponent::update(const uint64_t deltaTime) {
 
 }
 
-void HealthComponent::loseHP(int hp) { 
+void Health::loseHP(int hp) { 
     if (!invulnerable) {
         currHealth -= hp;
         invulnerable = true;
@@ -61,12 +61,12 @@ void HealthComponent::loseHP(int hp) {
 
 }
 
-void HealthComponent::healHP(int hp) { 
+void Health::healHP(int hp) { 
     currHealth += hp;
     if (currHealth > maxHealth) currHealth = maxHealth;
 }
 
-void HealthComponent::restoreHealth() { currHealth = maxHealth; }
+void Health::restoreHealth() { currHealth = maxHealth; }
 
-int HealthComponent::getHP() { return currHealth; }
+int Health::getHP() { return currHealth; }
 

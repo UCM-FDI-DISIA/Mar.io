@@ -11,31 +11,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Mar.io\Components\CameraFollowComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\ChestComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\CoinComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\CoralComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\FallDamageComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\FistComponent.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\CameraFollow.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Chest.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Coin.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Coral.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\FallDamage.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Fist.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\GameManager.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\HealthComponent.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovementComponent.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Health.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovement.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\SideMovement.cpp" />
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Mar.io\Components\CameraFollowComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\ChestComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\CoinComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\CoralComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\FallDamageComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\FistComponent.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\CameraFollow.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Chest.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Coin.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Coral.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\FallDamage.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Fist.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\GameManager.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\HealthComponent.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovementComponent.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Health.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovement.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerSetting.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\SideMovement.h" />
     <ClInclude Include="..\..\src\Mar.io\gameDefs.h" />
     <ClInclude Include="..\..\src\Mar.io\MarIo.h" />
   </ItemGroup>

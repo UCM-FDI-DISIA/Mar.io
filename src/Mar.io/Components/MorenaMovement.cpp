@@ -1,24 +1,24 @@
-#include "MorenaMovementComponent.h"
+#include "MorenaMovement.h"
 #include <Structure/GameObject.h>
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
 #include "Components/Transform.h"
 
 namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<MarIo::MorenaMovement>;
 
-MorenaMovementComponent::MorenaMovementComponent() : rigidBody(nullptr), trans(nullptr) { }
+MorenaMovement::MorenaMovement() : rigidBody(nullptr), trans(nullptr) { }
 
-MorenaMovementComponent::~MorenaMovementComponent() { }
+MorenaMovement::~MorenaMovement() { }
 
-bool MorenaMovementComponent::initComponent(const CompMap& variables) { return true; }
+bool MorenaMovement::initComponent(const CompMap& variables) { return true; }
 
-void MorenaMovementComponent::start() {
+void MorenaMovement::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     trans = object->getComponent<Tapioca::Transform>();
 }
 
-void MorenaMovementComponent::update(const uint64_t deltaTime) {
+void MorenaMovement::update(const uint64_t deltaTime) {
 
     time += deltaTime;
     if (time > timeMovement) {
@@ -34,7 +34,7 @@ void MorenaMovementComponent::update(const uint64_t deltaTime) {
     }
 }
 
-void MorenaMovementComponent::fixedUpdate() {
+void MorenaMovement::fixedUpdate() {
     //if (updown) {
     //    //rigidBody->addImpulse(Tapioca::Vector3(0, sign * movement, 0));
     //}
@@ -43,5 +43,5 @@ void MorenaMovementComponent::fixedUpdate() {
     //}
 }
 
-void MorenaMovementComponent::handleEvent(std::string const& id, void* info) { }
+void MorenaMovement::handleEvent(std::string const& id, void* info) { }
 }

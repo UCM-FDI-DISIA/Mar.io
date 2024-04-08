@@ -27,7 +27,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -62,7 +62,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -97,7 +97,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -132,7 +132,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -167,7 +167,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -202,7 +202,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }
@@ -237,7 +237,7 @@
             damping = 0.0,
             bounciness = 0.0
         },
-        CoralComponent = {
+        Coral = {
             damage = 1
         }
     }

@@ -18,7 +18,7 @@ scene  = {
 					bgColorG = 698.0,
 					bgColorB = 941.0
 				},
-				CameraFollowComponent = {
+				CameraFollow = {
 					target = "Player",
 					offsetX = 0.0,
 					offsetY = 8.0,
@@ -61,9 +61,9 @@ scene  = {
 				},
 				PlayerSetting = {
 				},
-				FallDamageComponent = {
+				FallDamage = {
 				},
-				HealthComponent = {
+				Health = {
 					maxHealth = 2,
 					currHealth = 1,
 					gracePeriod = 1.0
@@ -95,7 +95,7 @@ scene  = {
 							colShape = 0,
 							movementType = 2
 						},
-						FistComponent = {
+						Fist = {
 							coolDown = 1000.0,
 							duration = 100.0
 						}
@@ -239,7 +239,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -271,7 +271,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -303,7 +303,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -335,7 +335,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -367,7 +367,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -399,7 +399,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -431,7 +431,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -463,7 +463,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -495,7 +495,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -527,7 +527,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				}
@@ -1823,7 +1823,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -1855,7 +1855,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -1887,7 +1887,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -1919,7 +1919,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -1951,7 +1951,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -1983,7 +1983,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2015,7 +2015,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2047,7 +2047,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2079,7 +2079,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2111,7 +2111,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2143,7 +2143,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2175,7 +2175,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2207,7 +2207,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2239,7 +2239,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2271,7 +2271,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2303,7 +2303,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2335,7 +2335,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2367,7 +2367,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2399,7 +2399,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2431,7 +2431,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2463,7 +2463,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2495,7 +2495,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2527,7 +2527,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2559,7 +2559,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2591,7 +2591,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2623,7 +2623,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2655,7 +2655,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2687,7 +2687,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2719,7 +2719,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2751,7 +2751,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2783,7 +2783,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2815,7 +2815,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2847,7 +2847,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2879,7 +2879,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2911,7 +2911,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2943,7 +2943,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -2975,7 +2975,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -3007,7 +3007,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				},
@@ -3039,7 +3039,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						CoinComponent = {
+						Coin = {
 						}
 					}
 				}

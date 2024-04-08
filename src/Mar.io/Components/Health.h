@@ -3,7 +3,7 @@
 #include "../gameDefs.h"
 
 
-class JUEGO_API HealthComponent : public Tapioca::Component {
+class JUEGO_API Health : public Tapioca::Component {
 private:
     int currHealth;
     int maxHealth;
@@ -13,16 +13,16 @@ private:
     bool invulnerable;
 
 public:
-    COMPONENT_ID("HealthComponent")
+    COMPONENT_ID("Health")
 
     /*
-    * @brief Constructora de la clase HealthComponent
+    * @brief Constructora de la clase Health
     */
-    HealthComponent();
+    Health();
     /*
-    * @brief Destructora de la clase HealthComponent
+    * @brief Destructora de la clase Health
     */
-    ~HealthComponent();
+    ~Health();
 
     /*
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.

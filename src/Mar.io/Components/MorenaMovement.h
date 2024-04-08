@@ -8,7 +8,7 @@ class RigidBody;
 }
 
 namespace MarIo {
-class JUEGO_API MorenaMovementComponent : public Tapioca::Component { 
+class JUEGO_API MorenaMovement : public Tapioca::Component { 
 private:
     float movement = 0.3; // Cantidad de desplazamiento
     bool updown = true; // Eje del desplazamiento (true - eje Y / false - eje X)
@@ -19,10 +19,10 @@ private:
     Tapioca::RigidBody* rigidBody;
 
 public:
-    COMPONENT_ID("MorenaMovementComponent");
+    COMPONENT_ID("MorenaMovement");
 
-    MorenaMovementComponent();
-    ~MorenaMovementComponent();
+    MorenaMovement();
+    ~MorenaMovement();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;

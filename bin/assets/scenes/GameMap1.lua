@@ -16,7 +16,8 @@ scene = {
 		},
 
 	},
-	-- Coral 1
+
+	--Turtle
 	{
 		components = {
 			Transform = {
@@ -27,11 +28,12 @@ scene = {
 				scaleY = 4.0,
 				scaleZ = 4.0,
 				rotationX = 0.0,
-				rotationY = 0.0,
+				rotationY = -90.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName = "models/turtle/Turtle.mesh"
+				meshName = "models/turtle/Turtle.mesh",
+				initRotationY = -180
 			},
 			RigidBody = {  
 				colShape = 0, --0 BOX, 1 SPHERE, 2 PLANE, 3 CAPSULE
@@ -45,10 +47,18 @@ scene = {
 				damping = 0.0,
 				bounciness = 0.0
 			},
-			CoralComponent = {
+			Coral = {
 				damage = 1
-			}
-		}
+			},
+			SideMovement = {
+				movementDistance = 20.0,
+				initDirX = 1.0,
+				initDirY = 0.0,
+				initDirZ = 0.0,
+				movSpd = 5.0,
+				rotSpd = 45.0,
+			},
+		},
 	},
 
 	{
@@ -74,7 +84,7 @@ scene = {
 				--directionY = 0.0,
 				--directionZ = 1.0,
 			},
-			CameraFollowComponent = {
+			CameraFollow = {
 				target = "Player",
 				offsetX = 0.0,
 				offsetY = 8.0,
@@ -114,7 +124,7 @@ scene = {
 				bounciness = 0.01
 			}
 			,
-			ChestComponent = {
+			Chest = {
 
 			}
   	 	}
@@ -152,12 +162,12 @@ scene = {
 			
 			},
 			PlayerSetting = {},
-			HealthComponent = {
+			Health = {
 				maxHealth = 2,
 				currHealth = 1,
 				gracePeriod = 1.0
 			},
-			FallDamageComponent = { }
+			FallDamage = { }
 		},
 		children = {
 			{
@@ -190,7 +200,7 @@ scene = {
 					-- 	meshName  = "models/cube2.mesh",
 					-- }
 					,
-					FistComponent = {
+					Fist = {
 						coolDown = 1000.0,
 						duration = 100.0
 					}
@@ -382,7 +392,7 @@ scene = {
 				meshName  = "models/cube2.mesh",
 				materialName = "white"
 			},
-			MorenaMovementComponent = {
+			MorenaMovement = {
 
 			}
   	 	}

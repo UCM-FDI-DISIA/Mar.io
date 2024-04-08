@@ -8,7 +8,7 @@ class Transform;
 class CameraComponent;
 }
 
-class JUEGO_API CameraFollowComponent : public Tapioca::Component {
+class JUEGO_API CameraFollow : public Tapioca::Component {
 private:
     Tapioca::Transform* transform;
     Tapioca::Transform* targetTransform;
@@ -26,16 +26,16 @@ private:
     
 
 public:
-    COMPONENT_ID("CameraFollowComponent")
+    COMPONENT_ID("CameraFollow")
 
     /*
-    * @brief Constructora de la clase CameraFollowComponent
+    * @brief Constructora de la clase CameraFollow
     */
-    CameraFollowComponent();
+    CameraFollow();
     /*
-    * @brief Destructora de la clase CameraFollowComponent
+    * @brief Destructora de la clase CameraFollow
     */
-    ~CameraFollowComponent();
+    ~CameraFollow();
 
     /*
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.

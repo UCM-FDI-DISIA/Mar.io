@@ -3,16 +3,21 @@
 #include "../gameDefs.h"
 
 namespace MarIo {
-class JUEGO_API CoinComponent : public Tapioca::Component {
+class JUEGO_API Chest : public Tapioca::Component {
 public:
-    COMPONENT_ID("CoinComponent");
+    COMPONENT_ID("Chest");
 
-    CoinComponent();
-    ~CoinComponent();
+    Chest();
+    ~Chest();
 
     bool initComponent(const CompMap& variables) override;
-    void start() override;
+    //void start() override;
     //void update(const uint64_t deltaTime) override;
     void handleEvent(std::string const& id, void* info) override;
+
+private:
+    bool open;
+    void CreatCoins(int n);
+    void CreatOpenChest();
 };
 }

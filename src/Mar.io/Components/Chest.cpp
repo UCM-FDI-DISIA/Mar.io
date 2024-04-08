@@ -1,32 +1,32 @@
 #include <cmath>
-#include "ChestComponent.h"
+#include "Chest.h"
 #include <Structure/GameObject.h>
 #include "Structure/BasicBuilder.h"
 #include "Components/Transform.h"
 #include "Components/RigidBody.h"
 #include "Components/MeshRenderer.h"
-#include "FistComponent.h"
-#include "CoinComponent.h"
+#include "Fist.h"
+#include "Coin.h"
 #include "Structure/Scene.h"
 #include "Structure/GameObject.h"
 
 namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::ChestComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<MarIo::Chest>;
 
-ChestComponent::ChestComponent() : open(false) { }
+Chest::Chest() : open(false) { }
 
-ChestComponent::~ChestComponent() { }
+Chest::~Chest() { }
 
-bool ChestComponent::initComponent(const CompMap& variables) {
+bool Chest::initComponent(const CompMap& variables) {
     open = false;
     return true;
 }
 
-void ChestComponent::handleEvent(std::string const& id, void* info) {
+void Chest::handleEvent(std::string const& id, void* info) {
     //TODO: luego se cambia id por meleAttack
     if (id == "onCollisionStay" && !open) {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
-        if (player->getComponent<FistComponent>() != nullptr && player->getComponent<FistComponent>()->isAttack()) {
+        if (player->getComponent<Fist>() != nullptr && player->getComponent<Fist>()->isAttack()) {
             CreatCoins(8);
             CreatOpenChest();
             open = true;
@@ -34,7 +34,7 @@ void ChestComponent::handleEvent(std::string const& id, void* info) {
         }
     }
 }
-void ChestComponent::CreatCoins(int n) {
+void Chest::CreatCoins(int n) {
     float degree = 360.0f / n;
     Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getGlobalPosition();
     for (int i = 0; i < n; ++i) {
@@ -62,7 +62,7 @@ void ChestComponent::CreatCoins(int n) {
         mesh->setMeshName("models/coin/coin.mesh");
         coin->addComponent(mesh, mesh->id);
 
-        coin->addComponent<CoinComponent>();
+        coin->addComponent<Coin>();
         object->getScene()->addObject(coin);
 
         coin->awake();
@@ -71,7 +71,7 @@ void ChestComponent::CreatCoins(int n) {
         rb->addForce(Tapioca::Vector3(sinValue, 1, cosValue) * 500);
     }
 }
-void ChestComponent::CreatOpenChest() { 
+void Chest::CreatOpenChest() { 
      Tapioca::GameObject* chest = new Tapioca::GameObject();
     Tapioca::Transform* tr = new Tapioca::Transform();
     

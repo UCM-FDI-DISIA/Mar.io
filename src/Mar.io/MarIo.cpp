@@ -8,15 +8,16 @@
 
 #include "Components/GameManager.h"
 #include "Components/PlayerMovementController.h"
-#include "Components/CoinComponent.h"
-#include "Components/ChestComponent.h"
+#include "Components/Coin.h"
+#include "Components/Chest.h"
 #include "Components/PlayerSetting.h"
-#include "Components/FistComponent.h"
-#include "Components/CameraFollowComponent.h"
-#include "Components/HealthComponent.h"
-#include "Components/CoralComponent.h"
-#include "Components/MorenaMovementComponent.h"
-#include "components/FallDamageComponent.h"
+#include "Components/Fist.h"
+#include "Components/CameraFollow.h"
+#include "Components/Health.h"
+#include "Components/Coral.h"
+#include "Components/MorenaMovement.h"
+#include "components/FallDamage.h"
+#include "Components/SideMovement.h"
 
 // TODO: PRUEBA
 #include "GraphicsManager.h"
@@ -40,16 +41,17 @@ void addComponentFactories() {
     factMngr->addFactory(new MarIo::GameManagerBuilder());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
     factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FistComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollowComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Fist>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollow>());
 
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::CoinComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::ChestComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Coin>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Chest>());
 
-    factMngr->addFactory(new Tapioca::BasicBuilder<HealthComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<CoralComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovementComponent>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamageComponent>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<Health>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<Coral>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamage>());
+    factMngr->addFactory(new Tapioca::BasicBuilder<SideMovement>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

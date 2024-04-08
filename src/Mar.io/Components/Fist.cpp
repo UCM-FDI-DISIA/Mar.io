@@ -1,16 +1,16 @@
-#include "FistComponent.h"
+#include "Fist.h"
 #include <Structure/GameObject.h>
 
 #include "Structure/BasicBuilder.h"
 
 namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::FistComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<MarIo::Fist>;
 
-FistComponent::FistComponent():onAttack(false),duration(0),coolDown(0),cont(0),canHit(true) { }
+Fist::Fist():onAttack(false),duration(0),coolDown(0),cont(0),canHit(true) { }
 
-FistComponent::~FistComponent() { }
+Fist::~Fist() { }
 
-bool FistComponent::initComponent(const CompMap& variables) {
+bool Fist::initComponent(const CompMap& variables) {
     cont = 0;
     canHit = false;
     onAttack = false;
@@ -19,7 +19,7 @@ bool FistComponent::initComponent(const CompMap& variables) {
     return coolDownSet && durationSet;
 }
 
-void FistComponent::update(const uint64_t deltaTime) {
+void Fist::update(const uint64_t deltaTime) {
     if (!canHit && !onAttack) {
         cont += deltaTime;
         if (cont > coolDown) {
@@ -37,13 +37,13 @@ void FistComponent::update(const uint64_t deltaTime) {
 }
 
 
-void FistComponent::handleEvent(std::string const& id, void* info) {
+void Fist::handleEvent(std::string const& id, void* info) {
     if (id == "ev_MELEATTACK" && canHit) {
         canHit = false;
         onAttack = true;
     }
 }
 
-bool FistComponent::isAttack() { return onAttack; }
+bool Fist::isAttack() { return onAttack; }
 
 }

@@ -6,21 +6,21 @@ namespace Tapioca {
     class GameObject;
 };
 
-class JUEGO_API CoralComponent : public Tapioca::Component {
+class JUEGO_API Coral : public Tapioca::Component {
     int damage;
     Tapioca::GameObject* player;
 
 public:
-    COMPONENT_ID("CoralComponent")
+    COMPONENT_ID("Coral")
 
     /*
-    * @brief Constructora de la clase CoralComponent
+    * @brief Constructora de la clase Coral
     */
-    CoralComponent();
+    Coral();
     /*
-    * @brief Destructora de la clase CoralComponent
+    * @brief Destructora de la clase Coral
     */
-    ~CoralComponent();
+    ~Coral();
 
     /*
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.

@@ -6,19 +6,19 @@ namespace Tapioca {
 class Transform;
 }
 
-class HealthComponent;
+class Health;
 
 namespace MarIo {
-class JUEGO_API FallDamageComponent : public Tapioca::Component {
+class JUEGO_API FallDamage : public Tapioca::Component {
 private:
-    HealthComponent* health;
+    Health* health;
     Tapioca::Transform* trans;
 
 public:
-    COMPONENT_ID("FallDamageComponent");
+    COMPONENT_ID("FallDamage");
 
-    FallDamageComponent();
-    ~FallDamageComponent();
+    FallDamage();
+    ~FallDamage();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;

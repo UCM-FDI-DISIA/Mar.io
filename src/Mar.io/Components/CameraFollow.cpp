@@ -1,4 +1,4 @@
-#include "CameraFollowComponent.h"
+#include "CameraFollow.h"
 
 #include "Structure/BasicBuilder.h"
 
@@ -7,18 +7,17 @@
 #include <Components/CameraComponent.h>
 #include <Structure/Game.h>
 #include <Structure/Scene.h>
-#include <Utilities/Quaternion.h>
 
-template class JUEGO_API Tapioca::BasicBuilder<CameraFollowComponent>;
+template class JUEGO_API Tapioca::BasicBuilder<CameraFollow>;
 
 
-CameraFollowComponent::CameraFollowComponent() 
+CameraFollow::CameraFollow() 
     : transform(nullptr), targetTransform(nullptr), camera(nullptr), targetName(""), smoothSpeed(DEF_SMOOTH_SPD), offset(DEF_OFFSET),
       rotationSpeed(DEF_ROT_SPD) { }
 
-CameraFollowComponent::~CameraFollowComponent() { }
+CameraFollow::~CameraFollow() { }
 
-bool CameraFollowComponent::initComponent(const CompMap& variables) { 
+bool CameraFollow::initComponent(const CompMap& variables) { 
     // Si no hay objetivo especificado
     if (!setValueFromMap(targetName, "target", variables) || targetName == "") {
 #ifdef _DEBUG
@@ -61,7 +60,7 @@ bool CameraFollowComponent::initComponent(const CompMap& variables) {
     return true;
 }
 
-void CameraFollowComponent::awake() {
+void CameraFollow::awake() {
     Tapioca::GameObject* gameobject = getObject();
     transform = gameobject->getComponent<Tapioca::Transform>();
     camera = gameobject->getComponent<Tapioca::CameraComponent>();
@@ -84,14 +83,14 @@ void CameraFollowComponent::awake() {
     }
 }
 
-void CameraFollowComponent::start() {
+void CameraFollow::start() {
     transform->setPosition(targetTransform->getGlobalPosition() + offset);
 }
 
 
-void CameraFollowComponent::update(const uint64_t deltaTime) {
+void CameraFollow::update(const uint64_t deltaTime) {
     Tapioca::Vector3 nextPos = targetTransform->getPosition() + offset;
-    Tapioca::Vector3 smoothPos = Tapioca::Vector3::lerp(transform->getPosition(), nextPos, smoothSpeed);
+    Tapioca::Vector3 smoothPos = transform->getPosition().lerp(nextPos, smoothSpeed);
     transform->setPosition(smoothPos);
 
 }

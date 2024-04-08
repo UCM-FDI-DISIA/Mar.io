@@ -3,7 +3,7 @@
 #include "../gameDefs.h"
 
 namespace MarIo {
-class JUEGO_API FistComponent : public Tapioca::Component {
+class JUEGO_API Fist : public Tapioca::Component {
 private:
     float coolDown;
     float duration;
@@ -12,10 +12,10 @@ private:
     bool onAttack;
 
 public:
-    COMPONENT_ID("FistComponent");
+    COMPONENT_ID("Fist");
 
-    FistComponent();
-    ~FistComponent();
+    Fist();
+    ~Fist();
 
     bool initComponent(const CompMap& variables) override;
     void update(const uint64_t deltaTime) override;
