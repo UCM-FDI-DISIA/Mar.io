@@ -20,7 +20,7 @@ material domeMat {
     }
 }
 
-material Material : ShadowTemplateTexture {
+material Material.001 : ShadowTemplateTexture {
     receive_shadows on
     technique {
         pass Decal {
