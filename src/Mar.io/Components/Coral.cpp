@@ -17,9 +17,7 @@ Coral::~Coral() { }
 bool Coral::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(damage, "damage", variables)) {
-#ifdef _DEBUG
-        std::cerr << "Error: Coral: no se ha establecido dano a realizar.\n";
-#endif
+        Tapioca::logError("Coral: No se ha establecido dano a realizar.");
         return false;
     }
     return true;

@@ -12,26 +12,19 @@ Health::~Health() { }
 bool Health::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(maxHealth, "maxHealth", variables)) {
-#ifdef _DEBUG
-        std::cerr << "Error: Health: no se ha establecido vida maxima.\n";
-#endif
+        Tapioca::logError("Health: No se ha establecido vida maxima.");
         return false;
     }
 
         // Si no hay vida actual especificada, se le pone la vida maxima por defecto
     if (!setValueFromMap(currHealth, "currHealth", variables)) {
-#ifdef _DEBUG
-        std::cout << "Health: no se ha establecido vida actual, se pondra a " << maxHealth
-                  << " por defecto.\n ";
-#endif
+        Tapioca::logInfo(("Health: No se ha establecido vida actual, se pondra a " + std::to_string(maxHealth) + " por defecto.").c_str());
         currHealth = maxHealth;
     }
 
     // Hay que especificar vida maxima
     if (!setValueFromMap(gracePeriod, "gracePeriod", variables)) {
-#ifdef _DEBUG
-        std::cerr << "Error: Health: no se ha establecido periodo de gracia.\n";
-#endif
+        Tapioca::logError("Health: No se ha establecido periodo de gracia.");
         return false;
     }
 
@@ -54,9 +47,7 @@ void Health::loseHP(int hp) {
         invulnerable = true;
         timer = 0;
 
-#ifdef _DEBUG
-        std::cout << "Me hicieron damages y ahora tengo " << currHealth << " de vida.\n ";
-#endif    
+        Tapioca::logInfo(("Health: Me hicieron damages y ahora tengo " + std::to_string(currHealth) + " de vida.").c_str());  
     }
 
 }

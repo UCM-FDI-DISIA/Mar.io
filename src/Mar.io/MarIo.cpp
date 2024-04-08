@@ -28,20 +28,20 @@ void addComponentFactories() {
     std::cout << "Anadiendo las factorias del juego\n";
 #endif
     Tapioca::FactoryManager* factMngr = Tapioca::FactoryManager::instance();
-    factMngr->addFactory(new MarIo::GameManagerBuilder());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Fist>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<CameraFollow>());
+    factMngr->addBuilder(new MarIo::GameManagerBuilder());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Fist>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<CameraFollow>());
 
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Coin>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::Chest>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Coin>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Chest>());
 
-    factMngr->addFactory(new Tapioca::BasicBuilder<Health>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<Coral>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<MarIo::FallDamage>());
-    factMngr->addFactory(new Tapioca::BasicBuilder<SideMovement>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Health>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Coral>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::FallDamage>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

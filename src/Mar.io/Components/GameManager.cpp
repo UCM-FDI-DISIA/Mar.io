@@ -34,9 +34,7 @@ void GameManager::handleEvent(std::string const& id, void* info) {
 
 
 void GameManager::onGameOver() {
-#ifdef _DEBUG
-    std::cout << "Muelto\n";
-#endif
+    Tapioca::logInfo("GameManager: Muelto.");
 }
 
 void GameManager::onWin() { }

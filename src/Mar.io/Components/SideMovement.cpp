@@ -18,9 +18,7 @@ SideMovement::~SideMovement() { }
 bool SideMovement::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(movementDistance, "movementDistance", variables)) {
-#ifdef _DEBUG
-        std::cerr << "Error: SideMovement: no hay distancia de movimiento establecida.\n";
-#endif
+        Tapioca::logError("SideMovement: No hay distancia de movimiento establecida.");
         return false;
     }
 
@@ -28,23 +26,17 @@ bool SideMovement::initComponent(const CompMap& variables) {
                       setValueFromMap(initDir.y, "initDirY", variables) && 
                       setValueFromMap(initDir.z, "initDirZ", variables);
     if (!initDirSet) {
-#ifdef _DEBUG
-        std::cerr << "Error: SideMovement: no hay direccion inicial establecida.\n";
-#endif
+        Tapioca::logError("SideMovement: No hay direccion inicial establecida.");
         return false;
     }
     initDir.normalize();
 
     if (!setValueFromMap(movSpd, "movSpd", variables)) {
-#ifdef _DEBUG
-        std::cout << "SideMovement: no hay velocidad de movimiento establecida. Se pondra a " << movSpd << ".\n";
-#endif
+        Tapioca::logInfo(("SideMovement: No hay velocidad de movimiento establecida. Se pondra a " + std::to_string(movSpd) + ".").c_str());
     }
 
     if (!setValueFromMap(rotSpd, "rotSpd", variables)) {
-#ifdef _DEBUG
-        std::cout << "SideMovement: no hay velocidad de rotacion establecida. Se pondra a " << rotSpd << ".\n";
-#endif
+        Tapioca::logInfo(("SideMovement: No hay velocidad de rotacion establecida. Se pondra a " + std::to_string(rotSpd) + ".").c_str());
     }
 
     return true;
