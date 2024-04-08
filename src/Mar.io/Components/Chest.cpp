@@ -81,7 +81,7 @@ void Chest::CreatOpenChest() {
 
     Tapioca::RigidBody* rb = new Tapioca::RigidBody();
     rb->setColliderShape(Tapioca::ColliderShape::BOX_SHAPE);
-    rb->setColliderScale(Tapioca::Vector3(2, 3, 4));
+    rb->setColliderScale(Tapioca::Vector3(4, 2, 2));
     rb->setMomeventType(Tapioca::MovementType::DYNAMIC_OBJECT);
     rb->setDamping(0);
     rb->setMass(1);
@@ -89,7 +89,7 @@ void Chest::CreatOpenChest() {
     chest->addComponent(rb, rb->id);
 
     Tapioca::MeshRenderer* mesh = new Tapioca::MeshRenderer();
-    mesh->setMeshName("models/chest/chest2.mesh");
+    mesh->setMeshName("models/chest/cofre.mesh");
     chest->addComponent(mesh, mesh->id);
     object->getScene()->addObject(chest);
 
