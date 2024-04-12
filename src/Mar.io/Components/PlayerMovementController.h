@@ -18,6 +18,8 @@ private:
     int moveX, moveZ;
     float speed;
     float jumpSpeed = 30;
+    float runSpeed = 30;
+    float nSpeed = 30;
 
 public:
     COMPONENT_ID("PlayerMovementController");

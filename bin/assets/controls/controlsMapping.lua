@@ -108,5 +108,29 @@ events = {
 	ev_JUMP = {
         src = "ie_keyDown",
         control = 32    --SDLK_SPACE
+    },
+	ev_Run = {
+        src = "ie_keyDown",
+        control = 1073742036 --SDLK_LSHIFT 
+    },
+	ev_Run_1 = {
+        src = "ie_keyDown",
+        control = 1073742040 --SDLK_RSHIFT 
+    },
+	ev_RunEnd = {
+        src = "ie_keyUp",
+        control = 1073742036 --SDLK_LSHIFT 
+    },
+	ev_RunEnd_1 = {
+        src = "ie_keyUp",
+        control = 1073742040 --SDLK_RSHIFT 
+    },
+	ev_Run_2 = {
+        src = "ie_keyDown",
+        control = 107 --SDLK_RSHIFT 
+    },
+	ev_RunEnd_2 = {
+        src = "ie_keyUp",
+        control = 107 --SDLK_LSHIFT 
     }
 }

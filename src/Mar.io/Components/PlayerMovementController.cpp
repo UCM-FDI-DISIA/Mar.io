@@ -8,7 +8,7 @@ namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20) { }
+    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20),nSpeed(20),runSpeed(35) { }
 
 PlayerMovementController::~PlayerMovementController() { }
 
@@ -27,6 +27,16 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
+
+    if (id == "ev_RunEnd" && grounded) {
+        speed = nSpeed;
+    }
+
+    if (id == "ev_Run" && grounded) {
+        speed = runSpeed;
+    
+    }
+
     if (id == "ev_MOVEFORWARD") {
         moveZ = -1;
     }
