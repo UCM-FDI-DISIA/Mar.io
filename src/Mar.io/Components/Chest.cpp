@@ -62,7 +62,9 @@ void Chest::CreatCoins(int n) {
         mesh->setMeshName("models/coin/coin.mesh");
         coin->addComponent(mesh, mesh->id);
 
-        coin->addComponent<Coin>();
+        Coin* c = new Coin();
+
+        coin->addComponent(c,c->id);
         object->getScene()->addObject(coin);
 
         coin->awake();
