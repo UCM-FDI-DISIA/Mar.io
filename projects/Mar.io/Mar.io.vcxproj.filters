@@ -33,7 +33,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\Coin.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\Components\Coral.cpp">
+    <ClCompile Include="..\..\src\Mar.io\Components\ContactDamage.cpp">
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Mar.io\Components\FallDamage.cpp">
@@ -71,7 +71,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\Coin.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\Coral.h">
+    <ClInclude Include="..\..\src\Mar.io\Components\ContactDamage.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\FallDamage.h">

@@ -3254,7 +3254,7 @@ scene  = {
 					movSpd = 5.0,
 					rotSpd = 45.0
 				},
-				Coral = {
+				ContactDamage = {
 					damage = 1
 				}
 			}
@@ -3296,7 +3296,7 @@ scene  = {
 					movSpd = 5.0,
 					rotSpd = 45.0
 				},
-				Coral = {
+				ContactDamage = {
 					damage = 1
 				}
 			}
@@ -3344,7 +3344,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3377,7 +3377,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3410,7 +3410,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3443,7 +3443,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3476,7 +3476,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3509,7 +3509,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}
@@ -3542,7 +3542,7 @@ scene  = {
 							colShape = 0,
 							movementType = 1
 						},
-						Coral = {
+						ContactDamage = {
 							damage = 1
 						}
 					}

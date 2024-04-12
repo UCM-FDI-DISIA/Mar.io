@@ -1,4 +1,4 @@
-#include "Coral.h"
+#include "ContactDamage.h"
 
 #include "Structure/BasicBuilder.h"
 
@@ -7,27 +7,27 @@
 #include <Structure/Game.h>
 #include <Structure/Scene.h>
 
-template class JUEGO_API Tapioca::BasicBuilder<Coral>;
+template class JUEGO_API Tapioca::BasicBuilder<ContactDamage>;
 
 
-Coral::Coral() : damage(0), player(nullptr) { }
+ContactDamage::ContactDamage() : damage(0), player(nullptr) { }
 
-Coral::~Coral() { }
+ContactDamage::~ContactDamage() { }
 
-bool Coral::initComponent(const CompMap& variables) { 
+bool ContactDamage::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
     if (!setValueFromMap(damage, "damage", variables)) {
-        Tapioca::logError("Coral: No se ha establecido dano a realizar.");
+        Tapioca::logError("ContactDamage: No se ha establecido dano a realizar.");
         return false;
     }
     return true;
 }
 
-void Coral::awake() {
+void ContactDamage::awake() {
     player = object->getScene()->getHandler("Player"); 
 }
 
-void Coral::handleEvent(std::string const& id, void* info) {
+void ContactDamage::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionStay") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
         if (object == player) {

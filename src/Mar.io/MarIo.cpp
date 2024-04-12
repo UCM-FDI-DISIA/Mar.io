@@ -14,7 +14,7 @@
 #include "Components/Fist.h"
 #include "Components/CameraFollow.h"
 #include "Components/Health.h"
-#include "Components/Coral.h"
+#include "Components/ContactDamage.h"
 #include "Components/MorenaMovement.h"
 #include "components/FallDamage.h"
 #include "Components/SideMovement.h"
@@ -38,7 +38,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Chest>());
 
     factMngr->addBuilder(new Tapioca::BasicBuilder<Health>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<Coral>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<ContactDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::FallDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());

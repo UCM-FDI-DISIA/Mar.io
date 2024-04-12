@@ -47,7 +47,7 @@ scene = {
 				damping = 0.0,
 				bounciness = 0.0
 			},
-			Coral = {
+			ContactDamage = {
 				damage = 1
 			},
 			SideMovement = {

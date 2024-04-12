@@ -14,7 +14,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\CameraFollow.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Chest.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Coin.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\Coral.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\ContactDamage.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\FallDamage.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Fist.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\GameManager.cpp" />
@@ -29,7 +29,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\CameraFollow.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Chest.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Coin.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\Coral.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\ContactDamage.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\FallDamage.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Fist.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\GameManager.h" />
