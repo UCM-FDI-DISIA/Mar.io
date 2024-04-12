@@ -5,7 +5,7 @@
 #include <Structure/GameObject.h>
 #include <Components/Transform.h>
 #include <Components/CameraComponent.h>
-#include <Structure/Game.h>
+#include <Structure/MainLoop.h>
 #include <Structure/Scene.h>
 
 template class JUEGO_API Tapioca::BasicBuilder<CameraFollow>;

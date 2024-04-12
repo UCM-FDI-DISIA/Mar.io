@@ -1,7 +1,5 @@
 #include "GameManager.h"
-#include "SceneManager.h"
-
-
+#include "SceneLoader.h"
 #include <iomanip>
 
 template class JUEGO_API Tapioca::Singleton<MarIo::GameManager>;
@@ -40,7 +38,7 @@ void GameManager::onGameOver() {
 void GameManager::onWin() { }
 
 bool GameManager::changeScene(std::string const& scene) const {
-    return Tapioca::SceneManager::instance()->loadScene(scene);
+    return Tapioca::SceneLoader::instance()->loadScene(scene);
 }
 
 
