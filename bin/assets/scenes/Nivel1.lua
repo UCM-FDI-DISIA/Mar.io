@@ -26,6 +26,26 @@ scene  = {
 				}
 			}
 		},
+		-- TestButton={
+		-- 	components = {
+		-- 		Transform = {
+		-- 			positionX = WINDOW_WIDTH / 2,
+		-- 			positionY = WINDOW_HEIGHT / 2-50,
+		-- 			positionZ = 0.0,
+		-- 			scaleX = 200.0,
+		-- 			scaleY = 70.0,
+		-- 			scaleZ = 0.0,
+		-- 			rotationX = 0.0,
+		-- 			rotationY = 0.0,
+		-- 			rotationZ = 0.0
+		-- 		},
+		-- 		Button = {
+		-- 			name = "TestButton",
+		-- 			onClickId = "Ejemplo1"
+		-- 		}
+		-- 	}
+		-- },
+
 		{
 			components = {
 				Transform = {

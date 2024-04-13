@@ -46,3 +46,18 @@ void addComponentFactories() {
 std::string getWindowName() { return "Mar.io"; }
 
 std::string getInitScene() { return "Nivel1.lua"; }
+
+int getFunctions(Function* gameFunctions, int maxFunctions) {
+    if (!gameFunctions) return 0;
+
+    int numFunctions = 0;
+
+    // Comprobar que no supere el numero maximo de funciones
+    if ((numFunctions + 1) <= maxFunctions)
+        gameFunctions[numFunctions++] = {"Ejemplo1", []() { Tapioca::logInfo("Funcion 1 creada desde Mar.io"); }};
+    if ((numFunctions + 1) <= maxFunctions)
+        gameFunctions[numFunctions++] = {"Ejemplo2", []() { Tapioca::logInfo("Funcion 2 creada desde Mar.io"); }};
+    // ...
+
+    return numFunctions;
+}
