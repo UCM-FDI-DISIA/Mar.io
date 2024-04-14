@@ -45,7 +45,7 @@ void addComponentFactories() {
 
 std::string getWindowName() { return "Mar.io"; }
 
-std::string getInitScene() { return "Nivel1.lua"; }
+std::string getInitScene() { return "Level1.lua"; }
 
 int getFunctions(Function* gameFunctions, int maxFunctions) {
     if (!gameFunctions) return 0;
