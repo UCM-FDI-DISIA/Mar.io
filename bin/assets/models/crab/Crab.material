@@ -7,11 +7,6 @@ material CrabRed : ShadowTemplateColor {
         pass Decal {
             diffuse 0.669352 0.095238 0.018812 1.0
             specular 0.668182 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }
@@ -22,11 +17,6 @@ material CrabWhite : ShadowTemplateColor {
         pass Decal {
             diffuse 0.679933 0.256908 0.103527 1.0
             specular 0.5 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }

@@ -7,11 +7,6 @@ material Coral : ShadowTemplateColor {
         pass Decal {
             diffuse 0.659241 0.008307 0.023814 1.0
             specular 0.809091 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }

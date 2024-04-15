@@ -6,12 +6,6 @@ material Turtle : ShadowTemplateColor {
     technique {
         pass Decal {
             diffuse 0.039497 0.168989 0.046451 1.0
-            specular 0.75 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }
@@ -21,12 +15,6 @@ material TurtleBelly : ShadowTemplateColor {
     technique {
         pass Decal {
             diffuse 0.413301 0.316182 0.221468 1.0
-            specular 0.5 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }
@@ -36,12 +24,6 @@ material TurtleShell : ShadowTemplateColor {
     technique {
         pass Decal {
             diffuse 0.083761 0.035579 0.018231 1.0
-            specular 0.759091 0.0 0 0 0
-
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage metal_roughness
-            }
         }
     }
 }
