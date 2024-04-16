@@ -13,12 +13,16 @@ private:
     bool grounded = true;
     int jumps = 0;
     bool jump = false;
+    bool bounce = false;
+    bool run = false;
+    bool runEnd = false;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
     int moveX, moveZ;
     float speed;
     float jumpSpeed = 30;
-    float runSpeed = 30;
+    float bounceSpeed = 15;
+    float runSpeed = 200;
     float nSpeed = 30;
 
 public:

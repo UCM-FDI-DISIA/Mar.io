@@ -111,19 +111,19 @@ events = {
     },
 	ev_Run = {
         src = "ie_keyDown",
-        control = 1073742036 --SDLK_LSHIFT 
+        control = 1073742049 --SDLK_LSHIFT 
     },
 	ev_Run_1 = {
         src = "ie_keyDown",
-        control = 1073742040 --SDLK_RSHIFT 
+        control = 1073742053 --SDLK_RSHIFT 
     },
 	ev_RunEnd = {
         src = "ie_keyUp",
-        control = 1073742036 --SDLK_LSHIFT 
+        control = 1073742049 --SDLK_LSHIFT 
     },
 	ev_RunEnd_1 = {
         src = "ie_keyUp",
-        control = 1073742040 --SDLK_RSHIFT 
+        control = 1073742053 --SDLK_RSHIFT 
     },
 	ev_Run_2 = {
         src = "ie_keyDown",

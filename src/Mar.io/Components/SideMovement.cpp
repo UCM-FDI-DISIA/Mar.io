@@ -50,7 +50,7 @@ void SideMovement::awake() {
 void SideMovement::start() {
     initPos = transform->getGlobalPosition();
     nextPos = initPos + initDir * movementDistance;
-    initRot = transform->getRotation().euler().y;
+    initRot = transform->getRotation().eulerAxis().y;
     
     transform->setRotation(Tapioca::Vector3(0, initRot, 0));
 

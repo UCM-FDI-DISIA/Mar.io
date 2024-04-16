@@ -3,6 +3,7 @@
 #include <Components/Transform.h>
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
+#include "Coin.h"
 
 namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
@@ -19,22 +20,31 @@ void PlayerMovementController::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
 }
 
-void PlayerMovementController::update(const uint64_t deltaTime) { 
+void PlayerMovementController::update(const uint64_t deltaTime) {
     if (moveX != 0 || moveZ != 0) {
         float angle = std::atan2f(moveX, moveZ);
         trans->setRotation(Tapioca::Vector3(0, angle * 180 / 3.1415, 0));
+    }
+
+    if (run && grounded) {
+        speed = runSpeed;
+        run = false;
+    }
+    if (runEnd && grounded) {
+        speed = nSpeed;
+        runEnd = false;
     }
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
 
-    if (id == "ev_RunEnd" && grounded) {
-        speed = nSpeed;
+    if (id == "ev_RunEnd") {
+        runEnd = true;    
+        run = false;
     }
-
-    if (id == "ev_Run" && grounded) {
-        speed = runSpeed;
-    
+    if (id == "ev_Run") {
+        run = true;
+        runEnd = false;
     }
 
     if (id == "ev_MOVEFORWARD") {
@@ -71,8 +81,15 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         }
     }
     if (id == "onCollisionEnter") {
-        grounded = true;
-        jumps = 0;
+        Tapioca::GameObject* object = (Tapioca::GameObject*)info;
+        Tapioca::Transform* t = object->getComponent<Tapioca::Transform>();
+        if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
+            bounce = true;
+        }
+        else if (t->getPosition().y + t->getScale().y < trans->getPosition().y) {
+            grounded = true;
+            jumps = 0;
+        }
     }
 }
 void PlayerMovementController::fixedUpdate() {
@@ -80,6 +97,11 @@ void PlayerMovementController::fixedUpdate() {
         rigidBody->setVelocity(Tapioca::Vector3(rigidBody->getVelocity().x, jumpSpeed, rigidBody->getVelocity().z));
         jump = false;
     }
+    if (bounce) {
+        rigidBody->setVelocity(Tapioca::Vector3(rigidBody->getVelocity().x, bounceSpeed, rigidBody->getVelocity().z));
+        bounce = false;
+    }
+
     if (moveX != 0 || moveZ != 0) {
         Tapioca::Vector3 v = rigidBody->getVelocity();
         v += Tapioca::Vector3(moveX, 0, moveZ).getNormalized() * speed;
@@ -91,7 +113,7 @@ void PlayerMovementController::fixedUpdate() {
 
     Tapioca::Vector3 vel = rigidBody->getVelocity();
     if (abs(vel.x) > 0 || abs(vel.z) > 0) {
-        rigidBody->setVelocity(Tapioca::Vector3(vel.x*0.9,vel.y,vel.z*0.9));
+        rigidBody->setVelocity(Tapioca::Vector3(vel.x * 0.9, vel.y, vel.z * 0.9));
         //std::cout << moveX << " /" << moveZ<< "\n ";
     }
 }

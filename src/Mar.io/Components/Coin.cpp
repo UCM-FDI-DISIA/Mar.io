@@ -14,7 +14,7 @@ bool Coin::initComponent(const CompMap& variables) { return true; }
 
 void Coin::start() {
     Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>();
-    rb->setTensor(Tapioca::Vector3(0, 1, 0));
+    //rb->setTensor(Tapioca::Vector3(0, 1, 0));
 }
 
 void Coin::handleEvent(std::string const& id, void* info) {

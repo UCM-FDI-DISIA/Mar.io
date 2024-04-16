@@ -16,13 +16,16 @@ bool FallDamage::initComponent(const CompMap& variables) { return true; }
 void FallDamage::start() {
     health = object->getComponent<Health>();
     trans = object->getComponent<Tapioca::Transform>();
+    initPos = trans->getPosition();
 }
 
 void FallDamage::update(const uint64_t deltaTime) {
     // Se cambiará la altura por elementos como el avismo
-    if (trans->getPosition().y < 0) {
+    if (trans->getPosition().y < -10) {
         health->loseHP(health->getHP()); 
+
         // GAME OVER
+        trans->setPosition(initPos);
     }
 }
 
