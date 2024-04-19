@@ -17,6 +17,7 @@
 #include "Components/MorenaMovement.h"
 #include "components/FallDamage.h"
 #include "Components/SideMovement.h"
+#include "Components/Enemy.h"
 
 void init() {
     addComponentFactories();
@@ -41,6 +42,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::FallDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Enemy>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

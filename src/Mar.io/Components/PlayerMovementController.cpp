@@ -9,7 +9,7 @@ namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20),nSpeed(20),runSpeed(35) { }
+    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20), nSpeed(20), runSpeed(35) { }
 
 PlayerMovementController::~PlayerMovementController() { }
 
@@ -39,7 +39,7 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
 
     if (id == "ev_RunEnd") {
-        runEnd = true;    
+        runEnd = true;
         run = false;
     }
     if (id == "ev_Run") {
@@ -86,10 +86,15 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
             bounce = true;
         }
-        else if (t->getPosition().y + t->getScale().y < trans->getPosition().y) {
+        else if (t->getPosition().y + t->getScale().y < trans->getPosition().y - trans->getScale().y &&
+                 object->getComponent<Coin>() == nullptr) {
             grounded = true;
             jumps = 0;
         }
+    }
+
+    if (id == "onCollisionExit") {
+        grounded = false;
     }
 }
 void PlayerMovementController::fixedUpdate() {
@@ -117,5 +122,14 @@ void PlayerMovementController::fixedUpdate() {
         //std::cout << moveX << " /" << moveZ<< "\n ";
     }
 }
+
+void PlayerMovementController::reset() {
+    jump = false;
+    bounce = false;
+    grounded = true;
+    jumps = 0;
+}
+
+bool PlayerMovementController::getGrounded() { return grounded; }
 
 }

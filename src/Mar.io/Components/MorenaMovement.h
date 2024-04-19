@@ -10,7 +10,7 @@ class RigidBody;
 namespace MarIo {
 class JUEGO_API MorenaMovement : public Tapioca::Component { 
 private:
-    float movement = 0.3; // Cantidad de desplazamiento
+    float movement = 0.3f; // Cantidad de desplazamiento
     bool updown = true; // Eje del desplazamiento (true - eje Y / false - eje X)
     int sign = -1; // Sentido del desplazamiento (-1 / 1)
     uint64_t time = 0;   // Timer para el movimiento de la morena

@@ -11,25 +11,17 @@ class RigidBody;
 class Health;
 
 namespace MarIo {
-class PlayerMovementController;
-
-class JUEGO_API FallDamage : public Tapioca::Component {
+class JUEGO_API Enemy : public Tapioca::Component {
 private:
     Health* health;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
-    Tapioca::Vector3 initPos;
-    Tapioca::Vector3 prevPos;
-    PlayerMovementController* playerMC;
-
-    float time = 0;
-    float timeNewPos = 2000;
 
 public:
-    COMPONENT_ID("FallDamage");
+    COMPONENT_ID("Enemy");
 
-    FallDamage();
-    ~FallDamage();
+    Enemy();
+    ~Enemy();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;

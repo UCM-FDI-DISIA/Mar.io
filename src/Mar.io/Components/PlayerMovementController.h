@@ -36,5 +36,8 @@ public:
     void update(const uint64_t deltaTime) override;
     void fixedUpdate() override;
     void handleEvent(std::string const& id, void* info) override;
+
+    void reset();
+    bool getGrounded();
 };
 }
