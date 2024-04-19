@@ -57,6 +57,9 @@
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\Enemy.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\gameDefs.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\Enemy.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
