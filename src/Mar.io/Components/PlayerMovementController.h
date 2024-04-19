@@ -20,8 +20,8 @@ private:
     Tapioca::RigidBody* rigidBody;
     int moveX, moveZ;
     float speed;
-    float jumpSpeed = 30;
-    float bounceSpeed = 15;
+    float jumpForce = 100;  // Newtons
+    float impulseForce = 50;    // Newtons
     float runSpeed = 200;
     float nSpeed = 30;
 
