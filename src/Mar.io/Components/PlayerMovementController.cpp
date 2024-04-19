@@ -99,11 +99,11 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
 }
 void PlayerMovementController::fixedUpdate() {
     if (jump) {
-        rigidBody->setVelocity(Tapioca::Vector3(rigidBody->getVelocity().x, jumpSpeed, rigidBody->getVelocity().z));
+        rigidBody->addImpulse(Tapioca::Vector3(0, jumpForce, 0));
         jump = false;
     }
     if (bounce) {
-        rigidBody->setVelocity(Tapioca::Vector3(rigidBody->getVelocity().x, bounceSpeed, rigidBody->getVelocity().z));
+        rigidBody->addImpulse(Tapioca::Vector3(0, impulseForce, 0));
         bounce = false;
     }
 
