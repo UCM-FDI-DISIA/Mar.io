@@ -2,7 +2,7 @@ scene = {
     {
         components = {
             CameraComponent = { -- Para tener un fondo
-                zOrder = -1, -- Cuando se arregle, se podrá cambiar a 0
+                zOrder = 0
             },
             SplashScreenComponent = {
                 changeTime = 2000,

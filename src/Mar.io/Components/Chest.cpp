@@ -51,7 +51,7 @@ void Chest::CreatCoins(int n) {
 
         Tapioca::RigidBody* rb = new Tapioca::RigidBody();
         rb->setColliderShape(Tapioca::ColliderShape::BOX_SHAPE);
-        rb->setColliderScale(Tapioca::Vector3(2, 2, 1));
+        rb->scaleCollider(Tapioca::Vector3(2, 2, 1));
         rb->setMomeventType(Tapioca::MovementType::DYNAMIC_OBJECT);
         rb->setDamping(0);
         rb->setMass(1);
@@ -83,7 +83,7 @@ void Chest::CreatOpenChest() {
 
     Tapioca::RigidBody* rb = new Tapioca::RigidBody();
     rb->setColliderShape(Tapioca::ColliderShape::BOX_SHAPE);
-    rb->setColliderScale(Tapioca::Vector3(4, 2, 2));
+    rb->scaleCollider(Tapioca::Vector3(4, 2, 2));
     rb->setMomeventType(Tapioca::MovementType::DYNAMIC_OBJECT);
     rb->setDamping(0);
     rb->setMass(1);
