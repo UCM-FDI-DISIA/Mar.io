@@ -15,7 +15,7 @@ public:
 
 private:
     Tapioca::Vector3 spawnPosition;
-    bool active;
+    bool activated;
     void activate();
     
 };

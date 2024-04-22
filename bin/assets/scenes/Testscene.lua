@@ -97,7 +97,7 @@ scene  = {
     FishingNet={
         components = {
             Transform = {
-                positionX = 0.0,
+                positionX = 12.0,
                 positionY = 3.0,
                 positionZ = 0.0,
                 scaleX = 2.0,
@@ -107,10 +107,29 @@ scene  = {
                 rotationY = 1.0,
                 rotationZ = 0.0
             },
+            RigidBody = {
+                colliderScaleX = 1.0,
+                colliderScaleY = 1.0,
+                colliderScaleZ = 1.0,
+                isTrigger = false,
+                mass = 10.0,
+                friction = 0.6,
+                damping = 0.4,
+                bounciness = 2.0,
+                colShape = 3,
+                movementType = 2
+            },
             MeshRenderer = {
                 meshName  = "models/fishingnet/fishingnet.mesh",
                 initRotationY = 0.0
             },
+
+            PhishingNet = {
+                damage = 1.0,
+                velocityZ=-1.0,
+                speed = 2.0
+
+            }
         }
     },
     Player = {

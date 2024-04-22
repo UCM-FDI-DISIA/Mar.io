@@ -14,7 +14,7 @@ namespace MarIo {
             Tapioca::logInfo("JUGADOR LLEGO A PUNTO DE CONTROL");
             Tapioca::GameObject* player = (Tapioca::GameObject*)info;
             if (player->getHandler() == "Player") {
-                if (!active) {
+                if (!activated) {
                     activate();
                 }
             }
@@ -32,13 +32,13 @@ namespace MarIo {
              spawnPosition.z = 0;
          }
          if (!setValueFromMap(active, "active", variables)) {
-             active = false;
+             activated = false;
          }
         return true; 
     }
 
     void CheckPoint::start() { 
-    if (active) {
+    if (activated) {
             activate();
         }
     }
@@ -47,7 +47,7 @@ namespace MarIo {
 
     void CheckPoint::activate() { 
         //se podrian poner aqui una animacijon unas particulas o algo asi aesthetic
-        active = true;
+        activated = true;
         pushEvent("CHECKPOINT_REACHED", this);
     }
     }
