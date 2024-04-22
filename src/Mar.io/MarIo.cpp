@@ -54,4 +54,4 @@ void addComponentFactories() {
 
 std::string getWindowName() { return "Mar.io"; }
 
-std::string getInitScene() { return "Level1.lua"; }
+std::string getInitScene() { return "GameManager.lua"; }
