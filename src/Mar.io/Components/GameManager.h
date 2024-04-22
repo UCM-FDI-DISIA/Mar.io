@@ -14,10 +14,16 @@ private:
 
     State state;
 
+    int level;
+
+    const int nLevels = 2;
+
     GameManager();
 
     void onGameOver();
     void onWin();
+
+    void registerLuaFunctions();
 
 public:
     COMPONENT_ID("GameManager");
@@ -33,6 +39,10 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     bool changeScene(std::string const& scene) const;
+    void MainMenuButtonClick();
+    void NextLevelButtonClick();
+    void EndButtonClick();
+    void nextLevel();
 
 };
 

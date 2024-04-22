@@ -1,0 +1,9 @@
+scene = {
+    {
+        components = {
+            GameManager = {
+               
+            }
+        }
+    }
+}
