@@ -56,11 +56,49 @@ scene  = {
 				}
 			}
 		},
-		Player = {
+		CheckPoint={
 			components = {
 				Transform = {
 					positionX = 0.0,
 					positionY = 3.0,
+					positionZ = 0.0,
+					scaleX = 2.0,
+					scaleY = 2.0,
+					scaleZ = 2.0,
+					rotationX = 0.0,
+					rotationY = 1.0,
+					rotationZ = 0.0
+				},
+				MeshRenderer = {
+					meshName  = "models/checkpoint/checkpoint.mesh",
+					initRotationY = 0.0
+				},
+			}
+		},
+		FishingNet={
+			components = {
+				Transform = {
+					positionX = 0.0,
+					positionY = 3.0,
+					positionZ = 0.0,
+					scaleX = 2.0,
+					scaleY = 2.0,
+					scaleZ = 2.0,
+					rotationX = 0.0,
+					rotationY = 1.0,
+					rotationZ = 0.0
+				},
+				MeshRenderer = {
+					meshName  = "models/fishingnet/fishingnet.mesh",
+					initRotationY = 0.0
+				},
+			}
+		},
+		Player = {
+			components = {
+				Transform = {
+					positionX = 0.0,
+					positionY = 8.0,
 					positionZ = 0.0,
 					scaleX = 2.0,
 					scaleY = 2.0,
@@ -101,9 +139,9 @@ scene  = {
 				{
 					components = {
 						Transform = {
-							positionX = 0.0,
-							positionY = 3.0,
-							positionZ = 0.0,
+							positionX = -8.34,
+							positionY = 3.3,
+							positionZ = -17.98,
 							scaleX = 1.0,
 							scaleY = 1.0,
 							scaleZ = 1.0,

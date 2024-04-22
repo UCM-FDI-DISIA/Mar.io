@@ -4,6 +4,7 @@
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
 #include "Coin.h"
+#include "CheckPoint.h"
 
 namespace MarIo {
 template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
@@ -96,6 +97,17 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionExit") {
         grounded = false;
     }
+    if (id == "PLAYER_DEAD") {
+        Tapioca::logInfo("RESPAWNEANDO");
+        trans->setPosition(respawnpos);
+        reset();
+    }
+    if (id == "CHECKPOINT_REACHED") {
+
+        MarIo::CheckPoint* c = (MarIo::CheckPoint*)info;
+        respawnpos = c->getRespawnPos();
+
+    }
 }
 void PlayerMovementController::fixedUpdate() {
     if (jump) {
@@ -131,5 +143,9 @@ void PlayerMovementController::reset() {
 }
 
 bool PlayerMovementController::getGrounded() { return grounded; }
+
+void PlayerMovementController::setRespawnPos(Tapioca::Vector3 pos) { 
+    respawnpos = pos;
+}
 
 }

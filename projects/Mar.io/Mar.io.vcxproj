@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Mar.io\Components\CameraFollow.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\CheckPoint.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Chest.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Coin.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\ContactDamage.cpp" />
@@ -21,6 +22,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\GameManager.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Health.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovement.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\PhishingNet.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\SideMovement.cpp" />
@@ -28,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\Components\CameraFollow.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\CheckPoint.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Chest.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Coin.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\ContactDamage.h" />
@@ -37,6 +40,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\GameManager.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Health.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovement.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\PhishingNet.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerSetting.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\SideMovement.h" />

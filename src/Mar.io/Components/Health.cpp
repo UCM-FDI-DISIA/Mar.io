@@ -49,6 +49,10 @@ void Health::loseHP(int hp) {
 
         Tapioca::logInfo(("Health: Me hicieron damages y ahora tengo " + std::to_string(currHealth) + " de vida.").c_str());  
     }
+    if (currHealth <= 0) {
+        Tapioca::logInfo("SE HA MUERTO");
+        pushEvent("PLAYER_DEAD",nullptr);
+    }
 
 }
 

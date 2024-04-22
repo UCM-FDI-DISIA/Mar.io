@@ -1,6 +1,7 @@
 #pragma once
 #include <Structure/Component.h>
 #include "../gameDefs.h"
+#include "Utilities/Vector3.h"
 
 namespace Tapioca {
 class Transform;
@@ -25,6 +26,8 @@ private:
     float runSpeed = 200;
     float nSpeed = 30;
 
+    Tapioca::Vector3 respawnpos = Tapioca::Vector3(0,0,0);
+
 public:
     COMPONENT_ID("PlayerMovementController");
 
@@ -39,5 +42,7 @@ public:
 
     void reset();
     bool getGrounded();
+
+    void setRespawnPos(Tapioca::Vector3 pos);
 };
 }

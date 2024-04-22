@@ -39,8 +39,9 @@ void FallDamage::update(const uint64_t deltaTime) {
 
         // GAME OVER (healthg == 0)
         //trans->setPosition(initPos);
-        trans->setPosition(prevPos);
-        playerMC->reset();
+        //ahora el checkpoint es el que le da una posicion alplayer para respawnear
+        //trans->setPosition(prevPos);
+        //playerMC->reset();
     }
 }
 

@@ -19,6 +19,9 @@
 #include "Components/SideMovement.h"
 #include "Components/Enemy.h"
 
+#include "Components/CheckPoint.h"
+#include "Components/PhishingNet.h"
+
 void init() {
     addComponentFactories();
 }
@@ -43,6 +46,10 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::FallDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Enemy>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::CheckPoint>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PhishingNet>());
+
+    
 }
 
 std::string getWindowName() { return "Mar.io"; }
