@@ -1,18 +1,20 @@
 #include "PlayerMovementController.h"
-#include <Structure/GameObject.h>
-#include <Components/Transform.h>
+#include "Structure/GameObject.h"
+#include "Components/Transform.h"
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
 #include "Coin.h"
 #include "CheckPoint.h"
 
-namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::PlayerMovementController>;
+template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
     : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20), nSpeed(20), runSpeed(35) { }
 
-PlayerMovementController::~PlayerMovementController() { }
+PlayerMovementController::~PlayerMovementController() {
+    trans = nullptr;
+    rigidBody = nullptr;
+}
 
 bool PlayerMovementController::initComponent(const CompMap& variables) { return true; }
 
@@ -38,7 +40,6 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
-
     if (id == "ev_RunEnd") {
         runEnd = true;
         run = false;
@@ -103,8 +104,7 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         reset();
     }
     if (id == "CHECKPOINT_REACHED") {
-
-        MarIo::CheckPoint* c = (MarIo::CheckPoint*)info;
+        CheckPoint* c = (CheckPoint*)info;
         respawnpos = c->getRespawnPos();
 
     }
@@ -146,6 +146,4 @@ bool PlayerMovementController::getGrounded() { return grounded; }
 
 void PlayerMovementController::setRespawnPos(Tapioca::Vector3 pos) { 
     respawnpos = pos;
-}
-
 }

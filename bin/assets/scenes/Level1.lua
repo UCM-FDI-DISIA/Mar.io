@@ -1,17 +1,6 @@
 scene  = {
 		{
 			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				},
 				LightDirComp = {
 					directionX = 0.0,
 					directionY = -1.0,
@@ -29,19 +18,7 @@ scene  = {
 
 		{
 			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				},
 				CameraComponent = {
-					zOrder = 0,
 					bgColorR = 0.925,
 					bgColorG = 698.0,
 					bgColorB = 941.0
@@ -56,7 +33,7 @@ scene  = {
 				}
 			}
 		},
-		CheckPoint={
+		CheckPoint = {
 			components = {
 				Transform = {
 					positionX = 0.0,
@@ -75,7 +52,7 @@ scene  = {
 				},
 			}
 		},
-		FishingNet={
+		FishingNet = {
 			components = {
 				Transform = {
 					positionX = 0.0,

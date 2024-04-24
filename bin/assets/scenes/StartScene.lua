@@ -1,8 +1,10 @@
 scene = {
     {
         components = {
-            CameraComponent = { -- Para tener un fondo
-                zOrder = 0
+            CameraComponent = {
+                bgColorR = 0.0,
+                bgColorG = 0.659,
+                bgColorB = 0.929
             },
             SplashScreenComponent = {
                 changeTime = 2000,
@@ -19,7 +21,7 @@ scene = {
             Text = {
                 name = "madeWithText",
                 text = "made with",
-                textFontName = "AGENCYB.TTF",
+                textFontName = "AGENCYB.TTF"
             }
         }
     },
@@ -33,8 +35,9 @@ scene = {
                 name = "TapiocaText",
                 text = "Tapioca Engine",
                 textSize = 36.0,
-                textFontName = "AGENCYB.TTF",
+                textFontName = "AGENCYB.TTF"
             }
         }
     }
 }
+  

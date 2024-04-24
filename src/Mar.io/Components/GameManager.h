@@ -2,10 +2,9 @@
 #include "Structure/Component.h"
 #include "Utilities/Singleton.h"
 #include "Structure/ComponentBuilder.h"
-#include "../gameDefs.h"
 #include <string>
+#include "gameDefs.h"
 
-namespace MarIo {
 class JUEGO_API GameManager : public Tapioca::Component, public Tapioca::Singleton<GameManager> {
 private:
     friend Singleton<GameManager>;
@@ -52,4 +51,3 @@ public:
 
     inline Tapioca::Component* createComponent() override { return GameManager::create(); }
 };
-}

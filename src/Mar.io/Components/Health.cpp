@@ -4,10 +4,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<Health>;
 
-
 Health::Health() : currHealth(0), maxHealth(0), gracePeriod(0.0f), timer(0), invulnerable(false) { }
-
-Health::~Health() { }
 
 bool Health::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
@@ -38,7 +35,6 @@ void Health::update(const uint64_t deltaTime) {
             invulnerable = false;
         }
     }
-
 }
 
 void Health::loseHP(int hp) { 
@@ -53,7 +49,6 @@ void Health::loseHP(int hp) {
         Tapioca::logInfo("SE HA MUERTO");
         pushEvent("PLAYER_DEAD",nullptr);
     }
-
 }
 
 void Health::healHP(int hp) { 
@@ -64,4 +59,3 @@ void Health::healHP(int hp) {
 void Health::restoreHealth() { currHealth = maxHealth; }
 
 int Health::getHP() { return currHealth; }
-

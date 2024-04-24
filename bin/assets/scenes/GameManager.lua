@@ -2,7 +2,7 @@ scene = {
     {
         components = {
             GameManager = {
-               
+                
             }
         }
     }

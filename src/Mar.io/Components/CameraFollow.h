@@ -1,7 +1,7 @@
 #pragma once
-#include <Structure/Component.h>
-#include "../gameDefs.h"
-#include <Utilities/Vector3.h>
+#include "Structure/Component.h"
+#include "gameDefs.h"
+#include "Utilities/Vector3.h"
 
 namespace Tapioca {
 class Transform;
@@ -15,7 +15,6 @@ private:
     Tapioca::CameraComponent* camera;
     std::string targetName;
 
-
     const Tapioca::Vector3 DEF_OFFSET = {0, 1, 1}; 
     const float DEF_SMOOTH_SPD = 0.125f;
     const float DEF_ROT_SPD = 0.1f;
@@ -23,7 +22,6 @@ private:
     Tapioca::Vector3 offset;
     float smoothSpeed;
     float rotationSpeed;
-    
 
 public:
     COMPONENT_ID("CameraFollow")

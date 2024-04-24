@@ -1,17 +1,21 @@
 #include "FallDamage.h"
-#include <Structure/GameObject.h>
+#include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
 #include "Components/Transform.h"
 #include "PlayerMovementController.h"
 #include "Components/RigidBody.h"
 
-namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::FallDamage>;
+template class JUEGO_API Tapioca::BasicBuilder<FallDamage>;
 
 FallDamage::FallDamage() : health(nullptr), trans(nullptr), rigidBody(nullptr), playerMC(nullptr) { }
 
-FallDamage::~FallDamage() { }
+FallDamage::~FallDamage() {
+    health = nullptr;
+    trans = nullptr;
+    rigidBody = nullptr;
+    playerMC = nullptr;
+}
 
 bool FallDamage::initComponent(const CompMap& variables) { return true; }
 
@@ -48,4 +52,3 @@ void FallDamage::update(const uint64_t deltaTime) {
 void FallDamage::fixedUpdate() { }
 
 void FallDamage::handleEvent(std::string const& id, void* info) { }
-}

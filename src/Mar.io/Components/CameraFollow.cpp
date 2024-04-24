@@ -1,21 +1,22 @@
 #include "CameraFollow.h"
-
 #include "Structure/BasicBuilder.h"
-
-#include <Structure/GameObject.h>
-#include <Components/Transform.h>
-#include <Components/CameraComponent.h>
-#include <Structure/MainLoop.h>
-#include <Structure/Scene.h>
+#include "Structure/GameObject.h"
+#include "Components/Transform.h"
+#include "Components/CameraComponent.h"
+#include "Structure/MainLoop.h"
+#include "Structure/Scene.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<CameraFollow>;
-
 
 CameraFollow::CameraFollow() 
     : transform(nullptr), targetTransform(nullptr), camera(nullptr), targetName(""), smoothSpeed(DEF_SMOOTH_SPD), offset(DEF_OFFSET),
       rotationSpeed(DEF_ROT_SPD) { }
 
-CameraFollow::~CameraFollow() { }
+CameraFollow::~CameraFollow() {
+    transform = nullptr;
+    targetTransform = nullptr;
+    camera = nullptr;
+}
 
 bool CameraFollow::initComponent(const CompMap& variables) { 
     // Si no hay objetivo especificado
@@ -50,7 +51,6 @@ void CameraFollow::awake() {
     transform = gameobject->getComponent<Tapioca::Transform>();
     camera = gameobject->getComponent<Tapioca::CameraComponent>();
 
-
     // Si el objetivo no esta en la escena
     Tapioca::GameObject* target = object->getScene()->getHandler(targetName);
     if (target == nullptr) {
@@ -68,10 +68,8 @@ void CameraFollow::start() {
     transform->setPosition(targetTransform->getGlobalPosition() + offset);
 }
 
-
 void CameraFollow::update(const uint64_t deltaTime) {
     Tapioca::Vector3 nextPos = targetTransform->getPosition() + offset;
     Tapioca::Vector3 smoothPos = transform->getPosition().lerp(nextPos, smoothSpeed);
     transform->setPosition(smoothPos);
-
 }

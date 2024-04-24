@@ -1,6 +1,6 @@
 #pragma once
-#include <Structure/Component.h>
-#include "../gameDefs.h"
+#include "Structure/Component.h"
+#include "gameDefs.h"
 #include "Utilities/Vector3.h"
 
 namespace Tapioca {
@@ -10,7 +10,6 @@ class RigidBody;
 
 class Health;
 
-namespace MarIo {
 class JUEGO_API Enemy : public Tapioca::Component {
 private:
     Health* health;
@@ -21,6 +20,7 @@ public:
     COMPONENT_ID("Enemy");
 
     Enemy();
+
     ~Enemy();
 
     bool initComponent(const CompMap& variables) override;
@@ -29,4 +29,3 @@ public:
     void fixedUpdate() override;
     void handleEvent(std::string const& id, void* info) override;
 };
-}

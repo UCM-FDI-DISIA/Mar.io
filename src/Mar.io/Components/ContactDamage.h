@@ -1,12 +1,13 @@
 #pragma once
-#include <Structure/Component.h>
-#include "../gameDefs.h"
+#include "Structure/Component.h"
+#include "gameDefs.h"
 
-namespace Tapioca { 
-    class GameObject;
+namespace Tapioca {
+class GameObject;
 };
 
 class JUEGO_API ContactDamage : public Tapioca::Component {
+private:
     int damage;
     Tapioca::GameObject* player;
 

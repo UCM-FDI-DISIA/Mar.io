@@ -1,8 +1,7 @@
 #pragma once
-#include <Structure/Component.h>
-#include "../gameDefs.h"
+#include "Structure/Component.h"
+#include "gameDefs.h"
 
-namespace MarIo {
 class JUEGO_API Fist : public Tapioca::Component {
 private:
     float coolDown;
@@ -15,14 +14,10 @@ public:
     COMPONENT_ID("Fist");
 
     Fist();
-    ~Fist();
 
     bool initComponent(const CompMap& variables) override;
     void update(const uint64_t deltaTime) override;
     void handleEvent(std::string const& id, void* info) override;
 
     bool isAttack();
-
-
 };
-}

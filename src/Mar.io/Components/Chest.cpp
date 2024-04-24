@@ -1,6 +1,6 @@
-#include <cmath>
 #include "Chest.h"
-#include <Structure/GameObject.h>
+#include <cmath>
+#include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
 #include "Components/Transform.h"
 #include "Components/RigidBody.h"
@@ -8,14 +8,10 @@
 #include "Fist.h"
 #include "Coin.h"
 #include "Structure/Scene.h"
-#include "Structure/GameObject.h"
 
-namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::Chest>;
+template class JUEGO_API Tapioca::BasicBuilder<Chest>;
 
 Chest::Chest() : open(false) { }
-
-Chest::~Chest() { }
 
 bool Chest::initComponent(const CompMap& variables) {
     open = false;
@@ -73,6 +69,7 @@ void Chest::CreatCoins(int n) {
         rb->addForce(Tapioca::Vector3(sinValue, 1, cosValue) * 500);
     }
 }
+
 void Chest::CreatOpenChest() { 
      Tapioca::GameObject* chest = new Tapioca::GameObject();
     Tapioca::Transform* tr = new Tapioca::Transform();
@@ -97,5 +94,4 @@ void Chest::CreatOpenChest() {
 
     chest->awake();
     chest->start();
-}
 }

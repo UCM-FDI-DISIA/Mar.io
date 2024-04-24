@@ -1,14 +1,11 @@
 #include "Coin.h"
-#include <Structure/GameObject.h>
-#include <Components/RigidBody.h>
+#include "Structure/GameObject.h"
+#include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 
-namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::Coin>;
+template class JUEGO_API Tapioca::BasicBuilder<Coin>;
 
 Coin::Coin() { }
-
-Coin::~Coin() { }
 
 bool Coin::initComponent(const CompMap& variables) { return true; }
 
@@ -25,5 +22,4 @@ void Coin::handleEvent(std::string const& id, void* info) {
             object->die();
         }
     }
-}
 }

@@ -1,19 +1,17 @@
 #include "SideMovement.h"
-
 #include "Structure/BasicBuilder.h"
+#include "Structure/GameObject.h"
+#include "Components/Transform.h"
+#include "Structure/MainLoop.h"
+#include "Structure/Scene.h"
 
-#include <Structure/GameObject.h>
-#include <Components/Transform.h>
-#include <Structure/MainLoop.h>
-#include <Structure/Scene.h>
 template class JUEGO_API Tapioca::BasicBuilder<SideMovement>;
-
 
 SideMovement::SideMovement()
     : movementDistance(0), state(going), movSpd(1.0f), rotSpd(1.0f), initPos(Tapioca::Vector3(0)),
       nextPos(Tapioca::Vector3(0)), initDir(Tapioca::Vector3(0)), rot(0), initRot(0), transform(nullptr) { }
 
-SideMovement::~SideMovement() { }
+SideMovement::~SideMovement() { transform = nullptr; }
 
 bool SideMovement::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima
@@ -38,7 +36,6 @@ bool SideMovement::initComponent(const CompMap& variables) {
     if (!setValueFromMap(rotSpd, "rotSpd", variables)) {
         Tapioca::logInfo(("SideMovement: No hay velocidad de rotacion establecida. Se pondra a " + std::to_string(rotSpd) + ".").c_str());
     }
-
     return true;
 }
 
@@ -53,7 +50,6 @@ void SideMovement::start() {
     initRot = transform->getRotation().eulerAxis().y;
     
     transform->setRotation(Tapioca::Vector3(0, initRot, 0));
-
 }
 
 void SideMovement::update(const uint64_t deltaTime) { 

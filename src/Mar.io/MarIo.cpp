@@ -22,34 +22,30 @@
 #include "Components/CheckPoint.h"
 #include "Components/PhishingNet.h"
 
-void init() {
-    addComponentFactories();
-}
+void init() { addComponentFactories(); }
 
 void addComponentFactories() {
 #ifdef _DEBUG
     std::cout << "Anadiendo las factorias del juego\n";
 #endif
     Tapioca::FactoryManager* factMngr = Tapioca::FactoryManager::instance();
-    factMngr->addBuilder(new MarIo::GameManagerBuilder());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PlayerMovementController>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PlayerSetting>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Fist>());
+    factMngr->addBuilder(new GameManagerBuilder());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<PlayerMovementController>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<PlayerSetting>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Fist>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<CameraFollow>());
 
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Coin>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Chest>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Coin>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Chest>());
 
     factMngr->addBuilder(new Tapioca::BasicBuilder<Health>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<ContactDamage>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::MorenaMovement>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::FallDamage>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<MorenaMovement>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<FallDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::Enemy>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::CheckPoint>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<MarIo::PhishingNet>());
-
-    
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Enemy>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<CheckPoint>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<PhishingNet>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

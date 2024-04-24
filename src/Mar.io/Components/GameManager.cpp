@@ -1,17 +1,15 @@
 #include "GameManager.h"
 #include "SceneLoader.h"
 #include "LuaManager.h"
-#include "./Structure/MainLoop.h"
+#include "Structure/MainLoop.h"
 #include <iomanip>
 #include <functional>
 #include <fstream>
 
-template class JUEGO_API Tapioca::Singleton<MarIo::GameManager>;
+template class JUEGO_API Tapioca::Singleton<GameManager>;
 
 template<>
-MarIo::GameManager* Tapioca::Singleton<MarIo::GameManager>::instance_ = nullptr;
-
-namespace MarIo {
+GameManager* Tapioca::Singleton<GameManager>::instance_ = nullptr;
 
 GameManager::GameManager() : state(MainMenu), level(0) { }
 
@@ -37,7 +35,6 @@ void GameManager::handleEvent(std::string const& id, void* info) {
         onGameOver();
     }
 }
-
 
 void GameManager::onGameOver() { Tapioca::logInfo("GameManager: Muelto."); }
 
@@ -77,5 +74,4 @@ void GameManager::registerLuaFunctions() {
     lua->addLuaFunction("AAA",hola );
     lua->addLuaFunction("MainMenuButtonClick", [this]() { MainMenuButtonClick();});
 
-}
 }

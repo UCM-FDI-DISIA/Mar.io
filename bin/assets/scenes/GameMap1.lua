@@ -60,7 +60,6 @@ scene = {
 			},
 		},
 	},
-
 	{
 		components = {
 			Transform = {
@@ -122,8 +121,7 @@ scene = {
 				friction = 0.0,
 				damping = 0.0,
 				bounciness = 0.01
-			}
-			,
+			},
 			Chest = {
 
 			}

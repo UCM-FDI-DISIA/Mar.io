@@ -1,7 +1,6 @@
 #pragma once
-#include <Structure/Component.h>
-#include "../gameDefs.h"
-
+#include "Structure/Component.h"
+#include "gameDefs.h"
 
 class JUEGO_API Health : public Tapioca::Component {
 private:
@@ -19,10 +18,6 @@ public:
     * @brief Constructora de la clase Health
     */
     Health();
-    /*
-    * @brief Destructora de la clase Health
-    */
-    ~Health();
 
     /*
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.
@@ -39,5 +34,4 @@ public:
     void healHP(int hp);
     void restoreHealth();
     int getHP();
-
 };

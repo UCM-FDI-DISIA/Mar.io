@@ -1,18 +1,14 @@
 #include "ContactDamage.h"
-
 #include "Structure/BasicBuilder.h"
-
-#include <Structure/GameObject.h>
+#include "Structure/GameObject.h"
 #include "Health.h"
-#include <Structure/MainLoop.h>
-#include <Structure/Scene.h>
+#include "Structure/Scene.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<ContactDamage>;
 
-
 ContactDamage::ContactDamage() : damage(0), player(nullptr) { }
 
-ContactDamage::~ContactDamage() { }
+ContactDamage::~ContactDamage() { player = nullptr; }
 
 bool ContactDamage::initComponent(const CompMap& variables) { 
     // Hay que especificar vida maxima

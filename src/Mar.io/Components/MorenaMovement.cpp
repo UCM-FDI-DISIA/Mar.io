@@ -1,15 +1,17 @@
 #include "MorenaMovement.h"
-#include <Structure/GameObject.h>
+#include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
 #include "Components/Transform.h"
 
-namespace MarIo {
-template class JUEGO_API Tapioca::BasicBuilder<MarIo::MorenaMovement>;
+template class JUEGO_API Tapioca::BasicBuilder<MorenaMovement>;
 
 MorenaMovement::MorenaMovement() : rigidBody(nullptr), trans(nullptr) { }
 
-MorenaMovement::~MorenaMovement() { }
+MorenaMovement::~MorenaMovement() {
+    rigidBody = nullptr;
+    trans = nullptr;
+}
 
 bool MorenaMovement::initComponent(const CompMap& variables) { return true; }
 
@@ -44,4 +46,3 @@ void MorenaMovement::fixedUpdate() {
 }
 
 void MorenaMovement::handleEvent(std::string const& id, void* info) { }
-}
