@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "SceneLoader.h"
 #include "LuaManager.h"
+#include "PhysicsManager.h"
 #include "Structure/MainLoop.h"
 #include <iomanip>
 #include <functional>
@@ -21,6 +22,7 @@ bool GameManager::initComponent(const CompMap& variables) {
 }
 
 void GameManager::start() { 
+    Tapioca::PhysicsManager::instance()->activateDebug(true);
     changeScene("MainMenu"); 
     state = MainMenu; 
 }
@@ -46,7 +48,8 @@ bool GameManager::changeScene(std::string const& scene) const {
 
 void GameManager::MainMenuButtonClick() { 
     Tapioca::MainLoop::instance()->deleteScene("MainMenu");
-    nextLevel();
+    changeScene("Nivel1");
+    //nextLevel();
     state = InGame;
 }
 

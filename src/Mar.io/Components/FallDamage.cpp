@@ -38,15 +38,15 @@ void FallDamage::update(const uint64_t deltaTime) {
     }
 
     // Se cambiará la altura al caer por elementos como el abismo
-    if (trans->getPosition().y < -15) {
-        health->loseHP(health->getHP());
+    /*if (trans->getPosition().y < -15) {
+        health->loseHP(health->getHP());*/
 
         // GAME OVER (healthg == 0)
         //trans->setPosition(initPos);
         //ahora el checkpoint es el que le da una posicion alplayer para respawnear
         //trans->setPosition(prevPos);
         //playerMC->reset();
-    }
+    //}
 }
 
 void FallDamage::fixedUpdate() { }

@@ -11,12 +11,14 @@ scene = {
                 positionY = WINDOW_HEIGHT / 2,
                 scaleX = WINDOW_WIDTH,
                 scaleY = WINDOW_HEIGHT
+            },
             Image = {
                 name = "Tapiocimagen",
                 imagePath = "textures/MainMenu.png"
             }
-        }
+           }
     },
+ 
     StartImageTextButton = {
         components = {
             Transform = {
