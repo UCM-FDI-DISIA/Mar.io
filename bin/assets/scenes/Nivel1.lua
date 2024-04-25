@@ -1,4 +1,43 @@
 scene  = {
+		livesHUd={
+			components={
+				Transform = {
+					positionX = 50.0,
+					positionY = 40.0,
+					positionZ = 0.0,
+					scaleX = 100.0,
+					scaleY = 100.0,
+					scaleZ = 0.5,
+					rotationX = 0.0,
+					rotationY = 0.0,
+					rotationZ = 0.0
+				},
+				Image={
+					imagePath="textures/raccoonface.png"
+				}
+			}
+
+		},
+		coinsHUd={
+			components={
+				Transform = {
+					positionX = 630.0,
+					positionY = 40.0,
+					positionZ = 0.0,
+					scaleX = 75.0,
+					scaleY = 75.0,
+					scaleZ = 0.5,
+					rotationX = 0.0,
+					rotationY = 0.0,
+					rotationZ = 0.0
+				},
+				Image={
+					imagePath="textures/hudcoin.png"
+				}
+			}
+
+		},
+
 		{
 			components = {
 				Transform = {
