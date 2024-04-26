@@ -18,9 +18,9 @@
 #include "components/FallDamage.h"
 #include "Components/SideMovement.h"
 #include "Components/Enemy.h"
-
 #include "Components/CheckPoint.h"
 #include "Components/PhishingNet.h"
+#include "Components/Score.h"
 
 void init() { addComponentFactories(); }
 
@@ -34,10 +34,8 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<PlayerSetting>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Fist>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<CameraFollow>());
-
     factMngr->addBuilder(new Tapioca::BasicBuilder<Coin>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Chest>());
-
     factMngr->addBuilder(new Tapioca::BasicBuilder<Health>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<ContactDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<MorenaMovement>());
@@ -46,6 +44,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<Enemy>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<CheckPoint>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<PhishingNet>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Score>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

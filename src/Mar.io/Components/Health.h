@@ -29,7 +29,6 @@ public:
 
     void update(const uint64_t deltaTime) override;
 
-
     void loseHP(int dmg);
     void healHP(int hp);
     void restoreHealth();

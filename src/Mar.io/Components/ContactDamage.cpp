@@ -10,7 +10,7 @@ ContactDamage::ContactDamage() : damage(0), player(nullptr) { }
 
 ContactDamage::~ContactDamage() { player = nullptr; }
 
-bool ContactDamage::initComponent(const CompMap& variables) { 
+bool ContactDamage::initComponent(const CompMap& variables) {
     // Hay que especificar vida maxima
     if (!setValueFromMap(damage, "damage", variables)) {
         Tapioca::logError("ContactDamage: No se ha establecido dano a realizar.");
@@ -19,9 +19,7 @@ bool ContactDamage::initComponent(const CompMap& variables) {
     return true;
 }
 
-void ContactDamage::awake() {
-    player = object->getScene()->getHandler("Player"); 
-}
+void ContactDamage::awake() { player = object->getScene()->getHandler("Player"); }
 
 void ContactDamage::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionStay") {
@@ -31,7 +29,7 @@ void ContactDamage::handleEvent(std::string const& id, void* info) {
             if (health != nullptr) {
                 health->loseHP(damage);
 
-                if (health->getHP() <= 0) pushEvent("ev_GameOver", this, true);
+                if (health->getHP() <= 0) pushEvent("ev_GameOver", nullptr, true);
             }
         }
     }

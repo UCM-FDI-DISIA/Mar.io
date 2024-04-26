@@ -7,7 +7,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<PhishingNet>;
 
-PhishingNet::PhishingNet() : rigidBody(nullptr), transform(nullptr) { }
+PhishingNet::PhishingNet() : rigidBody(nullptr), transform(nullptr), speed(0.0f) { }
 
 PhishingNet::~PhishingNet() {
     rigidBody = nullptr;
@@ -27,19 +27,22 @@ bool PhishingNet::initComponent(const CompMap& variables) {
     if (!setValueFromMap(velocity.z, "velocityZ", variables)) {
         velocity.z = 0;
     }
+    /*
     if (!setValueFromMap(damage, "damage", variables)) {
         damage = 0;
     }
+    */
     velocity *= speed;
     return true;
 }
 
 void PhishingNet::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
-
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
+        // TODO: HACER QUE SE REESTABLEZCA EL NIVEL
         if (player->getHandler() == "Player") {
-            player->getComponent<Health>()->loseHP(damage);
+            pushEvent("ev_GameOver", nullptr, true);
+            //player->getComponent<Health>()->loseHP(damage);
         }
     }
 }
@@ -47,7 +50,6 @@ void PhishingNet::handleEvent(std::string const& id, void* info) {
 void PhishingNet::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     transform = object->getComponent<Tapioca::Transform>();
-    // rigidBody->setVelocity(velocity);
 }
 
 void PhishingNet::update(const uint64_t deltaTime) { transform->translate(velocity * speed * deltaTime / 1000.0f); }

@@ -12,7 +12,6 @@ class JUEGO_API PhishingNet : public Tapioca::Component {
 private:
     float speed;
     Tapioca::Vector3 velocity;
-    float damage;
     Tapioca::RigidBody* rigidBody;
     Tapioca::Transform* transform;
 
