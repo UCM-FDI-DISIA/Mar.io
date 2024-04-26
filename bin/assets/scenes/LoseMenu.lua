@@ -14,7 +14,7 @@ scene = {
             },
             Image = {
                 name = "Tapiocimagen",
-                imagePath = "textures/LoseMenu.png"
+                imagePath = "LoseMenu.png"
             }
         }
     },
@@ -29,9 +29,9 @@ scene = {
             ImageTextButton = {
                 name = "ReplayImageTextButton",
                 onClickId = "MainMenuButtonClick",
-                imagePathNormal = "textures/PlayButton.png",
-                imagePathHover = "textures/PlayButton.png",
-                imagePathActive = "textures/PlayButton.png",
+                imagePathNormal = "PlayButton.png",
+                imagePathHover = "PlayButton.png",
+                imagePathActive = "PlayButton.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,
@@ -49,9 +49,9 @@ scene = {
             ImageTextButton = {
                 name = "ReturnImageTextButton",
                 onClickId = "MainMenuButtonClick",
-                imagePathNormal = "textures/PlayButton.png",
-                imagePathHover = "textures/PlayButton.png",
-                imagePathActive = "textures/PlayButton.png",
+                imagePathNormal = "PlayButton.png",
+                imagePathHover = "PlayButton.png",
+                imagePathActive = "PlayButton.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,

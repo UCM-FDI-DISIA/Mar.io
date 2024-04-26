@@ -13,7 +13,7 @@ scene  = {
 					rotationZ = 0.0
 				},
 				Image={
-					imagePath="textures/raccoonface.png"
+					imagePath = "raccoonface.png"
 				}
 			}
 
@@ -32,7 +32,7 @@ scene  = {
 					rotationZ = 0.0
 				},
 				Image={
-					imagePath="textures/hudcoin.png"
+					imagePath="hudcoin.png"
 				}
 			}
 

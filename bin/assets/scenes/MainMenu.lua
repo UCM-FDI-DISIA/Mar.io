@@ -14,7 +14,7 @@ scene = {
             },
             Image = {
                 name = "Tapiocimagen",
-                imagePath = "textures/MainMenu.png"
+                imagePath = "MainMenu.png"
             }
            }
     },
@@ -30,9 +30,9 @@ scene = {
             ImageTextButton = {
                 name = "StartImageButton",
                 onClickId = "MainMenuButtonClick",
-                imagePathNormal = "textures/PlayButton.png",
-                imagePathHover = "textures/PlayButton.png",
-                imagePathActive = "textures/PlayButton.png",
+                imagePathNormal = "PlayButton.png",
+                imagePathHover = "PlayButton.png",
+                imagePathActive = "PlayButton.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,
