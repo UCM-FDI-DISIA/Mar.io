@@ -24,7 +24,7 @@ void PlayerMovementController::start() {
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
-   /* std::to_string(trans->getPosition().x);
+    /* std::to_string(trans->getPosition().x);
     std::string pos_s = 
         "x: " + std::to_string(trans->getPosition().x) +
         "; y: " + std::to_string(trans->getPosition().y) + 
@@ -94,7 +94,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
             bounce = true;
         }
-        else if (t->getPosition().y + t->getScale().y < trans->getPosition().y - trans->getScale().y &&
+        else if (t->getGlobalPosition().y + t->getGlobalScale().y <
+                     trans->getGlobalPosition().y - trans->getGlobalScale().y &&
                  object->getComponent<Coin>() == nullptr) {
             grounded = true;
             jumps = 0;
@@ -112,7 +113,6 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "CHECKPOINT_REACHED") {
         CheckPoint* c = (CheckPoint*)info;
         respawnpos = c->getRespawnPos();
-
     }
 }
 void PlayerMovementController::fixedUpdate() {
@@ -150,6 +150,4 @@ void PlayerMovementController::reset() {
 
 bool PlayerMovementController::getGrounded() { return grounded; }
 
-void PlayerMovementController::setRespawnPos(Tapioca::Vector3 pos) { 
-    respawnpos = pos;
-}
+void PlayerMovementController::setRespawnPos(Tapioca::Vector3 pos) { respawnpos = pos; }

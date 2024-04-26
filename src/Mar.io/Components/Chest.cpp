@@ -76,7 +76,7 @@ void Chest::CreatOpenChest() {
     
     chest->addComponent(tr, tr->id);
     tr->setScale(object->getComponent<Tapioca::Transform>()->getScale());
-    tr->setPosition(object->getComponent<Tapioca::Transform>()->getGlobalPosition());
+    tr->setPosition(object->getComponent<Tapioca::Transform>()->getPosition());
 
     Tapioca::RigidBody* rb = new Tapioca::RigidBody();
     rb->setColliderShape(Tapioca::ColliderShape::BOX_SHAPE);
