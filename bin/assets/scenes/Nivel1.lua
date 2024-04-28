@@ -129,9 +129,11 @@ scene  = {
 								rotationZ = 0.0
 							},
 							MeshRenderer = {
-								meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
+								meshName  = "models/pirateRaccoon/PirateRacoon.004.mesh",
 								initRotationY = 0.0
 							},
+							Animator={},
+
 							RigidBody = {
 								colliderScaleX = 1.0,
 								colliderScaleY = 2.5,

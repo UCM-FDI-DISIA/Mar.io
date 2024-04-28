@@ -3,6 +3,7 @@
 #include "Components/Transform.h"
 #include "Structure/BasicBuilder.h"
 #include "Components/RigidBody.h"
+#include "Components/Animator.h"
 #include "Coin.h"
 #include "CheckPoint.h"
 
@@ -14,6 +15,7 @@ PlayerMovementController::PlayerMovementController()
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
     rigidBody = nullptr;
+    anim = nullptr;
 }
 
 bool PlayerMovementController::initComponent(const CompMap& variables) { return true; }
@@ -21,6 +23,11 @@ bool PlayerMovementController::initComponent(const CompMap& variables) { return 
 void PlayerMovementController::start() {
     trans = object->getComponent<Tapioca::Transform>();
     rigidBody = object->getComponent<Tapioca::RigidBody>();
+    
+    anim = object->getComponent<Tapioca::Animator>();
+    
+
+
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
@@ -52,6 +59,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
     if (id == "ev_Run") {
         run = true;
+        anim->setLoop(true);
+        anim->playAnim("my_animation");
         runEnd = false;
     }
 

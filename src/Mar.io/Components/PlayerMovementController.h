@@ -6,7 +6,9 @@
 namespace Tapioca {
 class Transform;
 class RigidBody;
+class Animator;
 }
+
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
@@ -18,6 +20,7 @@ private:
     bool runEnd = false;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
+    Tapioca::Animator* anim;
     int moveX, moveZ;
     float speed;
     float jumpForce = 100;     // Newtons
