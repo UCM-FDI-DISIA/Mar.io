@@ -10,7 +10,9 @@
 template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : trans(nullptr), rigidBody(nullptr), moveX(0), moveZ(0), speed(20), nSpeed(20), runSpeed(35) { }
+    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), 
+    trans(nullptr), rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), 
+    jumpSpeed(7), bounceSpeed(3), runSpeed(15), walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
@@ -26,7 +28,7 @@ void PlayerMovementController::start() {
     
     anim = object->getComponent<Tapioca::Animator>();
     
-
+    speed = walkSpeed;
 
 }
 
@@ -47,7 +49,7 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
         run = false;
     }
     if (runEnd && grounded) {
-        speed = nSpeed;
+        speed = walkSpeed;
         runEnd = false;
     }
 }
@@ -103,9 +105,10 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
             bounce = true;
         }
-        else if (t->getGlobalPosition().y + t->getGlobalScale().y <
-                     trans->getGlobalPosition().y - trans->getGlobalScale().y &&
-                 object->getComponent<Coin>() == nullptr) {
+        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
+                 trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
+                 object->getComponent<Coin>() == nullptr) 
+        {
             grounded = true;
             jumps = 0;
         }
@@ -124,28 +127,30 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         respawnpos = c->getRespawnPos();
     }
 }
+
 void PlayerMovementController::fixedUpdate() {
+    Tapioca::Vector3 v = rigidBody->getVelocity();
+
     if (jump) {
-        rigidBody->addImpulse(Tapioca::Vector3(0, jumpForce, 0));
+        rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));
         jump = false;
     }
     if (bounce) {
-        rigidBody->addImpulse(Tapioca::Vector3(0, impulseForce, 0));
+        rigidBody->setVelocity(Tapioca::Vector3(v.x, bounceSpeed, v.z));
         bounce = false;
     }
 
     if (moveX != 0 || moveZ != 0) {
-        Tapioca::Vector3 v = rigidBody->getVelocity();
+        v = rigidBody->getVelocity();
         v += Tapioca::Vector3(moveX, 0, moveZ).getNormalized() * speed;
         if (std::abs(v.x) > speed) v.x = v.x > 0 ? speed : -speed;
         if (std::abs(v.z) > speed) v.z = v.z > 0 ? speed : -speed;
 
         rigidBody->setVelocity(v);
     }
-
-    Tapioca::Vector3 vel = rigidBody->getVelocity();
-    if (abs(vel.x) > 0 || abs(vel.z) > 0) {
-        rigidBody->setVelocity(Tapioca::Vector3(vel.x * 0.9, vel.y, vel.z * 0.9));
+    v = rigidBody->getVelocity();
+    if (abs(v.x) > 0 || abs(v.z) > 0) {
+        rigidBody->setVelocity(Tapioca::Vector3(v.x * 0.9, v.y, v.z * 0.9));
         //std::cout << moveX << " /" << moveZ<< "\n ";
     }
 }
