@@ -38,10 +38,12 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     bool changeScene(std::string const& scene) const;
+    void nextLevel();
+
     void MainMenuButtonClick();
     void NextLevelButtonClick();
-    void EndButtonClick();
-    void nextLevel();
+    void ReturnButtonClick();
+    void ReplayButtonClick();
 
 };
 

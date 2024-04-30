@@ -33,7 +33,7 @@
 ]]
 
 events = {
-    ev_CLOSE = {
+    ev_Pause = {
         src = "ie_keyDown",
         control = 27    -- SDLK_ESCAPE
     },

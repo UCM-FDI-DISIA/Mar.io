@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <functional>
 #include <fstream>
+#include "Structure/Scene.h"
 
 template class JUEGO_API Tapioca::Singleton<GameManager>;
 
@@ -30,17 +31,41 @@ void GameManager::start() {
 void GameManager::update(const uint64_t deltaTime) { }
 
 void GameManager::handleEvent(std::string const& id, void* info) {
-    /*if (id == "ev_Pause") {
-        changeScene("PauseMenu.lua");
-    }*/
+    if (id == "ev_Pause") {
+        if (state == InGame) {
+            std::string levelName = "Nivel" + std::to_string(level);
+            Tapioca::MainLoop::instance()->getScene(levelName)->setActive(false);
+            changeScene("PauseMenu");
+            state = Pause;
+        }
+        else if (state == Pause) {
+            Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
+            std::string levelName = "Nivel" + std::to_string(level);
+            Tapioca::MainLoop::instance()->getScene(levelName)->setActive(true);
+            state = InGame;
+        }
+    }
     if (id == "ev_GameOver") {
         onGameOver();
     }
+    if (id == "ev_Win") {
+        onWin();
+    }
 }
 
-void GameManager::onGameOver() { Tapioca::logInfo("GameManager: Muelto."); }
+void GameManager::onGameOver() { 
+    Tapioca::logInfo("GameManager: Muelto."); 
+    std::string levelName = "Nivel" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
+    changeScene("LoseMenu");
 
-void GameManager::onWin() { }
+}
+
+void GameManager::onWin() { 
+     std::string levelName = "Nivel" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
+     changeScene("WinMenu");
+}
 
 bool GameManager::changeScene(std::string const& scene) const {
     return Tapioca::SceneLoader::instance()->loadScene(scene);
@@ -48,28 +73,46 @@ bool GameManager::changeScene(std::string const& scene) const {
 
 void GameManager::MainMenuButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("MainMenu");
-    changeScene("Nivel1");
-    //nextLevel();
+    nextLevel();
     state = InGame;
 }
 
 void GameManager::NextLevelButtonClick() { nextLevel(); }
 
-void GameManager::EndButtonClick() { changeScene("MainMenu"); }
+void GameManager::ReturnButtonClick() {
+    std::string levelName = "Nivel" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
+    Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
+    Tapioca::MainLoop::instance()->deleteScene("WinMenu");
+    Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
+    changeScene("WinMenu");
+}
+
+void GameManager::ReplayButtonClick() {
+    Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
+    std::string levelName = "Nivel" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
+    changeScene(levelName);
+}
 
 void GameManager::nextLevel() {
+    std::string levelName = "Nivel" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
     level++;
     if (level > nLevels) {
+        changeScene("MainMenu"); 
     }
     else {
-        std::string levelName = "Level" + std::to_string(level);
+        std::string levelName = "Nivel" + std::to_string(level);
         changeScene(levelName);
     }
 }
 
 void GameManager::registerLuaFunctions() {
     Tapioca::LuaManager* lua = Tapioca::LuaManager::instance();
-    std::function<void()> hola = []() { Tapioca::logWarn("AAAAAAAAAAAAAA"); };
-    lua->addLuaFunction("AAA", hola);
     lua->addLuaFunction("MainMenuButtonClick", [this]() { MainMenuButtonClick(); });
+    lua->addLuaFunction("NextLevelButtonClick", [this]() { NextLevelButtonClick(); });
+    lua->addLuaFunction("ReturnButtonClick", [this]() { ReturnButtonClick(); });
+    lua->addLuaFunction("ReplayButtonClick", [this]() { ReplayButtonClick(); });
+    
 }
