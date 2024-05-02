@@ -35,102 +35,102 @@
 events = {
     ev_Pause = {
         src = "ie_keyDown",
-        control = 27    -- SDLK_ESCAPE
+        control = 27    -- ESCAPE
     },
     ev_ACCEPT_1 = {
         src = "ie_keyDown",
-        control = 97    -- SDLK_a
+        control = 97    -- a
     },
     ev_ACCEPT_2 = {
         src = "ie_keyUp",
-        control = 119   -- SDLK_w
+        control = 119   -- w
     },
     ev_ACCEPT_3 = {
         src = "ie_ctrlButtonDown",
-        control = 0     -- SDL_CONTROLLER_BUTTON_A
+        control = 0     -- CONTROLLER_BUTTON_A
     },
     ev_ACCEPT_4 = {
         src = "ie_ctrlButtonUp",
-        control = 1     -- SDL_CONTROLLER_BUTTON_B
+        control = 1     -- CONTROLLER_BUTTON_B
     },
     ev_ACCEPT_5 = {
         src = "ie_ctrlAxisMotion",
-        control = 3     -- SDL_CONTROLLER_AXIS_RIGHTY
+        control = 3     -- CONTROLLER_AXIS_RIGHTY
     },
     ev_ACCEPT_6 = {
         src = "ie_mouseButtonDown",
-        control = 1     -- SDL_BUTTON_LEFT
+        control = 1     -- BUTTON_LEFT
     },
     ev_ACCEPT_7 = {
         src = "ie_mouseButtonDown",
-        control = 2     -- SDL_BUTTON_MIDDLE
+        control = 2     -- BUTTON_MIDDLE
     },
     ev_ACCEPT_8 = {
         src = "ie_mouseButtonUp",
-        control = 3     -- SDL_BUTTON_RIGHT
+        control = 3     -- BUTTON_RIGHT
     },
     ev_MOVEFORWARD = {
         src = "ie_keyDown",
-        control = 119   -- SDLK_w
+        control = 119   -- w
     },
     ev_MOVELEFT = {
         src = "ie_keyDown",
-        control = 97    --SDLK_a
+        control = 97    --a
     },
     ev_MOVEBACK = {
         src = "ie_keyDown",
-        control = 115    --SDLK_s
+        control = 115    --s
     },
     ev_MOVERIGHT = {
         src = "ie_keyDown",
-        control = 100    --SDLK_d
+        control = 100    --d
     },
     ev_MOVEFORWARDEND = {
         src = "ie_keyUp",
-        control = 119   -- SDLK_w
+        control = 119   -- w
     },
     ev_MOVELEFTEND = {
         src = "ie_keyUp",
-        control = 97    --SDLK_a
+        control = 97    --a
     },
     ev_MOVEBACKEND = {
         src = "ie_keyUp",
-        control = 115    --SDLK_s
+        control = 115    --s
     },
     ev_MOVERIGHTEND = {
         src = "ie_keyUp",
-        control = 100    --SDLK_d
+        control = 100    --d
     },
     ev_MELEATTACK = {
         src = "ie_keyDown",
-        control = 102    --SDLK_f
+        control = 102    --f
     },
 	ev_JUMP = {
         src = "ie_keyDown",
-        control = 32    --SDLK_SPACE
+        control = 32    --SPACE
     },
 	ev_Run = {
         src = "ie_keyDown",
-        control = 1073742049 --SDLK_LSHIFT 
+        control = 1073742049 --LSHIFT 
     },
 	ev_Run_1 = {
         src = "ie_keyDown",
-        control = 1073742053 --SDLK_RSHIFT 
+        control = 1073742053 --RSHIFT 
     },
 	ev_RunEnd = {
         src = "ie_keyUp",
-        control = 1073742049 --SDLK_LSHIFT 
+        control = 1073742049 --LSHIFT 
     },
 	ev_RunEnd_1 = {
         src = "ie_keyUp",
-        control = 1073742053 --SDLK_RSHIFT 
+        control = 1073742053 --RSHIFT 
     },
 	ev_Run_2 = {
         src = "ie_keyDown",
-        control = 107 --SDLK_RSHIFT 
+        control = 107 --RSHIFT 
     },
 	ev_RunEnd_2 = {
         src = "ie_keyUp",
-        control = 107 --SDLK_LSHIFT 
+        control = 107 --LSHIFT 
     }
 }
