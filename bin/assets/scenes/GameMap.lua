@@ -2,9 +2,9 @@ scene  = {
 	Camera = {
 		components = {
 			Transform = {
-				positionX = 0.0,
-				positionY = 0.0,
-				positionZ = 0.0,
+				positionX = -2.5,
+				positionY = 27.5,
+				positionZ = 1.3,
 				scaleX = 1.0,
 				scaleY = 1.0,
 				scaleZ = 1.0,
@@ -54,9 +54,9 @@ scene  = {
 	Player = {
 		components = {
 			Transform = {
-				positionX = 0.0,
-				positionY = 1.0,
-				positionZ = 4.5,
+				positionX = -2.29,
+				positionY = 27.45,
+				positionZ = 1.29,
 				scaleX = 1.0,
 				scaleY = 1.6,
 				scaleZ = 1.0,
@@ -107,72 +107,59 @@ scene  = {
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
-			}
+			},
+			
 		},
 		children = {
 			{
 				components = {
-					MeshRenderer = {
-						meshName  = "models/1mCube.mesh",
-						materialName = "white",
-					},
 					Transform = {
-						positionX = 0.0,
-						positionY = 0.0,
-						positionZ = 0.0,
-						scaleX = 5.87,
+						positionX = -27.06171,
+						positionY = 26.58034,
+						positionZ = 0.69,
+						scaleX = 1.0,
 						scaleY = 1.0,
-						scaleZ = 12.68,
+						scaleZ = 1.0,
 						rotationX = 0.0,
-						rotationY = 0.0,
+						rotationY = 90.0,
 						rotationZ = 0.0
 					},
-					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 1.0,
-						damping = 0.4,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 1
+					MeshRenderer = {
+						meshName  = "models/scenario/Platform1.mesh",
+						initRotationY = 90.0
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = -7.79,
+								positionY = 21.29,
+								positionZ = 0.69,
+								scaleX = 23.299,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							}
+						}
 					}
-				}
+				},
 			},
-			{
-				components = {
-					MeshRenderer = {
-						meshName  = "models/1mCube.mesh",
-						materialName = "white",
-					},
-					Transform = {
-						positionX = 0.0,
-						positionY = -2.56,
-						positionZ = -12.43,
-						scaleX = 5.87,
-						scaleY = 1.0,
-						scaleZ = 12.68,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 1.0,
-						damping = 0.4,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 1
-					}
-				}
-			}
-		}
+		},
 	},
 
 	
