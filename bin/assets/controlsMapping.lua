@@ -37,38 +37,6 @@ events = {
         src = "ie_keyDown",
         control = 27    -- ESCAPE
     },
-    ev_ACCEPT_1 = {
-        src = "ie_keyDown",
-        control = 97    -- a
-    },
-    ev_ACCEPT_2 = {
-        src = "ie_keyUp",
-        control = 119   -- w
-    },
-    ev_ACCEPT_3 = {
-        src = "ie_ctrlButtonDown",
-        control = 0     -- CONTROLLER_BUTTON_A
-    },
-    ev_ACCEPT_4 = {
-        src = "ie_ctrlButtonUp",
-        control = 1     -- CONTROLLER_BUTTON_B
-    },
-    ev_ACCEPT_5 = {
-        src = "ie_ctrlAxisMotion",
-        control = 3     -- CONTROLLER_AXIS_RIGHTY
-    },
-    ev_ACCEPT_6 = {
-        src = "ie_mouseButtonDown",
-        control = 1     -- BUTTON_LEFT
-    },
-    ev_ACCEPT_7 = {
-        src = "ie_mouseButtonDown",
-        control = 2     -- BUTTON_MIDDLE
-    },
-    ev_ACCEPT_8 = {
-        src = "ie_mouseButtonUp",
-        control = 3     -- BUTTON_RIGHT
-    },
     ev_MOVEFORWARD = {
         src = "ie_keyDown",
         control = 119   -- w
