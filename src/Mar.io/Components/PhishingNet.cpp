@@ -35,7 +35,7 @@ void PhishingNet::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
         if (player->getHandler() == "Player") {
-            pushEvent("ev_GameOver", nullptr,  true);
+            pushEvent("ev_GameOver", nullptr);
         }
     }
 }

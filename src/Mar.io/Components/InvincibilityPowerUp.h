@@ -2,13 +2,13 @@
 #include "Structure/Component.h"
 #include "gameDefs.h"
 
-class JUEGO_API Heart : public Tapioca::Component {
+class JUEGO_API InvincibilityPowerUp : public Tapioca::Component {
 public:
-    COMPONENT_ID("Heart");
+    COMPONENT_ID("InvincibilityPowerUp");
 
-    int points;
+    float time;
 
-    Heart();
+    InvincibilityPowerUp();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;

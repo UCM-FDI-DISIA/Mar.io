@@ -3,10 +3,13 @@
 #include "Structure/GameObject.h"
 #include "Health.h"
 #include "GameManager.h"
+#include "Components/Text.h"
+#include "Structure/GameObject.h"
+#include "Structure/Scene.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<Score>;
 
-Score::Score() : score(0), numScorePerLife(100), health(nullptr), heal(1) { }
+Score::Score() : score(0), numScorePerLife(100), health(nullptr), heal(1), coinsText(nullptr) { }
 
 bool Score::initComponent(const CompMap& variables) {
     if (!setValueFromMap(numScorePerLife, "numScorePerLife", variables)) {
@@ -26,7 +29,11 @@ bool Score::initComponent(const CompMap& variables) {
     return true;
 }
 
-void Score::start() { health = object->getComponent<Health>(); }
+void Score::start() {
+    health = object->getComponent<Health>();
+    Tapioca::GameObject* coinsObject = object->getScene()->getHandler("coinsText");
+    if (coinsObject != nullptr) coinsText = coinsObject->getComponent<Tapioca::Text>();
+}
 
 void Score::increaseScore(int increasement) {
     score += increasement;
@@ -40,4 +47,6 @@ void Score::increaseScore(int increasement) {
             score = 0;
         }
     }
+
+    if (coinsText != nullptr) coinsText->setText(std::to_string(score) + "X");
 }

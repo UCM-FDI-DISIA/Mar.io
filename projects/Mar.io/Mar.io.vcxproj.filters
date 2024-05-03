@@ -69,7 +69,10 @@
     <ClCompile Include="..\..\src\Mar.io\Components\Score.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\Components\Heart.cpp">
+    <ClCompile Include="..\..\src\Mar.io\Components\HeartPowerUp.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -128,7 +131,10 @@
     <ClInclude Include="..\..\src\Mar.io\Components\Score.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\Heart.h">
+    <ClInclude Include="..\..\src\Mar.io\Components\HeartPowerUp.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>

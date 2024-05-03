@@ -38,7 +38,7 @@ void Chest::CreatCoins(int n) {
         Tapioca::Transform* tr = new Tapioca::Transform();
 
         float angle = degree * i * 3.14f / 180.0f;   // Convertir a radianes
-        //// Calcular el seno y el coseno
+        // Calcular el seno y el coseno
         float sinValue = std::sinf(angle);
         float cosValue = std::cosf(angle);
         coin->addComponent(tr, tr->id);
@@ -47,7 +47,6 @@ void Chest::CreatCoins(int n) {
 
         Tapioca::RigidBody* rb = new Tapioca::RigidBody();
         rb->setColliderShape(Tapioca::ColliderShape::BOX_SHAPE);
-        //rb->setColliderScale(Tapioca::Vector3(2, 2, 1));
         rb->setMomeventType(Tapioca::MovementType::DYNAMIC_OBJECT);
         rb->setDamping(0);
         rb->setMass(1);

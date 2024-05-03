@@ -2,14 +2,19 @@
 #include "Structure/Component.h"
 #include "gameDefs.h"
 
+namespace Tapioca {
+class Text;
+}
+
 class JUEGO_API Health : public Tapioca::Component {
 private:
     int currHealth;
     int maxHealth;
 
-    float gracePeriod;
-    uint64_t timer;
+    int64_t timer;
     bool invulnerable;
+
+    Tapioca::Text* livesText;
 
 public:
     COMPONENT_ID("Health")
@@ -18,6 +23,8 @@ public:
     * @brief Constructora de la clase Health
     */
     Health();
+
+    void start() override;
 
     /*
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.
@@ -33,4 +40,6 @@ public:
     void healHP(int hp);
     void restoreHealth();
     int getHP();
+
+    void setInvencibility(float duration);
 };

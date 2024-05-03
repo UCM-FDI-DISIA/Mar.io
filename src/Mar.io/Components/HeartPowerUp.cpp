@@ -1,16 +1,16 @@
-#include "Heart.h"
+#include "HeartPowerUp.h"
 #include "Structure/GameObject.h"
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Heart>;
+template class JUEGO_API Tapioca::BasicBuilder<HeartPowerUp>;
 
-Heart::Heart() : points(1) { }
+HeartPowerUp::HeartPowerUp() : points(1) { }
 
-bool Heart::initComponent(const CompMap& variables) {
+bool HeartPowerUp::initComponent(const CompMap& variables) {
     if (!setValueFromMap(points, "heal", variables)) {
-        Tapioca::logInfo(("Heart: No se ha establecido la vida que otorga. Se establece a " +
+        Tapioca::logInfo(("HeartPowerUp: No se ha establecido la vida que otorga. Se establece a " +
                           std::to_string(points) + " por defecto.")
                              .c_str());
     }
@@ -18,11 +18,11 @@ bool Heart::initComponent(const CompMap& variables) {
     return true;
 }
 
-void Heart::start() {
+void HeartPowerUp::start() {
     Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>();
 }
 
-void Heart::handleEvent(std::string const& id, void* info) {
+void HeartPowerUp::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
         if (player->getHandler() == "Player") {

@@ -163,7 +163,6 @@ scene = {
 			Health = {
 				maxHealth = 2,
 				currHealth = 1,
-				gracePeriod = 1.0
 			},
 			FallDamage = { }
 		},
