@@ -102,7 +102,7 @@ scene  = {
 				scaleY = 1.0,
 				scaleZ = 1.0,
 				rotationX = 0.0,
-				rotationY = 90.0,
+				rotationY =  90.0,
 				rotationZ = 0.0
 			}
 		},
@@ -933,7 +933,215 @@ scene  = {
 				}
 			},
 
-			
+			Platform3 = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Platform3.mesh",
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = 129.5,
+								positionY = 17.26,
+								positionZ = 0.0,
+								scaleX = 18.7,
+								scaleY = 28.5,
+								scaleZ = 18.5,
+								rotationX = 0.0,
+								rotationY = -5.3,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 118.85,
+								positionY = 29.52,
+								positionZ = 1.31,
+								scaleX = 3.96,
+								scaleY = 2.8,
+								scaleZ = 11.6,
+								rotationX = 0.0,
+								rotationY = -5.3,
+								rotationZ = 17.7
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 128.55,
+								positionY = 29.79,
+								positionZ = 9.24,
+								scaleX = 17.32,
+								scaleY = 2.8,
+								scaleZ = 2.0,
+								rotationX = 35.66,
+								rotationY = -5.3,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 122.89,
+								positionY = 15.62,
+								positionZ = 9.3,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 9.0,
+								rotationX = -12.2,
+								rotationY = -13.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 132.03,
+								positionY = 15.62,
+								positionZ = 10.72,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 9.0,
+								rotationX = -12.2,
+								rotationY = -4.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 117.12,
+								positionY = 15.59,
+								positionZ = 4.49,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 8.96,
+								rotationX = 0.0,
+								rotationY = 11,
+								rotationZ = -13.46
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 117.17,
+								positionY = 15.6,
+								positionZ = -2.29,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 8.96,
+								rotationX = 0.0,
+								rotationY = -11.4,
+								rotationZ = -13.46
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+				}
+			},
 		}
 	}
 	

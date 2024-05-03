@@ -33,12 +33,13 @@ void PlayerMovementController::start() {
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
-    /* std::to_string(trans->getPosition().x);
+    /*std::to_string(trans->getPosition().x);
     std::string pos_s = 
         "x: " + std::to_string(trans->getPosition().x) +
         "; y: " + std::to_string(trans->getPosition().y) + 
         "; z: " + std::to_string(trans->getPosition().z);
     Tapioca::logInfo(pos_s.c_str());*/
+
     if (moveX != 0 || moveZ != 0) {
         float angle = std::atan2f(moveX, moveZ);
         trans->setRotation(Tapioca::Vector3(0, angle * 180 / 3.1415, 0));
@@ -61,8 +62,10 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
     if (id == "ev_Run") {
         run = true;
-        anim->setLoop(true);
-        anim->playAnim("my_animation");
+        if (anim != nullptr) {
+            anim->setLoop(true);
+            anim->playAnim("my_animation");
+        }
         runEnd = false;
     }
 
