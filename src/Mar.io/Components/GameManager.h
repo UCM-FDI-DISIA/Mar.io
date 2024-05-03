@@ -45,6 +45,8 @@ public:
     void NextLevelButtonClick();
     void ReturnButtonClick();
     void ReplayButtonClick();
+    void ContinueButtonClick();
+    void ToPause();
 
     void increasePuntuaction(int increasement);
 };
