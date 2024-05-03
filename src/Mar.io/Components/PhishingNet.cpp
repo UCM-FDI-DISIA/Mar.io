@@ -27,11 +27,6 @@ bool PhishingNet::initComponent(const CompMap& variables) {
     if (!setValueFromMap(velocity.z, "velocityZ", variables)) {
         velocity.z = 0;
     }
-    /*
-    if (!setValueFromMap(damage, "damage", variables)) {
-        damage = 0;
-    }
-    */
     velocity *= speed;
     return true;
 }
@@ -39,10 +34,8 @@ bool PhishingNet::initComponent(const CompMap& variables) {
 void PhishingNet::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
-        // TODO: HACER QUE SE REESTABLEZCA EL NIVEL
         if (player->getHandler() == "Player") {
-            pushEvent("ev_GameOver", nullptr);
-            //player->getComponent<Health>()->loseHP(damage);
+            pushEvent("ev_GameOver", nullptr,  true);
         }
     }
 }

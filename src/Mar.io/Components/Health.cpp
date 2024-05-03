@@ -49,7 +49,7 @@ void Health::loseHP(int hp) {
             ("Health: Me hicieron damages y ahora tengo " + std::to_string(currHealth) + " de vida.").c_str());
     }
     if (currHealth <= 0) {
-        pushEvent("ev_GameOver", nullptr);
+        pushEvent("ev_GameOver", nullptr, true);
     }
     else {
         pushEvent("ev_LifeLost", nullptr);
