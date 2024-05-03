@@ -10,8 +10,8 @@ class Transform;
 class JUEGO_API SideMovement : public Tapioca::Component {
 private:
     enum movementState { going, turning, coming, turningBack };
-    
     movementState state;
+    const float THRESHOLD = 0.15f;
 
     float movementDistance;
     float movSpd;
@@ -19,6 +19,7 @@ private:
     Tapioca::Vector3 initPos;
     Tapioca::Vector3 nextPos;
     Tapioca::Vector3 initDir;
+    Tapioca::Vector3 dir;
     float rot;
     float initRot;
 

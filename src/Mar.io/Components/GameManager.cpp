@@ -45,7 +45,7 @@ bool GameManager::initComponent(const CompMap& variables) {
 }
 
 void GameManager::start() {
-    //Tapioca::PhysicsManager::instance()->activateDebug(true);
+    Tapioca::PhysicsManager::instance()->activateDebug(true);
     changeScene("MainMenu");
     state = MainMenu;
 }
@@ -89,7 +89,8 @@ bool GameManager::changeScene(std::string const& scene) const {
 
 void GameManager::MainMenuButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("MainMenu");
-    nextLevel();
+    //nextLevel();
+    changeScene("GameMap");
     state = InGame;
 }
 

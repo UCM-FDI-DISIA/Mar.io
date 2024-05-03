@@ -9,7 +9,8 @@ template class JUEGO_API Tapioca::BasicBuilder<SideMovement>;
 
 SideMovement::SideMovement()
     : movementDistance(0), state(going), movSpd(1.0f), rotSpd(1.0f), initPos(Tapioca::Vector3(0)),
-      nextPos(Tapioca::Vector3(0)), initDir(Tapioca::Vector3(0)), rot(0), initRot(0), transform(nullptr) { }
+      nextPos(Tapioca::Vector3(0)), initDir(Tapioca::Vector3(0)), dir(Tapioca::Vector3(0)), rot(0), 
+      initRot(0), transform(nullptr) { }
 
 SideMovement::~SideMovement() { transform = nullptr; }
 
@@ -49,17 +50,15 @@ void SideMovement::start() {
     nextPos = initPos + initDir * movementDistance;
     initRot = transform->getRotation().toEuler().y;
     
-    transform->setRotation(Tapioca::Vector3(0, initRot, 0));
+    dir = nextPos - transform->getGlobalPosition() ;
+    dir.normalize();
 }
 
 void SideMovement::update(const uint64_t deltaTime) { 
     if (state == going || state == coming) {
-        Tapioca::Vector3 dir = nextPos - transform->getGlobalPosition();
-        dir.normalize();
-
-        transform->translate(dir * movSpd * deltaTime / 1000.0f);
-
-        if ((int)transform->getGlobalPosition().distance(nextPos) <= 0) {
+        Tapioca::Vector3 movement = dir * movSpd * deltaTime / 1000.0f;
+        transform->translate(movement);
+        if (transform->getGlobalPosition().distance(nextPos) <= THRESHOLD) {
             if (state == going) state = turning;
             else state = turningBack;
         }
@@ -71,6 +70,9 @@ void SideMovement::update(const uint64_t deltaTime) {
         if (rot >= 180) {
             nextPos = initPos;
             state = coming;
+
+            dir = nextPos - transform->getGlobalPosition();
+            dir.normalize();
         }
     }
     else if (state == turningBack) {
@@ -80,6 +82,9 @@ void SideMovement::update(const uint64_t deltaTime) {
         if (rot <= 0) {
             nextPos = initPos + initDir * movementDistance;
             state = going;
+
+            dir = nextPos - transform->getGlobalPosition();
+            dir.normalize();
         }
     }
 }

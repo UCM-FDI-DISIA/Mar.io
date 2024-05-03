@@ -45,7 +45,11 @@ scene  = {
 				directionX = 1.0,
 				directionY = -1.0,
 				directionZ = -1.0,
-				mainLight = true
+				mainLight = true,
+				powerScale = 1.5,
+				colorR = 0.2235294118,
+				colorG = 0.4117647059,
+				colorB = 0.7215686275
 			}
 		}
 	},
@@ -1096,7 +1100,7 @@ scene  = {
 								scaleY = 28.5,
 								scaleZ = 8.96,
 								rotationX = 0.0,
-								rotationY = 11,
+								rotationY = 11.0,
 								rotationZ = -13.46
 							},
 							RigidBody = {
@@ -1143,9 +1147,474 @@ scene  = {
 				}
 			},
 		}
-	}
+	},
 	
+	Enemies = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			}
+		},
+		children = {
+			-- Crabs
+			{
+				components = {
+					Transform = {
+						positionX = -3.0,
+						positionY = 26.81,
+						positionZ = -12.45,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 180.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 0.0
+					},
+					SideMovement = {
+						movementDistance = 6.0,
+						initDirX = 1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
 
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 3.0,
+						positionY = 20.29,
+						positionZ = -33.83,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 180.0
+					},
+					SideMovement = {
+						movementDistance = 6.0,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+
+			-- Corals
+			{
+				components = {
+					Transform = {
+						positionX = -2.8,
+						positionY = 26.627,
+						positionZ = -9.27,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.5,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral1.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.42,
+						positionY = 27.109,
+						positionZ = -9.27,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.2,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 1.2,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral5.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.62,
+						positionY = 20.103,
+						positionZ = -28.488,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.655,
+						positionY = 20.1,
+						positionZ = -29.99,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.5,
+						positionY = 20.54,
+						positionZ = -42.26,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.5,
+						positionY = 20.54,
+						positionZ = -42.26,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral3.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 1.0,
+						positionY = 19.94,
+						positionZ = -42.79,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.7,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral6.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.1,
+						positionY = 19.38,
+						positionZ = -64.13,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.7,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral2.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+
+			-- Turtles
+			{
+				components = {
+					Transform = {
+						positionX = -4.6,
+						positionY = 18.889,
+						positionZ = -74.21,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = -90.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/turtle/Turtle.mesh",
+					},
+					SideMovement = {
+						movementDistance = 7.0,
+						initDirX = 1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			-- Turtles
+			{
+				components = {
+					Transform = {
+						positionX = 5.29,
+						positionY = 18.889,
+						positionZ = -81.32,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 90.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/turtle/Turtle.mesh",
+					},
+					SideMovement = {
+						movementDistance = 7.0,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+		}
+
+	},
 	
 
 

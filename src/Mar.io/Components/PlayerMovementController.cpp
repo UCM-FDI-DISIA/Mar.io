@@ -11,7 +11,7 @@ template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
     : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), trans(nullptr),
-      rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(7), bounceSpeed(3), runSpeed(15),
+      rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(7), bounceSpeed(3), runSpeed(10),
       walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
