@@ -63,7 +63,25 @@ scene  = {
 					},
 					Image={
 						imagePath = "raccoonface.png"
+					},
+				}
+			},
+			livesText = {
+				components = {
+					Transform = {
+						positionX = 120.0,
+						positionY = 40.0
+					},
+					Text = {
+						text = "X0",
+						textSize = 30.0,
+						textFontName = "AGENCYB.TTF",
+						textColorR = 0.25,
+						textColorG = 0.25,
+						textColorB = 0.25,
+						textColorA = 1.0
 					}
+				
 				}
 			},
 			coinsHUd={
@@ -82,6 +100,25 @@ scene  = {
 					Image={
 						imagePath="hudcoin.png"
 					}
+				}
+			},
+			coinsText = {
+				components = {
+					Transform = {
+						positionX = 580.0,
+						positionY = 40.0
+					},
+					Text = {
+						text = "0X",
+						textSize = 30.0,
+						textFontName = "AGENCYB.TTF",
+						textColorR = 0.25,
+						textColorG = 0.25,
+						textColorB = 0.25,
+						textColorA = 1.0
+						
+					}
+				
 				}
 			},
 			{
