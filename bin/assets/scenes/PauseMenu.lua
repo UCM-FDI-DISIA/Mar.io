@@ -1,9 +1,9 @@
 scene = {
-    {
-        components = {
-            CameraComponent = { }
-        }
-    },
+    -- {
+    --     components = {
+    --         CameraComponent = { }
+    --     }
+    -- },
     {
         components = {
             Transform = {
@@ -20,7 +20,7 @@ scene = {
             }
         }
     },
-    ReplayImageTextButton = {
+    ContinueButton = {
         components = {
             Transform = {
                 positionX = WINDOW_WIDTH / 2,
@@ -29,11 +29,11 @@ scene = {
                 scaleY = 85.0,
             },
             ImageTextButton = {
-                name = "ReplayImageTextButton",
-                onClickId = "MainMenuButtonClick",
-                imagePathNormal = "ReplayButton.png",
-                imagePathHover = "ReplayButton.png",
-                imagePathActive = "ReplayButton.png",
+                name = "ContinueButton",
+                onClickId = "ContinueButtonClick",
+                imagePathNormal = "Button/play3.png",
+                imagePathHover = "Button/play1.png",
+                imagePathActive = "Button/play2.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,
@@ -41,7 +41,7 @@ scene = {
         }
     }
     ,
-    ConfImageTextButton = {
+    ReplayButton = {
         components = {
             Transform = {
                 positionX = WINDOW_WIDTH *0.625,
@@ -50,11 +50,11 @@ scene = {
                 scaleY = 70.0
             },
             ImageTextButton = {
-                name = "ConfImageTextButton",
-                onClickId = "MainMenuButtonClick",
-                imagePathNormal = "ConfButton.png",
-                imagePathHover = "ConfButton.png",
-                imagePathActive = "ConfButton.png",
+                name = "ReplayButton",
+                onClickId = "ReplayButtonClick",
+                imagePathNormal = "Button/replay1.png",
+                imagePathHover = "Button/replay2.png",
+                imagePathActive = "Button/replay3.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,
@@ -62,7 +62,7 @@ scene = {
         }
     }
     ,
-    ReturnImageTextButton = {
+    ReturnButton = {
         components = {
             Transform = {
                 positionX = WINDOW_WIDTH * 0.375,
@@ -71,11 +71,11 @@ scene = {
                 scaleY = 70.0
             },
             ImageTextButton = {
-                name = "ReturnImageTextButton",
-                onClickId = "MainMenuButtonClick",
-                imagePathNormal = "ReturnButton.png",
-                imagePathHover = "ReturnButton.png",
-                imagePathActive = "ReturnButton.png",
+                name = "ReturnButton",
+                onClickId = "ReturnButtonClick",
+                imagePathNormal = "Button/return1.png",
+                imagePathHover = "Button/return2.png",
+                imagePathActive = "Button/return3.png",
                 normalColorA = 0.0,
                 hoverColorA = 0.0,
                 activeColorA = 0.0,

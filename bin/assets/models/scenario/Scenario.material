@@ -10,15 +10,9 @@ material Sand.001 : ShadowTemplateTexture {
             diffuse 0.491021 0.351533 0.162029 1.0
             specular 0.5 0.0 0 0 0
 
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage normal_map models/scenario/SandNormals01.png
-                lighting_stage metal_roughness
-            }
-
             // - base_color_texture
             texture_unit {
-                texture models/scenario/SandDiffuse01.png
+                texture models/scenario/SandTexture01.png
                 tex_address_mode wrap
                 colour_op modulate
             }
@@ -33,15 +27,9 @@ material Sand.002 : ShadowTemplateTexture {
             diffuse 1.0 0.778016 0.395262 1.0
             specular 1.0 0.0 0 0 0
 
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage normal_map models/scenario/SandNormals02.png
-                lighting_stage metal_roughness
-            }
-
             // - base_color_texture
             texture_unit {
-                texture models/scenario/SandDiffuse02.png
+                texture models/scenario/SandTexture02.png
                 tex_address_mode wrap
                 colour_op modulate
             }
@@ -56,15 +44,9 @@ material Sand.003 : ShadowTemplateTexture {
             diffuse 1.0 0.778016 0.395262 1.0
             specular 1.0 0.0 0 0 0
 
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage normal_map models/scenario/SandNormals03.png
-                lighting_stage metal_roughness
-            }
-
             // - base_color_texture
             texture_unit {
-                texture models/scenario/SandDiffuse03.png
+                texture models/scenario/SandTexture03.png
                 tex_address_mode wrap
                 colour_op modulate
             }
@@ -79,15 +61,9 @@ material Sand.004 : ShadowTemplateTexture {
             diffuse 1.0 0.778016 0.395262 1.0
             specular 1.0 0.0 0 0 0
 
-            // additional maps - requires RTSS
-            rtshader_system {
-                lighting_stage normal_map models/scenario/SandNormals04.png
-                lighting_stage metal_roughness
-            }
-
             // - base_color_texture
             texture_unit {
-                texture models/scenario/SandDiffuse04.png
+                texture models/scenario/SandTexture04.png
                 tex_address_mode wrap
                 colour_op modulate
             }
