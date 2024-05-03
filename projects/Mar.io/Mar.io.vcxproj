@@ -21,6 +21,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\Fist.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\GameManager.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Health.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Heart.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovement.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PhishingNet.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\Fist.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\GameManager.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Health.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Heart.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovement.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PhishingNet.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h" />

@@ -2,16 +2,17 @@
 #include "Structure/BasicBuilder.h"
 #include "Structure/GameObject.h"
 #include "Health.h"
+#include "GameManager.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<Score>;
 
-Score::Score() : coins(0), coinsForALife(100), health(nullptr), heal(1) { }
+Score::Score() : score(0), numScorePerLife(100), health(nullptr), heal(1) { }
 
 bool Score::initComponent(const CompMap& variables) {
-    if (!setValueFromMap(coinsForALife, "coinsForALife", variables)) {
+    if (!setValueFromMap(numScorePerLife, "numScorePerLife", variables)) {
         Tapioca::logInfo(
-            ("Score: No se ha establecido el numero de monedas a partir del cual se obtiene una vida. Se establece a " +
-             std::to_string(coinsForALife) + " por defecto.")
+            ("Score: No se ha establecido el numero de monedas a partir del cual aumenta la vida. Se establece a " +
+             std::to_string(numScorePerLife) + " por defecto.")
                 .c_str());
     }
 
@@ -27,12 +28,16 @@ bool Score::initComponent(const CompMap& variables) {
 
 void Score::start() { health = object->getComponent<Health>(); }
 
-void Score::addCoin() {
-    ++coins;
-    if (coins >= coinsForALife) {
+void Score::increaseScore(int increasement) {
+    score += increasement;
+    GameManager::instance()->increasePuntuaction(increasement);
+    if (score >= numScorePerLife) {
         if (health != nullptr) {
             health->healHP(heal);
         }
-        coins -= coinsForALife;
+        score -= numScorePerLife;
+        if (score < 0) {
+            score = 0;
+        }
     }
 }

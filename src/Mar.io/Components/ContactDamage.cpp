@@ -29,7 +29,7 @@ void ContactDamage::handleEvent(std::string const& id, void* info) {
             if (health != nullptr) {
                 health->loseHP(damage);
 
-                if (health->getHP() <= 0) pushEvent("ev_GameOver", nullptr, true);
+                //if (health->getHP() <= 0) pushEvent("ev_GameOver", nullptr, true);
             }
         }
     }

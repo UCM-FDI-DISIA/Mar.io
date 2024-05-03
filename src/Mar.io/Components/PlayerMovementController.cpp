@@ -10,9 +10,9 @@
 template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), 
-    trans(nullptr), rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), 
-    jumpSpeed(7), bounceSpeed(3), runSpeed(15), walkSpeed(5) { }
+    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), trans(nullptr),
+      rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(7), bounceSpeed(3), runSpeed(15),
+      walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
@@ -25,11 +25,11 @@ bool PlayerMovementController::initComponent(const CompMap& variables) { return 
 void PlayerMovementController::start() {
     trans = object->getComponent<Tapioca::Transform>();
     rigidBody = object->getComponent<Tapioca::RigidBody>();
-    
     anim = object->getComponent<Tapioca::Animator>();
-    
     speed = walkSpeed;
 
+    initialPos = trans->getPosition();
+    respawnpos = initialPos;
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
@@ -106,9 +106,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             bounce = true;
         }
         else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                 trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
-                 object->getComponent<Coin>() == nullptr) 
-        {
+                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
+                 object->getComponent<Coin>() == nullptr) {
             grounded = true;
             jumps = 0;
         }
@@ -117,12 +116,12 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionExit") {
         grounded = false;
     }
-    if (id == "PLAYER_DEAD") {
+    if (id == "ev_LifeLost") {
         Tapioca::logInfo("RESPAWNEANDO");
         trans->setPosition(respawnpos);
         reset();
     }
-    if (id == "CHECKPOINT_REACHED") {
+    if (id == "ev_CheckpointReached") {
         CheckPoint* c = (CheckPoint*)info;
         respawnpos = c->getRespawnPos();
     }
@@ -160,6 +159,7 @@ void PlayerMovementController::reset() {
     bounce = false;
     grounded = true;
     jumps = 0;
+    respawnpos = initialPos;
 }
 
 bool PlayerMovementController::getGrounded() { return grounded; }

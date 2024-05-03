@@ -8,8 +8,8 @@ class JUEGO_API Score : public Tapioca::Component {
 private:
     Health* health;
 
-    int coins;
-    int coinsForALife;
+    int score;
+    int numScorePerLife;
     int heal;
 
 public:
@@ -21,5 +21,5 @@ public:
 
     void start() override;
 
-    void addCoin();
+    void increaseScore(int increasement);
 };

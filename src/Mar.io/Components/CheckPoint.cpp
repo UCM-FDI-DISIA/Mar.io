@@ -7,7 +7,7 @@ template class JUEGO_API Tapioca::BasicBuilder<CheckPoint>;
 CheckPoint::CheckPoint() : spawnPosition(Tapioca::Vector3()), activated(false) { }
 
 void CheckPoint::handleEvent(std::string const& id, void* info) {
-    if (id == "PLAYER_DEAD") {
+    if (id == "ev_LifeLost") {
         Tapioca::logInfo("RESPAWNEANDO");
     }
     if (id == "onCollisionEnter") {
@@ -48,5 +48,5 @@ Tapioca::Vector3 CheckPoint::getRespawnPos() { return spawnPosition; }
 void CheckPoint::activate() {
     // se podrian poner aqui una animacijon unas particulas o algo asi aesthetic
     activated = true;
-    pushEvent("CHECKPOINT_REACHED", this);
+    pushEvent("ev_CheckpointReached", this);
 }

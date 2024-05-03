@@ -21,6 +21,7 @@
 #include "Components/CheckPoint.h"
 #include "Components/PhishingNet.h"
 #include "Components/Score.h"
+#include "Components/Heart.h"
 
 void init() { addComponentFactories(); }
 
@@ -45,6 +46,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<CheckPoint>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<PhishingNet>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Score>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Heart>());
 }
 
 std::string getWindowName() { return "Mar.io"; }

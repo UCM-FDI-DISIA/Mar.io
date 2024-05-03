@@ -41,7 +41,7 @@ void PhishingNet::handleEvent(std::string const& id, void* info) {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
         // TODO: HACER QUE SE REESTABLEZCA EL NIVEL
         if (player->getHandler() == "Player") {
-            pushEvent("ev_GameOver", nullptr, true);
+            pushEvent("ev_GameOver", nullptr);
             //player->getComponent<Health>()->loseHP(damage);
         }
     }

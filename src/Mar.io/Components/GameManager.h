@@ -13,9 +13,10 @@ private:
 
     State state;
 
+    const int N_LEVELS = 2;
     int level;
 
-    const int nLevels = 2;
+    int levelPuntuaction;
 
     GameManager();
 
@@ -45,6 +46,7 @@ public:
     void ReturnButtonClick();
     void ReplayButtonClick();
 
+    void increasePuntuaction(int increasement);
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {

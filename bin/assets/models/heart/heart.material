@@ -1,0 +1,13 @@
+import ShadowTemplateColor from "Shadows.material"
+
+material heart : ShadowTemplateColor {
+    receive_shadows on
+    technique {
+        pass Decal {
+            diffuse 1.00 0.33 0.27 1.00
+            specular 1.00 0.33 0.27 1.00
+        }
+    }
+}
+
+

@@ -27,8 +27,8 @@ private:
     float bounceSpeed;
     float runSpeed;
     float walkSpeed;
-
-    Tapioca::Vector3 respawnpos = Tapioca::Vector3(0, 0, 0);
+    Tapioca::Vector3 respawnpos;
+    Tapioca::Vector3 initialPos;
 
 public:
     COMPONENT_ID("PlayerMovementController");
