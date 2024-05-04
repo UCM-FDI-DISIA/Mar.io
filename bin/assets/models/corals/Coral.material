@@ -5,8 +5,8 @@ material Coral : ShadowTemplateColor {
     receive_shadows on
     technique {
         pass Decal {
-            diffuse 0.659241 0.008307 0.023814 1.0
-            specular 0.809091 0.0 0 0 0
+            diffuse 1.0 0.008307 0.023814 1.0
+            specular 0.01 0.0 0 0 0
         }
     }
 }

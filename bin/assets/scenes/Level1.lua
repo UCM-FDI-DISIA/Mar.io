@@ -14,9 +14,9 @@ scene  = {
 			},
 			CameraComponent = {
 				zOrder = 0,
-				bgColorR = 0.075,
-				bgColorG = 0.388,
-				bgColorB = 0.431
+				bgColorR = 0.0,
+				bgColorG = 0.45,
+				bgColorB = 0.6
 			},
 			CameraFollow = {
 				target = "Player",
@@ -48,8 +48,8 @@ scene  = {
 				directionZ = -1.0,
 				mainLight = true,
 				powerScale = 1.5,
-				colorR = 0.525,
-				colorG = 0.945,
+				colorR = 0.2,
+				colorG = 0.7,
 				colorB = 1.0,
 				colorA = 1.0
 			}
@@ -215,7 +215,28 @@ scene  = {
 			},
 		}
 	},
-
+	Sky = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1000.0,
+				scaleY = 1000.0,
+				scaleZ = 1000.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			}
+			-- ,
+			-- SkyboxComponent = {
+			-- 	planeName="SkyBox",
+			-- 	materialName="sky",
+			-- 	distC=1000.0,
+			-- 	orderC=true
+			-- }
+		}
+	},
 	Player = {
 		components = {
 			Transform = {
@@ -260,7 +281,7 @@ scene  = {
 			}
 		},
 		children = {
-			{
+			FistC={
 				components = {
 					Transform = {
 						positionX = 0.0,
@@ -290,6 +311,44 @@ scene  = {
 						duration = 100.0
 					}
 				}
+			},
+			PlayerLight={
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 50.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+				},
+				-- LightPointComp = {
+				-- 	powerScale = 0.0,
+				-- 	colorR = 1.0,
+				-- 	colorG = 1.0,
+				-- 	colorB = 1.0,
+				-- 	colorA = 1.0,
+				-- 	attenuationFactor=10.0
+				-- }
+				LightSpotComp = {
+					directionX = 0.0,
+					directionY = -1.0,
+					directionZ = 0.0,
+					mainLight = false,
+					colorR = 0.6,
+					colorG = 0.5,
+					colorB = 0.7,
+					colorA = 1.0,
+					powerScale =50.0,
+					attenuationFactor = 1.0,
+					falloff = 0.2,
+					innerAngle = 50.0,
+					outerAngle = 100.0
+				}
+			}
 			}
 		}
 	},

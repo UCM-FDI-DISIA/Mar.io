@@ -5,8 +5,8 @@ material CrabRed : ShadowTemplateColor {
     receive_shadows on
     technique {
         pass Decal {
-            diffuse 0.669352 0.095238 0.018812 1.0
-            specular 0.668182 0.0 0 0 0
+            diffuse 1.0 0.095238 0.018812 1.0
+            specular 0.0 0.0 0.0 0.0 0
         }
     }
 }
