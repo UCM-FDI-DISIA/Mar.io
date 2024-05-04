@@ -451,7 +451,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "./assets/models/scenario/Rocks.obj"
+						file= "models/scenario/Rocks.obj"
 					}
 				},
 			},
@@ -483,7 +483,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file = "./assets/models/scenario/Platform1.obj"
+						file = "models/scenario/Platform1.obj"
 					}
 
 				}
@@ -517,7 +517,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "./assets/models/scenario/Stairs.obj"
+						file= "models/scenario/Stairs.obj"
 					}
 				}
 				
@@ -552,7 +552,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "./assets/models/scenario/Platform2.obj"
+						file= "models/scenario/Platform2.obj"
 					}
 				}
 			},
@@ -585,7 +585,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "./assets/models/scenario/Platform3.obj"
+						file= "models/scenario/Platform3.obj"
 					}
 				}
 			},
@@ -717,16 +717,17 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 2.0,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral1.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral1.mesh",
@@ -751,16 +752,17 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 1.2,
-						colliderScaleY = 2.0,
-						colliderScaleZ = 1.2,
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral5.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral5.mesh",
@@ -786,15 +788,16 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 1.0,
-						colliderScaleY = 1.5,
+						colliderScaleY = 1.0,
 						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -820,15 +823,16 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 1.0,
-						colliderScaleY = 1.5,
+						colliderScaleY = 1.0,
 						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -854,15 +858,16 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 1.0,
-						colliderScaleY = 1.5,
+						colliderScaleY = 1.0,
 						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -888,15 +893,16 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 1.0,
-						colliderScaleY = 1.5,
+						colliderScaleY = 1.0,
 						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral3.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral3.mesh",
@@ -921,16 +927,17 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 0.7,
-						colliderScaleY = 2.0,
-						colliderScaleZ = 0.7,
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral6.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral6.mesh",
@@ -955,16 +962,17 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 0.7,
-						colliderScaleY = 2.0,
-						colliderScaleZ = 0.7,
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 0.0,
 						damping = 0.0,
 						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
+						colShape = 4,
+						movementType = 2,
+						file= "models/corals/Coral2.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral2.mesh",
