@@ -55,6 +55,166 @@ scene  = {
 		}
 	},
 
+	UI = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+		},
+		children = {
+			{
+				components = {
+					MeshRenderer = {
+						meshName  = "models/heart/heart.mesh",
+						materialName = "heart",
+						initRotationX = -90.0
+					},
+					Transform = {
+						positionX = -5.34,
+						positionY = 3.3,
+						positionZ = -17.98,
+						scaleX = 0.8,
+						scaleY = 0.8,
+						scaleZ = 0.8,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.5,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 0.8,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					HeartPowerUp = {
+					}
+				}
+			},
+			{
+				components = {
+					MeshRenderer = {
+						meshName  = "models/heart/heart.mesh",
+						materialName = "heart",
+						initRotationX = -90.0
+					},
+					Transform = {
+						positionX = -1.34,
+						positionY = 3.3,
+						positionZ = -17.98,
+						scaleX = 0.8,
+						scaleY = 0.8,
+						scaleZ = 0.8,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.5,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 0.8,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					InvincibilityPowerUp = {
+						invincibilityTime = 300.0
+					}
+				}
+			},
+			livesHUd={
+				components={
+					Transform = {
+						positionX = 50.0,
+						positionY = 40.0,
+						positionZ = 0.0,
+						scaleX = 100.0,
+						scaleY = 100.0,
+						scaleZ = 0.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					Image={
+						imagePath = "raccoonface.png"
+					},
+				}
+			},
+			livesText = {
+				components = {
+					Transform = {
+						positionX = 120.0,
+						positionY = 40.0
+					},
+					Text = {
+						text = "X0",
+						textSize = 30.0,
+						textFontName = "AGENCYB.TTF",
+						textColorR = 0.25,
+						textColorG = 0.25,
+						textColorB = 0.25,
+						textColorA = 1.0
+					}
+				
+				}
+			},
+			coinsHUd={
+				components={
+					Transform = {
+						positionX = 630.0,
+						positionY = 40.0,
+						positionZ = 0.0,
+						scaleX = 75.0,
+						scaleY = 75.0,
+						scaleZ = 0.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					Image={
+						imagePath="hudcoin.png"
+					}
+				}
+			},
+			coinsText = {
+				components = {
+					Transform = {
+						positionX = 580.0,
+						positionY = 40.0
+					},
+					Text = {
+						text = "0X",
+						textSize = 30.0,
+						textFontName = "AGENCYB.TTF",
+						textColorR = 0.25,
+						textColorG = 0.25,
+						textColorB = 0.25,
+						textColorA = 1.0
+						
+					}
+				
+				}
+			},
+		}
+	},
+
 	Player = {
 		components = {
 			Transform = {
@@ -62,20 +222,21 @@ scene  = {
 				positionY = 27.45,
 				positionZ = -5.0,
 				scaleX = 1.0,
-				scaleY = 1.6,
+				scaleY = 1.0,
 				scaleZ = 1.0,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName  = "models/1mCube.mesh",
-				materialName = "white",
+				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
 			},
+			Animator={ },
+
 			RigidBody = {
-				colliderScaleX = 0.5,
-				colliderScaleY = 0.5,
-				colliderScaleZ = 0.5,
+				colliderScaleX = 0.3,
+				colliderScaleY = 0.8,
+				colliderScaleZ = 0.3,
 				isTrigger = false,
 				mass = 50.0,
 				friction = 1.0,
@@ -93,10 +254,46 @@ scene  = {
 			Health = {
 				maxHealth = 2,
 				currHealth = 1,
+			},
+			Score = {
+			}
+		},
+		children = {
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 15.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 1.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 2.0,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 2.0,
+						isTrigger = true,
+						mass = 0.0,
+						friction = 1.0,
+						damping = 0.4,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					Fist = {
+						coolDown = 1000.0,
+						duration = 100.0
+					}
+				}
 			}
 		}
 	},
 
+	
 	Scenario = {
 		components = {
 			Transform = {
