@@ -45,6 +45,4 @@ public:
 
     void reset();
     bool getGrounded();
-
-    void setRespawnPos(Tapioca::Vector3 pos);
 };

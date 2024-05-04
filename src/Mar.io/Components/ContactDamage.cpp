@@ -6,15 +6,15 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<ContactDamage>;
 
-ContactDamage::ContactDamage() : damage(0), player(nullptr) { }
+ContactDamage::ContactDamage() : damage(1.0f), player(nullptr) { }
 
 ContactDamage::~ContactDamage() { player = nullptr; }
 
 bool ContactDamage::initComponent(const CompMap& variables) {
-    // Hay que especificar vida maxima
     if (!setValueFromMap(damage, "damage", variables)) {
-        Tapioca::logError("ContactDamage: No se ha establecido dano a realizar.");
-        return false;
+        Tapioca::logInfo(("ContactDamage: No se ha establecido el dano que produce. Se establece a " +
+                          std::to_string(damage) + " por defecto.")
+                             .c_str());
     }
     return true;
 }

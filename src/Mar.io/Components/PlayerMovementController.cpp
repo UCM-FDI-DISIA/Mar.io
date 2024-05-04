@@ -28,7 +28,7 @@ void PlayerMovementController::start() {
     anim = object->getComponent<Tapioca::Animator>();
     speed = walkSpeed;
 
-    initialPos = trans->getPosition();
+    initialPos = trans->getGlobalPosition();
     respawnpos = initialPos;
 }
 
@@ -88,7 +88,7 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
 
     if (id == "ev_MOVELEFT") {
         if (moveX != -1) {
-           
+
             anim->setLoop(true);
             anim->playAnim("running");
         }
@@ -118,7 +118,6 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "ev_MELEATTACK") {
         anim->setLoop(false);
         anim->playAnim("punching");
-        
     }
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
@@ -139,12 +138,14 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
     if (id == "ev_LifeLost") {
         Tapioca::logInfo("RESPAWNEANDO");
-        trans->setPosition(respawnpos);
+        trans->setGlobalPosition(respawnpos);
         reset();
     }
     if (id == "ev_CheckpointReached") {
         CheckPoint* c = (CheckPoint*)info;
-        respawnpos = c->getRespawnPos();
+        if (c != nullptr) {
+            respawnpos = c->getRespawnPos();
+        }
     }
 }
 
@@ -184,5 +185,3 @@ void PlayerMovementController::reset() {
 }
 
 bool PlayerMovementController::getGrounded() { return grounded; }
-
-void PlayerMovementController::setRespawnPos(Tapioca::Vector3 pos) { respawnpos = pos; }

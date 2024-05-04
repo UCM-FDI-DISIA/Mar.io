@@ -3,9 +3,14 @@
 #include "gameDefs.h"
 #include "Utilities/Vector3.h"
 
+namespace Tapioca {
+class Transform;
+}
+
 class JUEGO_API CheckPoint : public Tapioca::Component {
 private:
-    Tapioca::Vector3 spawnPosition;
+    Tapioca::Vector3 globalPos;
+    Tapioca::Vector3 offset;
     bool activated;
     void activate();
 
