@@ -9,7 +9,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<Score>;
 
-Score::Score() : score(0), numScorePerLife(100), health(nullptr), heal(1), coinsText(nullptr) { }
+Score::Score() : score(0), numScorePerLife(10), health(nullptr), heal(1), coinsText(nullptr) { }
 
 bool Score::initComponent(const CompMap& variables) {
     if (!setValueFromMap(numScorePerLife, "numScorePerLife", variables)) {
@@ -37,7 +37,7 @@ void Score::start() {
 
 void Score::increaseScore(int increasement) {
     score += increasement;
-    GameManager::instance()->increasePuntuaction(increasement);
+    GameManager::instance()->increaseScore(increasement);
     if (score >= numScorePerLife) {
         if (health != nullptr) {
             health->healHP(heal);

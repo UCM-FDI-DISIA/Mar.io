@@ -40,7 +40,7 @@ void Health::update(const uint64_t deltaTime) {
         timer -= deltaTime;
         Tapioca::logInfo(std::to_string(timer).c_str());
         if (timer < 0.0f) {
-            invulnerable = false;
+            deactivateInvincibility();
         }
     }
 }
@@ -84,4 +84,9 @@ int Health::getHP() { return currHealth; }
 void Health::setInvencibility(float duration) {
     invulnerable = true;
     timer = std::max(timer, (int64_t)duration);
+}
+
+void Health::deactivateInvincibility() {
+    timer = 0.0f;
+    invulnerable = false;
 }

@@ -16,13 +16,9 @@ class JUEGO_API FallDamage : public Tapioca::Component {
 private:
     Health* health;
     Tapioca::Transform* trans;
-    Tapioca::RigidBody* rigidBody;
-    Tapioca::Vector3 initPos;
-    Tapioca::Vector3 prevPos;
-    PlayerMovementController* playerMC;
-
-    float time = 0;
-    float timeNewPos = 2000;
+    float limitFall;
+    float fallOffset;
+    int damage;
 
 public:
     COMPONENT_ID("FallDamage");
@@ -30,9 +26,7 @@ public:
     FallDamage();
     ~FallDamage();
 
-    bool initComponent(const CompMap& variables) override;
     void start() override;
+    bool initComponent(const CompMap& variables) override;
     void update(const uint64_t deltaTime) override;
-    void fixedUpdate() override;
-    void handleEvent(std::string const& id, void* info) override;
 };
