@@ -19,12 +19,14 @@ void GameManager::onGameOver() {
     Tapioca::logInfo("GameManager: Muelto.");
     std::string levelName = "Level" + std::to_string(level);
     Tapioca::MainLoop::instance()->deleteScene(levelName);
+    state = GameOver;
     changeScene("LoseMenu");
 }
 
 void GameManager::onWin() {
     std::string levelName = "Level" + std::to_string(level);
     Tapioca::MainLoop::instance()->deleteScene(levelName);
+    state = GameOver;
     changeScene("WinMenu");
 }
 
@@ -103,6 +105,7 @@ void GameManager::ReturnButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
     Tapioca::MainLoop::instance()->deleteScene("WinMenu");
     Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
+    state = MainMenu;
     changeScene("MainMenu");
 }
 
