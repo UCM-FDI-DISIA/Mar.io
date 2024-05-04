@@ -69,10 +69,10 @@ material Feather : ShadowTemplateTexture {
     }
 }
 
-material Dome : ShadowTemplateTexture {
-    receive_shadows on
+material Dome {
+    receive_shadows off
     technique {
-        pass Decal {
+        pass {
             scene_blend alpha_blend
             cull_hardware none
             depth_write off

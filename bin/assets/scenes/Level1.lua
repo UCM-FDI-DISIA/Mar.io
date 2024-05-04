@@ -14,9 +14,9 @@ scene  = {
 			},
 			CameraComponent = {
 				zOrder = 0,
-				bgColorR = 0.925,
-				bgColorG = 698.0,
-				bgColorB = 941.0
+				bgColorR = 0.075,
+				bgColorG = 0.388,
+				bgColorB = 0.431
 			},
 			CameraFollow = {
 				target = "Player",
@@ -48,9 +48,10 @@ scene  = {
 				directionZ = -1.0,
 				mainLight = true,
 				powerScale = 1.5,
-				colorR = 0.2235294118,
-				colorG = 0.4117647059,
-				colorB = 0.7215686275
+				colorR = 0.525,
+				colorG = 0.945,
+				colorB = 1.0,
+				colorA = 1.0
 			}
 		}
 	},
@@ -1974,6 +1975,22 @@ scene  = {
 			MeshRenderer = {
 				meshName  = "models/ship/Ship.mesh"
 			},
+			KeyFrameAnimator = {
+				speed = 2.0,
+				duration = 3.0,
+				rotKeyX1 = 7.0,
+				rotKeyY1 = -37.08,
+				rotKeyZ1 = 0.0,
+				rotKeyX2 = 0.0,
+				rotKeyY2 = -37.08,
+				rotKeyZ2 = 0.0,
+				rotKeyX3 = -7.0,
+				rotKeyY3 = -37.08,
+				rotKeyZ3 = 0.0,
+				rotKeyX4 = 0.0,
+				rotKeyY4 = -37.08,
+				rotKeyZ4 = 0.0,
+			}
 		},
 	}
 

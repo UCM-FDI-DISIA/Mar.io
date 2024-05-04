@@ -45,12 +45,13 @@ bool GameManager::initComponent(const CompMap& variables) {
 }
 
 void GameManager::start() {
-    Tapioca::PhysicsManager::instance()->activateDebug(true);
+    //Tapioca::PhysicsManager::instance()->activateDebug(true);
     changeScene("MainMenu");
     state = MainMenu;
 }
 
 void GameManager::update(const uint64_t deltaTime) { }
+
 
 void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
