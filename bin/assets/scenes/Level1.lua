@@ -1,3568 +1,1784 @@
 scene  = {
-		{
-			components = {
-				LightDirComp = {
-					directionX = 0.0,
-					directionY = -1.0,
-					directionZ = -1.0,
-					mainLight = true
-				},
-				AudioListenerComponent = {},
-				AudioSourceComponent = {
-					islooping = true,
-					ispaused = false,
-					sourcepath= "assets/audio/SpongeBob.mp3"
-				}
-			}
-		},
-
-		{
-			components = {
-				CameraComponent = {
-					bgColorR = 0.925,
-					bgColorG = 698.0,
-					bgColorB = 941.0
-				},
-				CameraFollow = {
-					target = "Player",
-					offsetX = 0.0,
-					offsetY = 8.0,
-					offsetZ = 40.0,
-					smoothSpeed = 0.125,
-					rotationSpeed = 0.1
-				}
-			}
-		},
-		CheckPoint = {
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 3.0,
-					positionZ = 0.0,
-					scaleX = 2.0,
-					scaleY = 2.0,
-					scaleZ = 2.0,
-					rotationX = 0.0,
-					rotationY = 1.0,
-					rotationZ = 0.0
-				},
-				MeshRenderer = {
-					meshName  = "models/checkpoint/checkpoint.mesh",
-					initRotationY = 0.0
-				},
-			}
-		},
-		FishingNet = {
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 3.0,
-					positionZ = 0.0,
-					scaleX = 2.0,
-					scaleY = 2.0,
-					scaleZ = 2.0,
-					rotationX = 0.0,
-					rotationY = 1.0,
-					rotationZ = 0.0
-				},
-				MeshRenderer = {
-					meshName  = "models/fishingnet/fishingnet.mesh",
-					initRotationY = 0.0
-				},
-			}
-		},
-		Player = {
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 8.0,
-					positionZ = 0.0,
-					scaleX = 2.0,
-					scaleY = 2.0,
-					scaleZ = 2.0,
-					rotationX = 0.0,
-					rotationY = 1.0,
-					rotationZ = 0.0
-				},
-				MeshRenderer = {
-					meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
-					initRotationY = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 2.0,
-					colliderScaleY = 5.0,
-					colliderScaleZ = 2.0,
-					isTrigger = false,
-					mass = 10.0,
-					friction = 0.6,
-					damping = 0.4,
-					bounciness = 2.0,
-					colShape = 3,
-					movementType = 0
-				},
-				PlayerMovementController = {
-				},
-				PlayerSetting = {
-				},
-				FallDamage = {
-				},
-				Health = {
-					maxHealth = 2,
-					currHealth = 1,
-					gracePeriod = 1.0
-				}
+	Camera = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = -10.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
 			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = -8.34,
-							positionY = 3.3,
-							positionZ = -17.98,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 1.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 2.0,
-							isTrigger = true,
-							mass = 0.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 2
-						},
-						Fist = {
-							coolDown = 1000.0,
-							duration = 100.0
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = -37.2,
-					positionZ = -82.19,
-					scaleX = 20.0,
-					scaleY = 20.0,
-					scaleZ = 40.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 20.0,
-					colliderScaleY = 20.0,
-					colliderScaleZ = 40.0,
-					isTrigger = false,
-					mass = 1.0,
-					friction = 0.0,
-					damping = 0.4,
-					bounciness = 0.0,
-					colShape = 0,
-					movementType = 1
-				},
-				MeshRenderer = {
-					meshName  = "models/cube2.mesh",
-					materialName = "grass"
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = -32.9,
-					positionZ = -172.5,
-					scaleX = 20.0,
-					scaleY = 20.0,
-					scaleZ = 40.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 20.0,
-					colliderScaleY = 20.0,
-					colliderScaleZ = 40.0,
-					isTrigger = false,
-					mass = 1.0,
-					friction = 0.0,
-					damping = 0.4,
-					bounciness = 0.0,
-					colShape = 0,
-					movementType = 1
-				},
-				MeshRenderer = {
-					meshName  = "models/cube2.mesh",
-					materialName = "grass"
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = -11.2,
-					positionZ = -332.6,
-					scaleX = 20.0,
-					scaleY = 20.0,
-					scaleZ = 40.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 20.0,
-					colliderScaleY = 20.0,
-					colliderScaleZ = 40.0,
-					isTrigger = false,
-					mass = 1.0,
-					friction = 0.0,
-					damping = 0.4,
-					bounciness = 0.0,
-					colShape = 0,
-					movementType = 1
-				},
-				MeshRenderer = {
-					meshName  = "models/cube2.mesh",
-					materialName = "grass"
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
+			CameraComponent = {
+				zOrder = 0,
+				bgColorR = 0.925,
+				bgColorG = 698.0,
+				bgColorB = 941.0
 			},
-			children = {
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -8.34,
-							positionY = 3.3,
-							positionZ = -17.98,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 7.3,
-							positionY = 13.0,
-							positionZ = -96.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -3.7,
-							positionY = 9.4,
-							positionZ = -83.8,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 8.1,
-							positionY = 6.4,
-							positionZ = -71.3,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 10.6,
-							positionY = 6.8,
-							positionZ = -43.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 2.62,
-							positionY = -4.3,
-							positionZ = -163.7,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -8.2,
-							positionY = -4.3,
-							positionZ = -173.9,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 5.6,
-							positionY = -4.3,
-							positionZ = -193.7,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 18.7,
-							positionY = -14.4,
-							positionZ = -245.9,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -29.3,
-							positionY = -5.8,
-							positionZ = -275.9,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = 40.0,
-							positionY = -68.8,
-							positionZ = -497.6,
-							scaleX = 10.0,
-							scaleY = 10.0,
-							scaleZ = 10.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -40.7,
-							positionZ = -440.0,
-							scaleX = 50.0,
-							scaleY = 50.0,
-							scaleZ = 50.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 50.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 23.2,
-							positionZ = -566.0,
-							scaleX = 50.0,
-							scaleY = 10.0,
-							scaleZ = 50.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 102.0,
-							positionZ = -543.3,
-							scaleX = 50.0,
-							scaleY = 10.0,
-							scaleZ = 50.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -83.6,
-							positionZ = -542.4,
-							scaleX = 50.0,
-							scaleY = 10.0,
-							scaleZ = 50.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -20.0,
-							positionY = -24.4,
-							positionZ = -499.8,
-							scaleX = 10.0,
-							scaleY = 10.0,
-							scaleZ = 10.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.2,
-							positionY = -39.7,
-							positionZ = -499.8,
-							scaleX = 10.0,
-							scaleY = 10.0,
-							scaleZ = 10.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 20.0,
-							positionY = -54.7,
-							positionZ = -499.3,
-							scaleX = 10.0,
-							scaleY = 10.0,
-							scaleZ = 10.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -40.0,
-							positionY = -9.3,
-							positionZ = -499.6,
-							scaleX = 10.0,
-							scaleY = 10.0,
-							scaleZ = 10.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 10.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/cube2.mesh",
-							materialName = "grass"
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 1.0,
-							positionZ = -12.6,
-							scaleX = 0.42,
-							scaleY = 0.14,
-							scaleZ = 0.81,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 20.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 40.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -14.7,
-							positionZ = -82.3,
-							scaleX = 0.42,
-							scaleY = 0.14,
-							scaleZ = 0.81,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 20.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 40.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -11.5,
-							positionZ = -172.8,
-							scaleX = 0.42,
-							scaleY = 0.14,
-							scaleZ = 0.81,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 20.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 40.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 8.5,
-							positionZ = -332.8,
-							scaleX = 0.42,
-							scaleY = 0.14,
-							scaleZ = 0.81,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 20.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 40.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 9.6,
-							positionZ = -440.6,
-							scaleX = 1.0,
-							scaleY = 0.14,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 33.5,
-							positionZ = -566.1,
-							scaleX = 1.0,
-							scaleY = 0.14,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -72.7,
-							positionZ = -542.7,
-							scaleX = 1.0,
-							scaleY = 0.14,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = 114.3,
-							positionZ = -544.4,
-							scaleX = 1.0,
-							scaleY = 0.14,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 50.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 50.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/sand/sand.mesh"
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = 7.49,
-							positionY = 2.99,
-							positionZ = -70.17,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -6.02,
-							positionY = 6.02,
-							positionZ = -82.87,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 7.25,
-							positionY = 9.21,
-							positionZ = -96.47,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 19.42,
-							positionY = -3.66,
-							positionZ = -223.33,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -4.7,
-							positionY = -15.6,
-							positionZ = -223.33,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 19.42,
-							positionY = -18.93,
-							positionZ = -248.0,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -17.6,
-							positionY = -6.4,
-							positionZ = -223.33,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 22.5,
-							positionY = 5.11,
-							positionZ = -276.3,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -1.6,
-							positionY = -11.3,
-							positionZ = -259.5,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 2.8,
-							positionY = -10.1,
-							positionZ = -240.6,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -22.4,
-							positionY = 0.1,
-							positionZ = -248.2,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -29.4,
-							positionY = -9.0,
-							positionZ = -276.2,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -0.1,
-							positionY = -3.9,
-							positionZ = -282.8,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 22.1,
-							positionY = 5.4,
-							positionZ = -282.8,
-							scaleX = 0.1,
-							scaleY = 0.1,
-							scaleZ = 0.1,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 5.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 5.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = -60.81,
-							positionY = 17.6,
-							positionZ = -415.06,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -81.75,
-							positionY = 27.87,
-							positionZ = -415.06,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -81.75,
-							positionY = 39.95,
-							positionZ = -437.03,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -59.85,
-							positionY = 52.99,
-							positionZ = -437.03,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -61.7,
-							positionY = 66.8,
-							positionZ = -452.5,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -81.5,
-							positionY = 81.8,
-							positionZ = -452.5,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -81.5,
-							positionY = 93.8,
-							positionZ = -477.0,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -61.4,
-							positionY = 104.7,
-							positionZ = -477.0,
-							scaleX = 0.2,
-							scaleY = 0.2,
-							scaleZ = 0.2,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 10.0,
-							colliderScaleY = 1.0,
-							colliderScaleZ = 10.0,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 0.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						MeshRenderer = {
-							meshName  = "models/blocks/rock/rock.mesh"
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 26.04,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 34.1,
-							positionY = 123.36,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 35.79,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -22.09,
-							positionY = 123.64,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -20.4,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -30.15,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -28.16,
-							positionY = 123.3,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -25.22,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 15.45,
-							positionY = 123.66,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 16.88,
-							positionY = 128.52,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 16.84,
-							positionY = 118.89,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 21.15,
-							positionY = 118.11,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 21.27,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 3.37,
-							positionY = 126.7,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 7.27,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 3.39,
-							positionY = 122.29,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -2.93,
-							positionY = 121.63,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -15.82,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -15.34,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -10.94,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -15.42,
-							positionY = 123.92,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -9.05,
-							positionY = 125.74,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -11.07,
-							positionY = 122.58,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -2.93,
-							positionY = 125.78,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -2.93,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -2.93,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -36.5,
-							positionY = 124.36,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -36.69,
-							positionY = 129.84,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -36.5,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -32.47,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = -41.26,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 10.41,
-							positionY = 122.2,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 4.65,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 10.38,
-							positionY = 126.45,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 9.13,
-							positionY = 118.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 30.97,
-							positionY = 130.0,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/coin/coin.mesh"
-						},
-						Transform = {
-							positionX = 27.36,
-							positionY = 123.62,
-							positionZ = -550.0,
-							scaleX = 0.5,
-							scaleY = 0.5,
-							scaleZ = 0.5,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 2.0,
-							colliderScaleY = 2.0,
-							colliderScaleZ = 1.0,
-							isTrigger = true,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Coin = {
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = 0.0,
-							positionY = -9.8,
-							positionZ = -56.12,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 1.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = 0.0,
-							positionY = 5.3,
-							positionZ = -45.6,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = -18.37,
-							positionY = -68.01,
-							positionZ = -547.56,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.3625194,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = -6.1,
-							positionY = -68.43,
-							positionZ = -554.5,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = 8.47,
-							positionY = -68.17,
-							positionZ = -548.4,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = -0.3463627,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				},
-				{
-					components = {
-						MeshRenderer = {
-							meshName  = "models/chest/cofre2.mesh"
-						},
-						Transform = {
-							positionX = -5.4,
-							positionY = 15.3,
-							positionZ = -440.7,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						RigidBody = {
-							colliderScaleX = 3.7,
-							colliderScaleY = 3.0,
-							colliderScaleZ = 1.7,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.4,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						Chest = {
-						}
-					}
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = -11.22,
-					positionY = -13.4,
-					positionZ = -96.53,
-					scaleX = 2.0,
-					scaleY = 2.0,
-					scaleZ = 2.0,
-					rotationX = 0.0,
-					rotationY = -90.0,
-					rotationZ = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 1.36,
-					colliderScaleY = 1.0,
-					colliderScaleZ = 2.3,
-					isTrigger = false,
-					mass = 1.0,
-					friction = 0.0,
-					damping = 0.0,
-					bounciness = 0.0,
-					colShape = 0,
-					movementType = 2
-				},
-				MeshRenderer = {
-					meshName  = "models/turtle/Turtle.mesh",
-					initRotationY = -180.0
-				},
-				SideMovement = {
-					movementDistance = 20.0,
-					initDirX = 1.0,
-					initDirY = 0.0,
-					initDirZ = 0.0,
-					movSpd = 5.0,
-					rotSpd = 45.0
-				},
-				ContactDamage = {
-					damage = 1
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = -11.2,
-					positionY = -9.42,
-					positionZ = -163.8,
-					scaleX = 2.0,
-					scaleY = 2.0,
-					scaleZ = 2.0,
-					rotationX = 0.0,
-					rotationY = -90.0,
-					rotationZ = 0.0
-				},
-				RigidBody = {
-					colliderScaleX = 1.36,
-					colliderScaleY = 1.0,
-					colliderScaleZ = 2.3,
-					isTrigger = false,
-					mass = 1.0,
-					friction = 0.0,
-					damping = 0.0,
-					bounciness = 0.0,
-					colShape = 0,
-					movementType = 2
-				},
-				MeshRenderer = {
-					meshName  = "models/turtle/Turtle.mesh",
-					initRotationY = -180.0
-				},
-				SideMovement = {
-					movementDistance = 20.0,
-					initDirX = 1.0,
-					initDirY = 0.0,
-					initDirZ = 0.0,
-					movSpd = 5.0,
-					rotSpd = 45.0
-				},
-				ContactDamage = {
-					damage = 1
-				}
-			}
-		},
-		{
-			components = {
-				Transform = {
-					positionX = 0.0,
-					positionY = 0.0,
-					positionZ = 0.0,
-					scaleX = 1.0,
-					scaleY = 1.0,
-					scaleZ = 1.0,
-					rotationX = 0.0,
-					rotationY = 0.0,
-					rotationZ = 0.0
-				}
-			},
-			children = {
-				{
-					components = {
-						Transform = {
-							positionX = 0.0,
-							positionY = -12.43,
-							positionZ = -76.7,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral1.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.36,
-							colliderScaleY = 1.92,
-							colliderScaleZ = 2.3,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 10.8,
-							positionY = -12.43,
-							positionZ = -109.77,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral1.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.36,
-							colliderScaleY = 1.92,
-							colliderScaleZ = 2.3,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 10.8,
-							positionY = -8.6,
-							positionZ = -189.4,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.6883546,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral1.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.36,
-							colliderScaleY = 1.92,
-							colliderScaleZ = 2.3,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -13.62,
-							positionY = -12.4,
-							positionZ = -63.54,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral2.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.59,
-							colliderScaleY = 2.04,
-							colliderScaleZ = 0.91,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -13.62,
-							positionY = -12.4,
-							positionZ = -116.81,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.0,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral2.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.59,
-							colliderScaleY = 2.04,
-							colliderScaleZ = 0.91,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = 8.0,
-							positionY = -8.8,
-							positionZ = -154.4,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.7489557,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral2.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.59,
-							colliderScaleY = 2.04,
-							colliderScaleZ = 0.91,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				},
-				{
-					components = {
-						Transform = {
-							positionX = -14.3,
-							positionY = -8.8,
-							positionZ = -140.6,
-							scaleX = 1.0,
-							scaleY = 1.0,
-							scaleZ = 1.0,
-							rotationX = 0.0,
-							rotationY = 0.7489557,
-							rotationZ = 0.0
-						},
-						MeshRenderer = {
-							meshName  = "models/corals/Coral2.mesh"
-						},
-						RigidBody = {
-							colliderScaleX = 1.59,
-							colliderScaleY = 2.04,
-							colliderScaleZ = 0.91,
-							isTrigger = false,
-							mass = 1.0,
-							friction = 1.0,
-							damping = 0.0,
-							bounciness = 0.0,
-							colShape = 0,
-							movementType = 1
-						},
-						ContactDamage = {
-							damage = 1
-						}
-					}
-				}
+			CameraFollow = {
+				target = "Player",
+				offsetX = 0.0,
+				offsetY = 2.0,
+				offsetZ = 10.0,
+				smoothSpeed = 0.125,
+				rotationSpeed = 0.1
 			}
 		}
+	},
+
+	Light = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			LightDirComp = {
+				directionX = 1.0,
+				directionY = -1.0,
+				directionZ = -1.0,
+				mainLight = true,
+				powerScale = 1.5,
+				colorR = 0.2235294118,
+				colorG = 0.4117647059,
+				colorB = 0.7215686275
+			}
+		}
+	},
+
+	Player = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 27.45,
+				positionZ = -5.0,
+				scaleX = 1.0,
+				scaleY = 1.6,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			MeshRenderer = {
+				meshName  = "models/1mCube.mesh",
+				materialName = "white",
+			},
+			RigidBody = {
+				colliderScaleX = 0.5,
+				colliderScaleY = 0.5,
+				colliderScaleZ = 0.5,
+				isTrigger = false,
+				mass = 50.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 2.0,
+				colShape = 0,
+				movementType = 0
+			},
+			PlayerMovementController = {
+			},
+			PlayerSetting = {
+			},
+			FallDamage = {
+			},
+			Health = {
+				maxHealth = 2,
+				currHealth = 1,
+			}
+		}
+	},
+
+	Scenario = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY =  90.0,
+				rotationZ = 0.0
+			}
+		},
+		children = {
+			Corals = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Corals.mesh"
+					},
+				},
+			},
+			Seaweed = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Seaweed.mesh",
+					},
+				},
+			},
+			Background = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Background.mesh",
+					},
+				},
+			},
+			Rocks = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Rocks.mesh",
+					},
+				},
+			},
+
+			Platform1 = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Platform1.mesh",
+					},
+				},
+				children = {
+					-- Floor1
+					{
+						components = {
+							Transform = {
+								positionX = 6.31,
+								positionY = 22.37,
+								positionZ = 0.0,
+								scaleX = 22.37,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					
+					-- Floor2
+					{
+						components = {
+							Transform = {
+								positionX = 18.56,
+								positionY = 20.02,
+								positionZ = 0.0,
+								scaleX = 9.85,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = -45.69
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Floor3
+					{
+						components = {
+							Transform = {
+								positionX = 29.98,
+								positionY = 15.86,
+								positionZ = 0.0,
+								scaleX = 23.3,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Floor4
+					{
+						components = {
+							Transform = {
+								positionX = 42.91,
+								positionY = 15.43,
+								positionZ = 0.0,
+								scaleX = 4.53,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = -12.66
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Wall1
+					{
+						components = {
+							Transform = {
+								positionX = 20.0,
+								positionY = 24.3,
+								positionZ = 6.33,
+								scaleX = 52.1,
+								scaleY = 15.9,
+								scaleZ = 4.1,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Wall2
+					{
+						components = {
+							Transform = {
+								positionX = 20.0,
+								positionY = 24.3,
+								positionZ = -6.33,
+								scaleX = 52.1,
+								scaleY = 15.9,
+								scaleZ = 4.1,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					
+					-- Wall3
+					{
+						components = {
+							Transform = {
+								positionX = -4.3,
+								positionY = 24.3,
+								positionZ = 0.0,
+								scaleX = 5.1,
+								scaleY = 15.9,
+								scaleZ = 18.5,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+				}
+			},
+
+			Stairs = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Stairs.mesh",
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = 53.65,
+								positionY = 18.19,
+								positionZ = 0.0,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = 15.2,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+				
+					{
+						components = {
+							Transform = {
+								positionX = 103.13,
+								positionY = 18.46,
+								positionZ = 0.0,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+
+
+
+
+
+					{
+						components = {
+							Transform = {
+								positionX = 111.33,
+								positionY = 20.08,
+								positionZ = -3.56,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = 68.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					{
+						components = {
+							Transform = {
+								positionX = 111.7,
+								positionY = 21.59,
+								positionZ = 2.85,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = 48.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					{
+						components = {
+							Transform = {
+								positionX = 113.43,
+								positionY = 23.55,
+								positionZ = 8.77,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = 31.9,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					{
+						components = {
+							Transform = {
+								positionX = 118.37,
+								positionY = 24.64,
+								positionZ = 12.5,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = -0.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					{
+						components = {
+							Transform = {
+								positionX = 124.44,
+								positionY = 26.74,
+								positionZ = 13.43,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = -10.72,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					{
+						components = {
+							Transform = {
+								positionX = 130.74,
+								positionY = 28.29,
+								positionZ = 13.81,
+								scaleX = 3.86,
+								scaleY = 1.11,
+								scaleZ = 4.14,
+								rotationX = 0.0,
+								rotationY = -22.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+				}
+
+			},
+
+			Platform2 = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Platform2.mesh",
+					},
+				},
+				children = {
+					-- Floor1
+					{
+						components = {
+							Transform = {
+								positionX = 62.77,
+								positionY = 14.13,
+								positionZ = 0.0,
+								scaleX = 2.43,
+								scaleY = 8.0,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 17.5
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					
+					-- Floor2
+					{
+						components = {
+							Transform = {
+								positionX = 79.65,
+								positionY = 14.32,
+								positionZ = 0.0,
+								scaleX = 34.0,
+								scaleY = 7.98,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Floor3
+					{
+						components = {
+							Transform = {
+								positionX = 96.6,
+								positionY = 14.13,
+								positionZ = 0.0,
+								scaleX = 2.43,
+								scaleY = 8.0,
+								scaleZ = 17.44,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = -17.5
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Wall1
+					{
+						components = {
+							Transform = {
+								positionX = 66.53,
+								positionY = 15.3,
+								positionZ = -6.54,
+								scaleX = 12.2,
+								scaleY = 16.6,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					-- Wall2
+					{
+						components = {
+							Transform = {
+								positionX = 87.26,
+								positionY = 15.3,
+								positionZ = -6.54,
+								scaleX = 23.3,
+								scaleY = 16.6,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					-- Wall3
+					{
+						components = {
+							Transform = {
+								positionX = 70.08,
+								positionY = 15.3,
+								positionZ = 7.16,
+								scaleX = 19.2,
+								scaleY = 16.6,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					-- Wall4
+					{
+						components = {
+							Transform = {
+								positionX = 90.88,
+								positionY = 15.3,
+								positionZ = 7.16,
+								scaleX = 16.0,
+								scaleY = 16.6,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Hole1
+					{
+						components = {
+							Transform = {
+								positionX = 74.18,
+								positionY = 20.0,
+								positionZ = -6.54,
+								scaleX = 4.3,
+								scaleY = 4.4,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+
+					-- Hole2
+					{
+						components = {
+							Transform = {
+								positionX = 81.37,
+								positionY = 20.0,
+								positionZ = 7.16,
+								scaleX = 4.3,
+								scaleY = 4.4,
+								scaleZ = 4.55,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+				}
+			},
+
+			Platform3 = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 0.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/scenario/Platform3.mesh",
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = 129.5,
+								positionY = 17.26,
+								positionZ = 0.0,
+								scaleX = 18.7,
+								scaleY = 28.5,
+								scaleZ = 18.5,
+								rotationX = 0.0,
+								rotationY = -5.3,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 118.85,
+								positionY = 29.52,
+								positionZ = 1.31,
+								scaleX = 3.96,
+								scaleY = 2.8,
+								scaleZ = 11.6,
+								rotationX = 0.0,
+								rotationY = -5.3,
+								rotationZ = 17.7
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 128.55,
+								positionY = 29.79,
+								positionZ = 9.24,
+								scaleX = 17.32,
+								scaleY = 2.8,
+								scaleZ = 2.0,
+								rotationX = 35.66,
+								rotationY = -5.3,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 122.89,
+								positionY = 15.62,
+								positionZ = 9.3,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 9.0,
+								rotationX = -12.2,
+								rotationY = -13.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 132.03,
+								positionY = 15.62,
+								positionZ = 10.72,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 9.0,
+								rotationX = -12.2,
+								rotationY = -4.8,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 117.12,
+								positionY = 15.59,
+								positionZ = 4.49,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 8.96,
+								rotationX = 0.0,
+								rotationY = 11.0,
+								rotationZ = -13.46
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+					{
+						components = {
+							Transform = {
+								positionX = 117.17,
+								positionY = 15.6,
+								positionZ = -2.29,
+								scaleX = 10.0,
+								scaleY = 28.5,
+								scaleZ = 8.96,
+								rotationX = 0.0,
+								rotationY = -11.4,
+								rotationZ = -13.46
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 1.0,
+								damping = 0.4,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 1
+							},
+						}
+					},
+				}
+			},
+			
+		}
+	},
+	
+	Enemies = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			}
+		},
+		children = {
+			-- Crabs
+			{
+				components = {
+					Transform = {
+						positionX = -3.0,
+						positionY = 26.81,
+						positionZ = -12.45,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 180.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 0.0
+					},
+					Animator = { 
+						initAnim = "Walk",
+					},
+					SideMovement = {
+						movementDistance = 6.0,
+						initDirX = 1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 3.0,
+						positionY = 20.29,
+						positionZ = -33.83,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 180.0
+					},
+					Animator = { 
+						initAnim = "Walk",
+					},
+					SideMovement = {
+						movementDistance = 6.0,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+
+			-- Corals
+			{
+				components = {
+					Transform = {
+						positionX = -2.8,
+						positionY = 26.627,
+						positionZ = -9.27,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.5,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral1.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.42,
+						positionY = 27.109,
+						positionZ = -9.27,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.2,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 1.2,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral5.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.62,
+						positionY = 20.103,
+						positionZ = -28.488,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.655,
+						positionY = 20.1,
+						positionZ = -29.99,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.5,
+						positionY = 20.54,
+						positionZ = -42.26,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral4.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 2.5,
+						positionY = 20.54,
+						positionZ = -42.26,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.5,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral3.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 1.0,
+						positionY = 19.94,
+						positionZ = -42.79,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.7,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral6.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.1,
+						positionY = 19.38,
+						positionZ = -64.13,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 2.0,
+						colliderScaleZ = 0.7,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/corals/Coral2.mesh",
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+
+
+
+			-- Turtles
+			{
+				components = {
+					Transform = {
+						positionX = -4.6,
+						positionY = 18.889,
+						positionZ = -74.21,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = -90.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 1.5,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/turtle/Turtle.mesh",
+					},
+					Animator = { 
+						initAnim = "Swim",
+					},
+					SideMovement = {
+						movementDistance = 7.0,
+						initDirX = 1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 5.29,
+						positionY = 18.889,
+						positionZ = -81.32,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = 90.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.7,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 1.5,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/turtle/Turtle.mesh",
+						initRotationY = 90.0,
+					},
+					Animator = { 
+						initAnim = "Swim",
+					},
+					SideMovement = {
+						movementDistance = 7.0,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 1.0,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					}
+
+				},
+			},
+
+			{
+				components = {
+					Transform = {
+						positionX = -5.88,
+						positionY = 19.72,
+						positionZ = -49.83,
+						scaleX = 2.0,
+						scaleY = 2.0,
+						scaleZ = 2.0,
+						rotationX = 0.0,
+						rotationY = -90.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/eel/Eel.mesh",
+					},
+					Animator = { 
+						initAnim = "Idle.002",
+					},
+					SideMovement = {
+						movementDistance = 9.0,
+						initDirX = 0.0,
+						initDirY = -1.0,
+						initDirZ = 0.0,
+						movSpd = 3.0,
+						rotSpd = 0.0
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = 0.0,
+								positionY = 0.65,
+								positionZ = -3.41,
+								scaleX = 0.19,
+								scaleY = 0.3,
+								scaleZ = 6.81,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 0.0,
+								damping = 0.0,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 2
+							},
+							ContactDamage = {
+								damage = 1
+							}
+						},
+					},
+					
+
+				}
+			},
+
+			{
+				components = {
+					Transform = {
+						positionX = 7.51,
+						positionY = 10.72,
+						positionZ = -57.02,
+						scaleX = 2.0,
+						scaleY = 2.0,
+						scaleZ = 2.0,
+						rotationX = 0.0,
+						rotationY = 90.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/eel/Eel.mesh",
+					},
+					Animator = { 
+						initAnim = "Idle.002",
+					},
+					SideMovement = {
+						movementDistance = 9.0,
+						initDirX = 0.0,
+						initDirY = 1.0,
+						initDirZ = 0.0,
+						movSpd = 3.0,
+						rotSpd = 0.0
+					},
+				},
+				children = {
+					{
+						components = {
+							Transform = {
+								positionX = 0.0,
+								positionY = 0.65,
+								positionZ = -3.41,
+								scaleX = 0.19,
+								scaleY = 0.3,
+								scaleZ = 6.81,
+								rotationX = 0.0,
+								rotationY = 0.0,
+								rotationZ = 0.0
+							},
+							RigidBody = {
+								colliderScaleX = 0.5,
+								colliderScaleY = 0.5,
+								colliderScaleZ = 0.5,
+								isTrigger = false,
+								mass = 1.0,
+								friction = 0.0,
+								damping = 0.0,
+								bounciness = 0.0,
+								colShape = 0,
+								movementType = 2
+							},
+							ContactDamage = {
+								damage = 1
+							}
+						},
+					},
+					
+
+				}
+			},
+			
+		}
+
+	},
+	
+	Ship = {
+		components = {
+			Transform = {
+				positionX = 1.24,
+				positionY = 43.97,
+				positionZ = -132.03,
+				scaleX = 6.67,
+				scaleY = 6.67,
+				scaleZ = 6.67,
+				rotationX = 0.0,
+				rotationY = -37.08,
+				rotationZ = 0.0
+			},
+			MeshRenderer = {
+				meshName  = "models/ship/Ship.mesh"
+			},
+		},
+	}
+
+
 }

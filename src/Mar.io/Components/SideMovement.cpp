@@ -64,10 +64,11 @@ void SideMovement::update(const uint64_t deltaTime) {
         }
     }
     else if (state == turning) {
-        rot += rotSpd * deltaTime / 1000.0f;
-        transform->setRotation(Tapioca::Vector3(0, initRot + rot, 0));
-
-        if (rot >= 180) {
+        if (abs(rotSpd) > 0) {
+            rot += rotSpd * deltaTime / 1000.0f;
+            transform->setRotation(Tapioca::Vector3(0, initRot + rot, 0));
+        }
+        if (rot >= 180 || abs(rotSpd) <= 0) {
             nextPos = initPos;
             state = coming;
 
@@ -76,10 +77,11 @@ void SideMovement::update(const uint64_t deltaTime) {
         }
     }
     else if (state == turningBack) {
-        rot -= rotSpd * deltaTime / 1000.0f;
-        transform->setRotation(Tapioca::Vector3(0, initRot + rot, 0));
-
-        if (rot <= 0) {
+        if (abs(rotSpd) > 0) {
+            rot -= rotSpd * deltaTime / 1000.0f;
+            transform->setRotation(Tapioca::Vector3(0, initRot + rot, 0));
+        }
+        if (rot <= 0 || abs(rotSpd) <= 0) {
             nextPos = initPos + initDir * movementDistance;
             state = going;
 
