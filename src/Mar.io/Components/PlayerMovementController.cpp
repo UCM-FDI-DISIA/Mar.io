@@ -66,16 +66,16 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_MOVEFORWARD") {
-        if (moveZ != -1) {
+        if (moveZ != -1 && anim != nullptr) {
             anim->setLoop(true);
-            anim->playAnim("running");
+            anim->playAnim("Running");
         }
         moveZ = -1;
     }
     else if (id == "ev_MOVEBACK") {
-        if (moveZ != 1) {
+        if (moveZ != 1 && anim != nullptr) {
             anim->setLoop(true);
-            anim->playAnim("running");
+            anim->playAnim("Running");
         }
         moveZ = 1;
     }
@@ -87,17 +87,16 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_MOVELEFT") {
-        if (moveX != -1) {
-
+        if (moveX != -1 && anim != nullptr) {
             anim->setLoop(true);
-            anim->playAnim("running");
+            anim->playAnim("Running");
         }
         moveX = -1;
     }
     else if (id == "ev_MOVERIGHT") {
-        if (moveX != 1) {
+        if (moveX != 1 && anim != nullptr) {
             anim->setLoop(true);
-            anim->playAnim("running");
+            anim->playAnim("Running");
         }
         moveX = 1;
     }
@@ -115,9 +114,9 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             jumps++;
         }
     }
-    if (id == "ev_MELEATTACK") {
+    if (id == "ev_MELEATTACK" && anim != nullptr) {
         anim->setLoop(false);
-        anim->playAnim("punching");
+        anim->playAnim("Punching");
     }
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
@@ -126,8 +125,9 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             bounce = true;
         }
         else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
-                 object->getComponent<Coin>() == nullptr) {
+                 trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
+                 object->getComponent<Coin>() == nullptr) 
+        {
             grounded = true;
             jumps = 0;
         }
@@ -147,11 +147,11 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             respawnpos = c->getRespawnPos();
         }
     }
+
 }
 
 void PlayerMovementController::fixedUpdate() {
     Tapioca::Vector3 v = rigidBody->getVelocity();
-
     if (jump) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));
         jump = false;

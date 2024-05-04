@@ -243,21 +243,21 @@ scene  = {
 				positionX = 0.0,
 				positionY = 27.45,
 				positionZ = -5.0,
-				scaleX = 0.70,
-				scaleY = 0.70,
-				scaleZ = 0.70,
+				scaleX = 1.3,
+				scaleY = 1.3,
+				scaleZ = 1.3,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName  = "models/pirateRaccoon/PirateRacoon.004.mesh",
+				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
 			},
 			Animator={ },
 
 			RigidBody = {
 				colliderScaleX = 0.3,
-				colliderScaleY = 0.95,
+				colliderScaleY = 0.5,
 				colliderScaleZ = 0.3,
 				isTrigger = false,
 				mass = 50.0,
@@ -483,7 +483,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "./assets/models/scenario/Platform1.obj"
+						file = "./assets/models/scenario/Platform1.obj"
 					}
 
 				}

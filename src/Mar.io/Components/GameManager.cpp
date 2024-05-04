@@ -81,7 +81,7 @@ void GameManager::nextLevel() {
         changeScene("MainMenu");
     }
     else {
-        std::string levelName = "Nivel" + std::to_string(level);
+        std::string levelName = "Level" + std::to_string(level);
         changeScene(levelName);
     }
 }
