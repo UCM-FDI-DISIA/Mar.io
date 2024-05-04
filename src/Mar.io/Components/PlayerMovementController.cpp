@@ -62,17 +62,21 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
     if (id == "ev_Run") {
         run = true;
-        if (anim != nullptr) {
-            anim->setLoop(true);
-            anim->playAnim("my_animation");
-        }
         runEnd = false;
     }
 
     if (id == "ev_MOVEFORWARD") {
+        if (moveZ != -1) {
+            anim->setLoop(true);
+            anim->playAnim("running");
+        }
         moveZ = -1;
     }
     else if (id == "ev_MOVEBACK") {
+        if (moveZ != 1) {
+            anim->setLoop(true);
+            anim->playAnim("running");
+        }
         moveZ = 1;
     }
     else if (id == "ev_MOVEFORWARDEND") {
@@ -83,9 +87,18 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_MOVELEFT") {
+        if (moveX != -1) {
+           
+            anim->setLoop(true);
+            anim->playAnim("running");
+        }
         moveX = -1;
     }
     else if (id == "ev_MOVERIGHT") {
+        if (moveX != 1) {
+            anim->setLoop(true);
+            anim->playAnim("running");
+        }
         moveX = 1;
     }
     else if (id == "ev_MOVELEFTEND") {
@@ -101,6 +114,11 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             grounded = false;
             jumps++;
         }
+    }
+    if (id == "ev_MELEATTACK") {
+        anim->setLoop(false);
+        anim->playAnim("punching");
+        
     }
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;

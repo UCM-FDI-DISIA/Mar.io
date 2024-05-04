@@ -168,9 +168,9 @@ scene  = {
 						text = "X0",
 						textSize = 30.0,
 						textFontName = "AGENCYB.TTF",
-						textColorR = 0.25,
-						textColorG = 0.25,
-						textColorB = 0.25,
+						textColorR = 0.75,
+						textColorG = 0.75,
+						textColorB = 0.75,
 						textColorA = 1.0
 					}
 				
@@ -204,9 +204,9 @@ scene  = {
 						text = "0X",
 						textSize = 30.0,
 						textFontName = "AGENCYB.TTF",
-						textColorR = 0.25,
-						textColorG = 0.25,
-						textColorB = 0.25,
+						textColorR = 0.75,
+						textColorG = 0.75,
+						textColorB = 0.75,
 						textColorA = 1.0
 						
 					}
@@ -222,21 +222,21 @@ scene  = {
 				positionX = 0.0,
 				positionY = 27.45,
 				positionZ = -5.0,
-				scaleX = 1.0,
-				scaleY = 1.0,
-				scaleZ = 1.0,
+				scaleX = 0.70,
+				scaleY = 0.70,
+				scaleZ = 0.70,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			MeshRenderer = {
-				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
+				meshName  = "models/pirateRaccoon/PirateRacoon.004.mesh",
 			},
 			Animator={ },
 
 			RigidBody = {
 				colliderScaleX = 0.3,
-				colliderScaleY = 0.8,
+				colliderScaleY = 0.95,
 				colliderScaleZ = 0.3,
 				isTrigger = false,
 				mass = 50.0,
