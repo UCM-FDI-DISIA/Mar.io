@@ -13,7 +13,7 @@ template class JUEGO_API Tapioca::Singleton<GameManager>;
 template<>
 GameManager* Tapioca::Singleton<GameManager>::instance_ = nullptr;
 
-GameManager::GameManager() : state(MainMenu), level(0), levelPuntuaction(0) { }
+GameManager::GameManager() : state(MainMenu), level(0), levelScore(0) { }
 
 void GameManager::onGameOver() {
     Tapioca::logInfo("GameManager: Muelto.");
@@ -73,7 +73,7 @@ void GameManager::handleEvent(std::string const& id, void* info) {
 }
 
 void GameManager::nextLevel() {
-    levelPuntuaction = 0;
+    levelScore = 0;
     std::string levelName = "Level" + std::to_string(level);
     Tapioca::MainLoop::instance()->deleteScene(levelName);
     level++;
@@ -81,7 +81,7 @@ void GameManager::nextLevel() {
         changeScene("MainMenu");
     }
     else {
-        std::string levelName = "Level" + std::to_string(level);
+        std::string levelName = "Nivel" + std::to_string(level);
         changeScene(levelName);
     }
 }
@@ -131,8 +131,8 @@ void GameManager::ToPause() {
     state = Pause;
 }
 
-void GameManager::increasePuntuaction(int increasement) { 
-    levelPuntuaction += increasement;
+void GameManager::increaseScore(int increasement) { 
+    levelScore += increasement;
 }
 
 

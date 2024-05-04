@@ -42,4 +42,5 @@ public:
     int getHP();
 
     void setInvencibility(float duration);
+    void deactivateInvincibility();
 };
