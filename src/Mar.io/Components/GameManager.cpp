@@ -39,8 +39,6 @@ void GameManager::registerLuaFunctions() {
     lua->addLuaFunction("ContinueButtonClick", [this]() { ContinueButtonClick(); });
 }
 
-bool initComponent(const CompMap& variables) { return false; }
-
 bool GameManager::initComponent(const CompMap& variables) {
     registerLuaFunctions();
     return true;
@@ -53,7 +51,6 @@ void GameManager::start() {
 }
 
 void GameManager::update(const uint64_t deltaTime) { }
-
 
 void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
@@ -134,6 +131,3 @@ void GameManager::ToPause() {
 void GameManager::increaseScore(int increasement) { 
     levelScore += increasement;
 }
-
-
-

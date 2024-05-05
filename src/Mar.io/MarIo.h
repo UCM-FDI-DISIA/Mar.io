@@ -1,7 +1,6 @@
 #pragma once
 #include "gameDefs.h"
 #include "componentDefs.h"
-#include <string>
 
 extern "C" {
 /*
@@ -15,9 +14,9 @@ JUEGO_API void addComponentFactories();
 /*
 * @brief Devuelve el nombre de la ventana
 */
-JUEGO_API std::string getWindowName();
+JUEGO_API const char* getWindowName();
 /*
 * @brief Devuelve el nombre de la primera escena del juego
 */
-JUEGO_API std::string getInitScene();
+JUEGO_API const char* getInitScene();
 }

@@ -49,6 +49,6 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<InvincibilityPowerUp>());
 }
 
-std::string getWindowName() { return "Mar.io"; }
+const char* getWindowName() { return "Mar.io"; }
 
-std::string getInitScene() { return "StartScene.lua"; }
+const char* getInitScene() { return "StartScene.lua"; }
