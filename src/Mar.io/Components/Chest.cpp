@@ -64,7 +64,7 @@ void Chest::createCoins(int n) {
         transformMap["positionX"] = pos.x + posWithinCircle.x * 5;
         transformMap["positionY"] = pos.y + posWithinCircle.y * 5;
         transformMap["positionZ"] = pos.z + posWithinCircle.z * 5;
-        const float COIN_SCALE = 0.5f;
+        const float COIN_SCALE = 1.0f;
         transformMap["scaleX"] = COIN_SCALE;
         transformMap["scaleY"] = COIN_SCALE;
         transformMap["scaleZ"] = COIN_SCALE;
@@ -72,24 +72,28 @@ void Chest::createCoins(int n) {
         CompMap rigidBodyMap;
         rigidBodyMap["isTrigger"] = true;
         rigidBodyMap["mass"] = 1.0f;
-        rigidBodyMap["damping"] = 0.0f;
+        rigidBodyMap["damping"] = 0.4f;
         rigidBodyMap["colShape"] = 0;
         rigidBodyMap["movementType"] = 0;
-        rigidBodyMap["colliderScaleX"] = 4.0f;
-        rigidBodyMap["colliderScaleY"] = 4.0f;
-        rigidBodyMap["colliderScaleZ"] = 2.0f;
-        rigidBodyMap["friction"] = 10.0f;
+        rigidBodyMap["colliderScaleX"] = 0.5f;
+        rigidBodyMap["colliderScaleY"] = 0.5f;
+        rigidBodyMap["colliderScaleZ"] = 0.5f;
+        rigidBodyMap["friction"] = 1.0f;
         rigidBodyMap["bounciness"] = 0.0f;
 
         CompMap meshMap;
-        meshMap["meshName"] = "models/coin/coin.mesh";
+        meshMap["meshName"] = "models/coin/Coin.mesh";
         object->getScene()->addObject(coin);
-        coin->addComponents(
-            {{"Transform", transformMap}, {"RigidBody", rigidBodyMap}, {"MeshRenderer", meshMap}, {"Coin", {}}});
+        coin->addComponents( {
+            {"Transform", transformMap}, 
+            {"RigidBody", rigidBodyMap}, 
+            {"MeshRenderer", meshMap}, 
+            {"Coin", {}}
+        });
 
         Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
         if (coinRb != nullptr) {
-            coinRb->addForce(posWithinCircle * 500);
+            coinRb->addForce(posWithinCircle * 300);
         }
     }
 }
@@ -97,36 +101,7 @@ void Chest::createCoins(int n) {
 void Chest::creatOpenChest() {
     Tapioca::MeshRenderer* meshRenderer = object->getComponent<Tapioca::MeshRenderer>();
     if (meshRenderer != nullptr) {
-        meshRenderer->setMesh("models/chest/cofre.mesh");
+        meshRenderer->setMesh("models/chest/OpenedChest.mesh");
     }
     open = true;
-    //Tapioca::GameObject* chest = new Tapioca::GameObject();
-    //Tapioca::Vector3 scale = transform->getGlobalScale();
-    //Tapioca::Vector3 pos = transform->getGlobalPosition();
-
-    //CompMap transformMap;
-    //transformMap["positionX"] = pos.x;
-    //transformMap["positionY"] = pos.y;
-    //transformMap["positionZ"] = pos.z;
-    //transformMap["scaleX"] = scale.x;
-    //transformMap["scaleY"] = scale.y;
-    //transformMap["scaleZ"] = scale.z;
-
-    //CompMap rigidBodyMap;
-    //rigidBodyMap["isTrigger"] = false;
-    //rigidBodyMap["mass"] = 1.0f;
-    //rigidBodyMap["damping"] = 0.4f;
-    //rigidBodyMap["colShape"] = 0;
-    //rigidBodyMap["movementType"] = 1;
-    //rigidBodyMap["colliderScaleX"] = 3.7f;
-    //rigidBodyMap["colliderScaleY"] = 3.0f;
-    //rigidBodyMap["colliderScaleZ"] = 1.7f;
-    //rigidBodyMap["friction"] = 1.0f;
-    //rigidBodyMap["bounciness"] = 1.0f;
-
-    //CompMap meshMap;
-    //meshMap["meshName"] = "models/chest/cofre.mesh";
-
-    //object->getScene()->addObject(chest);
-    //chest->addComponents({{"Transform", transformMap}, {"RigidBody", rigidBodyMap}, {"MeshRenderer", meshMap}});
 }

@@ -2,6 +2,7 @@
 #include "Structure/GameObject.h"
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
+#include "PlayerMovementController.h"
 #include "Score.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<Coin>;
@@ -26,7 +27,7 @@ void Coin::start() {
 void Coin::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;
-        if (player->getHandler() == "Player") {
+        if (player->getComponent<PlayerMovementController>() != nullptr) {
             Score* score = player->getComponent<Score>();
             if (score != nullptr) {
                 score->increaseScore(points);

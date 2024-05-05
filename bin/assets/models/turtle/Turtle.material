@@ -5,7 +5,7 @@ material Turtle : ShadowTemplateColor {
     receive_shadows on
     technique {
         pass Decal {
-            diffuse 0.039497 0.168989 0.046451 1.0
+            diffuse 0.07 0.29 0.09 1.00
         }
     }
 }
@@ -23,7 +23,7 @@ material TurtleShell : ShadowTemplateColor {
     receive_shadows on
     technique {
         pass Decal {
-            diffuse 0.083761 0.035579 0.018231 1.0
+            diffuse 0.29 0.15 0.10 1.00
         }
     }
 }

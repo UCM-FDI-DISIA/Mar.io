@@ -215,6 +215,7 @@ scene  = {
 			},
 		}
 	},
+
 	Sky = {
 		components = {
 			Transform = {
@@ -237,6 +238,7 @@ scene  = {
 			-- }
 		}
 	},
+
 	Player = {
 		components = {
 			Transform = {
@@ -256,9 +258,9 @@ scene  = {
 			Animator={ },
 
 			RigidBody = {
-				colliderScaleX = 0.3,
-				colliderScaleY = 0.5,
-				colliderScaleZ = 0.3,
+				colliderScaleX = 0.25,
+				colliderScaleY = 0.7,
+				colliderScaleZ = 0.25,
 				isTrigger = false,
 				mass = 50.0,
 				friction = 1.0,
@@ -353,7 +355,6 @@ scene  = {
 		}
 	},
 
-	
 	Scenario = {
 		components = {
 			Transform = {
@@ -590,6 +591,7 @@ scene  = {
 				}
 			},
 			
+
 		}
 	},
 	
@@ -984,8 +986,6 @@ scene  = {
 				},
 			},
 
-
-
 			-- Turtles
 			{
 				components = {
@@ -1079,11 +1079,12 @@ scene  = {
 				},
 			},
 
+			-- Eels
 			{
 				components = {
 					Transform = {
-						positionX = -5.88,
-						positionY = 19.72,
+						positionX = 3.82,
+						positionY = 24.33,
 						positionZ = -49.83,
 						scaleX = 2.0,
 						scaleY = 2.0,
@@ -1096,11 +1097,11 @@ scene  = {
 						meshName  = "models/eel/Eel.mesh",
 					},
 					Animator = { 
-						initAnim = "Idle.002",
+						initAnim = "Swim",
 					},
 					SideMovement = {
-						movementDistance = 9.0,
-						initDirX = 0.0,
+						movementDistance = 13.0,
+						initDirX = -1.0,
 						initDirY = -1.0,
 						initDirZ = 0.0,
 						movSpd = 3.0,
@@ -1112,8 +1113,8 @@ scene  = {
 						components = {
 							Transform = {
 								positionX = 0.0,
-								positionY = 0.65,
-								positionZ = -3.41,
+								positionY = 0.0,
+								positionZ = -0.74,
 								scaleX = 0.19,
 								scaleY = 0.3,
 								scaleZ = 6.81,
@@ -1142,12 +1143,11 @@ scene  = {
 
 				}
 			},
-
 			{
 				components = {
 					Transform = {
-						positionX = 7.51,
-						positionY = 10.72,
+						positionX = -5.72,
+						positionY = 11.33,
 						positionZ = -57.02,
 						scaleX = 2.0,
 						scaleY = 2.0,
@@ -1160,11 +1160,11 @@ scene  = {
 						meshName  = "models/eel/Eel.mesh",
 					},
 					Animator = { 
-						initAnim = "Idle.002",
+						initAnim = "Swim",
 					},
 					SideMovement = {
-						movementDistance = 9.0,
-						initDirX = 0.0,
+						movementDistance = 13.0,
+						initDirX = 1.0,
 						initDirY = 1.0,
 						initDirZ = 0.0,
 						movSpd = 3.0,
@@ -1176,8 +1176,8 @@ scene  = {
 						components = {
 							Transform = {
 								positionX = 0.0,
-								positionY = 0.65,
-								positionZ = -3.41,
+								positionY = 0.0,
+								positionZ = -0.74,
 								scaleX = 0.19,
 								scaleY = 0.3,
 								scaleZ = 6.81,
@@ -1244,7 +1244,209 @@ scene  = {
 				rotKeyZ4 = 0.0,
 			}
 		},
+	},
+
+	Coins = {
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 0.0,
+				positionZ = 0.0,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+		},
+		children = {
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 18.78,
+						positionZ = -78.72,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 0.4,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/chest/ClosedChest.mesh"
+					},
+					Chest = { }
+				}
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 28.0,
+						positionZ = -9.67,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					Coin = { }
+				}
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 20.18,
+						positionZ = -53.42,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					Coin = { }
+				}
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -3.77,
+						positionY = 22.79,
+						positionZ = -111.3,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					Coin = { }
+				}
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 8.65,
+						positionY = 25.09,
+						positionZ = -113.11,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					Coin = { }
+				}
+			},
+			{
+				components = {
+					Transform = {
+						positionX = 13.81,
+						positionY = 28.77,
+						positionZ = -124.67,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					RigidBody = {
+						colliderScaleX = 0.5,
+						colliderScaleY = 0.5,
+						colliderScaleZ = 0.5,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					Coin = { }
+				}
+			},
+		}
 	}
-
-
 }
