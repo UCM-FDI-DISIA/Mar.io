@@ -58,19 +58,19 @@ void Chest::createCoins(int n) {
         // Calcular el seno y el coseno
         float sinValue = std::sinf(angle);
         float cosValue = std::cosf(angle);
-        Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 1, cosValue);
+        Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 2, cosValue);
 
         CompMap transformMap;
-        transformMap["positionX"] = pos.x + posWithinCircle.x * 5;
-        transformMap["positionY"] = pos.y + posWithinCircle.y * 5;
-        transformMap["positionZ"] = pos.z + posWithinCircle.z * 5;
+        transformMap["positionX"] = pos.x + posWithinCircle.x;
+        transformMap["positionY"] = pos.y + posWithinCircle.y;
+        transformMap["positionZ"] = pos.z + posWithinCircle.z;
         const float COIN_SCALE = 1.0f;
         transformMap["scaleX"] = COIN_SCALE;
         transformMap["scaleY"] = COIN_SCALE;
         transformMap["scaleZ"] = COIN_SCALE;
 
         CompMap rigidBodyMap;
-        rigidBodyMap["isTrigger"] = true;
+        rigidBodyMap["isTrigger"] = false;
         rigidBodyMap["mass"] = 1.0f;
         rigidBodyMap["damping"] = 0.4f;
         rigidBodyMap["colShape"] = 0;
@@ -91,10 +91,11 @@ void Chest::createCoins(int n) {
             {"Coin", {}}
         });
 
-        Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
+         Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
         if (coinRb != nullptr) {
-            coinRb->addForce(posWithinCircle * 300);
+            coinRb->addForce(posWithinCircle * 100);
         }
+        coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
     }
 }
 
