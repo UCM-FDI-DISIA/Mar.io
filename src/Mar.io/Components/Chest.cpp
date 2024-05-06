@@ -38,9 +38,7 @@ void Chest::handleEvent(std::string const& id, void* info) {
         Fist* fist = playerChild->getComponent<Fist>();
         if (fist != nullptr) {
             if (fist->isAttack()) {
-                Tapioca::GameObject* player = playerChild->getComponent<Tapioca::Transform>()->getParent()->getObject();
-                Score* score = player->getComponent<Score>();
-                if (score != nullptr) score->increaseScore(nCoins);
+                
             }
         }
         createCoins(nCoins);

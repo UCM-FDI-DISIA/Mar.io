@@ -12,7 +12,7 @@ Health::Health() : currHealth(1),timer(0), invulnerable(false), livesText(nullpt
 void Health::start() {
     Tapioca::GameObject* livesObject = object->getScene()->getHandler("livesText");
     if (livesObject != nullptr) {
-        livesText = livesObject->getComponent<Tapioca::Text>();
+        livesText = livesObject->getComponent<Tapioca::Text>();   
         if (livesText != nullptr) livesText->setText("X" + std::to_string(currHealth));
     }
 }
@@ -58,9 +58,7 @@ void Health::loseHP(int hp) {
 void Health::healHP(int hp) {
     currHealth += hp;
     
-    if (livesText != nullptr) {
-        livesText->setText("X" + std::to_string(currHealth));
-    }
+    if (livesText != nullptr) livesText->setText("X" + std::to_string(currHealth));
 }
 
 int Health::getHP() { return currHealth; }

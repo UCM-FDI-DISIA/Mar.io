@@ -71,8 +71,8 @@ scene  = {
 			},
 		},
 		children = {
-			livesHUd={
-				components={
+			livesHUd = {
+				components = {
 					Transform = {
 						positionX = 50.0,
 						positionY = 40.0,
@@ -84,7 +84,7 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					Image={
+					Image = {
 						imagePath = "raccoonface.png"
 					},
 				}
@@ -107,8 +107,8 @@ scene  = {
 				
 				}
 			},
-			coinsHUd={
-				components={
+			coinsHUd = {
+				components = {
 					Transform = {
 						positionX = 630.0,
 						positionY = 40.0,
@@ -120,8 +120,8 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					Image={
-						imagePath="hudcoin.png"
+					Image = {
+						imagePath = "hudcoin.png"
 					}
 				}
 			},
@@ -139,7 +139,6 @@ scene  = {
 						textColorG = 0.75,
 						textColorB = 0.75,
 						textColorA = 1.0
-						
 					}
 				
 				}
@@ -162,14 +161,15 @@ scene  = {
 			}
 			-- ,
 			-- SkyboxComponent = {
-			-- 	planeName="SkyBox",
-			-- 	materialName="sky",
-			-- 	distC=1000.0,
-			-- 	orderC=true
+			-- 	planeName = "SkyBox",
+			-- 	materialName = "sky",
+			-- 	distC = 1000.0,
+			-- 	orderC = true
 			-- }
 		}
 	},
-	Goal={
+
+	Goal = {
 		components = {
 			Transform = {
 				positionX = 0.0,
@@ -196,10 +196,9 @@ scene  = {
 				movementType = 1
 			}
 			,
-			Goal={}
+			Goal = {}
 		}
-	}
-	,
+	},
 
 	Player = {
 		components = {
@@ -214,11 +213,6 @@ scene  = {
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
-			MeshRenderer = {
-				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
-			},
-			Animator={ },
-
 			RigidBody = {
 				colliderScaleX = 0.25,
 				colliderScaleY = 0.7,
@@ -231,6 +225,10 @@ scene  = {
 				colShape = 0,
 				movementType = 0
 			},
+			MeshRenderer = {
+				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
+			},
+			Animator = { },
 			PlayerMovementController = {
 			},
 			PlayerSetting = {
@@ -244,12 +242,12 @@ scene  = {
 			}
 		},
 		children = {
-			FistC={
+			{
 				components = {
 					Transform = {
 						positionX = 0.0,
-						positionY = 15.0,
-						positionZ = 0.0,
+						positionY = 0.0,
+						positionZ = 0.6,
 						scaleX = 1.0,
 						scaleY = 1.0,
 						scaleZ = 1.0,
@@ -258,9 +256,9 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 2.0,
-						colliderScaleY = 2.0,
-						colliderScaleZ = 2.0,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.35,
+						colliderScaleZ = 0.25,
 						isTrigger = true,
 						mass = 0.0,
 						friction = 1.0,
@@ -275,7 +273,7 @@ scene  = {
 					}
 				}
 			},
-			PlayerLight={
+			PlayerLight = {
 				components = {
 					Transform = {
 						positionX = 0.0,
@@ -288,14 +286,6 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 				},
-				-- LightPointComp = {
-				-- 	powerScale = 0.0,
-				-- 	colorR = 1.0,
-				-- 	colorG = 1.0,
-				-- 	colorB = 1.0,
-				-- 	colorA = 1.0,
-				-- 	attenuationFactor=10.0
-				-- }
 				LightSpotComp = {
 					directionX = 0.0,
 					directionY = -1.0,
@@ -305,7 +295,7 @@ scene  = {
 					colorG = 0.5,
 					colorB = 0.7,
 					colorA = 1.0,
-					powerScale =50.0,
+					powerScale = 50.0,
 					attenuationFactor = 1.0,
 					falloff = 0.2,
 					innerAngle = 50.0,
@@ -413,7 +403,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "models/scenario/Rocks.obj"
+						file = "models/scenario/Rocks.obj"
 					}
 				},
 			},
@@ -479,7 +469,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "models/scenario/Stairs.obj"
+						file = "models/scenario/Stairs.obj"
 					}
 				}
 				
@@ -514,7 +504,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "models/scenario/Platform2.obj"
+						file = "models/scenario/Platform2.obj"
 					}
 				}
 			},
@@ -547,7 +537,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 1,
-						file= "models/scenario/Platform3.obj"
+						file = "models/scenario/Platform3.obj"
 					}
 				}
 			},
@@ -555,7 +545,7 @@ scene  = {
 
 		}
 	},
-	
+
 	Enemies = {
 		components = {
 			Transform = {
@@ -614,8 +604,10 @@ scene  = {
 					},
 					ContactDamage = {
 						damage = 1
-					}
-
+					},
+					Health = {
+						currHealth = 1,
+					},
 				},
 			},
 			{
@@ -660,7 +652,10 @@ scene  = {
 					},
 					ContactDamage = {
 						damage = 1
-					}
+					},
+					Health = {
+						currHealth = 1,
+					},
 
 				},
 			},
@@ -690,7 +685,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral1.obj"
+						file = "models/corals/Coral1.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral1.mesh",
@@ -725,7 +720,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral5.obj"
+						file = "models/corals/Coral5.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral5.mesh",
@@ -760,7 +755,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral4.obj"
+						file = "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -795,7 +790,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral4.obj"
+						file = "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -830,7 +825,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral4.obj"
+						file = "models/corals/Coral4.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral4.mesh",
@@ -865,7 +860,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral3.obj"
+						file = "models/corals/Coral3.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral3.mesh",
@@ -900,7 +895,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral6.obj"
+						file = "models/corals/Coral6.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral6.mesh",
@@ -935,7 +930,7 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 4,
 						movementType = 2,
-						file= "models/corals/Coral2.obj"
+						file = "models/corals/Coral2.obj"
 					},
 					MeshRenderer = {
 						meshName  = "models/corals/Coral2.mesh",
@@ -989,7 +984,10 @@ scene  = {
 					},
 					ContactDamage = {
 						damage = 1
-					}
+					},
+					Health = {
+						currHealth = 1,
+					},
 
 				},
 			},
@@ -1035,7 +1033,10 @@ scene  = {
 					},
 					ContactDamage = {
 						damage = 1
-					}
+					},
+					Health = {
+						currHealth = 1,
+					},
 
 				},
 			},
@@ -1171,7 +1172,7 @@ scene  = {
 		}
 
 	},
-	
+
 	Ship = {
 		components = {
 			Transform = {
@@ -1236,9 +1237,9 @@ scene  = {
 						rotationZ = 0.0
 					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.25,
 						isTrigger = false,
 						mass = 1.0,
 						friction = 1.0,
@@ -1266,13 +1267,10 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					MeshRenderer = {
-						meshName  = "models/coin/Coin.mesh",
-					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
 						isTrigger = true,
 						mass = 1.0,
 						friction = 1.0,
@@ -1280,6 +1278,9 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 0,
 						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
 					},
 					Coin = { }
 				}
@@ -1297,13 +1298,10 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					MeshRenderer = {
-						meshName  = "models/coin/Coin.mesh",
-					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
 						isTrigger = true,
 						mass = 1.0,
 						friction = 1.0,
@@ -1311,6 +1309,9 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 0,
 						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
 					},
 					Coin = { }
 				}
@@ -1328,13 +1329,10 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					MeshRenderer = {
-						meshName  = "models/coin/Coin.mesh",
-					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
 						isTrigger = true,
 						mass = 1.0,
 						friction = 1.0,
@@ -1342,6 +1340,9 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 0,
 						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
 					},
 					Coin = { }
 				}
@@ -1359,13 +1360,10 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					MeshRenderer = {
-						meshName  = "models/coin/Coin.mesh",
-					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
 						isTrigger = true,
 						mass = 1.0,
 						friction = 1.0,
@@ -1373,6 +1371,9 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 0,
 						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
 					},
 					Coin = { }
 				}
@@ -1390,13 +1391,10 @@ scene  = {
 						rotationY = 0.0,
 						rotationZ = 0.0
 					},
-					MeshRenderer = {
-						meshName  = "models/coin/Coin.mesh",
-					},
 					RigidBody = {
-						colliderScaleX = 0.5,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 0.5,
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.25,
 						isTrigger = true,
 						mass = 1.0,
 						friction = 1.0,
@@ -1404,6 +1402,9 @@ scene  = {
 						bounciness = 0.0,
 						colShape = 0,
 						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
 					},
 					Coin = { }
 				}
@@ -1414,52 +1415,19 @@ scene  = {
 	{
 		components = {
 			Transform = {
-				positionX = 3.0,
+				positionX = 0.0,
 				positionY = 27.45,
 				positionZ = -7.0,
-				scaleX = 0.8,
-				scaleY = 0.8,
-				scaleZ = 0.8,
+				scaleX = 0.3,
+				scaleY = 0.3,
+				scaleZ = 0.3,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
 			RigidBody = {
-				colliderScaleX = 1.5,
-				colliderScaleY = 1.5,
-				colliderScaleZ = 0.8,
-				isTrigger = true,
-				mass = 1.0,
-				friction = 1.0,
-				damping = 0.0,
-				bounciness = 0.0,
-				colShape = 0,
-				movementType = 1
-			},
-			MeshRenderer = {
-				meshName  = "models/heart/heart.mesh",
-				materialName = "heart",
-				initRotationX = -90.0
-			},
-			HeartPowerUp = { }
-		}
-	},
-	{
-		components = {
-			Transform = {
-				positionX = -3.0,
-				positionY = 27.45,
-				positionZ = -7.0,
-				scaleX = 0.8,
-				scaleY = 0.8,
-				scaleZ = 0.8,
-				rotationX = 0.0,
-				rotationY = 0.0,
-				rotationZ = 0.0
-			},
-			RigidBody = {
-				colliderScaleX = 1.5,
-				colliderScaleY = 1.5,
+				colliderScaleX = 1.0,
+				colliderScaleY = 1.0,
 				colliderScaleZ = 0.8,
 				isTrigger = true,
 				mass = 1.0,

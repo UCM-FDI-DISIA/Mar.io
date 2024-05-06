@@ -153,10 +153,10 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
 void PlayerMovementController::fixedUpdate() {
     Tapioca::Vector3 v = rigidBody->getVelocity();
 
-    if (v.magnitude() <= STOP_THRESHOLD && anim != nullptr) {
-        anim->setLoop(true);
-        anim->playAnim("Idle");
-    }
+    //if (v.magnitude() <= STOP_THRESHOLD && anim != nullptr) {
+    //    anim->setLoop(true);
+    //    anim->playAnim("Idle");
+    //}
 
     if (jump) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));

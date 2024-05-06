@@ -9,6 +9,7 @@ private:
     float cont;
     bool canHit;
     bool onAttack;
+    bool damageDealt;
 
 public:
     COMPONENT_ID("Fist");
