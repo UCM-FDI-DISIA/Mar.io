@@ -9,7 +9,6 @@ class Text;
 class JUEGO_API Health : public Tapioca::Component {
 private:
     int currHealth;
-    int maxHealth;
 
     int64_t timer;
     bool invulnerable;

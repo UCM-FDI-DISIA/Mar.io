@@ -7,7 +7,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<Health>;
 
-Health::Health() : currHealth(0), maxHealth(0), timer(0), invulnerable(false), livesText(nullptr) { }
+Health::Health() : currHealth(1),timer(0), invulnerable(false), livesText(nullptr) { }
 
 void Health::start() {
     Tapioca::GameObject* livesObject = object->getScene()->getHandler("livesText");
@@ -18,18 +18,10 @@ void Health::start() {
 }
 
 bool Health::initComponent(const CompMap& variables) {
-    // Hay que especificar vida maxima
-    if (!setValueFromMap(maxHealth, "maxHealth", variables)) {
-        Tapioca::logError("Health: No se ha establecido vida maxima.");
-        return false;
-    }
-
     // Si no hay vida actual especificada, se le pone la vida maxima por defecto
     if (!setValueFromMap(currHealth, "currHealth", variables)) {
         Tapioca::logInfo(
-            ("Health: No se ha establecido vida actual, se pondra a " + std::to_string(maxHealth) + " por defecto.")
-                .c_str());
-        currHealth = maxHealth;
+            ("Health: No se ha establecido vida actual, se pondra a " + std::to_string(1) + " por defecto.").c_str());
     }
 
     return true;
@@ -65,15 +57,7 @@ void Health::loseHP(int hp) {
 
 void Health::healHP(int hp) {
     currHealth += hp;
-    if (currHealth > maxHealth) currHealth = maxHealth;
-
-    if (livesText != nullptr) {
-        livesText->setText("X" + std::to_string(currHealth));
-    }
-}
-
-void Health::restoreHealth() {
-    currHealth = maxHealth;
+    
     if (livesText != nullptr) {
         livesText->setText("X" + std::to_string(currHealth));
     }

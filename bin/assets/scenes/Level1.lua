@@ -71,75 +71,6 @@ scene  = {
 			},
 		},
 		children = {
-			{
-				components = {
-					MeshRenderer = {
-						meshName  = "models/heart/heart.mesh",
-						materialName = "heart",
-						initRotationX = -90.0
-					},
-					Transform = {
-						positionX = -5.34,
-						positionY = 3.3,
-						positionZ = -17.98,
-						scaleX = 0.8,
-						scaleY = 0.8,
-						scaleZ = 0.8,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.5,
-						colliderScaleY = 1.5,
-						colliderScaleZ = 0.8,
-						isTrigger = true,
-						mass = 1.0,
-						friction = 1.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 1
-					},
-					HeartPowerUp = {
-					}
-				}
-			},
-			{
-				components = {
-					MeshRenderer = {
-						meshName  = "models/heart/heart.mesh",
-						materialName = "heart",
-						initRotationX = -90.0
-					},
-					Transform = {
-						positionX = -1.34,
-						positionY = 3.3,
-						positionZ = -17.98,
-						scaleX = 0.8,
-						scaleY = 0.8,
-						scaleZ = 0.8,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.5,
-						colliderScaleY = 1.5,
-						colliderScaleZ = 0.8,
-						isTrigger = true,
-						mass = 1.0,
-						friction = 1.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 1
-					},
-					InvincibilityPowerUp = {
-						invincibilityTime = 300.0
-					}
-				}
-			},
 			livesHUd={
 				components={
 					Transform = {
@@ -276,7 +207,6 @@ scene  = {
 			FallDamage = {
 			},
 			Health = {
-				maxHealth = 2,
 				currHealth = 1,
 			},
 			Score = {
@@ -1448,5 +1378,75 @@ scene  = {
 				}
 			},
 		}
-	}
+	},
+
+	{
+		components = {
+			Transform = {
+				positionX = 3.0,
+				positionY = 27.45,
+				positionZ = -7.0,
+				scaleX = 0.8,
+				scaleY = 0.8,
+				scaleZ = 0.8,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			RigidBody = {
+				colliderScaleX = 1.5,
+				colliderScaleY = 1.5,
+				colliderScaleZ = 0.8,
+				isTrigger = true,
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 0.0,
+				colShape = 0,
+				movementType = 1
+			},
+			MeshRenderer = {
+				meshName  = "models/heart/heart.mesh",
+				materialName = "heart",
+				initRotationX = -90.0
+			},
+			HeartPowerUp = { }
+		}
+	},
+	{
+		components = {
+			Transform = {
+				positionX = -3.0,
+				positionY = 27.45,
+				positionZ = -7.0,
+				scaleX = 0.8,
+				scaleY = 0.8,
+				scaleZ = 0.8,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			RigidBody = {
+				colliderScaleX = 1.5,
+				colliderScaleY = 1.5,
+				colliderScaleZ = 0.8,
+				isTrigger = true,
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 0.0,
+				colShape = 0,
+				movementType = 1
+			},
+			MeshRenderer = {
+				meshName  = "models/heart/heart.mesh",
+				materialName = "heart",
+				initRotationX = -90.0
+			},
+			HeartPowerUp = { }
+		}
+	},
+
+
+
 }
