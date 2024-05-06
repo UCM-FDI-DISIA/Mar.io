@@ -15,6 +15,7 @@ template class JUEGO_API Tapioca::BasicBuilder<Chest>;
 Chest::Chest() : open(false), nCoins(8), coins(), elapsedTime(0) { }
 
 void Chest::update(const uint64_t deltaTime) {
+    /*
     if (coins.size() > 0) {
         elapsedTime += deltaTime;
         if (elapsedTime > COINS_LIFE) {
@@ -25,6 +26,7 @@ void Chest::update(const uint64_t deltaTime) {
             coins.clear();
         }
     }
+    */
 }
 
 bool Chest::initComponent(const CompMap& variables) { return true; }
@@ -52,7 +54,7 @@ void Chest::createCoins(int n) {
     float degree = 360.0f / n;
     for (int i = 0; i < n; ++i) {
         Tapioca::GameObject* coin = new Tapioca::GameObject();
-        coins.push_back(coin);
+        //coins.push_back(coin);
 
         float angle = degree * i * 3.14f / 180.0f;   // Convertir a radianes
         // Calcular el seno y el coseno
@@ -70,7 +72,7 @@ void Chest::createCoins(int n) {
         transformMap["scaleZ"] = COIN_SCALE;
 
         CompMap rigidBodyMap;
-        rigidBodyMap["isTrigger"] = true;
+        rigidBodyMap["isTrigger"] = false;
         rigidBodyMap["mass"] = 1.0f;
         rigidBodyMap["damping"] = 0.4f;
         rigidBodyMap["colShape"] = 0;
@@ -84,11 +86,8 @@ void Chest::createCoins(int n) {
         CompMap meshMap;
         meshMap["meshName"] = "models/coin/Coin.mesh";
         object->getScene()->addObject(coin);
-        coin->addComponents({
-            {"Transform", transformMap},
-            {"RigidBody", rigidBodyMap},
-            {"MeshRenderer", meshMap},
-        });
+        coin->addComponents(
+            {{"Transform", transformMap}, {"RigidBody", rigidBodyMap}, {"MeshRenderer", meshMap}, {"Coin", {}}});
 
         Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
         if (coinRb != nullptr) {
