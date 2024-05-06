@@ -70,7 +70,7 @@ void Chest::createCoins(int n) {
         transformMap["scaleZ"] = COIN_SCALE;
 
         CompMap rigidBodyMap;
-        rigidBodyMap["isTrigger"] = false;
+        rigidBodyMap["isTrigger"] = true;
         rigidBodyMap["mass"] = 1.0f;
         rigidBodyMap["damping"] = 0.4f;
         rigidBodyMap["colShape"] = 0;
@@ -84,18 +84,17 @@ void Chest::createCoins(int n) {
         CompMap meshMap;
         meshMap["meshName"] = "models/coin/Coin.mesh";
         object->getScene()->addObject(coin);
-        coin->addComponents( {
-            {"Transform", transformMap}, 
-            {"RigidBody", rigidBodyMap}, 
-            {"MeshRenderer", meshMap}, 
-            {"Coin", {}}
+        coin->addComponents({
+            {"Transform", transformMap},
+            {"RigidBody", rigidBodyMap},
+            {"MeshRenderer", meshMap},
         });
 
-         Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
+        Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
         if (coinRb != nullptr) {
             coinRb->addForce(posWithinCircle * 100);
         }
-        coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
+        //coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
     }
 }
 
