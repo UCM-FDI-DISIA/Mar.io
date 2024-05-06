@@ -12,7 +12,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<Chest>;
 
-Chest::Chest() : open(false), nCoins(8), coins(), elapsedTime(0) { }
+Chest::Chest() : open(false), nCoins(8) { }
 
 void Chest::update(const uint64_t deltaTime) {
     /*
@@ -49,7 +49,7 @@ void Chest::handleEvent(std::string const& id, void* info) {
 }
 
 void Chest::createCoins(int n) {
-    Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getPosition();
+    Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getGlobalPosition();
 
     float degree = 360.0f / n;
     for (int i = 0; i < n; ++i) {
