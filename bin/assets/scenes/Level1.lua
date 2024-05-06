@@ -175,9 +175,9 @@ scene  = {
 				positionX = 0.0,
 				positionY = 35.45,
 				positionZ = -129.0,
-				scaleX = 1.3,
-				scaleY = 1.3,
-				scaleZ = 1.3,
+				scaleX = 5.0,
+				scaleY = 5.0,
+				scaleZ = 5.0,
 				rotationX = 0.0,
 				rotationY = 0.0,
 				rotationZ = 0.0
@@ -257,7 +257,7 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 0.25,
-						colliderScaleY = 0.35,
+						colliderScaleY = 0.6,
 						colliderScaleZ = 0.25,
 						isTrigger = true,
 						mass = 0.0,
@@ -305,7 +305,7 @@ scene  = {
 			}
 		}
 	},
-
+ 
 	Scenario = {
 		components = {
 			Transform = {
@@ -545,7 +545,7 @@ scene  = {
 
 		}
 	},
-
+	 
 	Enemies = {
 		components = {
 			Transform = {
@@ -659,7 +659,7 @@ scene  = {
 
 				},
 			},
-
+ 
 			-- Corals
 			{
 				components = {
@@ -941,7 +941,7 @@ scene  = {
 
 				},
 			},
-
+ 
 			-- Turtles
 			{
 				components = {
@@ -1260,9 +1260,9 @@ scene  = {
 						positionX = 0.0,
 						positionY = 28.0,
 						positionZ = -9.67,
-						scaleX = 1.0,
-						scaleY = 1.0,
-						scaleZ = 1.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
 						rotationX = 0.0,
 						rotationY = 0.0,
 						rotationZ = 0.0
@@ -1291,9 +1291,9 @@ scene  = {
 						positionX = 0.0,
 						positionY = 20.18,
 						positionZ = -53.42,
-						scaleX = 1.0,
-						scaleY = 1.0,
-						scaleZ = 1.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
 						rotationX = 0.0,
 						rotationY = 0.0,
 						rotationZ = 0.0
@@ -1322,9 +1322,9 @@ scene  = {
 						positionX = -3.77,
 						positionY = 22.79,
 						positionZ = -111.3,
-						scaleX = 1.0,
-						scaleY = 1.0,
-						scaleZ = 1.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
 						rotationX = 0.0,
 						rotationY = 0.0,
 						rotationZ = 0.0
@@ -1353,9 +1353,9 @@ scene  = {
 						positionX = 8.65,
 						positionY = 25.09,
 						positionZ = -113.11,
-						scaleX = 1.0,
-						scaleY = 1.0,
-						scaleZ = 1.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
 						rotationX = 0.0,
 						rotationY = 0.0,
 						rotationZ = 0.0
@@ -1384,9 +1384,9 @@ scene  = {
 						positionX = 13.81,
 						positionY = 28.77,
 						positionZ = -124.67,
-						scaleX = 1.0,
-						scaleY = 1.0,
-						scaleZ = 1.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
 						rotationX = 0.0,
 						rotationY = 0.0,
 						rotationZ = 0.0
@@ -1445,7 +1445,39 @@ scene  = {
 			HeartPowerUp = { }
 		}
 	},
-
+	{
+		components = {
+			Transform = {
+				positionX = -1.97,
+				positionY = 20.95,
+				positionZ = -43.71,
+				scaleX = 1.0,
+				scaleY = 1.0,
+				scaleZ = 1.0,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+			RigidBody = {
+				colliderScaleX = 0.5,
+				colliderScaleY = 0.5,
+				colliderScaleZ = 0.5,
+				isTrigger = true,
+				mass = 1.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 0.0,
+				colShape = 0,
+				movementType = 1
+			},
+			MeshRenderer = {
+				meshName  = "models/bubble/Sphere1000.mesh",
+				materialName = "bubble",
+				initRotationX = -90.0
+			},
+			InvincibilityPowerUp = { }
+		}
+	},
 
 
 }

@@ -6,7 +6,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<InvincibilityPowerUp>;
 
-InvincibilityPowerUp::InvincibilityPowerUp() : time(15.0) { }
+InvincibilityPowerUp::InvincibilityPowerUp() : time(5.0) { }
 
 bool InvincibilityPowerUp::initComponent(const CompMap& variables) {
     if (!setValueFromMap(time, "invincibilityTime", variables)) {

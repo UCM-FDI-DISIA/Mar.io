@@ -14,21 +14,6 @@ template class JUEGO_API Tapioca::BasicBuilder<Chest>;
 
 Chest::Chest() : open(false), nCoins(8) { }
 
-void Chest::update(const uint64_t deltaTime) {
-    /*
-    if (coins.size() > 0) {
-        elapsedTime += deltaTime;
-        if (elapsedTime > COINS_LIFE) {
-            elapsedTime = 0;
-            for (Tapioca::GameObject* coin : coins) {
-                coin->die();
-            }
-            coins.clear();
-        }
-    }
-    */
-}
-
 bool Chest::initComponent(const CompMap& variables) { return true; }
 
 void Chest::handleEvent(std::string const& id, void* info) {
@@ -38,11 +23,11 @@ void Chest::handleEvent(std::string const& id, void* info) {
         Fist* fist = playerChild->getComponent<Fist>();
         if (fist != nullptr) {
             if (fist->isAttack()) {
-                
+                createCoins(nCoins);
+                creatOpenChest();
             }
         }
-        createCoins(nCoins);
-        creatOpenChest();
+        
     }
 }
 

@@ -25,7 +25,6 @@ public:
 
     Chest();
 
-    void update(const uint64_t deltaTime) override;
     bool initComponent(const CompMap& variables) override;
     void handleEvent(std::string const& id, void* info) override;
 };
