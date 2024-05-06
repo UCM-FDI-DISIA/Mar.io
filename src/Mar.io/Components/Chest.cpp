@@ -92,8 +92,8 @@ void Chest::createCoins(int n) {
         Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
         if (coinRb != nullptr) {
             coinRb->addForce(posWithinCircle * 100);
+            coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
         }
-        //coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
     }
 }
 
