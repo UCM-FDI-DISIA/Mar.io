@@ -22,6 +22,7 @@
 #include "Components/Score.h"
 #include "Components/HeartPowerUp.h"
 #include "Components/InvincibilityPowerUp.h"
+#include "Components/Goal.h"
 
 void init() { addComponentFactories(); }
 
@@ -47,6 +48,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<Score>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<HeartPowerUp>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<InvincibilityPowerUp>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Goal>());
 }
 
 const char* getWindowName() { return "Mar.io"; }

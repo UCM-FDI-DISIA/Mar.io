@@ -20,6 +20,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\FallDamage.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Fist.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\GameManager.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\Goal.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Health.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\HeartPowerUp.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\FallDamage.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Fist.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\GameManager.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\Goal.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Health.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\HeartPowerUp.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.h" />

@@ -169,6 +169,37 @@ scene  = {
 			-- }
 		}
 	},
+	Goal={
+		components = {
+			Transform = {
+				positionX = 0.0,
+				positionY = 35.45,
+				positionZ = -129.0,
+				scaleX = 1.3,
+				scaleY = 1.3,
+				scaleZ = 1.3,
+				rotationX = 0.0,
+				rotationY = 0.0,
+				rotationZ = 0.0
+			},
+
+			RigidBody = {
+				colliderScaleX = 1.0,
+				colliderScaleY = 1.0,
+				colliderScaleZ = 1.0,
+				isTrigger = true,
+				mass = 50.0,
+				friction = 1.0,
+				damping = 0.0,
+				bounciness = 2.0,
+				colShape = 0,
+				movementType = 1
+			}
+			,
+			Goal={}
+		}
+	}
+	,
 
 	Player = {
 		components = {

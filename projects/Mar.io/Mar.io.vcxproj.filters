@@ -48,9 +48,6 @@
     <ClCompile Include="..\..\src\Mar.io\Components\Health.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\Components\MorenaMovement.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\Goal.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,9 +104,6 @@
     <ClInclude Include="..\..\src\Mar.io\Components\Health.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\MorenaMovement.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -135,6 +132,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\Goal.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
