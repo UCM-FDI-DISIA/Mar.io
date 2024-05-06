@@ -13,7 +13,6 @@ private:
 
     State state;
 
-    const int N_LEVELS = 2;
     int level;
 
     int levelScore;
@@ -39,16 +38,15 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     bool changeScene(std::string const& scene) const;
-    void nextLevel();
 
     void MainMenuButtonClick();
-    void NextLevelButtonClick();
     void ReturnButtonClick();
     void ReplayButtonClick();
     void ContinueButtonClick();
     void ToPause();
 
     void increaseScore(int increasement);
+    inline int getScore() { return levelScore; }
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {

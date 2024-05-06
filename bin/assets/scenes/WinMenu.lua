@@ -4,6 +4,45 @@ scene = {
             CameraComponent = { }
         }
     },
+    coinsHUd = {
+        zIndex = 1,
+        components = {
+            Transform = {
+                positionX = WINDOW_WIDTH * 1.5 / 3.5,
+                positionY = WINDOW_HEIGHT * 3 / 4.5,
+                scaleX = 85.0,
+                scaleY = 85.0,
+                rotationX = 0.0,
+                rotationY = 0.0,
+                rotationZ = 0.0
+            },
+            Image = {
+                imagePath = "hudcoin.png"
+            }
+        }
+    },
+    coinsText = {
+        zIndex = 2,
+        components = {
+            Transform = {
+                positionX = WINDOW_WIDTH * 1.5 / 3.5,
+                positionY = WINDOW_HEIGHT * 3 / 4.5,
+            },
+            Text = {
+                text = "0X",
+                textSize = 30.0,
+                textFontName = "AGENCYB.TTF",
+                textColorR = 0.9,
+                textColorG = 0.9,
+                textColorB = 0.9,
+                textColorA = 1.0
+            },
+            LevelScore={
+
+            }
+        
+        }
+    },
     {
         components = {
             Transform = {
@@ -21,14 +60,14 @@ scene = {
     NextImageTextButton = {
         components = {
             Transform = {
-                positionX = WINDOW_WIDTH / 2,
+                positionX = WINDOW_WIDTH * 2 / 3.5,
                 positionY = WINDOW_HEIGHT * 3 / 4.5,
                 scaleX = 85.0,
                 scaleY = 85.0,
             },
             ImageTextButton = {
                 name = "NextImageTextButton",
-                onClickId = "NextLevelButtonClick",
+                onClickId = "ReturnButtonClick",
                 imagePathNormal = "Button/next1.png",
                 imagePathHover = "Button/next2.png",
                 imagePathActive = "Button/next3.png",
