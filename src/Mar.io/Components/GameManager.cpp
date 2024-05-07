@@ -70,30 +70,33 @@ bool GameManager::changeScene(std::string const& scene) const {
 }
 
 void GameManager::MainMenuButtonClick() {
-    Tapioca::MainLoop::instance()->deleteScene("MainMenu");
     levelScore = 0;
-    changeScene("Level1");
-    state = InGame;
+    if (changeScene("Level1")) {
+        Tapioca::MainLoop::instance()->deleteScene("MainMenu");
+        state = InGame;
+    }
 }
 
 
 void GameManager::ReturnButtonClick() {
-    std::string levelName = "Level" + std::to_string(level);
-    Tapioca::MainLoop::instance()->deleteScene(levelName);
-    level = 0;
-    Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
-    Tapioca::MainLoop::instance()->deleteScene("WinMenu");
-    Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
-    state = MainMenu;
-    changeScene("MainMenu");
+    if (changeScene("MainMenu")) {
+        std::string levelName = "Level" + std::to_string(level);
+        Tapioca::MainLoop::instance()->deleteScene(levelName);
+        level = 0;
+        Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
+        Tapioca::MainLoop::instance()->deleteScene("WinMenu");
+        Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
+        state = MainMenu;
+    }
 }
 
 void GameManager::ReplayButtonClick() {
-    Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
-    Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
-    Tapioca::MainLoop::instance()->deleteScene("Level1");
-    state = InGame;
-    changeScene("Level1");
+    if (changeScene("Level1")) {
+        Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
+        Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
+        Tapioca::MainLoop::instance()->deleteScene("Level1");
+        state = InGame;
+    }
 }
 
 
@@ -104,9 +107,10 @@ void GameManager::ContinueButtonClick() {
 }
 
 void GameManager::ToPause() { 
-    Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
-    changeScene("PauseMenu");
-    state = Pause;
+    if (changeScene("PauseMenu")) {
+        Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
+        state = Pause;    
+    }
 }
 
 void GameManager::ControlsReturn() {
@@ -122,11 +126,12 @@ void GameManager::ControlsReturn() {
 }
 
 void GameManager::ControlsButtonClick() {
-    prevState = state;
-    if (prevState == Pause) Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(false);
-    else Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
-    changeScene("ControlsMenu");
-    state = Controls;
+    if (changeScene("ControlsMenu")) {    
+        prevState = state;
+        if (prevState == Pause) Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(false);
+        else Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
+        state = Controls;
+    }
 }
 
 void GameManager::increaseScore(int increasement) { 

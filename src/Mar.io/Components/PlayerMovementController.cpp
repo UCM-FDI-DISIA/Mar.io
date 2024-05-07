@@ -154,7 +154,7 @@ void PlayerMovementController::fixedUpdate() {
     Tapioca::Vector3 v = rigidBody->getVelocity();
 
     if (abs(moveX) == 0 && abs(moveZ) == 0 && anim != nullptr) {
-        if (anim->getAnimName() != "Idle") {
+        if (anim->getAnimName() != "Idle" && anim->getAnimName() != "Punching") {
             anim->setLoop(true);
             anim->playAnim("Idle");
         }
