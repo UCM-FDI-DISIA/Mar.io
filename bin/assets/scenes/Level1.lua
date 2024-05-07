@@ -2,14 +2,14 @@ scene  = {
 	Camera = {
 		components = {
 			Transform = {
-				positionX = 0.0,
-				positionY = 0.0,
-				positionZ = -10.0,
+				positionX = 100.0,
+				positionY = 130.0,
+				positionZ = -30.0,
 				scaleX = 1.0,
 				scaleY = 1.0,
 				scaleZ = 1.0,
-				rotationX = 0.0,
-				rotationY = 0.0,
+				rotationX = -45.0,
+				rotationY = 70.0,
 				rotationZ = 0.0
 			},
 			CameraComponent = {
@@ -18,14 +18,14 @@ scene  = {
 				bgColorG = 0.45,
 				bgColorB = 0.6
 			},
-			CameraFollow = {
-				target = "Player",
-				offsetX = 0.0,
-				offsetY = 2.0,
-				offsetZ = 10.0,
-				smoothSpeed = 0.125,
-				rotationSpeed = 0.1
-			},
+			--CameraFollow = {
+			--	target = "Player",
+			--	offsetX = 0.0,
+			--	offsetY = 2.0,
+			--	offsetZ = 10.0,
+			--	smoothSpeed = 0.125,
+			--	rotationSpeed = 0.1
+			--},
 			AudioListenerComponent = {}
 		}
 	},
@@ -44,9 +44,9 @@ scene  = {
 				rotationZ = 0.0
 			},
 			LightDirComp = {
-				directionX = 1.0,
-				directionY = -1.0,
-				directionZ = -1.0,
+				directionX = -0.7,
+				directionY = -0.6,
+				directionZ = 1.0,
 				mainLight = true,
 				powerScale = 1.5,
 				colorR = 0.2,
