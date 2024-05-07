@@ -9,7 +9,7 @@ class JUEGO_API GameManager : public Tapioca::Component, public Tapioca::Singlet
 private:
     friend Singleton<GameManager>;
 
-    enum State { MainMenu, InGame, GameOver, Pause };
+    enum State { MainMenu, InGame, GameOver, Pause, Controls };
 
     State state;
 
@@ -44,6 +44,8 @@ public:
     void ReplayButtonClick();
     void ContinueButtonClick();
     void ToPause();
+    void ControlsToPause();
+    void ControlsButtonClick();
 
     void increaseScore(int increasement);
     inline int getScore() { return levelScore; }

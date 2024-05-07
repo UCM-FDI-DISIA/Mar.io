@@ -12,9 +12,11 @@ class Health;
 
 class JUEGO_API Enemy : public Tapioca::Component {
 private:
+    enum eType { TURTLE, CRAB, MORAY };
     Health* health;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
+    int tEnemy;
 
 public:
     COMPONENT_ID("Enemy");
