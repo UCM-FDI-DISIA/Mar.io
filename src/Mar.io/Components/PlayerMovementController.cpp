@@ -176,12 +176,12 @@ void PlayerMovementController::fixedUpdate() {
         if (std::abs(v.z) > speed) v.z = v.z > 0 ? speed : -speed;
 
         rigidBody->setVelocity(v);
+        pushEvent("ev_Walk", nullptr);
     }
     v = rigidBody->getVelocity();
     if (abs(v.x) > 0 || abs(v.z) > 0) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x * 0.9, v.y, v.z * 0.9));
         //std::cout << moveX << " /" << moveZ<< "\n ";
-        pushEvent("ev_Walk", nullptr);
     }
 }
 

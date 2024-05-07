@@ -5,6 +5,7 @@
 #include <string>
 #include "gameDefs.h"
 
+
 namespace Tapioca {
 class AudioSourceComponent;
 }
@@ -20,16 +21,13 @@ private:
     State prevState;
     int level;
     int levelScore;
-
-    GameManager();
-
-    void onGameOver();
-    void onWin();
-
-    void registerLuaFunctions();
-
     std ::vector<Tapioca::AudioSourceComponent*> audios;   // Sonidos del juego
 
+
+    GameManager();
+    void onGameOver();
+    void onWin();
+    void registerLuaFunctions();
 
 public:
     COMPONENT_ID("GameManager");
