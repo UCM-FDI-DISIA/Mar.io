@@ -53,9 +53,6 @@ public:
     void ToPause();
     void ControlsReturn();
     void ControlsButtonClick();
-    void MenuToControls();
-    void ControlsToMenu();
-    void ControlsToX();
 
     void increaseScore(int increasement);
     inline int getScore() { return levelScore; }

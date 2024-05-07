@@ -160,13 +160,13 @@ scene  = {
 				rotationY = 0.0,
 				rotationZ = 0.0
 			}
-			,
-			SkyboxComponent = {
-			 	planeName = "SkyBox",
-			 	materialName = "sky",
-			 	distC = 100.0,
-			 	orderC = true
-			}
+			-- ,
+			-- SkyboxComponent = {
+			 	-- planeName = "SkyBox",
+			 	-- materialName = "sky",
+			 	-- distC = 100.0,
+			 	-- orderC = true
+			-- }
 		}
 	},
 
