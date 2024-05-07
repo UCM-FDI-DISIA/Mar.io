@@ -10,11 +10,9 @@ private:
     friend Singleton<GameManager>;
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
-
     State state;
-
+    State prevState;
     int level;
-
     int levelScore;
 
     GameManager();
@@ -44,7 +42,7 @@ public:
     void ReplayButtonClick();
     void ContinueButtonClick();
     void ToPause();
-    void ControlsToPause();
+    void ControlsReturn();
     void ControlsButtonClick();
 
     void increaseScore(int increasement);

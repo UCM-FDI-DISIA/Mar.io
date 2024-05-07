@@ -13,7 +13,7 @@ template class JUEGO_API Tapioca::Singleton<GameManager>;
 template<>
 GameManager* Tapioca::Singleton<GameManager>::instance_ = nullptr;
 
-GameManager::GameManager() : state(MainMenu), level(1), levelScore(0) { }
+GameManager::GameManager() : state(MainMenu), level(1), levelScore(0), prevState(MainMenu) { }
 
 void GameManager::onGameOver() {
     Tapioca::logInfo("GameManager: Muelto.");
@@ -36,7 +36,7 @@ void GameManager::registerLuaFunctions() {
     lua->addLuaFunction("ReplayButtonClick", [this]() { ReplayButtonClick(); });
     lua->addLuaFunction("ContinueButtonClick", [this]() { ContinueButtonClick(); });
     lua->addLuaFunction("ControlsButtonClick", [this]() { ControlsButtonClick(); });
-    lua->addLuaFunction("ControlsToPauseButtonClick", [this]() { ControlsToPause(); });
+    lua->addLuaFunction("ControlsReturn", [this]() { ControlsReturn(); });
 }
 
 bool GameManager::initComponent(const CompMap& variables) {
@@ -48,28 +48,20 @@ void GameManager::start() {
     //Tapioca::PhysicsManager::instance()->activateDebug(true);
     changeScene("MainMenu");
     state = MainMenu;
+    prevState = MainMenu;
 }
 
 void GameManager::update(const uint64_t deltaTime) { }
 
 void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
-        if (state == InGame) {
-            ToPause();
-        }
-        else if (state == Pause) {
-            ContinueButtonClick();
-        }
-        else if (state == Controls) {
-            ControlsToPause();
-        }
+        if (state == MainMenu) Tapioca::MainLoop::instance()->exit();
+        if (state == InGame) ToPause();
+        else if (state == Pause) ContinueButtonClick();
+        else if (state == Controls) ControlsReturn();
     }
-    if (id == "ev_GameOver") {
-        onGameOver();
-    }
-    if (id == "ev_Win") {
-        onWin();
-    }
+    if (id == "ev_GameOver") onGameOver();
+    if (id == "ev_Win") onWin();
 }
 
 
@@ -117,14 +109,22 @@ void GameManager::ToPause() {
     state = Pause;
 }
 
-void GameManager::ControlsToPause() {
+void GameManager::ControlsReturn() {
     Tapioca::MainLoop::instance()->deleteScene("ControlsMenu");
-    Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(true);
-    state = Pause;
+    if (prevState == Pause) {
+        Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(true);
+        state = Pause;
+    }
+    else {
+        Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(true);
+        state = MainMenu;
+    }
 }
 
 void GameManager::ControlsButtonClick() {
-    Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(false);
+    prevState = state;
+    if (prevState == Pause) Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(false);
+    else Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
     changeScene("ControlsMenu");
     state = Controls;
 }

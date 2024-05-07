@@ -47,7 +47,7 @@ scene = {
                 scaleY = 50.0,
             },
             ImageTextButton = {
-                onClickId = "MainMenuButtonClick",
+                onClickId = "ControlsButtonClick",
                 imagePathNormal = "Button/infor1.png",
                 imagePathHover = "Button/infor2.png",
                 imagePathActive = "Button/infor3.png",

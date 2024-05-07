@@ -30,7 +30,7 @@ scene = {
             },
             ImageTextButton = {
                 name = "ReturnButton",
-                onClickId = "ControlsToPauseButtonClick",
+                onClickId = "ControlsReturn",
                 imagePathNormal = "Button/return1.png",
                 imagePathHover = "Button/return2.png",
                 imagePathActive = "Button/return3.png",

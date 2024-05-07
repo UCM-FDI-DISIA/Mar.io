@@ -55,4 +55,11 @@ void addComponentFactories() {
 
 const char* getWindowName() { return "Mar.io"; }
 
+bool getFullScreen() { return true; }
+
+void getWindowSize(uint32_t& width, uint32_t& height) {
+    width = 600;
+    height = 600;
+}
+
 const char* getInitScene() { return "StartScene.lua"; }
