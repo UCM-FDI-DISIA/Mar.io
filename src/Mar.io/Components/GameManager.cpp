@@ -7,6 +7,10 @@
 #include <functional>
 #include <fstream>
 #include "Structure/Scene.h"
+#include "Structure/GameObject.h"
+#include "Structure/Component.h"
+
+#include "Components/AudioSourceComponent.h"
 
 template class JUEGO_API Tapioca::Singleton<GameManager>;
 
@@ -37,6 +41,10 @@ void GameManager::registerLuaFunctions() {
     lua->addLuaFunction("ContinueButtonClick", [this]() { ContinueButtonClick(); });
     lua->addLuaFunction("ControlsButtonClick", [this]() { ControlsButtonClick(); });
     lua->addLuaFunction("ControlsReturn", [this]() { ControlsReturn(); });
+    lua->addLuaFunction("ControlsToPauseButtonClick", [this]() { ControlsReturn(); });
+    lua->addLuaFunction("MenuToControlsButtonClick", [this]() { MenuToControls(); });
+    lua->addLuaFunction("ControlsToMenuButtonClick", [this]() { ControlsToMenu(); });
+    lua->addLuaFunction("ControlsToButtonClick", [this]() { ControlsToX(); });
 }
 
 bool GameManager::initComponent(const CompMap& variables) {
@@ -46,9 +54,14 @@ bool GameManager::initComponent(const CompMap& variables) {
 
 void GameManager::start() {
     //Tapioca::PhysicsManager::instance()->activateDebug(true);
+
     changeScene("MainMenu");
     state = MainMenu;
     prevState = MainMenu;
+
+    audios = std::vector<Tapioca::AudioSourceComponent*>(Sounds_MAX);
+    audios[Coin] = object->getScene()->getHandler("CoinSound")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[Walk] = object->getScene()->getHandler("WalkSound")->getComponent<Tapioca::AudioSourceComponent>();
 }
 
 void GameManager::update(const uint64_t deltaTime) { }
@@ -57,11 +70,27 @@ void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
         if (state == MainMenu) Tapioca::MainLoop::instance()->exit();
         if (state == InGame) ToPause();
-        else if (state == Pause) ContinueButtonClick();
-        else if (state == Controls) ControlsReturn();
+        else if (state == Pause)
+            ContinueButtonClick();
+        else if (state == Controls)
+            ControlsReturn();
     }
     if (id == "ev_GameOver") onGameOver();
     if (id == "ev_Win") onWin();
+
+    if (id == "ev_GameOver") {
+        onGameOver();
+    }
+    if (id == "ev_Win") {
+        onWin();
+    }
+
+    if (id == "ev_Coin") {
+        audios[Coin]->playOnce();
+    }
+    else if (id == "ev_Walk") {
+        audios[Walk]->playOnce();
+    }
 }
 
 
@@ -100,17 +129,16 @@ void GameManager::ReplayButtonClick() {
 }
 
 
-void GameManager::ContinueButtonClick() { 
+void GameManager::ContinueButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
     Tapioca::MainLoop::instance()->getScene("Level1")->setActive(true);
     state = InGame;
 }
 
-void GameManager::ToPause() { 
-    if (changeScene("PauseMenu")) {
-        Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
-        state = Pause;    
-    }
+void GameManager::ToPause() {
+    Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
+    changeScene("PauseMenu");
+    state = Pause;
 }
 
 void GameManager::ControlsReturn() {
@@ -126,14 +154,33 @@ void GameManager::ControlsReturn() {
 }
 
 void GameManager::ControlsButtonClick() {
-    if (changeScene("ControlsMenu")) {    
+    if (changeScene("ControlsMenu")) {
         prevState = state;
         if (prevState == Pause) Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(false);
-        else Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
+        else
+            Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
         state = Controls;
+    }
+    Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(true);
+}
+
+void GameManager::MenuToControls() {
+    Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(false);
+    changeScene("ControlsMenu");
+}
+
+void GameManager::ControlsToMenu() {
+    Tapioca::MainLoop::instance()->deleteScene("ControlsMenu");
+    Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(true);
+}
+
+void GameManager::ControlsToX() {
+    if (state == MainMenu) {
+        ControlsToMenu();
+    }
+    else if (state == Pause) {
+        ControlsReturn();
     }
 }
 
-void GameManager::increaseScore(int increasement) { 
-    levelScore += increasement;
-}
+void GameManager::increaseScore(int increasement) { levelScore += increasement; }

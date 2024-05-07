@@ -25,7 +25,8 @@ scene  = {
 				offsetZ = 10.0,
 				smoothSpeed = 0.125,
 				rotationSpeed = 0.1
-			}
+			},
+			AudioListenerComponent = {}
 		}
 	},
 
@@ -159,13 +160,13 @@ scene  = {
 				rotationY = 0.0,
 				rotationZ = 0.0
 			}
-			-- ,
-			-- SkyboxComponent = {
-			-- 	planeName = "SkyBox",
-			-- 	materialName = "sky",
-			-- 	distC = 1000.0,
-			-- 	orderC = true
-			-- }
+			,
+			SkyboxComponent = {
+			 	planeName = "SkyBox",
+			 	materialName = "sky",
+			 	distC = 100.0,
+			 	orderC = true
+			}
 		}
 	},
 
@@ -241,6 +242,9 @@ scene  = {
 				currHealth = 1,
 			},
 			Score = {
+			},
+			AudioSourceComponent = {
+				sourcepath = "footstep.mp3"
 			}
 		},
 		children = {
@@ -1311,7 +1315,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/chest/ClosedChest.mesh"
 					},
-					Chest = { }
+					Chest = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 			{
@@ -1342,7 +1349,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/coin/Coin.mesh",
 					},
-					Coin = { }
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 			{
@@ -1373,7 +1383,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/coin/Coin.mesh",
 					},
-					Coin = { }
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 			{
@@ -1404,7 +1417,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/coin/Coin.mesh",
 					},
-					Coin = { }
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 			{
@@ -1435,7 +1451,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/coin/Coin.mesh",
 					},
-					Coin = { }
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 			{
@@ -1466,7 +1485,10 @@ scene  = {
 					MeshRenderer = {
 						meshName  = "models/coin/Coin.mesh",
 					},
-					Coin = { }
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
 				}
 			},
 		}

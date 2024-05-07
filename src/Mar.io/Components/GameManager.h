@@ -5,11 +5,17 @@
 #include <string>
 #include "gameDefs.h"
 
+namespace Tapioca {
+class AudioSourceComponent;
+}
+
 class JUEGO_API GameManager : public Tapioca::Component, public Tapioca::Singleton<GameManager> {
 private:
     friend Singleton<GameManager>;
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
+    enum Sounds { Coin, Walk, Sounds_MAX };
+
     State state;
     State prevState;
     int level;
@@ -21,6 +27,9 @@ private:
     void onWin();
 
     void registerLuaFunctions();
+
+    std ::vector<Tapioca::AudioSourceComponent*> audios;   // Sonidos del juego
+
 
 public:
     COMPONENT_ID("GameManager");
@@ -44,6 +53,9 @@ public:
     void ToPause();
     void ControlsReturn();
     void ControlsButtonClick();
+    void MenuToControls();
+    void ControlsToMenu();
+    void ControlsToX();
 
     void increaseScore(int increasement);
     inline int getScore() { return levelScore; }

@@ -30,6 +30,7 @@ void Coin::handleEvent(std::string const& id, void* info) {
             if (score != nullptr) {
                 score->increaseScore(points);
             }
+            pushEvent("ev_Coin", nullptr);
             object->die();
         }
     }

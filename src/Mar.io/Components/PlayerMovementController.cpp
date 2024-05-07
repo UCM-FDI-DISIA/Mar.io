@@ -181,6 +181,7 @@ void PlayerMovementController::fixedUpdate() {
     if (abs(v.x) > 0 || abs(v.z) > 0) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x * 0.9, v.y, v.z * 0.9));
         //std::cout << moveX << " /" << moveZ<< "\n ";
+        pushEvent("ev_Walk", nullptr);
     }
 }
 
