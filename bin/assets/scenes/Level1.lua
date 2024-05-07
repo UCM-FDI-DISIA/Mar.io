@@ -219,7 +219,7 @@ scene  = {
 				colliderScaleZ = 0.25,
 				isTrigger = false,
 				mass = 50.0,
-				friction = 1.0,
+				friction = 0.5,
 				damping = 0.0,
 				bounciness = 2.0,
 				colShape = 0,
@@ -228,7 +228,9 @@ scene  = {
 			MeshRenderer = {
 				meshName  = "models/pirateRaccoon/PirateRacoon.mesh",
 			},
-			Animator = { },
+			Animator = { 
+				initAnim = "Idle"
+			},
 			PlayerMovementController = {
 			},
 			PlayerSetting = {

@@ -30,8 +30,6 @@ private:
     Tapioca::Vector3 respawnpos;
     Tapioca::Vector3 initialPos;
 
-    const float STOP_THRESHOLD = 0.1f;
-
 public:
     COMPONENT_ID("PlayerMovementController");
 
