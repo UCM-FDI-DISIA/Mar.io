@@ -14,7 +14,7 @@ template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 PlayerMovementController::PlayerMovementController()
     : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
       rigidBody(nullptr), anim(nullptr), health(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(8), bounceSpeed(3),
-      runSpeed(10), walkSpeed(5) { }
+      runSpeed(10), walkSpeed(5), gManager(nullptr) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
@@ -47,7 +47,7 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
 
     if (moveX != 0 || moveZ != 0) {
         float angle = std::atan2f(float(moveX), float(moveZ));
-        trans->setRotation(Tapioca::Vector3(0, angle * 180 / 3.1415, 0));
+        trans->setRotation(Tapioca::Vector3(0, angle * 180.0f / (float)M_PI, 0));
     }
 
     if (run && grounded) {
@@ -212,4 +212,3 @@ void PlayerMovementController::reset() {
     respawnpos = initialPos;
 }
 
-bool PlayerMovementController::getGrounded() { return grounded; }

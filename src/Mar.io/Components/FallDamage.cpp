@@ -8,7 +8,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<FallDamage>;
 
-FallDamage::FallDamage() : health(nullptr), trans(nullptr), limitFall(), fallOffset(25.0f), damage(1.0f) { }
+FallDamage::FallDamage() : health(nullptr), trans(nullptr), limitFall(), fallOffset(25.0f), damage(1) { }
 
 FallDamage::~FallDamage() {
     health = nullptr;

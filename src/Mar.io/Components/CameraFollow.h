@@ -13,7 +13,17 @@ private:
     Tapioca::Transform* transform;
     Tapioca::Transform* targetTransform;
     Tapioca::CameraComponent* camera;
+
+// warning C4251 'CameraFollow::targetName'
+//     : class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL
+//      para que la utilicen los clientes de class 'CameraFollow' 
+    #ifdef _MSC_VER
+#pragma warning(disable : 4251)
+#endif
     std::string targetName;
+#ifdef _MSC_VER
+#pragma warning(default : 4251)
+#endif
 
     const Tapioca::Vector3 DEF_OFFSET = {0, 1, 1}; 
     const float DEF_SMOOTH_SPD = 0.125f;

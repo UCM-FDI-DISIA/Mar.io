@@ -6,7 +6,7 @@
 
 template class JUEGO_API Tapioca::BasicBuilder<ContactDamage>;
 
-ContactDamage::ContactDamage() : damage(1.0f), player(nullptr) { }
+ContactDamage::ContactDamage() : damage(1), player(nullptr) { }
 
 ContactDamage::~ContactDamage() { player = nullptr; }
 

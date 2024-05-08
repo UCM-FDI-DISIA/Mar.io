@@ -63,7 +63,6 @@ void Health::healHP(int hp) {
     if (livesText != nullptr) livesText->setText("X" + std::to_string(currHealth));
 }
 
-int Health::getHP() { return currHealth; }
 
 void Health::setInvencibility(float duration) {
     if (pSystem != nullptr) {
@@ -77,6 +76,6 @@ void Health::deactivateInvincibility() {
     if (pSystem != nullptr) {
         pSystem->setEmitting(false);
     }
-    timer = 0.0f;
+    timer = 0;
     invulnerable = false;
 }

@@ -10,6 +10,7 @@ namespace Tapioca {
 class AudioSourceComponent;
 }
 
+
 class JUEGO_API GameManager : public Tapioca::Component, public Tapioca::Singleton<GameManager> {
 private:
     friend Singleton<GameManager>;
@@ -36,7 +37,17 @@ private:
     int level;
     int levelScore;
     int prevLevelScore;
+
+ // warning C4251 'GameManager::audios'
+ //    : class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
+ //     tener una interfaz DLL para que la utilicen los clientes de class 'GameManager'
+#ifdef _MSC_VER
+#pragma warning(disable : 4251)
+#endif
     std ::vector<Tapioca::AudioSourceComponent*> audios;   // Sonidos del juego
+#ifdef _MSC_VER
+#pragma warning(default : 4251)
+#endif
 
     GameManager();
     void onGameOver();
@@ -70,10 +81,10 @@ public:
     void ExitButtonClick();
 
     void increaseScore(int increasement);
-    inline int getScore() { return levelScore; }
+    inline int getScore() const { return levelScore; }
     std::string getCurrentLevelScene();
-    int getCurrentLevel() { return level; }
-    int getState() { return state; }
+    inline int getCurrentLevel() const { return level; }
+    inline int getState() const { return state; }
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {

@@ -56,7 +56,7 @@ void SideMovement::start() {
 
 void SideMovement::update(const uint64_t deltaTime) { 
     if (state == going || state == coming) {
-        Tapioca::Vector3 movement = dir * movSpd * deltaTime / 1000.0f;
+        Tapioca::Vector3 movement = dir * movSpd * (float)deltaTime / 1000.0f;
         transform->translate(movement);
         if (transform->getGlobalPosition().distance(nextPos) <= THRESHOLD) {
             if (state == going) state = turning;

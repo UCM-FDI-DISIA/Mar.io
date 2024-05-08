@@ -39,7 +39,8 @@ public:
 
     void loseHP(int dmg);
     void healHP(int hp);
-    int getHP();
+    inline int getHP() const { return currHealth; }
+
 
     void setInvencibility(float duration);
     void deactivateInvincibility();

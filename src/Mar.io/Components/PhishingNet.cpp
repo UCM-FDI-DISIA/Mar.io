@@ -45,4 +45,4 @@ void PhishingNet::start() {
     transform = object->getComponent<Tapioca::Transform>();
 }
 
-void PhishingNet::update(const uint64_t deltaTime) { transform->translate(velocity * speed * deltaTime / 1000.0f); }
+void PhishingNet::update(const uint64_t deltaTime) { transform->translate(velocity * speed * (float)deltaTime / 1000.0f); }

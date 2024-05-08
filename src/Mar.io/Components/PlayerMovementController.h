@@ -50,5 +50,5 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     void reset();
-    bool getGrounded();
+    inline bool getGrounded() const { return grounded; }
 };
