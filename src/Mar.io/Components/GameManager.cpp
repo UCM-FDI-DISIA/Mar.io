@@ -30,6 +30,11 @@ void GameManager::onWin() {
     std::string levelName = "Level" + std::to_string(level);
     Tapioca::MainLoop::instance()->deleteScene(levelName);
     state = GameOver;
+    if (level == 1) {
+        std::string nextlevelName = "Level" + std::to_string(level+1);
+        changeScene(nextlevelName);
+    }
+    else
     changeScene("WinMenu");
 }
 
@@ -85,6 +90,7 @@ void GameManager::MainMenuButtonClick() {
     levelScore = 0;
     if (changeScene("Level1")) {
         Tapioca::MainLoop::instance()->deleteScene("MainMenu");
+       //level = 1;
         state = InGame;
     }
 }
@@ -149,3 +155,5 @@ void GameManager::ControlsButtonClick() {
 void GameManager::ExitButtonClick() { Tapioca::MainLoop::instance()->exit(); }
 
 void GameManager::increaseScore(int increasement) { levelScore += increasement; }
+
+std::string GameManager::getCurrentLevelScene() { return "Level" + level; }

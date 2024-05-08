@@ -16,7 +16,7 @@ private:
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
     enum Sounds { Coin, Walk, Sounds_MAX };
-
+   
     State state;
     State prevState;
     int level;
@@ -55,6 +55,8 @@ public:
 
     void increaseScore(int increasement);
     inline int getScore() { return levelScore; }
+    std::string getCurrentLevelScene();
+    int getCurrentLevel() { return level; }
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {
