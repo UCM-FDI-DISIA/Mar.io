@@ -31,6 +31,7 @@ void HeartPowerUp::handleEvent(std::string const& id, void* info) {
                 health->healHP(points);
             }
             object->die();
+            pushEvent("ev_Heal", nullptr);
         }
     }
 }

@@ -6,13 +6,14 @@
 #include "Components/Animator.h"
 #include "Coin.h"
 #include "CheckPoint.h"
+#include "Health.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
 PlayerMovementController::PlayerMovementController()
-    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), trans(nullptr),
-      rigidBody(nullptr), anim(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(7), bounceSpeed(3), runSpeed(10),
-      walkSpeed(5) { }
+    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
+      rigidBody(nullptr), anim(nullptr), health(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(7), bounceSpeed(3),
+      runSpeed(10), walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
@@ -27,6 +28,7 @@ void PlayerMovementController::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     anim = object->getComponent<Tapioca::Animator>();
     speed = walkSpeed;
+    health = object->getComponent<Health>();
 
     initialPos = trans->getGlobalPosition();
     respawnpos = initialPos;
@@ -41,7 +43,7 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
     Tapioca::logInfo(pos_s.c_str());*/
 
     if (moveX != 0 || moveZ != 0) {
-        float angle = std::atan2f(moveX, moveZ);
+        float angle = std::atan2f(float(moveX), float(moveZ));
         trans->setRotation(Tapioca::Vector3(0, angle * 180 / 3.1415, 0));
     }
 
@@ -52,6 +54,10 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
     if (runEnd && grounded) {
         speed = walkSpeed;
         runEnd = false;
+    }
+    if (health->getHP() <= 0) {
+        pushEvent("ev_NotWalk", nullptr);
+        walk = false;
     }
 }
 
@@ -125,9 +131,9 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             bounce = true;
         }
         else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                 trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
-                 object->getComponent<Coin>() == nullptr) 
-        {
+                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
+                 object->getComponent<Coin>() == nullptr) {
+            walk = false;
             grounded = true;
             jumps = 0;
         }
@@ -147,7 +153,6 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             respawnpos = c->getRespawnPos();
         }
     }
-
 }
 
 void PlayerMovementController::fixedUpdate() {
@@ -163,6 +168,8 @@ void PlayerMovementController::fixedUpdate() {
     if (jump) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));
         jump = false;
+        pushEvent("ev_Jump", nullptr);
+        pushEvent("ev_NotWalk", nullptr);
     }
     if (bounce) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, bounceSpeed, v.z));
@@ -171,16 +178,24 @@ void PlayerMovementController::fixedUpdate() {
 
     if (moveX != 0 || moveZ != 0) {
         v = rigidBody->getVelocity();
-        v += Tapioca::Vector3(moveX, 0, moveZ).getNormalized() * speed;
+        v += Tapioca::Vector3(float(moveX), 0, float(moveZ)).getNormalized() * speed;
         if (std::abs(v.x) > speed) v.x = v.x > 0 ? speed : -speed;
         if (std::abs(v.z) > speed) v.z = v.z > 0 ? speed : -speed;
 
         rigidBody->setVelocity(v);
-        pushEvent("ev_Walk", nullptr);
+
+        if (!walk) {
+            pushEvent("ev_Walk", nullptr);
+            walk = true;
+        }
+    }
+    else if (walk) {
+        pushEvent("ev_NotWalk", nullptr);
+        walk = false;
     }
     v = rigidBody->getVelocity();
     if (abs(v.x) > 0 || abs(v.z) > 0) {
-        rigidBody->setVelocity(Tapioca::Vector3(v.x * 0.9, v.y, v.z * 0.9));
+        rigidBody->setVelocity(Tapioca::Vector3(float(v.x * 0.9), v.y, float(v.z * 0.9)));
         //std::cout << moveX << " /" << moveZ<< "\n ";
     }
 }
@@ -189,6 +204,7 @@ void PlayerMovementController::reset() {
     jump = false;
     bounce = false;
     grounded = true;
+    walk = false;
     jumps = 0;
     respawnpos = initialPos;
 }

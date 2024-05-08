@@ -9,6 +9,7 @@ class RigidBody;
 class Animator;
 }
 
+class Health;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
@@ -18,9 +19,11 @@ private:
     bool bounce;
     bool run;
     bool runEnd;
+    bool walk;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
     Tapioca::Animator* anim;
+    Health* health;
     int moveX, moveZ;
     float speed;
     float jumpSpeed;

@@ -244,8 +244,11 @@ scene  = {
 			Score = {
 			},
 			AudioSourceComponent = {
-				sourcepath = "footstep.mp3"
+				sourcepath = "jump.mp3"
 			},
+			AudioSourceComponent = {
+				sourcepath = "footstep.mp3"
+			},			
 			AudioListenerComponent = {},
 			ParticleSystemComponent = {
 				templateName = "aureolaPS",
@@ -280,6 +283,9 @@ scene  = {
 					Fist = {
 						coolDown = 1000.0,
 						duration = 100.0
+					},
+					AudioSourceComponent = {
+						sourcepath = "fist.mp3"
 					}
 				}
 			},
@@ -1528,7 +1534,10 @@ scene  = {
 				materialName = "heart",
 				initRotationX = -90.0
 			},
-			HeartPowerUp = { }
+			HeartPowerUp = { },
+			AudioSourceComponent = {
+				sourcepath = "heal.mp3"
+			}
 		}
 	},
 	{
@@ -1561,7 +1570,10 @@ scene  = {
 				materialName = "bubble",
 				initRotationX = -90.0
 			},
-			InvincibilityPowerUp = { }
+			InvincibilityPowerUp = { },
+			AudioSourceComponent = {
+				sourcepath = "invincibility.mp3"
+			}
 		}
 	},
 

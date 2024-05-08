@@ -38,6 +38,7 @@ void Fist::handleEvent(std::string const& id, void* info) {
     if (id == "ev_MELEATTACK" && canHit) {
         canHit = false;
         onAttack = true;
+        pushEvent("ev_Fist", nullptr);
     }
     if ((id == "onCollisionStay" || id == "onCollisionEnter") && onAttack && !damageDealt) {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;

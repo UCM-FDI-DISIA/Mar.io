@@ -30,6 +30,7 @@ void InvincibilityPowerUp::handleEvent(std::string const& id, void* info) {
                 health->setInvencibility(time);
             }
             object->die();
+            pushEvent("ev_Invincibility", nullptr);
         }
     }
 }

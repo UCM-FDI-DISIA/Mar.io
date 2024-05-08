@@ -62,6 +62,11 @@ void GameManager::start() {
     audios[MainMenuMusic] = object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[InGameMusic] = object->getScene()->getHandler("InGameMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[WinMenuMusic] = object->getScene()->getHandler("WinMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[Jump] = object->getScene()->getHandler("JumpSound")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[Jump]->setVolume(0.2f);
+    audios[Fist] = object->getScene()->getHandler("FistSound")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[Heal] = object->getScene()->getHandler("LifeUpSound")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[Invincibility] = object->getScene()->getHandler("InvincibilitySound")->getComponent<Tapioca::AudioSourceComponent>();
 
     changeScene("MainMenu");
     state = MainMenu;
@@ -81,7 +86,15 @@ void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Win") onWin();
 
     if (id == "ev_Coin") audios[Coin]->playOnce();
-    /*else if (id == "ev_Walk") audios[Walk]->playOnce();*/
+    if (id == "ev_Jump") audios[Jump]->playOnce();
+    if (id == "ev_Fist") audios[Fist]->playOnce();
+    if (id == "ev_Walk") {     
+        audios[Walk]->pause(false);
+        audios[Walk]->playLooped();
+    }
+    if (id == "ev_NotWalk") audios[Walk]->pause(true);
+    if (id == "ev_Heal") audios[Heal]->playOnce();
+    if (id == "ev_Invincibility") audios[Invincibility]->playOnce();
 }
 
 

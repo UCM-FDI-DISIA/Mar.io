@@ -47,4 +47,34 @@ scene = {
             }
         }
     }
+	, JumpSound = {
+        components = {
+            AudioSourceComponent = {
+                sourcepath = "jump.mp3"
+            }
+        }
+    }
+	, FistSound = {
+        components = {
+            AudioSourceComponent = {
+				islooping=true,
+                ispaused=true,
+                sourcepath = "fist.mp3"
+            }
+        }
+    }
+	, LifeUpSound = {
+        components = {
+            AudioSourceComponent = {
+                sourcepath = "heal.mp3"
+            }
+        }
+    }
+	, InvincibilitySound = {
+        components = {
+            AudioSourceComponent = {
+                sourcepath = "invincibility.mp3"
+            }
+        }
+    }
 }
