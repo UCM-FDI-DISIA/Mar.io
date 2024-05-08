@@ -4,8 +4,6 @@
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<InvincibilityPowerUp>;
-
 InvincibilityPowerUp::InvincibilityPowerUp() : time(5.0) { }
 
 bool InvincibilityPowerUp::initComponent(const CompMap& variables) {

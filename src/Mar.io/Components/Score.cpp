@@ -7,8 +7,6 @@
 #include "Structure/GameObject.h"
 #include "Structure/Scene.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Score>;
-
 Score::Score() : score(0), numScorePerLife(10), health(nullptr), heal(1), coinsText(nullptr) { }
 
 bool Score::initComponent(const CompMap& variables) {

@@ -9,8 +9,6 @@
 #include "PlayerMovementController.h"
 #include "Enemy.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<FeetDamage>;
-
 FeetDamage::FeetDamage() : health(nullptr), trans(nullptr), rigidBody(nullptr), heal(1) { }
 
 FeetDamage::~FeetDamage() {

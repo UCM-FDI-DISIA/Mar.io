@@ -9,8 +9,6 @@
 #include "Health.h"
 #include "GameManager.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
-
 PlayerMovementController::PlayerMovementController()
     : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
       rigidBody(nullptr), anim(nullptr), health(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(8), bounceSpeed(3),

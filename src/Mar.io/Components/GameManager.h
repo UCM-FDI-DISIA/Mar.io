@@ -38,9 +38,9 @@ private:
     int levelScore;
     int prevLevelScore;
 
- // warning C4251 'GameManager::audios'
- //    : class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
- //     tener una interfaz DLL para que la utilicen los clientes de class 'GameManager'
+ // warning C4251 'GameManager::audios':
+ // class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
+ // tener una interfaz DLL para que la utilicen los clientes de class 'GameManager'
 #ifdef _MSC_VER
 #pragma warning(disable : 4251)
 #endif

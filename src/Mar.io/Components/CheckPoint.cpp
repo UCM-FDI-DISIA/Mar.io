@@ -3,8 +3,6 @@
 #include "Structure/GameObject.h"
 #include "Components/Transform.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<CheckPoint>;
-
 CheckPoint::CheckPoint() : globalPos(), offset(), activated(false) { }
 
 void CheckPoint::handleEvent(std::string const& id, void* info) {

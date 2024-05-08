@@ -3,8 +3,6 @@
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<PlayerSetting>;
-
 PlayerSetting::PlayerSetting(){ }
 
 PlayerSetting::~PlayerSetting() { }

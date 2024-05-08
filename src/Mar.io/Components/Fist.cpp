@@ -3,8 +3,6 @@
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Fist>;
-
 Fist::Fist() : onAttack(false), duration(0), coolDown(0), cont(0), canHit(true), damageDealt(false) { }
 
 bool Fist::initComponent(const CompMap& variables) {

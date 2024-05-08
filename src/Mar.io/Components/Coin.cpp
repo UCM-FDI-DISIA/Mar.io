@@ -4,8 +4,6 @@
 #include "Structure/BasicBuilder.h"
 #include "Score.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Coin>;
-
 Coin::Coin() : points(1) { }
 
 bool Coin::initComponent(const CompMap& variables) {

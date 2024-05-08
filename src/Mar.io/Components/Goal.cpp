@@ -4,8 +4,6 @@
 #include "PlayerMovementController.h"
 #include "GameManager.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Goal>;
-
 Goal::Goal() { }
 
 

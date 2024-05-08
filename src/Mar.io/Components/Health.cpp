@@ -6,8 +6,6 @@
 #include "Components/Text.h"
 #include "Components/ParticleSystemComponent.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Health>;
-
 Health::Health() : currHealth(1), timer(0), invulnerable(false), livesText(nullptr), pSystem(nullptr) { }
 
 void Health::start() {

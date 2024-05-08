@@ -3,10 +3,7 @@
 #include "Structure/GameObject.h"
 #include "Components/Transform.h"
 #include "Components/CameraComponent.h"
-#include "Structure/MainLoop.h"
 #include "Structure/Scene.h"
-
-template class JUEGO_API Tapioca::BasicBuilder<CameraFollow>;
 
 CameraFollow::CameraFollow() 
     : transform(nullptr), targetTransform(nullptr), camera(nullptr), targetName(""), smoothSpeed(DEF_SMOOTH_SPD), offset(DEF_OFFSET),

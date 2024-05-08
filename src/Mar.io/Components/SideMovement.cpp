@@ -5,8 +5,6 @@
 #include "Structure/MainLoop.h"
 #include "Structure/Scene.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<SideMovement>;
-
 SideMovement::SideMovement()
     : movementDistance(0), state(going), movSpd(1.0f), rotSpd(1.0f), initPos(Tapioca::Vector3(0)),
       nextPos(Tapioca::Vector3(0)), initDir(Tapioca::Vector3(0)), dir(Tapioca::Vector3(0)), rot(0), 
@@ -15,7 +13,6 @@ SideMovement::SideMovement()
 SideMovement::~SideMovement() { transform = nullptr; }
 
 bool SideMovement::initComponent(const CompMap& variables) { 
-    // Hay que especificar vida maxima
     if (!setValueFromMap(movementDistance, "movementDistance", variables)) {
         Tapioca::logError("SideMovement: No hay distancia de movimiento establecida.");
         return false;

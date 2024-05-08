@@ -6,8 +6,6 @@
 #include "GameManager.h"
 #include "Score.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<LevelScore>;
-
 LevelScore::LevelScore() { }
 
 

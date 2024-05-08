@@ -7,8 +7,6 @@
 #include "Health.h"
 #include <iostream>
 
-template class JUEGO_API Tapioca::BasicBuilder<Enemy>;
-
 Enemy::Enemy() : health(nullptr), trans(nullptr), rigidBody(nullptr), tEnemy(-1) { }
 
 Enemy::~Enemy() {

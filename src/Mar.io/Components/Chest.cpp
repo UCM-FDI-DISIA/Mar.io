@@ -10,8 +10,6 @@
 #include "Structure/Scene.h"
 #include "Score.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<Chest>;
-
 Chest::Chest() : open(false), nCoins(8) { }
 
 bool Chest::initComponent(const CompMap& variables) { return true; }

@@ -4,8 +4,6 @@
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<HeartPowerUp>;
-
 HeartPowerUp::HeartPowerUp() : points(1) { }
 
 bool HeartPowerUp::initComponent(const CompMap& variables) {

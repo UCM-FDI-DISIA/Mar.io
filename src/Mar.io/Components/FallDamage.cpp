@@ -6,8 +6,6 @@
 #include "PlayerMovementController.h"
 #include "Components/RigidBody.h"
 
-template class JUEGO_API Tapioca::BasicBuilder<FallDamage>;
-
 FallDamage::FallDamage() : health(nullptr), trans(nullptr), limitFall(), fallOffset(25.0f), damage(1) { }
 
 FallDamage::~FallDamage() {
@@ -32,11 +30,18 @@ bool FallDamage::initComponent(const CompMap& variables) {
 
 void FallDamage::start() {
     health = object->getComponent<Health>();
-    trans = object->getComponent<Tapioca::Transform>();
-    if (fallOffset > 0.0f) {
-        fallOffset = -fallOffset;
+    if (health == nullptr) {
+        alive = active = false;
+        Tapioca::logError("FallDamage: No existe el componente Health, se borrara el componente.");
     }
-    limitFall = trans->getGlobalPosition().y + fallOffset;
+    else {
+        trans = object->getComponent<Tapioca::Transform>();
+        if (fallOffset > 0.0f) {
+            fallOffset = -fallOffset;
+        }
+        limitFall = trans->getGlobalPosition().y + fallOffset;
+    }
+   
 }
 
 void FallDamage::update(const uint64_t deltaTime) {
@@ -45,22 +50,4 @@ void FallDamage::update(const uint64_t deltaTime) {
         health->deactivateInvincibility();
         health->loseHP(damage);
     }
-
-    // Timer para registrar prev pos
-    //time += deltaTime;
-    //if (time > timeNewPos && playerMC->getGrounded() && rigidBody->getVelocity().y < 0.05f &&
-    //    rigidBody->getVelocity().y > -0.05f) {
-    //    prevPos = Tapioca::Vector3(trans->getPosition().x, trans->getPosition().y + 5, trans->getPosition().z);
-    //    time = 0;
-    //}
-
-    //// Se cambiará la altura al caer por elementos como el abismo
-    //if (trans->getPosition().y < -15) {
-    //    health->loseHP(health->getHP());
-
-    //    // GAME OVER (healthg == 0)
-    //    trans->setPosition(initPos);
-    //    ahora el checkpoint es el que le da una posicion alplayer para respawnear trans->setPosition(prevPos);
-    //    playerMC->reset();
-    //}
 }
