@@ -246,7 +246,10 @@ scene  = {
 			AudioSourceComponent = {
 				sourcepath = "footstep.mp3"
 			},
-			AudioListenerComponent = {}
+			AudioListenerComponent = {},
+			ParticleSystemComponent = {
+				templateName = "aureolaPS",
+			}
 		},
 		children = {
 			{

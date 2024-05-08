@@ -4,17 +4,19 @@
 #include "Structure/Scene.h"
 #include "Structure/Component.h"
 #include "Components/Text.h"
+#include "Components/ParticleSystemComponent.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<Health>;
 
-Health::Health() : currHealth(1),timer(0), invulnerable(false), livesText(nullptr) { }
+Health::Health() : currHealth(1), timer(0), invulnerable(false), livesText(nullptr), pSystem(nullptr) { }
 
 void Health::start() {
     Tapioca::GameObject* livesObject = object->getScene()->getHandler("livesText");
     if (livesObject != nullptr) {
-        livesText = livesObject->getComponent<Tapioca::Text>();   
+        livesText = livesObject->getComponent<Tapioca::Text>();
         if (livesText != nullptr) livesText->setText("X" + std::to_string(currHealth));
     }
+    pSystem = object->getComponent<Tapioca::ParticleSystemComponent>();
 }
 
 bool Health::initComponent(const CompMap& variables) {
@@ -57,18 +59,24 @@ void Health::loseHP(int hp) {
 
 void Health::healHP(int hp) {
     currHealth += hp;
-    
+
     if (livesText != nullptr) livesText->setText("X" + std::to_string(currHealth));
 }
 
 int Health::getHP() { return currHealth; }
 
 void Health::setInvencibility(float duration) {
+    if (pSystem != nullptr) {
+        pSystem->setEmitting(true);
+    }
     invulnerable = true;
     timer = std::max(timer, (int64_t)duration);
 }
 
 void Health::deactivateInvincibility() {
+    if (pSystem != nullptr) {
+        pSystem->setEmitting(false);
+    }
     timer = 0.0f;
     invulnerable = false;
 }

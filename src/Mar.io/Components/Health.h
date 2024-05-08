@@ -4,6 +4,7 @@
 
 namespace Tapioca {
 class Text;
+class ParticleSystemComponent;
 }
 
 class JUEGO_API Health : public Tapioca::Component {
@@ -14,6 +15,7 @@ private:
     bool invulnerable;
 
     Tapioca::Text* livesText;
+    Tapioca::ParticleSystemComponent* pSystem;
 
 public:
     COMPONENT_ID("Health")
@@ -37,7 +39,6 @@ public:
 
     void loseHP(int dmg);
     void healHP(int hp);
-    void restoreHealth();
     int getHP();
 
     void setInvencibility(float duration);
