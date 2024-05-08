@@ -101,7 +101,7 @@ void GameManager::ReturnButtonClick() {
         Tapioca::MainLoop::instance()->deleteScene("WinMenu");
         Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
         state = MainMenu;
-        audios[MainMenuMusic]->pause(false);
+        audios[MainMenuMusic]->playLooped();
     }
 }
 
