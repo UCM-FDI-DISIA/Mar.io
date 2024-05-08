@@ -23,10 +23,10 @@ scene = {
     ReturnButton = {
         components = {
             Transform = {
-                positionX = WINDOW_WIDTH * 0.5,
-                positionY = WINDOW_HEIGHT * 0.8,
-                scaleX = 70.0,
-                scaleY = 70.0
+                positionX = WINDOW_WIDTH *0.07,
+                positionY = WINDOW_HEIGHT*0.9,
+                scaleX = WINDOW_WIDTH/14.0,
+                scaleY = WINDOW_WIDTH/14.0,
             },
             ImageTextButton = {
                 name = "ReturnButton",

@@ -51,6 +51,7 @@ public:
     void ToPause();
     void ControlsReturn();
     void ControlsButtonClick();
+    void ExitButtonClick();
 
     void increaseScore(int increasement);
     inline int getScore() { return levelScore; }

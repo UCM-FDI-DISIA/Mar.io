@@ -41,6 +41,7 @@ void GameManager::registerLuaFunctions() {
     lua->addLuaFunction("ContinueButtonClick", [this]() { ContinueButtonClick(); });
     lua->addLuaFunction("ControlsButtonClick", [this]() { ControlsButtonClick(); });
     lua->addLuaFunction("ControlsReturn", [this]() { ControlsReturn(); });
+    lua->addLuaFunction("ExitButtonClick", [this]() { ExitButtonClick(); });
 }
 
 bool GameManager::initComponent(const CompMap& variables) {
@@ -144,5 +145,7 @@ void GameManager::ControlsButtonClick() {
         state = Controls;
     }
 }
+
+void GameManager::ExitButtonClick() { Tapioca::MainLoop::instance()->exit(); }
 
 void GameManager::increaseScore(int increasement) { levelScore += increasement; }

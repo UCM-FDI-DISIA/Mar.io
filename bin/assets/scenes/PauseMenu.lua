@@ -14,8 +14,8 @@ scene = {
             },
             Image = {
                 name = "Tapiocaimagen",
-                imagePath = "table.png",
-                windowFlags= ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing
+                imagePath = "PauseMenu.png",
+                windowFlags= ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing |ImGuiWindowFlags_NoInputs
 
             }
         }
@@ -25,8 +25,8 @@ scene = {
             Transform = {
                 positionX = WINDOW_WIDTH / 2,
                 positionY = WINDOW_HEIGHT * 3 / 4.5,
-                scaleX = 85.0,
-                scaleY = 85.0,
+                scaleX = WINDOW_WIDTH/7.0,
+                scaleY = WINDOW_WIDTH/7.0,
             },
             ImageTextButton = {
                 name = "ContinueButton",
@@ -46,8 +46,8 @@ scene = {
             Transform = {
                 positionX = WINDOW_WIDTH *0.625,
                 positionY = WINDOW_HEIGHT * 3 /4.5,
-                scaleX = 70.0,
-                scaleY = 70.0
+                scaleX = WINDOW_WIDTH/12.0,
+                scaleY = WINDOW_WIDTH/12.0
             },
             ImageTextButton = {
                 name = "ReplayButton",
@@ -67,8 +67,8 @@ scene = {
             Transform = {
                 positionX = WINDOW_WIDTH * 0.375,
                 positionY = WINDOW_HEIGHT * 3 /4.5,
-                scaleX = 70.0,
-                scaleY = 70.0
+                scaleX = WINDOW_WIDTH/12.0,
+                scaleY = WINDOW_WIDTH/12.0
             },
             ImageTextButton = {
                 name = "ReturnButton",
@@ -87,8 +87,8 @@ scene = {
             Transform = {
                 positionX = WINDOW_WIDTH *0.9,
                 positionY = WINDOW_HEIGHT*0.1,
-                scaleX = 50.0,
-                scaleY = 50.0,
+                scaleX = WINDOW_WIDTH/14.0,
+                scaleY = WINDOW_WIDTH/14.0,
             },
             ImageTextButton = {
                 onClickId = "ControlsButtonClick",

@@ -23,8 +23,8 @@ scene = {
             Transform = {
                 positionX = WINDOW_WIDTH / 2,
                 positionY = WINDOW_HEIGHT * 3 / 4.5,
-                scaleX = 85.0,
-                scaleY = 85.0,
+                scaleX = WINDOW_WIDTH/7.0,
+                scaleY = WINDOW_WIDTH/7.0,
             },
             ImageTextButton = {
                 name = "ReplayImageTextButton",
@@ -42,10 +42,10 @@ scene = {
     ReturnImageTextButton = {
         components = {
             Transform = {
-                positionX = WINDOW_WIDTH *0.9,
-                positionY = WINDOW_HEIGHT*0.1,
-                scaleX = 50.0,
-                scaleY = 50.0
+                positionX = WINDOW_WIDTH *0.1,
+                positionY = WINDOW_HEIGHT*0.9,
+                scaleX = WINDOW_WIDTH/14.0,
+                scaleY = WINDOW_WIDTH/14.0,
             },
             ImageTextButton = {
                 name = "ReturnImageTextButton",
