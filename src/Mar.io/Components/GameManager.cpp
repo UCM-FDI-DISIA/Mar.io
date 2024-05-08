@@ -14,27 +14,39 @@
 GameManager::GameManager() : state(MainMenu), level(1), levelScore(0), prevState(MainMenu) { }
 
 void GameManager::onGameOver() {
-    Tapioca::logInfo("GameManager: Muelto.");
-    Tapioca::MainLoop::instance()->deleteScene("Level1");
-    state = GameOver;
-    changeScene("LoseMenu");
-    audios[InGameMusic]->pause(true);
+    if (changeScene("LoseMenu")) {
+        Tapioca::logInfo("GameManager: Muelto.");
+        deleteCurrentLevel();
+        state = GameOver;
+        audios[InGameMusic]->pause(true);
+    }
+}
+
+bool GameManager::addLevel() { 
+    std::string levelName = "Level" + std::to_string(level);
+    return changeScene(levelName);
+}
+
+void GameManager::deleteCurrentLevel() {
+    std::string levelName = "Level" + std::to_string(level);
+    Tapioca::MainLoop::instance()->deleteScene(levelName);
 }
 
 void GameManager::onWin() {
-    std::string levelName = "Level" + std::to_string(level);
-    Tapioca::MainLoop::instance()->deleteScene(levelName);
-    state = GameOver;
-    if (level == 1) {
-        std::string nextlevelName = "Level" + std::to_string(level+1);
-        changeScene(nextlevelName);
+    deleteCurrentLevel();
+    level++;
+    if (level > N_LEVELS) {
+        state = GameOver;
+        if (!changeScene("WinMenu")) Tapioca::MainLoop::instance()->exit();
+        audios[InGameMusic]->pause(true);
+        audios[WinMenuMusic]->playLooped();   
+    }
+    else
+    {
+        state = InGame;
+        if (!addLevel()) Tapioca::MainLoop::instance()->exit();
         audios[InGameMusic]->playLooped();
         audios[WinMenuMusic]->pause(true);
-    }
-    else {
-        changeScene("WinMenu");
-        audios[InGameMusic]->pause(true);
-        audios[WinMenuMusic]->playLooped();    
     }
 }
 
@@ -103,10 +115,10 @@ bool GameManager::changeScene(std::string const& scene) const {
 }
 
 void GameManager::MainMenuButtonClick() {
+    level = 1;
     levelScore = 0;
-    if (changeScene("Level1")) {
+    if (addLevel()) {
         Tapioca::MainLoop::instance()->deleteScene("MainMenu");
-       //level = 1;
         state = InGame;
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->playLooped();
@@ -117,9 +129,7 @@ void GameManager::MainMenuButtonClick() {
 
 void GameManager::ReturnButtonClick() {
     if (changeScene("MainMenu")) {
-        std::string levelName = "Level" + std::to_string(level);
-        Tapioca::MainLoop::instance()->deleteScene(levelName);
-        level = 1;
+        deleteCurrentLevel();
         Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
         Tapioca::MainLoop::instance()->deleteScene("WinMenu");
         Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
@@ -131,10 +141,10 @@ void GameManager::ReturnButtonClick() {
 }
 
 void GameManager::ReplayButtonClick() {
-    if (changeScene("Level1")) {
+    if (addLevel()) {
         Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
         Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
-        Tapioca::MainLoop::instance()->deleteScene("Level1");
+        deleteCurrentLevel();
         state = InGame;
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->playLooped();
@@ -145,7 +155,8 @@ void GameManager::ReplayButtonClick() {
 
 void GameManager::ContinueButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
-    Tapioca::MainLoop::instance()->getScene("Level1")->setActive(true);
+    std::string levelName = "Level" + std::to_string(level);
+    Tapioca::MainLoop::instance()->getScene(levelName)->setActive(true);
     state = InGame;
     audios[MainMenuMusic]->pause(true);
     audios[InGameMusic]->pause(false);
@@ -154,7 +165,8 @@ void GameManager::ContinueButtonClick() {
 
 void GameManager::ToPause() {
     if (changeScene("PauseMenu")) {
-        Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
+        std::string levelName = "Level" + std::to_string(level);
+        Tapioca::MainLoop::instance()->getScene(levelName)->setActive(false);
         state = Pause;
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->pause(true);

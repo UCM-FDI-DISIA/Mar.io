@@ -17,18 +17,21 @@ private:
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
     enum Sounds { Coin, Walk, MainMenuMusic, InGameMusic, WinMenuMusic, Jump, Fist, Heal, Invincibility, Sounds_MAX };
 
+    const int N_LEVELS = 2;
    
     State state;
     State prevState;
     int level;
     int levelScore;
+    int prevLevelScore;
     std ::vector<Tapioca::AudioSourceComponent*> audios;   // Sonidos del juego
-
 
     GameManager();
     void onGameOver();
     void onWin();
     void registerLuaFunctions();
+    void deleteCurrentLevel();
+    bool addLevel();
 
 public:
     COMPONENT_ID("GameManager");
