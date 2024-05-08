@@ -1,21 +1,15 @@
 #include "GameManager.h"
+#include <iomanip>
+#include <functional>
+#include <fstream>
 #include "SceneLoader.h"
 #include "LuaManager.h"
 #include "PhysicsManager.h"
 #include "Structure/MainLoop.h"
-#include <iomanip>
-#include <functional>
-#include <fstream>
 #include "Structure/Scene.h"
-
 #include "Structure/GameObject.h"
 #include "Structure/Component.h"
-
 #include "Components/AudioSourceComponent.h"
-
-template class JUEGO_API Tapioca::Singleton<GameManager>;
-template<>
-GameManager* Tapioca::Singleton<GameManager>::instance_ = nullptr;
 
 GameManager::GameManager() : state(MainMenu), level(1), levelScore(0), prevState(MainMenu) { }
 
