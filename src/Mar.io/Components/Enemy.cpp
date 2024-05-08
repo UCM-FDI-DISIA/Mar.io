@@ -35,24 +35,6 @@ void Enemy::update(const uint64_t deltaTime) { }
 
 void Enemy::fixedUpdate() { }
 
-void Enemy::handleEvent(std::string const& id, void* info) {
-    Tapioca::GameObject* obj = (Tapioca::GameObject*)info;
+void Enemy::handleEvent(std::string const& id, void* info) { }
 
-    if (id == "onCollisionEnter") {
-        Tapioca::Transform* t = obj->getComponent<Tapioca::Transform>();
-        // Caso no tortuga
-        if (obj->getHandler() == "Player" && t->getPosition().y > trans->getPosition().y + 4 && tEnemy != TURTLE) {
-            // daño por saltar encima enemigo
-            std::cout << "salto\n";
-            object->die();
-        }
-    }
-    else if (id == "onCollisionStay") {
-        Tapioca::Transform* t = obj->getComponent<Tapioca::Transform>();
-        if (obj->getComponent<Fist>() != nullptr && obj->getComponent<Fist>()->isAttack()) {
-            // daño por puñetazo a enemigo
-            std::cout << "puño\n";
-            object->die();
-        }
-    }
-}
+int Enemy::getEnemyType() { return tEnemy; }

@@ -10,27 +10,24 @@ class RigidBody;
 
 class Health;
 
-enum eType { TURTLE, CRAB, MORAY };
-
-class JUEGO_API Enemy : public Tapioca::Component {
+class JUEGO_API FeetDamage : public Tapioca::Component {
 private:
+    int heal;
+
     Health* health;
     Tapioca::Transform* trans;
     Tapioca::RigidBody* rigidBody;
-    int tEnemy;
 
 public:
-    COMPONENT_ID("Enemy");
+    COMPONENT_ID("FeetDamage");
 
-    Enemy();
+    FeetDamage();
 
-    ~Enemy();
+    ~FeetDamage();
 
     bool initComponent(const CompMap& variables) override;
     void start() override;
     void update(const uint64_t deltaTime) override;
     void fixedUpdate() override;
     void handleEvent(std::string const& id, void* info) override;
-
-    int getEnemyType();
 };

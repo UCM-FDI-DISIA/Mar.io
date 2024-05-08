@@ -289,6 +289,38 @@ scene  = {
 					}
 				}
 			},
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = -1.0,
+						positionZ = 0.0,
+						scaleX = 1.0,
+						scaleY = 1.0,
+						scaleZ = 1.0,
+						rotationX = 0.0,
+						rotationY = 1.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.15,
+						colliderScaleY = 0.45,
+						colliderScaleZ = 0.15,
+						isTrigger = true,
+						mass = 0.0,
+						friction = 1.0,
+						damping = 0.4,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					FeetDamage = {
+					},
+					AudioSourceComponent = {
+						sourcepath = "fist.mp3"
+					}
+				}
+			},
 			PlayerLight = {
 				components = {
 					Transform = {
@@ -624,6 +656,9 @@ scene  = {
 					Health = {
 						currHealth = 1,
 					},
+					Enemy = {
+						tEnemy = 1
+					},
 				},
 			},
 			{
@@ -672,7 +707,9 @@ scene  = {
 					Health = {
 						currHealth = 1,
 					},
-
+					Enemy = {
+						tEnemy = 1
+					},
 				},
 			},
  
@@ -1004,6 +1041,9 @@ scene  = {
 					Health = {
 						currHealth = 1,
 					},
+					Enemy = {
+						tEnemy = 0
+					},
 				},
 				children = {
 					{
@@ -1081,6 +1121,9 @@ scene  = {
 					},
 					Health = {
 						currHealth = 1,
+					},
+					Enemy = {
+						tEnemy = 0
 					},
 				},
 				children = {
