@@ -19,6 +19,7 @@ void GameManager::onGameOver() {
         deleteCurrentLevel();
         state = GameOver;
         audios[InGameMusic]->pause(true);
+        audios[Walk]->pause(true);
     }
 }
 
@@ -48,6 +49,7 @@ void GameManager::onWin() {
         audios[InGameMusic]->playLooped();
         audios[WinMenuMusic]->pause(true);
     }
+    audios[Walk]->pause(true);
 }
 
 void GameManager::registerLuaFunctions() {

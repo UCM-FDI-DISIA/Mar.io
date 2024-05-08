@@ -1676,7 +1676,10 @@ scene  = {
 				materialName = "heart",
 				initRotationX = -90.0
 			},
-			HeartPowerUp = { }
+			HeartPowerUp = { },
+			AudioSourceComponent = {
+				sourcepath = "heal.mp3"
+			}
 		}
 	},
 	{
@@ -1709,7 +1712,10 @@ scene  = {
 				materialName = "bubble",
 				initRotationX = -90.0
 			},
-			InvincibilityPowerUp = { }
+			InvincibilityPowerUp = { },
+			AudioSourceComponent = {
+				sourcepath = "invincibility.mp3"
+			}
 		}
 	},
 

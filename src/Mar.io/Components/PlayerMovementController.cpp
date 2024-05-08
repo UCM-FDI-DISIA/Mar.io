@@ -7,6 +7,7 @@
 #include "Coin.h"
 #include "CheckPoint.h"
 #include "Health.h"
+#include "GameManager.h"
 
 template class JUEGO_API Tapioca::BasicBuilder<PlayerMovementController>;
 
@@ -32,6 +33,8 @@ void PlayerMovementController::start() {
 
     initialPos = trans->getGlobalPosition();
     respawnpos = initialPos;
+
+    gManager = GameManager::instance();
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
@@ -55,7 +58,7 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
         speed = walkSpeed;
         runEnd = false;
     }
-    if (health->getHP() <= 0) {
+    if (health->getHP() <= 0 || gManager->getState() != 1) {
         pushEvent("ev_NotWalk", nullptr);
         walk = false;
     }

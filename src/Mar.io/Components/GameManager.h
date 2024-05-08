@@ -61,6 +61,7 @@ public:
     inline int getScore() { return levelScore; }
     std::string getCurrentLevelScene();
     int getCurrentLevel() { return level; }
+    int getState() { return state; }
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {

@@ -10,6 +10,7 @@ class Animator;
 }
 
 class Health;
+class GameManager;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
@@ -32,6 +33,8 @@ private:
     float walkSpeed;
     Tapioca::Vector3 respawnpos;
     Tapioca::Vector3 initialPos;
+
+    GameManager* gManager;
 
 public:
     COMPONENT_ID("PlayerMovementController");
