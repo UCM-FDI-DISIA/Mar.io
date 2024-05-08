@@ -17,10 +17,11 @@ scene = {
         components = {
             Transform = {
                 positionX = WINDOW_WIDTH / 2,
-                positionY = WINDOW_HEIGHT / 2 - 20
+                positionY = WINDOW_HEIGHT *0.425
             },
             Text = {
                 text = "made with",
+                textSize = WINDOW_WIDTH/25,
                 textFontName = "AGENCYB.TTF"
             }
         }
@@ -33,7 +34,7 @@ scene = {
             },
             Text = {
                 text = "Tapioca Engine",
-                textSize = 36.0,
+                textSize = WINDOW_WIDTH/15,
                 textFontName = "AGENCYB.TTF"
             }
         }
