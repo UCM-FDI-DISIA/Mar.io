@@ -19,7 +19,6 @@ scene = {
             }
            }
     },
- 
     StartImageTextButton = {
         components = {
             Transform = {

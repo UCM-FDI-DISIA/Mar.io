@@ -55,17 +55,20 @@ void CameraFollow::awake() {
     Tapioca::GameObject* target = object->getScene()->getHandler(targetName);
     if (target == nullptr) {
         Tapioca::logError(("CameraFollow: El objetivo \"" + targetName + "\" no esta en la escena.").c_str());
+        alive = active = false;
+    }
+    else {
+        // Si el objetivo no tiene transform
+        targetTransform = target->getComponent<Tapioca::Transform>();
+        if (targetTransform == nullptr) {
+            Tapioca::logError("CameraFollow: No se ha podido obtener el transform del objetivo.");
+        }
     }
 
-    // Si el objetivo no tiene transform
-    targetTransform = target->getComponent<Tapioca::Transform>();
-    if (targetTransform == nullptr) {
-        Tapioca::logError("CameraFollow: No se ha podido obtener el transform del objetivo.");
-    }
 }
 
 void CameraFollow::start() {
-    transform->setPosition(targetTransform->getGlobalPosition() + offset);
+    if (alive) transform->setPosition(targetTransform->getGlobalPosition() + offset);
 }
 
 void CameraFollow::update(const uint64_t deltaTime) {
