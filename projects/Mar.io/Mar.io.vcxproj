@@ -26,7 +26,6 @@
     <ClCompile Include="..\..\src\Mar.io\Components\HeartPowerUp.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\LevelScore.cpp" />
-    <ClCompile Include="..\..\src\Mar.io\Components\PhishingNet.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerMovementController.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Score.cpp" />
@@ -49,7 +48,6 @@
     <ClInclude Include="..\..\src\Mar.io\Components\HeartPowerUp.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\InvincibilityPowerUp.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\LevelScore.h" />
-    <ClInclude Include="..\..\src\Mar.io\Components\PhishingNet.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerMovementController.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerSetting.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Score.h" />

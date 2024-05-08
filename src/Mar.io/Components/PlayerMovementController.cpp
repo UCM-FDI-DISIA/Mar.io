@@ -28,13 +28,17 @@ void PlayerMovementController::start() {
     trans = object->getComponent<Tapioca::Transform>();
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     anim = object->getComponent<Tapioca::Animator>();
-    speed = walkSpeed;
     health = object->getComponent<Health>();
-
-    initialPos = trans->getGlobalPosition();
-    respawnpos = initialPos;
-
     gManager = GameManager::instance();
+
+    if (trans == nullptr || rigidBody == nullptr || anim == nullptr || health == nullptr || gManager == nullptr) {
+        alive = active = false;
+    }
+    else {
+        speed = walkSpeed;
+        initialPos = trans->getGlobalPosition();
+        respawnpos = initialPos;
+    }
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {

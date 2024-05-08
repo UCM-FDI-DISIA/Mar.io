@@ -53,7 +53,7 @@ void CameraFollow::awake() {
 
     // Si el objetivo no esta en la escena
     Tapioca::GameObject* target = object->getScene()->getHandler(targetName);
-    if (target == nullptr) {
+    if (target == nullptr || camera == nullptr) {
         Tapioca::logError(("CameraFollow: El objetivo \"" + targetName + "\" no esta en la escena.").c_str());
         alive = active = false;
     }

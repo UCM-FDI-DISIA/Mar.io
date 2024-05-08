@@ -18,10 +18,6 @@ bool Coin::initComponent(const CompMap& variables) {
     return true;
 }
 
-void Coin::start() {
-    Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>();
-}
-
 void Coin::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;

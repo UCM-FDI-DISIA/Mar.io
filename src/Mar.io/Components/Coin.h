@@ -11,6 +11,5 @@ public:
     Coin();
 
     bool initComponent(const CompMap& variables) override;
-    void start() override;
     void handleEvent(std::string const& id, void* info) override;
 };

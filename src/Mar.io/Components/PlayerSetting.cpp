@@ -13,6 +13,8 @@ bool PlayerSetting::initComponent(const CompMap& variables) { return true; }
 
 void PlayerSetting::start() {
 	Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>(); 
-	rb->setTensor(Tapioca::Vector3(0, 0, 0));
-    rb->setGravity(Tapioca::Vector3(0, -20, 0));
+	if (rb != nullptr) {
+		rb->setTensor(Tapioca::Vector3(0, 0, 0));
+		rb->setGravity(Tapioca::Vector3(0, -20, 0));
+	}
 }

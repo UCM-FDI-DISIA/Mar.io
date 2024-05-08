@@ -19,7 +19,13 @@ bool ContactDamage::initComponent(const CompMap& variables) {
     return true;
 }
 
-void ContactDamage::awake() { player = object->getScene()->getHandler("Player"); }
+void ContactDamage::awake() { 
+    player = object->getScene()->getHandler("Player");
+    if (player == nullptr) {
+        alive = active = false;
+        Tapioca::logError("ContactDamage: No existe Player, se borrara el componente.");
+    }
+}
 
 void ContactDamage::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionStay") {
