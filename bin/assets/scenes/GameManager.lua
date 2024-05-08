@@ -20,4 +20,13 @@ scene = {
             }
         }
     }
+    , MainMenuMusic = {
+        components = {
+            AudioSourceComponent = {
+                islooping=true,
+                ispaused=false,
+                sourcepath = "MenuPrincipalMario.wav"
+            }
+        }
+    }
 }

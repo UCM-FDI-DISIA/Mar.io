@@ -53,6 +53,7 @@ void GameManager::start() {
     audios = std::vector<Tapioca::AudioSourceComponent*>(Sounds_MAX);
     audios[Coin] = object->getScene()->getHandler("CoinSound")->getComponent<Tapioca::AudioSourceComponent>();
     audios[Walk] = object->getScene()->getHandler("WalkSound")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[MainMenuMusic] = object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
 
     changeScene("MainMenu");
     state = MainMenu;
@@ -86,6 +87,7 @@ void GameManager::MainMenuButtonClick() {
         Tapioca::MainLoop::instance()->deleteScene("MainMenu");
        //level = 1;
         state = InGame;
+        audios[MainMenuMusic]->pause(true);
     }
 }
 
@@ -99,6 +101,7 @@ void GameManager::ReturnButtonClick() {
         Tapioca::MainLoop::instance()->deleteScene("WinMenu");
         Tapioca::MainLoop::instance()->deleteScene("LoseMenu");
         state = MainMenu;
+        audios[MainMenuMusic]->pause(false);
     }
 }
 
@@ -108,6 +111,7 @@ void GameManager::ReplayButtonClick() {
         Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
         Tapioca::MainLoop::instance()->deleteScene("Level1");
         state = InGame;
+        audios[MainMenuMusic]->pause(true);
     }
 }
 
@@ -116,12 +120,14 @@ void GameManager::ContinueButtonClick() {
     Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
     Tapioca::MainLoop::instance()->getScene("Level1")->setActive(true);
     state = InGame;
+    audios[MainMenuMusic]->pause(true);
 }
 
 void GameManager::ToPause() {
     if (changeScene("PauseMenu")) {
         Tapioca::MainLoop::instance()->getScene("Level1")->setActive(false);
         state = Pause;
+        audios[MainMenuMusic]->pause(true);
     }
 }
 
@@ -130,10 +136,12 @@ void GameManager::ControlsReturn() {
     if (prevState == Pause) {
         Tapioca::MainLoop::instance()->getScene("PauseMenu")->setActive(true);
         state = Pause;
+        audios[MainMenuMusic]->pause(true);
     }
     else {
         Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(true);
         state = MainMenu;
+        audios[MainMenuMusic]->pause(false);
     }
 }
 
