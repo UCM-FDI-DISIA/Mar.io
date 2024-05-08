@@ -69,9 +69,13 @@ events = {
         src = "ie_keyUp",
         control = 100    --d
     },
-    ev_MELEATTACK = {
+    ev_MELEATTACK_1 = {
         src = "ie_keyDown",
         control = 102    --f
+    },
+    ev_MELEATTACK_2 = {
+        src = "ie_mouseButtonDown",
+        control = 1    --LEFT CLICK
     },
 	ev_JUMP = {
         src = "ie_keyDown",
