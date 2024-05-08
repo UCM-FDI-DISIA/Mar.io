@@ -19,6 +19,7 @@ void GameManager::onGameOver() {
         deleteCurrentLevel();
         state = GameOver;
         audios[InGameMusic]->pause(true);
+        audios[GameOverMenuMusic]->playLooped();
         audios[Walk]->pause(true);
     }
 }
@@ -40,7 +41,8 @@ void GameManager::onWin() {
         state = GameOver;
         if (!changeScene("WinMenu")) Tapioca::MainLoop::instance()->exit();
         audios[InGameMusic]->pause(true);
-        audios[WinMenuMusic]->playLooped();   
+        audios[WinMenuMusic]->playLooped();
+        audios[GameOverMenuMusic]->pause(true);
     }
     else
     {
@@ -48,6 +50,7 @@ void GameManager::onWin() {
         if (!addLevel()) Tapioca::MainLoop::instance()->exit();
         audios[InGameMusic]->playLooped();
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
     audios[Walk]->pause(true);
 }
@@ -76,6 +79,7 @@ void GameManager::start() {
     audios[MainMenuMusic] = object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[InGameMusic] = object->getScene()->getHandler("InGameMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[WinMenuMusic] = object->getScene()->getHandler("WinMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[GameOverMenuMusic] = object->getScene()->getHandler("GameOverMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[Jump] = object->getScene()->getHandler("JumpSound")->getComponent<Tapioca::AudioSourceComponent>();
     audios[Jump]->setVolume(0.2f);
     audios[Fist] = object->getScene()->getHandler("FistSound")->getComponent<Tapioca::AudioSourceComponent>();
@@ -125,6 +129,7 @@ void GameManager::MainMenuButtonClick() {
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->playLooped();
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 
@@ -139,6 +144,7 @@ void GameManager::ReturnButtonClick() {
         audios[MainMenuMusic]->playLooped();
         audios[InGameMusic]->pause(true);
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 
@@ -151,6 +157,7 @@ void GameManager::ReplayButtonClick() {
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->playLooped();
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 
@@ -163,6 +170,7 @@ void GameManager::ContinueButtonClick() {
     audios[MainMenuMusic]->pause(true);
     audios[InGameMusic]->pause(false);
     audios[WinMenuMusic]->pause(true);
+    audios[GameOverMenuMusic]->pause(true);
 }
 
 void GameManager::ToPause() {
@@ -173,6 +181,7 @@ void GameManager::ToPause() {
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->pause(true);
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 
@@ -184,6 +193,7 @@ void GameManager::ControlsReturn() {
         audios[MainMenuMusic]->pause(true);
         audios[InGameMusic]->pause(true);
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
     else {
         Tapioca::MainLoop::instance()->getScene("MainMenu")->setActive(true);
@@ -191,6 +201,7 @@ void GameManager::ControlsReturn() {
         audios[MainMenuMusic]->pause(false);
         audios[InGameMusic]->pause(true);
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 
@@ -202,6 +213,7 @@ void GameManager::ControlsButtonClick() {
         state = Controls;
         audios[InGameMusic]->pause(true);
         audios[WinMenuMusic]->pause(true);
+        audios[GameOverMenuMusic]->pause(true);
     }
 }
 

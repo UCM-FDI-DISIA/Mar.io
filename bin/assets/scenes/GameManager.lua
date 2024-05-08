@@ -46,6 +46,15 @@ scene = {
                 sourcepath = "Cotylorhiza_Tuberculata_Loop.mp3"
             }
         }
+    }, 
+    GameOverMenuMusic = {
+        components = {
+            AudioSourceComponent = {
+                islooping=true,
+                ispaused=true,
+                sourcepath = "Swimming_Through_The_Abyss_Loop.mp3"
+            }
+        }
     }
 	, JumpSound = {
         components = {

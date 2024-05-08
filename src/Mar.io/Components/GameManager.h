@@ -15,10 +15,22 @@ private:
     friend Singleton<GameManager>;
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
-    enum Sounds { Coin, Walk, MainMenuMusic, InGameMusic, WinMenuMusic, Jump, Fist, Heal, Invincibility, Sounds_MAX };
+    enum Sounds {
+        Coin,
+        Walk,
+        MainMenuMusic,
+        InGameMusic,
+        WinMenuMusic,
+        GameOverMenuMusic,
+        Jump,
+        Fist,
+        Heal,
+        Invincibility,
+        Sounds_MAX
+    };
 
     const int N_LEVELS = 2;
-   
+
     State state;
     State prevState;
     int level;
