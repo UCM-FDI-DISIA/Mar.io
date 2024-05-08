@@ -28,11 +28,14 @@ void GameManager::onWin() {
     if (level == 1) {
         std::string nextlevelName = "Level" + std::to_string(level+1);
         changeScene(nextlevelName);
+        audios[InGameMusic]->playLooped();
+        audios[WinMenuMusic]->pause(true);
     }
-    else
+    else {
         changeScene("WinMenu");
-    audios[InGameMusic]->pause(true);
-    audios[WinMenuMusic]->playLooped();
+        audios[InGameMusic]->pause(true);
+        audios[WinMenuMusic]->playLooped();    
+    }
 }
 
 void GameManager::registerLuaFunctions() {
