@@ -88,9 +88,6 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_MOVEFORWARD") {
-        anim = nullptr;
-        alive = active = false;
-        Tapioca::logInfo("PlayerMovementController: El animator no se ha inicializado");
         if (moveZ != -1 && anim != nullptr) {
             anim->setLoop(true);
             anim->playAnim("Running");
