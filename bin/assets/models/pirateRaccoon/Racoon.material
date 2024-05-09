@@ -61,7 +61,7 @@ material Feather : ShadowTemplateTexture {
 
             // - base_color_texture
             texture_unit {
-                texture models/pirateRaccoon/featherTexture.png
+                texture models/pirateRaccoon/feathertexture.png
                 tex_address_mode wrap
                 colour_op modulate
             }
