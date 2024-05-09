@@ -15,9 +15,6 @@ class GameManager;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
-    // numero de components de las plataformas
-    const int COMPONENTS_GROUND = 3;
-
 	int jumpsNumber;
     bool grounded;
     int jumps;

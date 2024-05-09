@@ -72,9 +72,6 @@
     <ClCompile Include="..\..\src\Mar.io\Components\FeetDamage.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\Components\Enemy.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Mar.io\Components\EnemyHealth.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -138,9 +135,6 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\FeetDamage.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\Enemy.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\EnemyHealth.h">

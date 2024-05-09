@@ -8,11 +8,10 @@
 
 LevelScore::LevelScore() { }
 
-
-void LevelScore::start() { 
-	 Tapioca::GameObject* coinsObject = object->getScene()->getHandler("coinsText");
+void LevelScore::start() {
+    Tapioca::GameObject* coinsObject = object->getScene()->getHandler("coinsText");
     if (coinsObject != nullptr) {
-             std::string s = std::to_string(GameManager::instance()->getScore());
-             coinsObject->getComponent<Tapioca::Text>()->setText(s);
+        std::string s = std::to_string(GameManager::instance()->getScore());
+        coinsObject->getComponent<Tapioca::Text>()->setText(s);
     }
 }

@@ -16,7 +16,6 @@
 #include "Components/ContactDamage.h"
 #include "components/FallDamage.h"
 #include "Components/SideMovement.h"
-#include "Components/Enemy.h"
 #include "Components/Score.h"
 #include "Components/HeartPowerUp.h"
 #include "Components/InvincibilityPowerUp.h"
@@ -45,7 +44,6 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<ContactDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<FallDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SideMovement>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<Enemy>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Score>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<HeartPowerUp>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<InvincibilityPowerUp>());

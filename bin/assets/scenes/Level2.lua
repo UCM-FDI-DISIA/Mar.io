@@ -654,10 +654,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 1
-					},
+					}
 				},
 			},
 			{
@@ -704,10 +701,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 1
-					},
+					}
 				},
 			},
 			{
@@ -754,10 +748,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 1
-					},
+					}
 				},
 			},
 			{
@@ -804,10 +795,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 1
-					},
+					}
 				},
 			},
  
@@ -1137,10 +1125,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 0
-					},
+					}
 				},
 				children = {
 					{
@@ -1217,10 +1202,7 @@ scene  = {
 						damage = 1
 					},
 					EnemyHealth = {
-					},
-					Enemy = {
-						tEnemy = 0
-					},
+					}
 				},
 				children = {
 					{

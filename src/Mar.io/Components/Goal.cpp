@@ -6,7 +6,6 @@
 
 Goal::Goal() { }
 
-
 void Goal::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* player = (Tapioca::GameObject*)info;

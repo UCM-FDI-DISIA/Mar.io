@@ -2,8 +2,9 @@
 #include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
 #include "EnemyHealth.h"
-#include "Enemy.h"
 #include "checkML.h"
+#include "Components/Transform.h"
+#include "Components/Chest.h"
 
 FeetDamage::FeetDamage() : damage(1) { }
 
@@ -20,11 +21,17 @@ void FeetDamage::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter" || id == "onCollisionStay") {
         Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
         if (colObject != nullptr) {
-            Enemy* enemy = colObject->getComponent<Enemy>();
-            if (enemy != nullptr && enemy->getEnemyType() != Enemy::TURTLE) {
-                EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
-                if (enemyHealth != nullptr) {
-                    enemyHealth->loseHP(damage);
+            EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
+            Tapioca::Transform* transform = colObject->getComponent<Tapioca::Transform>();
+            // lo que caracteriza al enemigo tortuga es que es un enemigo (EnemyHealth)
+            // y que tiene un objeto hijo que es su caparazon
+            if (enemyHealth != nullptr && transform->getChildren().size() <= 0) {
+                enemyHealth->loseHP(damage);
+            }
+            else {
+                Chest* chest = colObject->getComponent<Chest>();
+                if (chest != nullptr) {
+                    chest->openChest();
                 }
             }
         }

@@ -7,6 +7,8 @@
 #include "Coin.h"
 #include "Health.h"
 #include "GameManager.h"
+#include "Chest.h"
+#include "EnemyHealth.h"
 
 PlayerMovementController::PlayerMovementController()
     : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
@@ -21,9 +23,29 @@ PlayerMovementController::~PlayerMovementController() {
 
 bool PlayerMovementController::initComponent(const CompMap& variables) {
     if (!setValueFromMap(jumpsNumber, "jumpsNumber", variables)) {
-        Tapioca::logInfo(
-            ("Fist: No se ha indica el numero de saltos que puede realizar. Se establece a " + std::to_string(jumpsNumber) + " por defecto.")
-                .c_str());
+        Tapioca::logInfo(("PlayerMovementController: No se ha establecido el numero de saltos que puede realizar. Se establece a " +
+                          std::to_string(jumpsNumber) + " por defecto.")
+                             .c_str());
+    }
+    if (!setValueFromMap(jumpSpeed, "jumpSpeed", variables)) {
+        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad del salto. Se establece a " +
+                          std::to_string(jumpSpeed) + " por defecto.")
+                             .c_str());
+    }
+    if (!setValueFromMap(bounceSpeed, "bounceSpeed", variables)) {
+        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de rebote en los objetos. Se establece a " +
+                          std::to_string(bounceSpeed) + " por defecto.")
+                             .c_str());
+    }
+    if (!setValueFromMap(runSpeed, "runSpeed", variables)) {
+        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de carrera. Se establece a " +
+                          std::to_string(runSpeed) + " por defecto.")
+                             .c_str());
+    }
+    if (!setValueFromMap(walkSpeed, "walkSpeed", variables)) {
+        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de andar. Se establece a " +
+                          std::to_string(walkSpeed) + " por defecto.")
+                             .c_str());
     }
     return true;
 }
@@ -132,22 +154,22 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
         Tapioca::Transform* t = object->getComponent<Tapioca::Transform>();
-        if (object->getAllComponents().size() > COMPONENTS_GROUND && object->getComponent<Coin>() == nullptr &&
-            !grounded) {
-            bounce = true;
-        }
-        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
-                 object->getComponent<Coin>() == nullptr) {
-            walk = false;
-            grounded = true;
-            jumps = 0;
+        EnemyHealth* enemyHealth = object->getComponent<EnemyHealth>();
+        Chest* chest = object->getComponent<Chest>();
+        if ((enemyHealth != nullptr || chest != nullptr) && !grounded) bounce = true;
+        else {
+            if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
+                trans->getGlobalPosition().y - trans->getGlobalScale().y / 2) {
+                walk = false;
+                grounded = true;
+                jumps = 0;
+            }
         }
     }
-
     if (id == "onCollisionExit") {
         grounded = false;
     }
+
     if (id == "ev_LifeLost") {
         Tapioca::logInfo("RESPAWNEANDO");
         trans->setGlobalPosition(respawnpos);
