@@ -24,25 +24,21 @@ void Jump::start() {
 bool Jump::initComponent(const CompMap& variables) {
     if (!setValueFromMap(damage, "damage", variables)) {
         Tapioca::logInfo(("FeetDamage: No se ha indica el daño que realiza. Se establece a " + std::to_string(damage) +
-                          " por defecto.")
-                             .c_str());
+                          " por defecto.").c_str());
     }
     if (!setValueFromMap(jumpsNumber, "jumpsNumber", variables)) {
         Tapioca::logInfo(
             ("PlayerMovementController: No se ha establecido el numero de saltos que puede realizar. Se establece a " +
-             std::to_string(jumpsNumber) + " por defecto.")
-                .c_str());
+             std::to_string(jumpsNumber) + " por defecto.").c_str());
     }
     if (!setValueFromMap(jumpSpeed, "jumpSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad del salto. Se establece a " +
-                          std::to_string(jumpSpeed) + " por defecto.")
-                             .c_str());
+                          std::to_string(jumpSpeed) + " por defecto.").c_str());
     }
     if (!setValueFromMap(bounceSpeed, "bounceSpeed", variables)) {
         Tapioca::logInfo(
             ("PlayerMovementController: No se ha establecido la velocidad de rebote en los objetos. Se establece a " +
-             std::to_string(bounceSpeed) + " por defecto.")
-                .c_str());
+             std::to_string(bounceSpeed) + " por defecto.").c_str());
     }
     return true;
 }
@@ -55,6 +51,12 @@ void Jump::update(const uint64_t deltaTime) {
 }
 
 void Jump::handleEvent(std::string const& id, void* info) {
+    if (id == "ev_componentDied") {
+        playerMovementController = nullptr;
+        alive = active = false;
+        Tapioca::logInfo("Jump: El playerMovementController no se ha inicializado");
+    }
+
     if (id == "ev_JUMP") {
         if (jumps < jumpsNumber || grounded) {
             jump = true;

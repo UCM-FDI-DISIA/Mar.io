@@ -50,6 +50,12 @@ void Fist::update(const uint64_t deltaTime) {
 }
 
 void Fist::handleEvent(std::string const& id, void* info) {
+    if (id == "ev_componentDied") {
+        parentAnim = nullptr;
+        alive = active = false;
+        Tapioca::logInfo("PlayerMovementController: El animator no se ha inicializado");
+    }
+
     if (id == "ev_MELEATTACK" && canHit) {
         canHit = false;
         onAttack = true;

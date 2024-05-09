@@ -65,7 +65,6 @@ bool GameManager::initComponent(const CompMap& variables) {
 }
 
 void GameManager::start() {
-    //Tapioca::PhysicsManager::instance()->activateDebug(true);
     sManager = SoundManager::instance();
 
     changeScene("MainMenu");

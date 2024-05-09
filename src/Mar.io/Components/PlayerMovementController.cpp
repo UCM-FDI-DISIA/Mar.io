@@ -16,10 +16,7 @@ PlayerMovementController::PlayerMovementController()
       health(nullptr), moveX(0), moveZ(0), speed(0), runSpeed(10), walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
-    trans = nullptr;
-    rigidBody = nullptr;
-    anim = nullptr;
-    jump = nullptr;
+
 }
 
 bool PlayerMovementController::initComponent(const CompMap& variables) {
@@ -39,6 +36,7 @@ void PlayerMovementController::start() {
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     anim = object->getComponent<Tapioca::Animator>();
     auto children = trans->getChildren();
+
     bool found = false;
     for (auto it = children.begin(); it != children.end() && !found; ++it) {
         jump = (*it)->getObject()->getComponent<Jump>();
@@ -79,6 +77,7 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         alive = active = false;
         Tapioca::logInfo("PlayerMovementController: El animator no se ha inicializado");
     }
+
     if (id == "ev_RunEnd") {
         runEnd = true;
         run = false;
@@ -89,6 +88,9 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_MOVEFORWARD") {
+        anim = nullptr;
+        alive = active = false;
+        Tapioca::logInfo("PlayerMovementController: El animator no se ha inicializado");
         if (moveZ != -1 && anim != nullptr) {
             anim->setLoop(true);
             anim->playAnim("Running");
