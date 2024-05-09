@@ -7,6 +7,7 @@ namespace Tapioca {
 class Transform;
 class RigidBody;
 class Animator;
+class AudioSourceComponent;
 }
 
 class Health;
@@ -14,7 +15,10 @@ class GameManager;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
-    int jumpsNumber;
+    // numero de components de las plataformas
+    const int COMPONENTS_GROUND = 3;
+
+	int jumpsNumber;
     bool grounded;
     int jumps;
     bool jump;
@@ -36,7 +40,6 @@ private:
     Tapioca::Vector3 initialPos;
 
     GameManager* gManager;
-
 public:
     COMPONENT_ID("PlayerMovementController");
 

@@ -32,6 +32,7 @@ void ContactDamage::handleEvent(std::string const& id, void* info) {
             Health* health = object->getComponent<Health>();
             if (health != nullptr) {
                 health->loseHP(damage);
+                pushEvent("ev_Hurt", nullptr);
             }
         }
     }

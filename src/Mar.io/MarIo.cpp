@@ -24,6 +24,7 @@
 #include "Components/LevelScore.h"
 #include "Components/FeetDamage.h"
 #include "Components/EnemyHealth.h"
+#include "Components/SoundManager.h"
 
 void init() { addComponentFactories(); }
 
@@ -33,6 +34,7 @@ void addComponentFactories() {
 #endif
     Tapioca::FactoryManager* factMngr = Tapioca::FactoryManager::instance();
     factMngr->addBuilder(new GameManagerBuilder());
+    factMngr->addBuilder(new SoundManagerBuilder());
     factMngr->addBuilder(new Tapioca::BasicBuilder<PlayerMovementController>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<PlayerSetting>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Fist>());

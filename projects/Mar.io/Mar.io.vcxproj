@@ -30,6 +30,7 @@
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\Score.cpp" />
     <ClCompile Include="..\..\src\Mar.io\Components\SideMovement.cpp" />
+    <ClCompile Include="..\..\src\Mar.io\Components\SoundManager.cpp" />
     <ClCompile Include="..\..\src\Mar.io\MarIo.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,7 @@
     <ClInclude Include="..\..\src\Mar.io\Components\PlayerSetting.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\Score.h" />
     <ClInclude Include="..\..\src\Mar.io\Components\SideMovement.h" />
+    <ClInclude Include="..\..\src\Mar.io\Components\SoundManager.h" />
     <ClInclude Include="..\..\src\Mar.io\gameDefs.h" />
     <ClInclude Include="..\..\src\Mar.io\MarIo.h" />
   </ItemGroup>

@@ -248,6 +248,9 @@ scene  = {
 			},
 			AudioSourceComponent = {
 				sourcepath = "footstep.mp3"
+			},	
+			AudioSourceComponent = {
+				sourcepath = "hurt.mp3"
 			},			
 			AudioListenerComponent = {},
 			ParticleSystemComponent = {
@@ -353,6 +356,7 @@ scene  = {
 			}
 		}
 	},
+	
  
 	Scenario = {
 		components = {

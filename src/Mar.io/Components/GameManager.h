@@ -16,17 +16,11 @@ private:
     friend Singleton<GameManager>;
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
-    enum Sounds {
-        Coin,
-        Walk,
+    enum Sounds {      
         MainMenuMusic,
         InGameMusic,
         WinMenuMusic,
         GameOverMenuMusic,
-        Jump,
-        Fist,
-        Heal,
-        Invincibility,
         Sounds_MAX
     };
 

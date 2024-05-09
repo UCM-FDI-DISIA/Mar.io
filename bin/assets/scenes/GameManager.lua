@@ -4,20 +4,6 @@ scene = {
       GameManager = {}
     }
   }, 
-  CoinSound = {
-    components = {
-      AudioSourceComponent = {
-        sourcepath = "coin.mp3"
-      }
-    }
-  }, 
-  WalkSound = {
-    components = {
-      AudioSourceComponent = {
-        sourcepath = "footstep.mp3"
-      }
-    }
-  }, 
   MainMenuMusic = {
     components = {
       AudioSourceComponent = {
@@ -51,36 +37,6 @@ scene = {
         islooping = true,
         ispaused = true,
         sourcepath = "Swimming_Through_The_Abyss_Loop.mp3"
-      }
-    }
-  }, 
-  JumpSound = {
-    components = {
-      AudioSourceComponent = {
-        sourcepath = "jump.mp3"
-      }
-    }
-  }, 
-  FistSound = {
-    components = {
-      AudioSourceComponent = {
-				islooping = true,
-        ispaused = true,
-        sourcepath = "fist.mp3"
-      }
-    }
-  }, 
-  LifeUpSound = {
-    components = {
-      AudioSourceComponent = {
-        sourcepath = "heal.mp3"
-      }
-    }
-  }, 
-  InvincibilitySound = {
-    components = {
-      AudioSourceComponent = {
-        sourcepath = "invincibility.mp3"
       }
     }
   }

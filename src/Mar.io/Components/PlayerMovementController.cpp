@@ -59,6 +59,11 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
         speed = walkSpeed;
         runEnd = false;
     }
+
+    if (jump) {
+        pushEvent("ev_Jump", nullptr);
+        pushEvent("ev_NotWalk", nullptr);
+    }
     if (health->getHP() <= 0 || gManager->getState() != 1) {
         pushEvent("ev_NotWalk", nullptr);
         walk = false;
@@ -127,7 +132,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
         Tapioca::Transform* t = object->getComponent<Tapioca::Transform>();
-        if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
+        if (object->getAllComponents().size() > COMPONENTS_GROUND && object->getComponent<Coin>() == nullptr &&
+            !grounded) {
             bounce = true;
         }
         else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
@@ -162,8 +168,6 @@ void PlayerMovementController::fixedUpdate() {
     if (jump) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));
         jump = false;
-        pushEvent("ev_Jump", nullptr);
-        pushEvent("ev_NotWalk", nullptr);
     }
     if (bounce) {
         rigidBody->setVelocity(Tapioca::Vector3(v.x, bounceSpeed, v.z));

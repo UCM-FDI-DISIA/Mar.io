@@ -20,7 +20,6 @@ void GameManager::onGameOver() {
         state = GameOver;
         if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
         if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->playLooped();
-        if (audios[Walk] != nullptr) audios[Walk]->pause(true);
     }
 }
 
@@ -51,7 +50,6 @@ void GameManager::onWin() {
         if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
         if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
     }
-    if (audios[Walk] != nullptr) audios[Walk]->pause(true);
 }
 
 void GameManager::registerLuaFunctions() {
@@ -73,8 +71,6 @@ bool GameManager::initComponent(const CompMap& variables) {
 void GameManager::start() {
     //Tapioca::PhysicsManager::instance()->activateDebug(true);
     audios = std::vector<Tapioca::AudioSourceComponent*>(Sounds_MAX);
-    audios[Coin] = object->getScene()->getHandler("CoinSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Walk] = object->getScene()->getHandler("WalkSound")->getComponent<Tapioca::AudioSourceComponent>();
     audios[MainMenuMusic] =
         object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[InGameMusic] = object->getScene()->getHandler("InGameMusic")->getComponent<Tapioca::AudioSourceComponent>();
@@ -82,19 +78,18 @@ void GameManager::start() {
         object->getScene()->getHandler("WinMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
     audios[GameOverMenuMusic] =
         object->getScene()->getHandler("GameOverMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Jump] = object->getScene()->getHandler("JumpSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Jump]->setVolume(0.2f);
-    audios[Fist] = object->getScene()->getHandler("FistSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Heal] = object->getScene()->getHandler("LifeUpSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Invincibility] =
-        object->getScene()->getHandler("InvincibilitySound")->getComponent<Tapioca::AudioSourceComponent>();
 
+    changeScene("SoundManager");
     changeScene("MainMenu");
     state = MainMenu;
     prevState = MainMenu;
 }
 
-void GameManager::update(const uint64_t deltaTime) { }
+void GameManager::update(const uint64_t deltaTime) { 
+    /*if (state != InGame) {
+        if (audios[Walk] != nullptr) audios[Walk]->pause(true);
+    }*/
+}
 
 void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
@@ -107,31 +102,6 @@ void GameManager::handleEvent(std::string const& id, void* info) {
     }
     if (id == "ev_GameOver") onGameOver();
     if (id == "ev_Win") onWin();
-
-    if (id == "ev_Coin") {
-        if (audios[Coin] != nullptr) audios[Coin]->playOnce();
-    }
-    if (id == "ev_Jump") {
-        if (audios[Jump] != nullptr) audios[Jump]->playOnce();
-    }
-    if (id == "ev_Fist") {
-        if (audios[Fist] != nullptr) audios[Fist]->playOnce();
-    }
-    if (id == "ev_Walk") {
-        if (audios[Walk] != nullptr) {
-            audios[Walk]->pause(false);
-            audios[Walk]->playLooped();
-        }
-    }
-    if (id == "ev_NotWalk") {
-        if (audios[Walk] != nullptr) audios[Walk]->pause(true);
-    }
-    if (id == "ev_Heal") {
-        if (audios[Heal] != nullptr) audios[Heal]->playOnce();
-    }
-    if (id == "ev_Invincibility") {
-        if (audios[Invincibility] != nullptr) audios[Invincibility]->playOnce();
-    }
 }
 
 
