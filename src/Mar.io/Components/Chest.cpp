@@ -52,17 +52,18 @@ void Chest::createCoins(int n) {
         CompMap audioMap;
         audioMap["sourcepath"] = "coin.mp3";
 
-        object->getScene()->addObject(coin);
-        coin->addComponents({{"Transform", transformMap},
-                             {"RigidBody", rigidBodyMap},
-                             {"MeshRenderer", meshMap},
-                             {"AudioSourceComponent", audioMap},
-                             {"Coin", {}}});
+        if (object->getScene()->addObject(coin)) {
+            coin->addComponents({{"Transform", transformMap},
+                                 {"RigidBody", rigidBodyMap},
+                                 {"MeshRenderer", meshMap},
+                                 {"AudioSourceComponent", audioMap},
+                                 {"Coin", {}}});
 
-        Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
-        if (coinRb != nullptr) {
-            coinRb->addForce(posWithinCircle * 100);
-            coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
+            Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
+            if (coinRb != nullptr) {
+                coinRb->addForce(posWithinCircle * 100);
+                coinRb->setTensor(Tapioca::Vector3(0, 1, 0));
+            }
         }
     }
 }

@@ -24,28 +24,23 @@ PlayerMovementController::~PlayerMovementController() {
 bool PlayerMovementController::initComponent(const CompMap& variables) {
     if (!setValueFromMap(jumpsNumber, "jumpsNumber", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido el numero de saltos que puede realizar. Se establece a " +
-                          std::to_string(jumpsNumber) + " por defecto.")
-                             .c_str());
+                          std::to_string(jumpsNumber) + " por defecto.").c_str());
     }
     if (!setValueFromMap(jumpSpeed, "jumpSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad del salto. Se establece a " +
-                          std::to_string(jumpSpeed) + " por defecto.")
-                             .c_str());
+                          std::to_string(jumpSpeed) + " por defecto.").c_str());
     }
     if (!setValueFromMap(bounceSpeed, "bounceSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de rebote en los objetos. Se establece a " +
-                          std::to_string(bounceSpeed) + " por defecto.")
-                             .c_str());
+                          std::to_string(bounceSpeed) + " por defecto.").c_str());
     }
     if (!setValueFromMap(runSpeed, "runSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de carrera. Se establece a " +
-                          std::to_string(runSpeed) + " por defecto.")
-                             .c_str());
+                          std::to_string(runSpeed) + " por defecto.").c_str());
     }
     if (!setValueFromMap(walkSpeed, "walkSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de andar. Se establece a " +
-                          std::to_string(walkSpeed) + " por defecto.")
-                             .c_str());
+                          std::to_string(walkSpeed) + " por defecto.").c_str());
     }
     return true;
 }
@@ -93,6 +88,11 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
+    if (id == "ev_componentDied") {
+        anim = nullptr;
+        alive = active = false;
+        Tapioca::logInfo("PlayerMovementController: El animator no se ha inicializado");
+    }
     if (id == "ev_RunEnd") {
         runEnd = true;
         run = false;
@@ -153,16 +153,19 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
-        Tapioca::Transform* t = object->getComponent<Tapioca::Transform>();
         EnemyHealth* enemyHealth = object->getComponent<EnemyHealth>();
         Chest* chest = object->getComponent<Chest>();
         if ((enemyHealth != nullptr || chest != nullptr) && !grounded) bounce = true;
         else {
-            if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                trans->getGlobalPosition().y - trans->getGlobalScale().y / 2) {
-                walk = false;
-                grounded = true;
-                jumps = 0;
+            Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>();
+            if (rb != nullptr) {
+                // Si sale de colisión con un objeto del escenario, es decir, que
+                // tenga mesh collider, deja de estar en el suelo
+                if (rigidBody->getColliderShape() == 4) {
+                    walk = false;
+                    grounded = true;
+                    jumps = 0;
+                }
             }
         }
     }

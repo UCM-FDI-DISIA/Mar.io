@@ -7,8 +7,6 @@ PlayerSetting::PlayerSetting(){ }
 
 PlayerSetting::~PlayerSetting() { }
 
-bool PlayerSetting::initComponent(const CompMap& variables) { return true; }
-
 void PlayerSetting::start() {
 	Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>(); 
 	if (rb != nullptr) {

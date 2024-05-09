@@ -38,8 +38,7 @@ bool SideMovement::initComponent(const CompMap& variables) {
 }
 
 void SideMovement::awake() {
-    Tapioca::GameObject* gameobject = getObject();
-    transform = gameobject->getComponent<Tapioca::Transform>();
+    transform = object->getComponent<Tapioca::Transform>();
 }
 
 void SideMovement::start() {

@@ -44,9 +44,8 @@ bool CameraFollow::initComponent(const CompMap& variables) {
 }
 
 void CameraFollow::awake() {
-    Tapioca::GameObject* gameobject = getObject();
-    transform = gameobject->getComponent<Tapioca::Transform>();
-    camera = gameobject->getComponent<Tapioca::CameraComponent>();
+    transform = object->getComponent<Tapioca::Transform>();
+    camera = object->getComponent<Tapioca::CameraComponent>();
 
     // Si el objetivo no esta en la escena
     Tapioca::GameObject* target = object->getScene()->getHandler(targetName);

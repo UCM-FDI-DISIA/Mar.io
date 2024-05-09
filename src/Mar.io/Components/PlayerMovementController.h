@@ -43,6 +43,7 @@ public:
     PlayerMovementController();
 
     ~PlayerMovementController();
+    inline bool getGrounded() const { return grounded; }
 
     bool initComponent(const CompMap& variables) override;
     void start() override;
@@ -51,5 +52,4 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     void reset();
-    inline bool getGrounded() const { return grounded; }
 };
