@@ -20,5 +20,6 @@ public:
 
     Chest();
 
+    bool initComponent(const CompMap& variables) override;
     void openChest();
 };

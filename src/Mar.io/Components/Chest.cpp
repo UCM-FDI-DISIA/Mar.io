@@ -12,6 +12,16 @@
 
 Chest::Chest() : open(false), nCoins(8) { }
 
+bool Chest::initComponent(const CompMap& variables) {
+    if (!setValueFromMap(nCoins, "nCoins", variables)) {
+        Tapioca::logInfo(("Chest: No se ha establecido el numero de monedas que suelta el cofre. Se establece a " +
+                          std::to_string(nCoins) + " por defecto.")
+                             .c_str());
+    }
+
+    return true;
+}
+
 void Chest::createCoins(int n) {
     Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getGlobalPosition();
 

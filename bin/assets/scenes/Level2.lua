@@ -147,29 +147,6 @@ scene  = {
 		}
 	},
 
-	Sky = {
-		components = {
-			Transform = {
-				positionX = 0.0,
-				positionY = 0.0,
-				positionZ = 0.0,
-				scaleX = 1000.0,
-				scaleY = 1000.0,
-				scaleZ = 1000.0,
-				rotationX = 0.0,
-				rotationY = 0.0,
-				rotationZ = 0.0
-			}
-			-- ,
-			-- SkyboxComponent = {
-			 	-- planeName = "SkyBox",
-			 	-- materialName = "sky",
-			 	-- distC = 100.0,
-			 	-- orderC = true
-			-- }
-		}
-	},
-
 	Goal = {
 		components = {
 			Transform = {
@@ -427,7 +404,6 @@ scene  = {
 					},
 				},
 			},
-	
 			Platform1 = {
 				components = {
 					Transform = {
@@ -460,12 +436,11 @@ scene  = {
 
 				}
 			},
-
 			Stairs = {
 				components = {
 					Transform = {
 						positionX = 0.0,
-						positionY = 3.0,
+						positionY = 0.0,
 						positionZ = 0.0,
 						scaleX = 1.0,
 						scaleY = 1.0,
@@ -492,16 +467,12 @@ scene  = {
 						file = "models/scenario/Stairs.obj"
 					}
 				}
-				
-
 			},
-
-
 			Platform3 = {
 				components = {
 					Transform = {
 						positionX = 0.0,
-						positionY = 3.0,
+						positionY = 0.0,
 						positionZ = 0.0,
 						scaleX = 1.0,
 						scaleY = 1.0,
@@ -529,11 +500,8 @@ scene  = {
 					}
 				}
 			},
-			
-
 		}
 	},
-	 
 	Enemies = {
 		components = {
 			Transform = {
@@ -553,9 +521,9 @@ scene  = {
 			{
 				components = {
 					Transform = {
-						positionX = -3.0,
-						positionY = 26.81,
-						positionZ = -12.45,
+						positionX = 3.0,
+						positionY = 26.8,
+						positionZ = -13.0,
 						scaleX = 0.50,
 						scaleY = 0.50,
 						scaleZ = 0.50,
@@ -581,60 +549,14 @@ scene  = {
 					},
 					Animator = { 
 						initAnim = "Walk",
-					},
-					SideMovement = {
-						movementDistance = 6.0,
-						initDirX = 1.0,
-						initDirY = 0.0,
-						initDirZ = 0.0,
-						movSpd = 1.0,
-						rotSpd = 90.0
-					},
-					ContactDamage = {
-						damage = 1
-					},
-					EnemyHealth = {
-					}
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = 3.0,
-						positionY = 26.81,
-						positionZ = -15.45,
-						scaleX = 0.50,
-						scaleY = 0.50,
-						scaleZ = 0.50,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
-					},
-					MeshRenderer = {
-						meshName  = "models/crab/Crab.mesh",
-						initRotationY = 0.0
-					},
-					Animator = { 
-						initAnim = "Walk",
+						playbackSpeed = 1.8
 					},
 					SideMovement = {
 						movementDistance = 6.0,
 						initDirX = -1.0,
 						initDirY = 0.0,
 						initDirZ = 0.0,
-						movSpd = 1.0,
+						movSpd = 3.3,
 						rotSpd = 90.0
 					},
 					ContactDamage = {
@@ -648,8 +570,8 @@ scene  = {
 				components = {
 					Transform = {
 						positionX = -3.0,
-						positionY = 26.81,
-						positionZ = -18.45,
+						positionY = 26.8,
+						positionZ = -23.0,
 						scaleX = 0.50,
 						scaleY = 0.50,
 						scaleZ = 0.50,
@@ -675,13 +597,14 @@ scene  = {
 					},
 					Animator = { 
 						initAnim = "Walk",
+						playbackSpeed = 1.8
 					},
 					SideMovement = {
 						movementDistance = 6.0,
 						initDirX = 1.0,
 						initDirY = 0.0,
 						initDirZ = 0.0,
-						movSpd = 1.0,
+						movSpd = 3.3,
 						rotSpd = 90.0
 					},
 					ContactDamage = {
@@ -695,8 +618,56 @@ scene  = {
 				components = {
 					Transform = {
 						positionX = 3.0,
-						positionY = 20.29,
-						positionZ = -33.83,
+						positionY = 26.8,
+						positionZ = -33.0,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 180.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 0.0
+					},
+					Animator = { 
+						initAnim = "Walk",
+						playbackSpeed = 1.8
+					},
+					SideMovement = {
+						movementDistance = 6.0,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 3.3,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					},
+					EnemyHealth = {
+					}
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.9,
+						positionY = 20.3,
+						positionZ = -86.0,
 						scaleX = 0.50,
 						scaleY = 0.50,
 						scaleZ = 0.50,
@@ -722,13 +693,14 @@ scene  = {
 					},
 					Animator = { 
 						initAnim = "Walk",
+						playbackSpeed = 2.5
 					},
 					SideMovement = {
-						movementDistance = 6.0,
-						initDirX = -1.0,
+						movementDistance = 6.1,
+						initDirX = 1.0,
 						initDirY = 0.0,
 						initDirZ = 0.0,
-						movSpd = 1.0,
+						movSpd = 4.5,
 						rotSpd = 90.0
 					},
 					ContactDamage = {
@@ -738,14 +710,110 @@ scene  = {
 					}
 				},
 			},
- 
+			{
+				components = {
+					Transform = {
+						positionX = 3.0,
+						positionY = 20.3,
+						positionZ = -90.0,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 180.0
+					},
+					Animator = { 
+						initAnim = "Walk",
+						playbackSpeed = 2.5
+					},
+					SideMovement = {
+						movementDistance = 6.1,
+						initDirX = -1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 4.5,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					},
+					EnemyHealth = {
+					}
+				},
+			},
+			{
+				components = {
+					Transform = {
+						positionX = -2.9,
+						positionY = 20.3,
+						positionZ = -94.0,
+						scaleX = 0.50,
+						scaleY = 0.50,
+						scaleZ = 0.50,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 1.0,
+						colliderScaleY = 1.0,
+						colliderScaleZ = 1.0,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 0.0,
+						damping = 0.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 2
+					},
+					MeshRenderer = {
+						meshName  = "models/crab/Crab.mesh",
+						initRotationY = 180.0
+					},
+					Animator = { 
+						initAnim = "Walk",
+						playbackSpeed = 2.5
+					},
+					SideMovement = {
+						movementDistance = 6.1,
+						initDirX = 1.0,
+						initDirY = 0.0,
+						initDirZ = 0.0,
+						movSpd = 4.5,
+						rotSpd = 90.0
+					},
+					ContactDamage = {
+						damage = 1
+					},
+					EnemyHealth = {
+					}
+				},
+			},
+			
 			-- Corals
 			{
 				components = {
 					Transform = {
-						positionX = -2.8,
-						positionY = 26.627,
-						positionZ = -9.27,
+						positionX = -2.3,
+						positionY = 27.45,
+						positionZ = -6.0,
 						scaleX = 0.50,
 						scaleY = 0.50,
 						scaleZ = 0.50,
@@ -778,9 +846,9 @@ scene  = {
 			{
 				components = {
 					Transform = {
-						positionX = 2.42,
-						positionY = 27.109,
-						positionZ = -9.27,
+						positionX = 2.3,
+						positionY = 27.45,
+						positionZ = -7.0,
 						scaleX = 0.50,
 						scaleY = 0.50,
 						scaleZ = 0.50,
@@ -807,378 +875,10 @@ scene  = {
 					ContactDamage = {
 						damage = 1
 					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = -2.62,
-						positionY = 20.103,
-						positionZ = -28.488,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral4.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral4.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = -2.655,
-						positionY = 20.1,
-						positionZ = -29.99,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral4.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral4.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = 2.5,
-						positionY = 20.54,
-						positionZ = -42.26,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral4.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral4.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = 2.5,
-						positionY = 20.54,
-						positionZ = -42.26,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral3.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral3.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = 1.0,
-						positionY = 19.94,
-						positionZ = -42.79,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral6.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral6.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
-			{
-				components = {
-					Transform = {
-						positionX = -2.1,
-						positionY = 19.38,
-						positionZ = -64.13,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 0.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 1.0,
-						colliderScaleY = 1.0,
-						colliderScaleZ = 1.0,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 4,
-						movementType = 2,
-						file = "models/corals/Coral2.obj"
-					},
-					MeshRenderer = {
-						meshName  = "models/corals/Coral2.mesh",
-					},
-					ContactDamage = {
-						damage = 1
-					}
-
-				},
-			},
- 
-			-- Turtles
-			{
-				components = {
-					Transform = {
-						positionX = 3.0,
-						positionY = 20.0,
-						positionZ = -74.21,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = 90.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 0.7,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 1.5,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
-					},
-					MeshRenderer = {
-						meshName  = "models/turtle/Turtle.mesh",
-					},
-					Animator = { 
-						initAnim = "Swim",
-					},
-					SideMovement = {
-						movementDistance = 4.0,
-						initDirX = -1.0,
-						initDirY = 0.0,
-						initDirZ = 0.0,
-						movSpd = 1.0,
-						rotSpd = 90.0
-					},
-					ContactDamage = {
-						damage = 1
-					},
-					EnemyHealth = {
-					}
-				},
-				children = {
-					{
-						components = {
-							Transform = {
-								positionX = 0.0,
-								positionY = 0.5,
-								positionZ = 0.0,
-								scaleX = 0.55,
-								scaleY = 0.55,
-								scaleZ = 0.55,
-								rotationX = 0.0,
-								rotationY = -90.0,
-								rotationZ = 0.0
-							},
-							RigidBody = {
-								colliderScaleX = 0.8,
-								colliderScaleY = 0.5,
-								colliderScaleZ = 1.5,
-								isTrigger = false,
-								mass = 1.0,
-								friction = 0.0,
-								damping = 0.0,
-								bounciness = 0.5,
-								colShape = 0,
-								movementType = 2
-							},
-							
-						},
-					}
-				}
-			},
-			{
-				components = {
-					Transform = {
-						positionX = -3.0,
-						positionY = 20.0,
-						positionZ = -81.32,
-						scaleX = 0.55,
-						scaleY = 0.55,
-						scaleZ = 0.55,
-						rotationX = 0.0,
-						rotationY = -90.0,
-						rotationZ = 0.0
-					},
-					RigidBody = {
-						colliderScaleX = 0.7,
-						colliderScaleY = 0.5,
-						colliderScaleZ = 1.5,
-						isTrigger = false,
-						mass = 1.0,
-						friction = 0.0,
-						damping = 0.0,
-						bounciness = 0.0,
-						colShape = 0,
-						movementType = 2
-					},
-					MeshRenderer = {
-						meshName  = "models/turtle/Turtle.mesh",
-						initRotationY = 90.0,
-					},
-					Animator = { 
-						initAnim = "Swim",
-					},
-					SideMovement = {
-						movementDistance = 4.0,
-						initDirX = 1.0,
-						initDirY = 0.0,
-						initDirZ = 0.0,
-						movSpd = 1.0,
-						rotSpd = 90.0
-					},
-					ContactDamage = {
-						damage = 1
-					},
-					EnemyHealth = {
-					}
-				},
-				children = {
-					{
-						components = {
-							Transform = {
-								positionX = 0.0,
-								positionY = 0.5,
-								positionZ = 0.0,
-								scaleX = 0.55,
-								scaleY = 0.55,
-								scaleZ = 0.55,
-								rotationX = 0.0,
-								rotationY = -90.0,
-								rotationZ = 0.0
-							},
-							RigidBody = {
-								colliderScaleX = 0.8,
-								colliderScaleY = 0.5,
-								colliderScaleZ = 1.5,
-								isTrigger = false,
-								mass = 1.0,
-								friction = 0.0,
-								damping = 0.0,
-								bounciness = 0.5,
-								colShape = 0,
-								movementType = 2
-							},
-							
-						},
-					}
 				}
 			}
 		}
-
 	},
-
 	Ship = {
 		components = {
 			Transform = {
@@ -1213,53 +913,12 @@ scene  = {
 			}
 		},
 	},
-	{
+	Coins = {
 		components = {
-			Transform = {
+	 		Transform = {
 				positionX = 0.0,
-				positionY = 27.45,
-				positionZ = -7.0,
-				scaleX = 0.3,
-				scaleY = 0.3,
-				scaleZ = 0.3,
-				rotationX = 0.0,
-				rotationY = 0.0,
-				rotationZ = 0.0
-			},
-			RigidBody = {
-				colliderScaleX = 1.0,
-				colliderScaleY = 1.0,
-				colliderScaleZ = 0.8,
-				isTrigger = true,
-				mass = 1.0,
-				friction = 1.0,
-				damping = 0.0,
-				bounciness = 0.0,
-				colShape = 0,
-				movementType = 1
-			},
-			MeshRenderer = {
-				meshName  = "models/heart/heart.mesh",
-				materialName = "heart",
-				initRotationX = -90.0
-			},
-			HeartPowerUp = { },
-			AudioSourceComponent = {
-				sourcepath = "heal.mp3"
-			},
-			SoundObjectDie = {
-				is3D = true, 
-				routeS = "heal.mp3",
-				play = false
-			}
-		}
-	},
-	{
-		components = {
-			Transform = {
-				positionX = 0.0,
-				positionY = 27.0,
-				positionZ = -38.0,
+				positionY = 0.0,
+				positionZ = 0.0,
 				scaleX = 1.0,
 				scaleY = 1.0,
 				scaleZ = 1.0,
@@ -1267,34 +926,161 @@ scene  = {
 				rotationY = 0.0,
 				rotationZ = 0.0
 			},
-			RigidBody = {
-				colliderScaleX = 0.5,
-				colliderScaleY = 0.5,
-				colliderScaleZ = 0.5,
-				isTrigger = true,
-				mass = 1.0,
-				friction = 1.0,
-				damping = 0.0,
-				bounciness = 0.0,
-				colShape = 0,
-				movementType = 1
+		},
+		children = {
+			{
+				components = {
+					Transform = {
+						positionX = -3.3,
+						positionY = 21.2,
+						positionZ = -110.2,
+						scaleX = 0.9,
+						scaleY = 0.9,
+						scaleZ = 0.9,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.25,
+						isTrigger = false,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 0.4,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/chest/ClosedChest.mesh"
+					},
+					Chest = { 
+						nCoins = 4
+					},
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					}
+				}
 			},
-			MeshRenderer = {
-				meshName  = "models/bubble/Sphere1000.mesh",
-				materialName = "bubble",
-				initRotationX = -90.0
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 26.8,
+						positionZ = -18.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					},
+					SoundObjectDie = {
+						is3D = true, 
+						routeS = "coin.mp3",
+						play = false
+					}
+				}
 			},
-			InvincibilityPowerUp = { },
-			AudioSourceComponent = {
-				sourcepath = "invincibility.mp3"
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 26.8,
+						positionZ = -28.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					},
+					SoundObjectDie = {
+						is3D = true, 
+						routeS = "coin.mp3",
+						play = false
+					}
+				}
 			},
-			SoundObjectDie = {
-				is3D = true, 
-				routeS = "invincibility.mp3",
-				play = false
+			{
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 26.8,
+						positionZ = -43.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					},
+					RigidBody = {
+						colliderScaleX = 0.25,
+						colliderScaleY = 0.25,
+						colliderScaleZ = 0.1,
+						isTrigger = true,
+						mass = 1.0,
+						friction = 1.0,
+						damping = 1.0,
+						bounciness = 0.0,
+						colShape = 0,
+						movementType = 1
+					},
+					MeshRenderer = {
+						meshName  = "models/coin/Coin.mesh",
+					},
+					Coin = { },
+					AudioSourceComponent = {
+						sourcepath = "coin.mp3"
+					},
+					SoundObjectDie = {
+						is3D = true, 
+						routeS = "coin.mp3",
+						play = false
+					}
+				}
 			}
 		}
-	},
-
-
+	}
 }

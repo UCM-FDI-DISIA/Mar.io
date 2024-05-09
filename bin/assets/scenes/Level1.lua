@@ -147,29 +147,6 @@ scene  = {
 		}
 	},
 
-	Sky = {
-		components = {
-			Transform = {
-				positionX = 0.0,
-				positionY = 0.0,
-				positionZ = 0.0,
-				scaleX = 1000.0,
-				scaleY = 1000.0,
-				scaleZ = 1000.0,
-				rotationX = 0.0,
-				rotationY = 0.0,
-				rotationZ = 0.0
-			}
-			-- ,
-			-- SkyboxComponent = {
-			 	-- planeName = "SkyBox",
-			 	-- materialName = "sky",
-			 	-- distC = 100.0,
-			 	-- orderC = true
-			-- }
-		}
-	},
-
 	Goal = {
 		components = {
 			Transform = {
