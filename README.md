@@ -62,7 +62,7 @@ La cámara está situada a una distancia fija del personaje en todo momento, de 
 | Doble salto | Si el personaje ha realizado un salto en el suelo, mientras se encuentre en el aire, podrá volver a pulsar la tecla oportuna para realizar un segundo salto. | `Space` (una vez se haya saltado) |
 | Salto en carrera | Mientras está andando o corriendo, podrá realizar un salto, que tendrá una trayectoria parabólica. | - |
 | Correr | Mientras el personaje está andando, al pulsar la tecla oportuna, correrá. | `Shift` |
-| Pisotón | Golpe hacia adelante que hace daño a los enemigos. | `F` |
+| Pisotón | Golpe hacia adelante que hace daño a los enemigos. | `F` `Click izquierdo` |
 | Pisotón | El personaje puede saltar encima de los enemigos, para hacerles daño, o de ciertos objetos, para interactuar con ellos. Después de haber saltado encima de uno de estos dos tipos de objetos, realizará un pequeño rebote. | - |
 
 #### 3.3. Enemigos
@@ -142,15 +142,12 @@ Todo el juego tiene un estilo low poly con un tono alegre y colores vivos, aunqu
 #### 8.2. Recursos	
 
 ##### 8.2.1. Escenario y personajes	
-- https://rkuhlf-assets.itch.io/aquatic-animal-models 
-- https://skfb.ly/69CRK 
-- https://skfb.ly/6WPQG 
-- https://poly.pizza/m/cIzO4MBPqI 
+- [Animales, corales y algas](https://rkuhlf-assets.itch.io/aquatic-animal-models) 
+- [Moneda de oro](https://skfb.ly/69CRK) 
+- [Cofre](https://skfb.ly/6WPQG) 
+- [Barco pirata](https://poly.pizza/m/cIzO4MBPqI) 
 
 ##### 8.2.2. UI	
-- https://www.vecteezy.com/photo/30663955-cartoon-style-ocean-background-for-product-showca
-- https://free-game-assets.itch.io/free-jungle-cartoon-gui
-- https://prinbles.itch.io/bliss
-- https://pzuh.itch.io/free-bubble-game-button-pack
-
-##### 8.2.3. Sonido
+- [Fondo](https://www.vecteezy.com/photo/30663955-cartoon-style-ocean-background-for-product-showca)
+- [Carteles](https://free-game-assets.itch.io/free-jungle-cartoon-gui)
+- [Botones](https://pzuh.itch.io/free-bubble-game-button-pack)
