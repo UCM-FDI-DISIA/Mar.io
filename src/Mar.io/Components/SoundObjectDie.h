@@ -38,7 +38,7 @@ public:
     void update(const uint64_t deltaTime) override;
 
     /**
-    * @brief Crea el sonido
+    * @brief Crea el objeto que emitirá el sonido
     */
     void createSound();
 };

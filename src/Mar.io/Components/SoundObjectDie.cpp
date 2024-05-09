@@ -69,8 +69,11 @@ void SoundObjectDie::update(const uint64_t deltaTime) {
         }
     }
     if (playingS) {
-        if (object->getComponent<Tapioca::AudioSourceComponent>()->hasFinished()) {
-            object->die();
+        Tapioca::AudioSourceComponent* audioS = object->getComponent<Tapioca::AudioSourceComponent>();
+        if (audioS != nullptr) {
+            if (audioS->hasFinished()) {
+                object->die();
+            }
         }
     }
 }
