@@ -161,7 +161,7 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
             if (rb != nullptr) {
                 // Si sale de colisión con un objeto del escenario, es decir, que
                 // tenga mesh collider, deja de estar en el suelo
-                if (rigidBody->getColliderShape() == 4) {
+                if (rb->getColliderShape() == 4) {
                     walk = false;
                     grounded = true;
                     jumps = 0;

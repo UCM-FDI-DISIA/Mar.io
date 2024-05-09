@@ -9,8 +9,7 @@ Coin::Coin() : points(1) { }
 bool Coin::initComponent(const CompMap& variables) {
     if (!setValueFromMap(points, "score", variables)) {
         Tapioca::logInfo(("Coin: No se ha establecido la puntuacion que otorgan las monedas. Se establece a " +
-                          std::to_string(points) + " por defecto.")
-                             .c_str());
+                          std::to_string(points) + " por defecto.").c_str());
     }
 
     return true;
