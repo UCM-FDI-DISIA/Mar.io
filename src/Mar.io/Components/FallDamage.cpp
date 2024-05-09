@@ -36,12 +36,9 @@ void FallDamage::start() {
     }
     else {
         trans = object->getComponent<Tapioca::Transform>();
-        if (fallOffset > 0.0f) {
-            fallOffset = -fallOffset;
-        }
+        if (fallOffset > 0.0f) fallOffset = -fallOffset;
         limitFall = trans->getGlobalPosition().y + fallOffset;
     }
-   
 }
 
 void FallDamage::update(const uint64_t deltaTime) {

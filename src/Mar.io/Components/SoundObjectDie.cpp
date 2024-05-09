@@ -7,7 +7,7 @@
 #include "Components/AudioSourceComponent.h"
 
 SoundObjectDie::SoundObjectDie()
-    : routeS("coin.mp3"), is3D(false), isLooping(false), paused(true), play(false), playingS(false) { }
+    : routeS("coin.mp3"), is3D(false), isLooping(false), paused(true), play(false), playingS(false), timer(0) { }
 
 bool SoundObjectDie::initComponent(const CompMap& variables) {
     if (!setValueFromMap(is3D, "is3D", variables)) {

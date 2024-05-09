@@ -11,10 +11,6 @@
 #include "Components/AudioSourceComponent.h"
 #include "GameManager.h"
 
-SoundManager::SoundManager() { }
-
-bool SoundManager::initComponent(const CompMap& variables) { return true; }
-
 void SoundManager::start() {
     audios = std::vector<Tapioca::AudioSourceComponent*>(Sounds_MAX);
     audios[Walk] = object->getScene()->getHandler("WalkSound")->getComponent<Tapioca::AudioSourceComponent>();
@@ -30,8 +26,6 @@ void SoundManager::start() {
     audios[GameOverMenuMusic] =
         object->getScene()->getHandler("GameOverMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
 }
-
-void SoundManager::update(const uint64_t deltaTime) { }
 
 void SoundManager::handleEvent(std::string const& id, void* info) {
 

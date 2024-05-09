@@ -13,7 +13,7 @@ bool InvincibilityPowerUp::initComponent(const CompMap& variables) {
                           std::to_string(time) + " segundos por defecto.")
                              .c_str());
     }
-    time = time * 1000.0f;
+    time *= 1000.0f;
 
     return true;
 }

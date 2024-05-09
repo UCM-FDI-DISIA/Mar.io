@@ -24,13 +24,11 @@ void GameManager::onGameOver() {
 }
 
 bool GameManager::addLevel() {
-    std::string levelName = "Level" + std::to_string(level);
-    return changeScene(levelName);
+    return changeScene(getCurrentLevelScene());
 }
 
 void GameManager::deleteCurrentLevel() {
-    std::string levelName = "Level" + std::to_string(level);
-    Tapioca::MainLoop::instance()->deleteScene(levelName);
+    Tapioca::MainLoop::instance()->deleteScene(getCurrentLevelScene());
 }
 
 void GameManager::onWin() {
@@ -72,8 +70,6 @@ void GameManager::start() {
     prevState = MainMenu;
 }
 
-void GameManager::update(const uint64_t deltaTime) { }
-
 void GameManager::handleEvent(std::string const& id, void* info) {
     if (id == "ev_Pause") {
         if (state == MainMenu) Tapioca::MainLoop::instance()->exit();
@@ -102,7 +98,6 @@ void GameManager::MainMenuButtonClick() {
     }
 }
 
-
 void GameManager::ReturnButtonClick() {
     if (changeScene("MainMenu")) {
         sManager->ReturnButtonClick();
@@ -128,16 +123,14 @@ void GameManager::ReplayButtonClick() {
 void GameManager::ContinueButtonClick() {
     sManager->ContinueButtonClick();
     Tapioca::MainLoop::instance()->deleteScene("PauseMenu");
-    std::string levelName = "Level" + std::to_string(level);
-    Tapioca::MainLoop::instance()->getScene(levelName)->setActive(true);
+    Tapioca::MainLoop::instance()->getScene(getCurrentLevelScene())->setActive(true);
     state = InGame;
 }
 
 void GameManager::ToPause() {
     if (changeScene("PauseMenu")) {
         sManager->ToPause();
-        std::string levelName = "Level" + std::to_string(level);
-        Tapioca::MainLoop::instance()->getScene(levelName)->setActive(false);
+        Tapioca::MainLoop::instance()->getScene(getCurrentLevelScene())->setActive(false);
         state = Pause;
     }
 }
@@ -171,4 +164,5 @@ void GameManager::ExitButtonClick() { Tapioca::MainLoop::instance()->exit(); }
 
 void GameManager::increaseScore(int increasement) { levelScore += increasement; }
 
-std::string GameManager::getCurrentLevelScene() { return "Level" + level; }
+std::string GameManager::getCurrentLevelScene() { return "Level" + std::to_string(level);
+}

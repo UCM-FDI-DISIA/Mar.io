@@ -6,8 +6,6 @@
 #include "GameManager.h"
 #include "Score.h"
 
-LevelScore::LevelScore() { }
-
 void LevelScore::start() {
     Tapioca::GameObject* coinsObject = object->getScene()->getHandler("coinsText");
     if (coinsObject != nullptr) {

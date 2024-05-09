@@ -23,7 +23,7 @@ public:
     */
     ~ContactDamage();
 
-    /*
+    /**
     * @brief Metodo que se usa para recibir los parametros iniciales y guardarlos.
     * No garantiza que todos los componentes iniciales esten creados
     * @param variables unordered_map con los parametros iniciales
@@ -35,6 +35,10 @@ public:
     * Garantiza que todos los componentes iniciales esten creados
     */
     void awake() override;
-
+    /**
+    * @brief Controla el evento "onCollisionStay" y aplica dano
+    * @param id Id del evento
+    * @param info Informacion del evento
+    */
     void handleEvent(std::string const& id, void* info);
 };

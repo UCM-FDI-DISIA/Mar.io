@@ -16,17 +16,7 @@ private:
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
 
-    enum Sounds {
-        Walk,
-        Jump,
-        Hurt,
-        Fist,
-        MainMenuMusic,
-        InGameMusic,
-        WinMenuMusic,
-        GameOverMenuMusic,
-        Sounds_MAX
-    };
+    enum Sounds { Walk, Jump, Hurt, Fist, MainMenuMusic, InGameMusic, WinMenuMusic, GameOverMenuMusic, Sounds_MAX };
 
     // warning C4251 'SoundManager::audios':
     // class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
@@ -39,7 +29,10 @@ private:
 #pragma warning(default : 4251)
 #endif
 
-    SoundManager();
+    /**
+    * @brief Constructora de la clase SoundManager
+    */
+    SoundManager() { }
 
 public:
     COMPONENT_ID("SoundManager");
@@ -49,23 +42,62 @@ public:
     SoundManager& operator=(SoundManager&) = delete;
     SoundManager& operator=(SoundManager&&) = delete;
 
-    bool initComponent(const CompMap& variables) override;
+    /**
+    * @brief Crea los sonidos del juego
+    */
     void start() override;
-    void update(const uint64_t deltaTime) override;
+    /**
+    * @brief Reproduce los sonidos del juego
+    * @param id Id del evento
+    * @param info Informacion del evento
+    */
     void handleEvent(std::string const& id, void* info) override;
 
+    /**
+    * @brief Reproduce el sonido del menu de GameOver
+    */
     void onGameOver();
-    void onWin(int const& level, int const&  n_level);
+    /**
+    * @brief Reproduce el sonido del menu de Win
+    * @param level Nivel actual
+    * @param n_level Numero de niveles
+    */
+    void onWin(int const& level, int const& n_level);
 
+    /**
+    * @brief Reproduce el sonido del menu de MainMenu
+    */
     void MainMenuButtonClick();
+    /**
+    * @brief Reproduce el sonido del menu de MainMenu
+    */
     void ReturnButtonClick();
+    /**
+    * @brief Reproduce el sonido del menu de juego
+    */
     void ReplayButtonClick();
+    /**
+    * @brief Para el sonido del menu de juego
+    */
     void ContinueButtonClick();
+    /**
+    * @brief Para el sonido del menu de juego
+    */
     void ToPause();
+    /**
+    * @brief Para el sonido del menu de juego
+    * @param prevState Estado anterior
+    */
     void ControlsReturn(int prevState);
+    /**
+    * @brief Para el sonido del menu de juego
+    */
     void ControlsButtonClick();
 };
 
+/**
+* @brief Builder de SoundManager
+*/
 class JUEGO_API SoundManagerBuilder : public Tapioca::ComponentBuilder {
 public:
     SoundManagerBuilder() : Tapioca::ComponentBuilder(SoundManager::id) { }
