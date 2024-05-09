@@ -57,17 +57,18 @@ void Fist::handleEvent(std::string const& id, void* info) {
         pushEvent("ev_Fist", nullptr);
     }
 
-    if (id == "onCollisionEnter" || id == "onCollisionStay" && onAttack) {
+    if ((id == "onCollisionEnter" || id == "onCollisionStay") && onAttack) {
         Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
         if (colObject != nullptr) {
             EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
             if (enemyHealth != nullptr) {
                 enemyHealth->loseHP(damage);
             }
-
-            Chest* chest = colObject->getComponent<Chest>();
-            if (chest != nullptr) {
-                chest->openChest();
+            else {
+                Chest* chest = colObject->getComponent<Chest>();
+                if (chest != nullptr) {
+                    chest->openChest();
+                }
             }
         }
     }
