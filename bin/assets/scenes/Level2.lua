@@ -248,10 +248,10 @@ scene  = {
 			},
 			AudioSourceComponent = {
 				sourcepath = "footstep.mp3"
-			},
+			},	
 			AudioSourceComponent = {
 				sourcepath = "hurt.mp3"
-			},	
+			},			
 			AudioListenerComponent = {},
 			ParticleSystemComponent = {
 				templateName = "aureolaPS",
@@ -286,6 +286,9 @@ scene  = {
 					Fist = {
 						coolDown = 1000.0,
 						duration = 100.0
+					},
+					AudioSourceComponent = {
+						sourcepath = "fist.mp3"
 					}
 				}
 			},

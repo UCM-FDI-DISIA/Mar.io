@@ -13,15 +13,12 @@ bool Score::initComponent(const CompMap& variables) {
     if (!setValueFromMap(numScorePerLife, "numScorePerLife", variables)) {
         Tapioca::logInfo(
             ("Score: No se ha establecido el numero de monedas a partir del cual aumenta la vida. Se establece a " +
-             std::to_string(numScorePerLife) + " por defecto.")
-                .c_str());
+             std::to_string(numScorePerLife) + " por defecto.") .c_str());
     }
 
     if (!setValueFromMap(heal, "heal", variables)) {
         Tapioca::logInfo(("Score: No se ha establecido la cantidad de vida a curar cuando se supera el limite de "
-                          "monedas. Se establece a " +
-                          std::to_string(heal) + " por defecto.")
-                             .c_str());
+                          "monedas. Se establece a " + std::to_string(heal) + " por defecto.").c_str());
     }
 
     return true;

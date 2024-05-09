@@ -6,7 +6,7 @@
 #include "EnemyHealth.h"
 #include "Chest.h"
 
-Fist::Fist() : onAttack(false), duration(0), coolDown(0), cont(0), canHit(true), damage(1), parentAnim(nullptr) { }
+Fist::Fist() : onAttack(false), duration(1000), coolDown(100), cont(0), canHit(true), damage(1), parentAnim(nullptr) { }
 
 void Fist::start() {
     Tapioca::Transform* transform = object->getComponent<Tapioca::Transform>();
@@ -17,12 +17,17 @@ void Fist::start() {
 }
 
 bool Fist::initComponent(const CompMap& variables) {
-    if (!setValueFromMap(coolDown, "coolDown", variables)) return false;
-    if (!setValueFromMap(duration, "duration", variables)) return false;
+    if (!setValueFromMap(coolDown, "coolDown", variables)) {
+        Tapioca::logInfo(("Fist: No se ha indicado el cooldown. Se establece a " 
+                          + std::to_string(coolDown) + " por defecto.").c_str());
+    } 
+    if (!setValueFromMap(duration, "duration", variables)) {
+        Tapioca::logInfo(("Fist: No se ha indicado la duracion. Se establece a "
+                          + std::to_string(duration) + " por defecto.").c_str());
+    }
     if (!setValueFromMap(damage, "damage", variables)) {
-        Tapioca::logInfo(
-            ("Fist: No se ha indica el daño que realiza. Se establece a " + std::to_string(damage) + " por defecto.")
-                .c_str());
+        Tapioca::logInfo(("Fist: No se ha indicado el daño que realiza. Se establece a "
+                          + std::to_string(damage) + " por defecto.").c_str());
     }
     return true;
 }
