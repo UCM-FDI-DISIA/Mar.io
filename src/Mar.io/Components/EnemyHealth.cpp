@@ -16,7 +16,6 @@ bool EnemyHealth::initComponent(const CompMap& variables) {
 }
 
 void EnemyHealth::loseHP(int hp) {
-    Tapioca::logError((std::to_string(currHealth)).c_str());
     if (!damageReceived) {
         damageReceived = true;
         currHealth -= hp;

@@ -293,7 +293,7 @@ scene  = {
 				components = {
 					Transform = {
 						positionX = 0.0,
-						positionY = -1.0,
+						positionY = -0.75,
 						positionZ = 0.0,
 						scaleX = 1.0,
 						scaleY = 1.0,
@@ -304,7 +304,7 @@ scene  = {
 					},
 					RigidBody = {
 						colliderScaleX = 0.15,
-						colliderScaleY = 0.45,
+						colliderScaleY = 0.17,
 						colliderScaleZ = 0.15,
 						isTrigger = true,
 						mass = 0.0,
