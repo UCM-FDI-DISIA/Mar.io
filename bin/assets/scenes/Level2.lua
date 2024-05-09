@@ -317,7 +317,7 @@ scene  = {
 						colShape = 0,
 						movementType = 2
 					},
-					FeetDamage = {
+					Jump = {
 					},
 					AudioSourceComponent = {
 						sourcepath = "fist.mp3"

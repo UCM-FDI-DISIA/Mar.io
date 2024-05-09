@@ -12,14 +12,11 @@ class AudioSourceComponent;
 
 class Health;
 class GameManager;
+class Jump;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
-	int jumpsNumber;
-    bool grounded;
-    int jumps;
-    bool jump;
-    bool bounce;
+    Jump* jump;
     bool run;
     bool runEnd;
     bool walk;
@@ -29,21 +26,17 @@ private:
     Health* health;
     int moveX, moveZ;
     float speed;
-    float jumpSpeed;
-    float bounceSpeed;
     float runSpeed;
     float walkSpeed;
     Tapioca::Vector3 respawnpos;
     Tapioca::Vector3 initialPos;
 
-    GameManager* gManager;
 public:
     COMPONENT_ID("PlayerMovementController");
 
     PlayerMovementController();
 
     ~PlayerMovementController();
-    inline bool getGrounded() const { return grounded; }
 
     bool initComponent(const CompMap& variables) override;
     void start() override;
@@ -52,4 +45,6 @@ public:
     void handleEvent(std::string const& id, void* info) override;
 
     void reset();
+
+    inline void setWalk(bool enable) { walk = enable; }
 };

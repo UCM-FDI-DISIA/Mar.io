@@ -48,6 +48,7 @@ void Health::loseHP(int hp) {
         }
         if (currHealth <= 0) {
             pushEvent("ev_GameOver", nullptr);
+            pushEvent("ev_NotWalk", nullptr);
         }
         else {
             pushEvent("ev_LifeLost", nullptr);

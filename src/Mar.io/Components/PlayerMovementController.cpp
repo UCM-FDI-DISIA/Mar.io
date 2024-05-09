@@ -9,31 +9,20 @@
 #include "GameManager.h"
 #include "Chest.h"
 #include "EnemyHealth.h"
+#include "Jump.h"
 
 PlayerMovementController::PlayerMovementController()
-    : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
-      rigidBody(nullptr), anim(nullptr), health(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(8), bounceSpeed(3),
-      runSpeed(10), walkSpeed(5), gManager(nullptr), jumpsNumber(2) { }
+    : jump(nullptr), run(false), runEnd(false), walk(false), trans(nullptr), rigidBody(nullptr), anim(nullptr),
+      health(nullptr), moveX(0), moveZ(0), speed(0), runSpeed(10), walkSpeed(5) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
     rigidBody = nullptr;
     anim = nullptr;
+    jump = nullptr;
 }
 
 bool PlayerMovementController::initComponent(const CompMap& variables) {
-    if (!setValueFromMap(jumpsNumber, "jumpsNumber", variables)) {
-        Tapioca::logInfo(("PlayerMovementController: No se ha establecido el numero de saltos que puede realizar. Se establece a " +
-                          std::to_string(jumpsNumber) + " por defecto.").c_str());
-    }
-    if (!setValueFromMap(jumpSpeed, "jumpSpeed", variables)) {
-        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad del salto. Se establece a " +
-                          std::to_string(jumpSpeed) + " por defecto.").c_str());
-    }
-    if (!setValueFromMap(bounceSpeed, "bounceSpeed", variables)) {
-        Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de rebote en los objetos. Se establece a " +
-                          std::to_string(bounceSpeed) + " por defecto.").c_str());
-    }
     if (!setValueFromMap(runSpeed, "runSpeed", variables)) {
         Tapioca::logInfo(("PlayerMovementController: No se ha establecido la velocidad de carrera. Se establece a " +
                           std::to_string(runSpeed) + " por defecto.").c_str());
@@ -49,10 +38,16 @@ void PlayerMovementController::start() {
     trans = object->getComponent<Tapioca::Transform>();
     rigidBody = object->getComponent<Tapioca::RigidBody>();
     anim = object->getComponent<Tapioca::Animator>();
-    health = object->getComponent<Health>();
-    gManager = GameManager::instance();
+    auto children = trans->getChildren();
+    bool found = false;
+    for (auto it = children.begin(); it != children.end() && !found; ++it) {
+        jump = (*it)->getObject()->getComponent<Jump>();
+        if (jump != nullptr) {
+            found = true;
+        }
+    }
 
-    if (trans == nullptr || rigidBody == nullptr || anim == nullptr || health == nullptr || gManager == nullptr) {
+    if (trans == nullptr || rigidBody == nullptr || anim == nullptr || jump == nullptr) {
         alive = active = false;
     }
     else {
@@ -68,25 +63,14 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
         trans->setRotation(Tapioca::Vector3(0, angle * 180.0f / (float)M_PI, 0));
     }
 
-    if (run && grounded) {
+    if (run && jump != nullptr && jump->isGrounded()) {
         speed = runSpeed;
         run = false;
     }
-    if (runEnd && grounded) {
+    if (runEnd && jump != nullptr && jump->isGrounded()) {
         speed = walkSpeed;
         runEnd = false;
     }
-
-    if (jump) {
-        pushEvent("ev_Jump", nullptr);
-        pushEvent("ev_NotWalk", nullptr);
-    }
-    if (health->getHP() <= 0 || gManager->getState() != 1) {
-        pushEvent("ev_NotWalk", nullptr);
-        walk = false;
-    }
-
-    trans->setPosition(trans->getGlobalPosition(), false);
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {
@@ -146,37 +130,7 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         moveX = 0;
     }
 
-    if (id == "ev_JUMP") {
-        if (jumps < jumpsNumber || grounded) {
-            jump = true;
-            grounded = false;
-            jumps++;
-        }
-    }
-    if (id == "onCollisionEnter") {
-        Tapioca::GameObject* object = (Tapioca::GameObject*)info;
-        EnemyHealth* enemyHealth = object->getComponent<EnemyHealth>();
-        Chest* chest = object->getComponent<Chest>();
-        if ((enemyHealth != nullptr || chest != nullptr) && !grounded) bounce = true;
-        else {
-            Tapioca::RigidBody* rb = object->getComponent<Tapioca::RigidBody>();
-            if (rb != nullptr) {
-                // Si sale de colisión con un objeto del escenario, es decir, que
-                // tenga mesh collider, deja de estar en el suelo
-                if (rb->getColliderShape() == 4) {
-                    walk = false;
-                    grounded = true;
-                    jumps = 0;
-                }
-            }
-        }
-    }
-    if (id == "onCollisionExit") {
-        grounded = false;
-    }
-
     if (id == "ev_LifeLost") {
-        Tapioca::logInfo("RESPAWNEANDO");
         trans->setGlobalPosition(respawnpos);
         reset();
     }
@@ -192,13 +146,13 @@ void PlayerMovementController::fixedUpdate() {
         }
     }
 
-    if (jump) {
-        rigidBody->setVelocity(Tapioca::Vector3(v.x, jumpSpeed, v.z));
-        jump = false;
+    if (jump != nullptr && jump->isJumping()) {
+        rigidBody->setVelocity(Tapioca::Vector3(v.x, jump->getJumpSpeed(), v.z));
+        jump->setJump(false);
     }
-    if (bounce) {
-        rigidBody->setVelocity(Tapioca::Vector3(v.x, bounceSpeed, v.z));
-        bounce = false;
+    if (jump != nullptr && jump->isBouncing()) {
+        rigidBody->setVelocity(Tapioca::Vector3(v.x, jump->getBounceSpeed(), v.z));
+        jump->setBounce(false);
     }
 
     if (moveX != 0 || moveZ != 0) {
@@ -225,10 +179,9 @@ void PlayerMovementController::fixedUpdate() {
 }
 
 void PlayerMovementController::reset() {
-    jump = false;
-    bounce = false;
-    grounded = true;
+    if (jump != nullptr) {
+        jump->reset();
+    }
     walk = false;
-    jumps = 0;
     respawnpos = initialPos;
 }

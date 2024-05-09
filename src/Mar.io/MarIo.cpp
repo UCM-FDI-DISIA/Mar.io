@@ -21,7 +21,7 @@
 #include "Components/InvincibilityPowerUp.h"
 #include "Components/Goal.h"
 #include "Components/LevelScore.h"
-#include "Components/FeetDamage.h"
+#include "Components/Jump.h"
 #include "Components/EnemyHealth.h"
 #include "Components/SoundManager.h"
 #include "Components/SoundObjectDie.h"
@@ -50,7 +50,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<InvincibilityPowerUp>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<Goal>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<LevelScore>());
-    factMngr->addBuilder(new Tapioca::BasicBuilder<FeetDamage>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<Jump>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<EnemyHealth>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<SoundObjectDie>());
 }
