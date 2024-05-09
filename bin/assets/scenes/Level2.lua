@@ -1486,7 +1486,12 @@ scene  = {
 	-- 				Coin = { },
 	-- 				AudioSourceComponent = {
 	-- 					sourcepath = "coin.mp3"
-	-- 				}
+	-- 				},
+	--				SoundObjectDie = {
+	--					is3D = true, 
+	--					routeS = "coin.mp3",
+	--					play = false
+	--				}
 	-- 			}
 	-- 		},
 	-- 		{
@@ -1520,7 +1525,12 @@ scene  = {
 	-- 				Coin = { },
 	-- 				AudioSourceComponent = {
 	-- 					sourcepath = "coin.mp3"
-	-- 				}
+	-- 				},
+	--				SoundObjectDie = {
+	--					is3D = true, 
+	--					routeS = "coin.mp3",
+	--					play = false
+	--				}
 	-- 			}
 	-- 		},
 	-- 		{
@@ -1554,7 +1564,12 @@ scene  = {
 	-- 				Coin = { },
 	-- 				AudioSourceComponent = {
 	-- 					sourcepath = "coin.mp3"
-	-- 				}
+	-- 				},
+	--				SoundObjectDie = {
+	--					is3D = true, 
+	--					routeS = "coin.mp3",
+	--					play = false
+	--				}
 	-- 			}
 	-- 		},
 	-- 		{
@@ -1588,7 +1603,12 @@ scene  = {
 	-- 				Coin = { },
 	-- 				AudioSourceComponent = {
 	-- 					sourcepath = "coin.mp3"
-	-- 				}
+	-- 				},
+	--				SoundObjectDie = {
+	--					is3D = true, 
+	--					routeS = "coin.mp3",
+	--					play = false
+	--				}
 	-- 			}
 	-- 		},
 	-- 		{
@@ -1622,7 +1642,12 @@ scene  = {
 	-- 				Coin = { },
 	-- 				AudioSourceComponent = {
 	-- 					sourcepath = "coin.mp3"
-	-- 				}
+	-- 				},
+	--				SoundObjectDie = {
+	--					is3D = true, 
+	--					routeS = "coin.mp3",
+	--					play = false
+	--				}
 	-- 			}
 	-- 		},
 	-- 	}
@@ -1661,6 +1686,11 @@ scene  = {
 			HeartPowerUp = { },
 			AudioSourceComponent = {
 				sourcepath = "heal.mp3"
+			},
+			SoundObjectDie = {
+				is3D = true, 
+				routeS = "heal.mp3",
+				play = false
 			}
 		}
 	},
@@ -1697,6 +1727,11 @@ scene  = {
 			InvincibilityPowerUp = { },
 			AudioSourceComponent = {
 				sourcepath = "invincibility.mp3"
+			},
+			SoundObjectDie = {
+				is3D = true, 
+				routeS = "invincibility.mp3",
+				play = false
 			}
 		}
 	},

@@ -3,6 +3,7 @@
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
+#include "Components/SoundObjectDie.h"
 
 InvincibilityPowerUp::InvincibilityPowerUp() : time(5.0) { }
 
@@ -27,8 +28,11 @@ void InvincibilityPowerUp::handleEvent(std::string const& id, void* info) {
             if (health != nullptr) {
                 health->setInvencibility(time);
             }
+            SoundObjectDie* soundOD = object->getComponent<SoundObjectDie>();
+            if (soundOD != nullptr) {
+                soundOD->createSound();
+            }
             object->die();
-            pushEvent("ev_Invincibility", nullptr);
         }
     }
 }

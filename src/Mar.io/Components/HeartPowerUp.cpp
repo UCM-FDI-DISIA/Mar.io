@@ -3,6 +3,7 @@
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 #include "Health.h"
+#include "Components/SoundObjectDie.h"
 
 HeartPowerUp::HeartPowerUp() : points(1) { }
 
@@ -28,8 +29,11 @@ void HeartPowerUp::handleEvent(std::string const& id, void* info) {
             if (health != nullptr) {
                 health->healHP(points);
             }
+            SoundObjectDie* soundOD = object->getComponent<SoundObjectDie>();
+            if (soundOD != nullptr) {
+                soundOD->createSound();
+            }
             object->die();
-            pushEvent("ev_Heal", nullptr);
         }
     }
 }

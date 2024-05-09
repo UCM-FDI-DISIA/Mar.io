@@ -50,13 +50,24 @@ void Chest::createCoins(int n) {
         meshMap["meshName"] = "models/coin/Coin.mesh";
 
         CompMap audioMap;
+        audioMap["is3D"] = true;
+        audioMap["isLooping"] = false;
+        audioMap["ispaused"] = true;
         audioMap["sourcepath"] = "coin.mp3";
+
+        CompMap soundMap;
+        soundMap["is3D"] = true;
+        soundMap["isLooping"] = false;
+        soundMap["ispaused"] = true;
+        soundMap["routeS"] = "coin.mp3";
+        soundMap["play"] = false;
 
         if (object->getScene()->addObject(coin)) {
             coin->addComponents({{"Transform", transformMap},
                                  {"RigidBody", rigidBodyMap},
                                  {"MeshRenderer", meshMap},
                                  {"AudioSourceComponent", audioMap},
+                                 {"SoundObjectDie", soundMap},
                                  {"Coin", {}}});
 
             Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();

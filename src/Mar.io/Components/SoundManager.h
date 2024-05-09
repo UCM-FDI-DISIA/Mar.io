@@ -17,13 +17,10 @@ private:
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
 
     enum Sounds {
-        Coin,
         Walk,
         Jump,
         Hurt,
         Fist,
-        Heal,
-        Invincibility,
         MainMenuMusic,
         InGameMusic,
         WinMenuMusic,

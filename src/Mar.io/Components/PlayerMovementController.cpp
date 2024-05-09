@@ -85,6 +85,8 @@ void PlayerMovementController::update(const uint64_t deltaTime) {
         pushEvent("ev_NotWalk", nullptr);
         walk = false;
     }
+
+    trans->setPosition(trans->getGlobalPosition(), false);
 }
 
 void PlayerMovementController::handleEvent(std::string const& id, void* info) {

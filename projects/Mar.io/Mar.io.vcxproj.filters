@@ -78,6 +78,9 @@
     <ClCompile Include="..\..\src\Mar.io\Components\SoundManager.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Mar.io\Components\SoundObjectDie.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Mar.io\MarIo.h">
@@ -141,6 +144,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\SoundManager.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Mar.io\Components\SoundObjectDie.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include "Components/RigidBody.h"
 #include "Structure/BasicBuilder.h"
 #include "Score.h"
+#include "Components/SoundObjectDie.h"
 
 Coin::Coin() : points(1) { }
 
@@ -23,7 +24,10 @@ void Coin::handleEvent(std::string const& id, void* info) {
             if (score != nullptr) {
                 score->increaseScore(points);
             }
-            pushEvent("ev_Coin", nullptr);
+            SoundObjectDie* soundOD = object->getComponent<SoundObjectDie>();
+            if (soundOD != nullptr) {
+                soundOD->createSound();
+            }
             object->die();
         }
     }

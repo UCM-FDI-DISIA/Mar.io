@@ -45,13 +45,6 @@ scene = {
       }
     }
   },
-  CoinSound = {
-		components = {
-			AudioSourceComponent = {
-				sourcepath = "coin.mp3"
-			}
-		}
-	}, 
 	WalkSound = {
 		components = {
 			AudioSourceComponent = {
@@ -75,20 +68,6 @@ scene = {
 			}
 		}
     }, 
-    LifeUpSound = {
-		components = {
-			AudioSourceComponent = {
-				sourcepath = "heal.mp3"
-			}
-		}
-    }, 
-    InvincibilitySound = {
-		components = {
-			AudioSourceComponent = {
-				sourcepath = "invincibility.mp3"
-			}
-		}
-	},
 	HurtSound = {
 		components = {
 			AudioSourceComponent = {

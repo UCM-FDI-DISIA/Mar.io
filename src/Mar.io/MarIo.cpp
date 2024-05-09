@@ -24,6 +24,7 @@
 #include "Components/FeetDamage.h"
 #include "Components/EnemyHealth.h"
 #include "Components/SoundManager.h"
+#include "Components/SoundObjectDie.h"
 
 void init() { addComponentFactories(); }
 
@@ -51,6 +52,7 @@ void addComponentFactories() {
     factMngr->addBuilder(new Tapioca::BasicBuilder<LevelScore>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<FeetDamage>());
     factMngr->addBuilder(new Tapioca::BasicBuilder<EnemyHealth>());
+    factMngr->addBuilder(new Tapioca::BasicBuilder<SoundObjectDie>());
 }
 
 const char* getWindowName() { return "Mar.io"; }
