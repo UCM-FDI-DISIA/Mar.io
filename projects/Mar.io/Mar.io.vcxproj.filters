@@ -54,9 +54,6 @@
     <ClCompile Include="..\..\src\Mar.io\Components\PlayerSetting.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Mar.io\Components\CheckPoint.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Mar.io\Components\Score.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -118,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\gameDefs.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Mar.io\Components\CheckPoint.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Mar.io\Components\Score.h">
       <Filter>Components</Filter>

@@ -5,7 +5,6 @@
 #include "Components/RigidBody.h"
 #include "Components/Animator.h"
 #include "Coin.h"
-#include "CheckPoint.h"
 #include "Health.h"
 #include "GameManager.h"
 
@@ -135,9 +134,8 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
             bounce = true;
         }
-        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
-                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
-                 object->getComponent<Coin>() == nullptr) {
+        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 < trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 
+        && object->getComponent<Coin>() == nullptr) {
             walk = false;
             grounded = true;
             jumps = 0;
@@ -151,12 +149,6 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         Tapioca::logInfo("RESPAWNEANDO");
         trans->setGlobalPosition(respawnpos);
         reset();
-    }
-    if (id == "ev_CheckpointReached") {
-        CheckPoint* c = (CheckPoint*)info;
-        if (c != nullptr) {
-            respawnpos = c->getRespawnPos();
-        }
     }
 }
 
@@ -201,7 +193,6 @@ void PlayerMovementController::fixedUpdate() {
     v = rigidBody->getVelocity();
     if (abs(v.x) > 0 || abs(v.z) > 0) {
         rigidBody->setVelocity(Tapioca::Vector3(float(v.x * 0.9), v.y, float(v.z * 0.9)));
-        //std::cout << moveX << " /" << moveZ<< "\n ";
     }
 }
 
@@ -213,4 +204,3 @@ void PlayerMovementController::reset() {
     jumps = 0;
     respawnpos = initialPos;
 }
-

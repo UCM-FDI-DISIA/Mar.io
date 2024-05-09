@@ -12,10 +12,7 @@
 
 Chest::Chest() : open(false), nCoins(8) { }
 
-bool Chest::initComponent(const CompMap& variables) { return true; }
-
 void Chest::handleEvent(std::string const& id, void* info) {
-    //TODO: luego se cambia id por meleAttack
     if (id == "onCollisionStay" && !open) {
         Tapioca::GameObject* playerChild = (Tapioca::GameObject*)info;
         Fist* fist = playerChild->getComponent<Fist>();
@@ -25,7 +22,6 @@ void Chest::handleEvent(std::string const& id, void* info) {
                 creatOpenChest();
             }
         }
-        
     }
 }
 
@@ -37,7 +33,7 @@ void Chest::createCoins(int n) {
         Tapioca::GameObject* coin = new Tapioca::GameObject();
         //coins.push_back(coin);
 
-        float angle = degree * i * 3.14f / 180.0f;   // Convertir a radianes
+        float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
         // Calcular el seno y el coseno
         float sinValue = std::sinf(angle);
         float cosValue = std::cosf(angle);
