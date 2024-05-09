@@ -1,43 +1,39 @@
-#include "feetDamage.h"
+#include "FeetDamage.h"
 #include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
-#include "Components/Transform.h"
-#include "Components/RigidBody.h"
-#include "Fist.h"
-#include "Health.h"
-#include <iostream>
-#include "PlayerMovementController.h"
+#include "EnemyHealth.h"
 #include "Enemy.h"
 
-FeetDamage::FeetDamage() : health(nullptr), trans(nullptr), rigidBody(nullptr), heal(1) { }
+FeetDamage::FeetDamage() : damage(1) { }
 
-FeetDamage::~FeetDamage() {
-    health = nullptr;
-    trans = nullptr;
-    rigidBody = nullptr;
+bool FeetDamage::initComponent(const CompMap& variables) {
+    if (!setValueFromMap(damage, "damage", variables)) {
+        Tapioca::logInfo(("FeetDamage: No se ha indica el daño que realiza. Se establece a " + std::to_string(damage) +
+                          " por defecto.")
+                             .c_str());
+    }
+    return true;
 }
-
-bool FeetDamage::initComponent(const CompMap& variables) { return true; }
-
-void FeetDamage::start() {
-    health = object->getComponent<Health>();
-    trans = object->getComponent<Tapioca::Transform>();
-    rigidBody = object->getComponent<Tapioca::RigidBody>();
-}
-
-void FeetDamage::update(const uint64_t deltaTime) { }
-
-void FeetDamage::fixedUpdate() { }
 
 void FeetDamage::handleEvent(std::string const& id, void* info) {
-    if (id == "onCollisionStay" || id == "onCollisionEnter") {
-        Tapioca::GameObject* object = (Tapioca::GameObject*)info;
-        if (object != nullptr && object->getComponent<PlayerMovementController>() == nullptr) {
-            Health* health = object->getComponent<Health>();
-            Enemy* enemy = object->getComponent<Enemy>();
-            if (health != nullptr && enemy != nullptr && enemy->getEnemyType() != TURTLE) {
-                object->die();
+    if (id == "onCollisionEnter" || id == "onCollisionStay") {
+        Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
+        if (colObject != nullptr) {
+            Enemy* enemy = colObject->getComponent<Enemy>();
+            if (enemy != nullptr && enemy->getEnemyType() != TURTLE) {
+                EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
+                if (enemyHealth != nullptr) {
+                    enemyHealth->loseHP(damage);
+                }
             }
+        }
+    }
+
+    if (id == "onCollisionExit") {
+        Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
+        EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
+        if (enemyHealth != nullptr) {
+            enemyHealth->canReceiveDamage();
         }
     }
 }

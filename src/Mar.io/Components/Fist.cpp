@@ -1,17 +1,30 @@
 #include "Fist.h"
 #include "Structure/GameObject.h"
 #include "Structure/BasicBuilder.h"
-#include "Health.h"
+#include "Components/Animator.h"
+#include "Components/Transform.h"
+#include "EnemyHealth.h"
+#include "Chest.h"
 
-Fist::Fist() : onAttack(false), duration(0), coolDown(0), cont(0), canHit(true), damageDealt(false) { }
+Fist::Fist() : onAttack(false), duration(0), coolDown(0), cont(0), canHit(true), damage(1), parentAnim(nullptr) { }
+
+void Fist::start() {
+    Tapioca::Transform* transform = object->getComponent<Tapioca::Transform>();
+    Tapioca::Transform* parentTransform = transform->getParent();
+    if (parentTransform != nullptr) {
+        parentAnim = parentTransform->getObject()->getComponent<Tapioca::Animator>();
+    }
+}
 
 bool Fist::initComponent(const CompMap& variables) {
-    cont = 0;
-    canHit = false;
-    onAttack = false;
-    bool coolDownSet = setValueFromMap(coolDown, "coolDown", variables);
-    bool durationSet = setValueFromMap(duration, "duration", variables);
-    return coolDownSet && durationSet;
+    if (!setValueFromMap(coolDown, "coolDown", variables)) return false;
+    if (!setValueFromMap(duration, "duration", variables)) return false;
+    if (!setValueFromMap(damage, "damage", variables)) {
+        Tapioca::logInfo(
+            ("Fist: No se ha indica el daño que realiza. Se establece a " + std::to_string(damage) + " por defecto.")
+                .c_str());
+    }
+    return true;
 }
 
 void Fist::update(const uint64_t deltaTime) {
@@ -27,7 +40,6 @@ void Fist::update(const uint64_t deltaTime) {
         if (cont > duration) {
             cont = 0;
             onAttack = false;
-            damageDealt = false;
         }
     }
 }
@@ -36,18 +48,37 @@ void Fist::handleEvent(std::string const& id, void* info) {
     if (id == "ev_MELEATTACK" && canHit) {
         canHit = false;
         onAttack = true;
+
+        if (parentAnim) {
+            parentAnim->setLoop(false);
+            parentAnim->playAnim("Punching");
+        }
+
         pushEvent("ev_Fist", nullptr);
     }
-    if ((id == "onCollisionStay" || id == "onCollisionEnter") && onAttack && !damageDealt) {
-        Tapioca::GameObject* object = (Tapioca::GameObject*)info;
-        if (object != nullptr) {
-            Health* health = object->getComponent<Health>();
-            if (health != nullptr) {
-                damageDealt = true;
-                object->die();
+
+    if (id == "onCollisionEnter" || id == "onCollisionStay" && onAttack) {
+        Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
+        if (colObject != nullptr) {
+            EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
+            if (enemyHealth != nullptr) {
+                enemyHealth->loseHP(damage);
+            }
+
+            Chest* chest = colObject->getComponent<Chest>();
+            if (chest != nullptr) {
+                chest->openChest();
+            }
+        }
+    }
+
+    if (id == "onCollisionExit") {
+        if (!onAttack) {
+            Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
+            EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
+            if (enemyHealth != nullptr) {
+                enemyHealth->canReceiveDamage();
             }
         }
     }
 }
-
-bool Fist::isAttack() { return onAttack; }

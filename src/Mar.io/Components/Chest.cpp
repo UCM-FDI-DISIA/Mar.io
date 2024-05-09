@@ -12,26 +12,12 @@
 
 Chest::Chest() : open(false), nCoins(8) { }
 
-void Chest::handleEvent(std::string const& id, void* info) {
-    if (id == "onCollisionStay" && !open) {
-        Tapioca::GameObject* playerChild = (Tapioca::GameObject*)info;
-        Fist* fist = playerChild->getComponent<Fist>();
-        if (fist != nullptr) {
-            if (fist->isAttack()) {
-                createCoins(nCoins);
-                creatOpenChest();
-            }
-        }
-    }
-}
-
 void Chest::createCoins(int n) {
     Tapioca::Vector3 pos = object->getComponent<Tapioca::Transform>()->getGlobalPosition();
 
     float degree = 360.0f / n;
     for (int i = 0; i < n; ++i) {
         Tapioca::GameObject* coin = new Tapioca::GameObject();
-        //coins.push_back(coin);
 
         float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
         // Calcular el seno y el coseno
@@ -74,10 +60,13 @@ void Chest::createCoins(int n) {
     }
 }
 
-void Chest::creatOpenChest() {
-    Tapioca::MeshRenderer* meshRenderer = object->getComponent<Tapioca::MeshRenderer>();
-    if (meshRenderer != nullptr) {
-        meshRenderer->setMesh("models/chest/OpenedChest.mesh");
+void Chest::openChest() {
+    if (!open) {
+        open = true;
+        createCoins(nCoins);
+        Tapioca::MeshRenderer* meshRenderer = object->getComponent<Tapioca::MeshRenderer>();
+        if (meshRenderer != nullptr) {
+            meshRenderer->setMesh("models/chest/OpenedChest.mesh");
+        }
     }
-    open = true;
 }

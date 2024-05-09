@@ -653,8 +653,8 @@ scene  = {
 					ContactDamage = {
 						damage = 1
 					},
-					Health = {
-						currHealth = 1,
+					EnemyHealth = {	
+						currHealth = 1
 					},
 					Enemy = {
 						tEnemy = 1
@@ -704,8 +704,8 @@ scene  = {
 					ContactDamage = {
 						damage = 1
 					},
-					Health = {
-						currHealth = 1,
+					EnemyHealth = {	
+						currHealth = 1
 					},
 					Enemy = {
 						tEnemy = 1
@@ -1038,9 +1038,7 @@ scene  = {
 					ContactDamage = {
 						damage = 1
 					},
-					Health = {
-						currHealth = 1,
-					},
+					EnemyHealth = {	},
 					Enemy = {
 						tEnemy = 0
 					},
@@ -1119,9 +1117,7 @@ scene  = {
 					ContactDamage = {
 						damage = 1
 					},
-					Health = {
-						currHealth = 1,
-					},
+					EnemyHealth = {	},
 					Enemy = {
 						tEnemy = 0
 					},

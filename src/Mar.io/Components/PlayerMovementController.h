@@ -14,6 +14,7 @@ class GameManager;
 
 class JUEGO_API PlayerMovementController : public Tapioca::Component {
 private:
+    int jumpsNumber;
     bool grounded;
     int jumps;
     bool jump;

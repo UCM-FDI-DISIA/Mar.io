@@ -11,7 +11,7 @@
 PlayerMovementController::PlayerMovementController()
     : grounded(true), jumps(0), jump(false), bounce(false), run(false), runEnd(false), walk(false), trans(nullptr),
       rigidBody(nullptr), anim(nullptr), health(nullptr), moveX(0), moveZ(0), speed(0), jumpSpeed(8), bounceSpeed(3),
-      runSpeed(10), walkSpeed(5), gManager(nullptr) { }
+      runSpeed(10), walkSpeed(5), gManager(nullptr), jumpsNumber(2) { }
 
 PlayerMovementController::~PlayerMovementController() {
     trans = nullptr;
@@ -19,7 +19,14 @@ PlayerMovementController::~PlayerMovementController() {
     anim = nullptr;
 }
 
-bool PlayerMovementController::initComponent(const CompMap& variables) { return true; }
+bool PlayerMovementController::initComponent(const CompMap& variables) {
+    if (!setValueFromMap(jumpsNumber, "jumpsNumber", variables)) {
+        Tapioca::logInfo(
+            ("Fist: No se ha indica el numero de saltos que puede realizar. Se establece a " + std::to_string(jumpsNumber) + " por defecto.")
+                .c_str());
+    }
+    return true;
+}
 
 void PlayerMovementController::start() {
     trans = object->getComponent<Tapioca::Transform>();
@@ -39,13 +46,6 @@ void PlayerMovementController::start() {
 }
 
 void PlayerMovementController::update(const uint64_t deltaTime) {
-    /*std::to_string(trans->getPosition().x);
-    std::string pos_s = 
-        "x: " + std::to_string(trans->getPosition().x) +
-        "; y: " + std::to_string(trans->getPosition().y) + 
-        "; z: " + std::to_string(trans->getPosition().z);
-    Tapioca::logInfo(pos_s.c_str());*/
-
     if (moveX != 0 || moveZ != 0) {
         float angle = std::atan2f(float(moveX), float(moveZ));
         trans->setRotation(Tapioca::Vector3(0, angle * 180.0f / (float)M_PI, 0));
@@ -118,15 +118,11 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
     }
 
     if (id == "ev_JUMP") {
-        if (jumps < 2 || grounded) {
+        if (jumps < jumpsNumber || grounded) {
             jump = true;
             grounded = false;
             jumps++;
         }
-    }
-    if (id == "ev_MELEATTACK" && anim != nullptr) {
-        anim->setLoop(false);
-        anim->playAnim("Punching");
     }
     if (id == "onCollisionEnter") {
         Tapioca::GameObject* object = (Tapioca::GameObject*)info;
@@ -134,8 +130,9 @@ void PlayerMovementController::handleEvent(std::string const& id, void* info) {
         if (object->getAllComponents().size() > 3 && object->getComponent<Coin>() == nullptr && !grounded) {
             bounce = true;
         }
-        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 < trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 
-        && object->getComponent<Coin>() == nullptr) {
+        else if (t->getGlobalPosition().y - t->getGlobalScale().y / 2 <
+                     trans->getGlobalPosition().y - trans->getGlobalScale().y / 2 &&
+                 object->getComponent<Coin>() == nullptr) {
             walk = false;
             grounded = true;
             jumps = 0;
