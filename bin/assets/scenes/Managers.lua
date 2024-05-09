@@ -4,10 +4,10 @@ scene = {
       GameManager = {}
     }
   }, 
-  {
-	components = {
-		SoundManager = {}
-	}
+  SoundManager= {
+    components = {
+      SoundManager = {}
+    }
   }, 
   MainMenuMusic = {
     components = {

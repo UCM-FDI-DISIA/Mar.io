@@ -12,7 +12,8 @@
 #include "Components/AudioSourceComponent.h"
 #include "SoundManager.h"
 
-GameManager::GameManager() : state(MainMenu), level(1), levelScore(0), prevLevelScore(0), prevState(MainMenu), sManager(nullptr) { }
+GameManager::GameManager()
+    : state(MainMenu), level(1), levelScore(0), prevLevelScore(0), prevState(MainMenu), sManager(nullptr) { }
 
 void GameManager::onGameOver() {
     if (changeScene("LoseMenu")) {
@@ -23,13 +24,9 @@ void GameManager::onGameOver() {
     }
 }
 
-bool GameManager::addLevel() {
-    return changeScene(getCurrentLevelScene());
-}
+bool GameManager::addLevel() { return changeScene(getCurrentLevelScene()); }
 
-void GameManager::deleteCurrentLevel() {
-    Tapioca::MainLoop::instance()->deleteScene(getCurrentLevelScene());
-}
+void GameManager::deleteCurrentLevel() { Tapioca::MainLoop::instance()->deleteScene(getCurrentLevelScene()); }
 
 void GameManager::onWin() {
     deleteCurrentLevel();
@@ -63,11 +60,17 @@ bool GameManager::initComponent(const CompMap& variables) {
 }
 
 void GameManager::start() {
-    sManager = SoundManager::instance();
-
-    changeScene("MainMenu");
-    state = MainMenu;
-    prevState = MainMenu;
+    if (object->getScene()->getHandler("SoundManager") == nullptr ||
+        object->getScene()->getHandler("SoundManager")->getComponent < SoundManager>()==nullptr) {
+        Tapioca::logError("GameManager: No existe SoundManager, cerrando el juego...");
+        Tapioca::MainLoop::instance()->exit();
+    }
+    else {
+        sManager = SoundManager::instance();
+        changeScene("MainMenu");
+        state = MainMenu;
+        prevState = MainMenu;
+    }
 }
 
 void GameManager::handleEvent(std::string const& id, void* info) {
@@ -164,5 +167,4 @@ void GameManager::ExitButtonClick() { Tapioca::MainLoop::instance()->exit(); }
 
 void GameManager::increaseScore(int increasement) { levelScore += increasement; }
 
-std::string GameManager::getCurrentLevelScene() { return "Level" + std::to_string(level);
-}
+std::string GameManager::getCurrentLevelScene() { return "Level" + std::to_string(level); }

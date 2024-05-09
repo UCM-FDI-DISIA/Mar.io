@@ -32,7 +32,6 @@ bool Health::initComponent(const CompMap& variables) {
 void Health::update(const uint64_t deltaTime) {
     if (invulnerable) {
         timer -= deltaTime;
-        Tapioca::logInfo(std::to_string(timer).c_str());
         if (timer < 0.0f) {
             deactivateInvincibility();
         }

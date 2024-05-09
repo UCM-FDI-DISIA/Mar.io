@@ -13,18 +13,27 @@
 
 void SoundManager::start() {
     audios = std::vector<Tapioca::AudioSourceComponent*>(Sounds_MAX);
-    audios[Walk] = object->getScene()->getHandler("WalkSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Jump] = object->getScene()->getHandler("JumpSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Jump]->setVolume(0.2f);
-    audios[Hurt] = object->getScene()->getHandler("HurtSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[Fist] = object->getScene()->getHandler("FistSound")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[MainMenuMusic] =
-        object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[InGameMusic] = object->getScene()->getHandler("InGameMusic")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[WinMenuMusic] =
-        object->getScene()->getHandler("WinMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
-    audios[GameOverMenuMusic] =
-        object->getScene()->getHandler("GameOverMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    Tapioca::GameObject* s;
+    s = object->getScene()->getHandler("WalkSound");
+    audios[Walk] = s == nullptr ? nullptr :s->getComponent<Tapioca::AudioSourceComponent>();
+    s = object->getScene()->getHandler("JumpSound");
+
+    audios[Jump] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    if (audios[Jump] != nullptr) audios[Jump]->setVolume(0.2f);
+
+    s = object->getScene()->getHandler("HurtSound");
+    audios[Hurt] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    s = object->getScene()->getHandler("FistSound");
+    audios[Fist] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+
+    s = object->getScene()->getHandler("MainMenuMusic");
+    audios[MainMenu] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    s = object->getScene()->getHandler("InGameMusic");
+    audios[InGame] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    s = object->getScene()->getHandler("WinMenuMusic");
+    audios[WinMenuMusic] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    s = object->getScene()->getHandler("GameOverMenuMusic");
+    audios[GameOverMenuMusic] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
 }
 
 void SoundManager::handleEvent(std::string const& id, void* info) {
