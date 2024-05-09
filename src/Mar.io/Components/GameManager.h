@@ -5,24 +5,17 @@
 #include <string>
 #include "gameDefs.h"
 
-
 namespace Tapioca {
 class AudioSourceComponent;
 }
 
+class SoundManager;
 
 class JUEGO_API GameManager : public Tapioca::Component, public Tapioca::Singleton<GameManager> {
 private:
     friend Singleton<GameManager>;
 
     enum State { MainMenu, InGame, GameOver, Pause, Controls };
-    enum Sounds {      
-        MainMenuMusic,
-        InGameMusic,
-        WinMenuMusic,
-        GameOverMenuMusic,
-        Sounds_MAX
-    };
 
     const int N_LEVELS = 2;
 
@@ -32,16 +25,7 @@ private:
     int levelScore;
     int prevLevelScore;
 
- // warning C4251 'GameManager::audios':
- // class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
- // tener una interfaz DLL para que la utilicen los clientes de class 'GameManager'
-#ifdef _MSC_VER
-#pragma warning(disable : 4251)
-#endif
-    std ::vector<Tapioca::AudioSourceComponent*> audios;   // Sonidos del juego
-#ifdef _MSC_VER
-#pragma warning(default : 4251)
-#endif
+    SoundManager* sManager;
 
     GameManager();
     void onGameOver();
@@ -79,6 +63,7 @@ public:
     std::string getCurrentLevelScene();
     inline int getCurrentLevel() const { return level; }
     inline int getState() const { return state; }
+    inline int getPrevState() const { return prevState; }
 };
 
 class JUEGO_API GameManagerBuilder : public Tapioca::ComponentBuilder {

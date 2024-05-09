@@ -10,6 +10,7 @@
 #include "Structure/Component.h"
 #include "Components/AudioSourceComponent.h"
 #include "GameManager.h"
+#include "checkML.h"
 
 SoundManager::SoundManager() { }
 
@@ -26,8 +27,13 @@ void SoundManager::start() {
     audios[Heal] = object->getScene()->getHandler("LifeUpSound")->getComponent<Tapioca::AudioSourceComponent>();
     audios[Invincibility] =
         object->getScene()->getHandler("InvincibilitySound")->getComponent<Tapioca::AudioSourceComponent>();
-
-    GameManager::instance()->changeScene("GameManager");
+    audios[MainMenuMusic] =
+        object->getScene()->getHandler("MainMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[InGameMusic] = object->getScene()->getHandler("InGameMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[WinMenuMusic] =
+        object->getScene()->getHandler("WinMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
+    audios[GameOverMenuMusic] =
+        object->getScene()->getHandler("GameOverMenuMusic")->getComponent<Tapioca::AudioSourceComponent>();
 }
 
 void SoundManager::update(const uint64_t deltaTime) { }
@@ -62,3 +68,79 @@ void SoundManager::handleEvent(std::string const& id, void* info) {
         if (audios[Hurt] != nullptr) audios[Hurt]->playOnce();
     }
 }
+
+void SoundManager::onWin(int const& level, int const& n_level) {
+    if (level > n_level) {
+        if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+        if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->playLooped();
+        if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+    }
+    else {
+        if (audios[InGameMusic] != nullptr) audios[InGameMusic]->playLooped();
+        if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+        if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+    }
+}
+
+void SoundManager::onGameOver() {
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->playLooped();
+}
+
+void SoundManager::MainMenuButtonClick() {
+    if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(true);
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->playLooped();
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+void SoundManager::ReturnButtonClick() {
+    if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->playLooped();
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+void SoundManager::ReplayButtonClick() {
+    if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(true);
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->playLooped();
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+void SoundManager::ContinueButtonClick() {
+    if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(true);
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(false);
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+void SoundManager::ToPause() {
+    if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(true);
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+void SoundManager::ControlsReturn(int prevState) {
+    if (prevState == Pause) {
+        if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(true);
+        if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+        if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+        if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+    }
+    else {
+        if (audios[MainMenuMusic] != nullptr) audios[MainMenuMusic]->pause(false);
+        if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+        if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+        if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+    }
+}
+
+void SoundManager::ControlsButtonClick() {
+    if (audios[InGameMusic] != nullptr) audios[InGameMusic]->pause(true);
+    if (audios[WinMenuMusic] != nullptr) audios[WinMenuMusic]->pause(true);
+    if (audios[GameOverMenuMusic] != nullptr) audios[GameOverMenuMusic]->pause(true);
+}
+
+

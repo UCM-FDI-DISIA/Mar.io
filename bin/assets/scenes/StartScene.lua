@@ -9,7 +9,7 @@ scene = {
             SplashScreenComponent = {
                 changeTime = 2000,
                 splashScene = "StartScene",
-                mainScene = "GameManager"
+                mainScene = "Managers"
             }
         }
     },

@@ -10,16 +10,30 @@ namespace Tapioca {
 class AudioSourceComponent;
 }
 
-
 class JUEGO_API SoundManager : public Tapioca::Component, public Tapioca::Singleton<SoundManager> {
 private:
     friend Singleton<SoundManager>;
 
-    enum Sounds { Coin, Walk, Jump, Hurt, Fist, Heal, Invincibility, Sounds_MAX };
+    enum State { MainMenu, InGame, GameOver, Pause, Controls };
 
-    // warning C4251 'GameManager::audios':
+    enum Sounds {
+        Coin,
+        Walk,
+        Jump,
+        Hurt,
+        Fist,
+        Heal,
+        Invincibility,
+        MainMenuMusic,
+        InGameMusic,
+        WinMenuMusic,
+        GameOverMenuMusic,
+        Sounds_MAX
+    };
+
+    // warning C4251 'SoundManager::audios':
     // class 'std::vector<Tapioca::AudioSourceComponent *,std::allocator<Tapioca::AudioSourceComponent *>>' necesita
-    // tener una interfaz DLL para que la utilicen los clientes de class 'GameManager'
+    // tener una interfaz DLL para que la utilicen los clientes de class 'SoundManager'
 #ifdef _MSC_VER
 #pragma warning(disable : 4251)
 #endif
@@ -42,6 +56,17 @@ public:
     void start() override;
     void update(const uint64_t deltaTime) override;
     void handleEvent(std::string const& id, void* info) override;
+
+    void onGameOver();
+    void onWin(int const& level, int const&  n_level);
+
+    void MainMenuButtonClick();
+    void ReturnButtonClick();
+    void ReplayButtonClick();
+    void ContinueButtonClick();
+    void ToPause();
+    void ControlsReturn(int prevState);
+    void ControlsButtonClick();
 };
 
 class JUEGO_API SoundManagerBuilder : public Tapioca::ComponentBuilder {

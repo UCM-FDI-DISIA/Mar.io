@@ -10,8 +10,6 @@ class RigidBody;
 
 class Health;
 
-enum eType { TURTLE, CRAB, MORAY };
-
 class JUEGO_API Enemy : public Tapioca::Component {
 private:
     Health* health;
@@ -21,6 +19,8 @@ private:
 
 public:
     COMPONENT_ID("Enemy");
+
+    enum eType { TURTLE, CRAB, MORAY };
 
     Enemy();
 

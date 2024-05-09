@@ -3,6 +3,7 @@
 #include "Structure/BasicBuilder.h"
 #include "EnemyHealth.h"
 #include "Enemy.h"
+#include "checkML.h"
 
 FeetDamage::FeetDamage() : damage(1) { }
 
@@ -20,7 +21,7 @@ void FeetDamage::handleEvent(std::string const& id, void* info) {
         Tapioca::GameObject* colObject = (Tapioca::GameObject*)info;
         if (colObject != nullptr) {
             Enemy* enemy = colObject->getComponent<Enemy>();
-            if (enemy != nullptr && enemy->getEnemyType() != TURTLE) {
+            if (enemy != nullptr && enemy->getEnemyType() != Enemy::TURTLE) {
                 EnemyHealth* enemyHealth = colObject->getComponent<EnemyHealth>();
                 if (enemyHealth != nullptr) {
                     enemyHealth->loseHP(damage);
