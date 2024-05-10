@@ -27,9 +27,9 @@ void SoundManager::start() {
     audios[Fist] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
 
     s = object->getScene()->getHandler("MainMenuMusic");
-    audios[MainMenu] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    audios[MainMenuMusic] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
     s = object->getScene()->getHandler("InGameMusic");
-    audios[InGame] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
+    audios[InGameMusic] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
     s = object->getScene()->getHandler("WinMenuMusic");
     audios[WinMenuMusic] = s == nullptr ? nullptr : s->getComponent<Tapioca::AudioSourceComponent>();
     s = object->getScene()->getHandler("GameOverMenuMusic");
