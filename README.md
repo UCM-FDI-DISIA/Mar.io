@@ -167,3 +167,13 @@ Todo el juego tiene un estilo low poly con un tono alegre y colores vivos, aunqu
 - [Fondo](https://www.vecteezy.com/photo/30663955-cartoon-style-ocean-background-for-product-showca)
 - [Carteles](https://free-game-assets.itch.io/free-jungle-cartoon-gui)
 - [Botones](https://pzuh.itch.io/free-bubble-game-button-pack)
+
+##### 8.2.3. Sonido
+
+- [Moneda](https://pixabay.com/es/sound-effects/search/coin%20pickup/)
+- [Pasos](https://pixabay.com/es/sound-effects/steps-on-sandy-ground-360-76681/)
+- [Salto](https://pixabay.com/es/sound-effects/8-bit-jump-001-171817/)
+- [Puño](https://pixabay.com/es/sound-effects/bow-release-bow-and-arrow-4-101936/)
+- [Corazón](https://pixabay.com/es/sound-effects/power-up-sparkle-1-177983/)
+- [Invencibilidad](https://pixabay.com/es/sound-effects/power-up-sparkle-3-177985/)
+- [Daño](https://pixabay.com/es/sound-effects/hurt-c-08-102842/)
