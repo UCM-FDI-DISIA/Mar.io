@@ -18,7 +18,6 @@ bool Chest::initComponent(const CompMap& variables) {
                           std::to_string(nCoins) + " por defecto.")
                              .c_str());
     }
-
     return true;
 }
 
