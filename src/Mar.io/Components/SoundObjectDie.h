@@ -12,7 +12,18 @@ private:
     bool paused;          // Indica si el sonido esta pausado
     bool play;            // Indica si el sonido esta sonando
     bool playingS;        // Indica si el sonido esta sonando
+
+
+//warning C4251 'SoundObjectDie::routeS':
+//class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL
+//para que la utilicen los clientes de class 'SoundObjectDie'
+    #ifdef _MSC_VER
+#pragma warning(disable : 4251)
+#endif
     std::string routeS;   // Ruta del sonido
+#ifdef _MSC_VER
+#pragma warning(default : 4251)
+#endif
 
     float timer;   // Temporizador para el sonido
 
