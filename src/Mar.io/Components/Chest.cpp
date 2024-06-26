@@ -9,6 +9,7 @@
 #include "Coin.h"
 #include "Structure/Scene.h"
 #include "Score.h"
+#include "Structure/PrefabManager.h"
 
 Chest::Chest() : open(false), nCoins(8) { }
 
@@ -26,58 +27,29 @@ void Chest::createCoins(int n) {
 
     float degree = 360.0f / n;
     for (int i = 0; i < n; ++i) {
-        Tapioca::GameObject* coin = new Tapioca::GameObject();
+        if (Tapioca::PrefabManager::instance()->isPrefab("ChestCoin")) {
 
-        float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
-        // Calcular el seno y el coseno
-        float sinValue = std::sinf(angle);
-        float cosValue = std::cosf(angle);
-        Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 2, cosValue);
+            float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
+            // Calcular el seno y el coseno
+            float sinValue = std::sinf(angle);
+            float cosValue = std::cosf(angle);
+            Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 2, cosValue);
 
-        CompMap transformMap;
-        transformMap["positionX"] = pos.x + posWithinCircle.x;
-        transformMap["positionY"] = pos.y + posWithinCircle.y;
-        transformMap["positionZ"] = pos.z + posWithinCircle.z;
-        const float COIN_SCALE = 1.0f;
-        transformMap["scaleX"] = COIN_SCALE;
-        transformMap["scaleY"] = COIN_SCALE;
-        transformMap["scaleZ"] = COIN_SCALE;
+            CompMap transformMap;
+            transformMap["positionX"] = pos.x + posWithinCircle.x;
+            transformMap["positionY"] = pos.y + posWithinCircle.y;
+            transformMap["positionZ"] = pos.z + posWithinCircle.z;
+            const float COIN_SCALE = 1.0f;
+            transformMap["scaleX"] = COIN_SCALE;
+            transformMap["scaleY"] = COIN_SCALE;
+            transformMap["scaleZ"] = COIN_SCALE;
 
-        CompMap rigidBodyMap;
-        rigidBodyMap["isTrigger"] = false;
-        rigidBodyMap["mass"] = 1.0f;
-        rigidBodyMap["damping"] = 0.4f;
-        rigidBodyMap["colShape"] = 0;
-        rigidBodyMap["movementType"] = 0;
-        rigidBodyMap["colliderScaleX"] = 0.5f;
-        rigidBodyMap["colliderScaleY"] = 0.5f;
-        rigidBodyMap["colliderScaleZ"] = 0.5f;
-        rigidBodyMap["friction"] = 1.0f;
-        rigidBodyMap["bounciness"] = 0.0f;
+            Tapioca::Transform* t = new Tapioca::Transform();
+            t->initComponent(transformMap);
 
-        CompMap meshMap;
-        meshMap["meshName"] = "models/coin/Coin.mesh";
-
-        CompMap audioMap;
-        audioMap["is3D"] = true;
-        audioMap["isLooping"] = false;
-        audioMap["ispaused"] = true;
-        audioMap["sourcepath"] = "coin.mp3";
-
-        CompMap soundMap;
-        soundMap["is3D"] = true;
-        soundMap["isLooping"] = false;
-        soundMap["ispaused"] = true;
-        soundMap["routeS"] = "coin.mp3";
-        soundMap["play"] = false;
-
-        if (object->getScene()->addObject(coin)) {
-            coin->addComponents({{"Transform", transformMap},
-                                 {"RigidBody", rigidBodyMap},
-                                 {"MeshRenderer", meshMap},
-                                 {"AudioSourceComponent", audioMap},
-                                 {"SoundObjectDie", soundMap},
-                                 {"Coin", {}}});
+            Tapioca::GameObject* coin =
+                Tapioca::PrefabManager::instance()->instantiate("ChestCoin", object->getScene(), t);
+            delete t;
 
             Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
             if (coinRb != nullptr) {

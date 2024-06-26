@@ -1533,7 +1533,64 @@ scene  = {
 			},
 		}
 	},
-
+	{
+		Instantiate = {
+			NormalCoin = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 20.50,
+						positionZ = -30.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					}
+				}
+			}
+		}
+	},
+	{
+		Instantiate = {
+			NormalCoin = {
+				components = {
+					Transform = {
+						positionX = 1.0,
+						positionY = 20.50,
+						positionZ = -30.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					}
+				}
+			}
+		}
+	},
+	{
+		Instantiate = {
+			NormalCoin = {
+				components = {
+					Transform = {
+						positionX = -1.0,
+						positionY = 20.50,
+						positionZ = -30.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					}
+				}
+			}
+		}
+	},
+	
 	{
 		components = {
 			Transform = {
