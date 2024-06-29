@@ -31,6 +31,8 @@ private:
     const Tapioca::Vector3 DEF_OFFSET = {0, 1, 1};   // Offset de la camara por defecto
     const float DEF_SMOOTH_SPD = 0.125f;             // Velocidad de suavizado por defecto
     const float DEF_ROT_SPD = 0.1f;                  // Velocidad de rotacion por defecto
+    const Tapioca::Vector3 startOffset = Tapioca::Vector3(0, 0.7, 1);   // Offset por defecto para el objetivo de la cámara
+    const Tapioca::Vector3 endOffset = Tapioca::Vector3(0, 2, 10);      // Offset por defecto de la posición de la cámara    
 
     Tapioca::Vector3 offset;   // Offset de la camara
     float smoothSpeed;         // Velocidad de suavizado
@@ -66,7 +68,6 @@ public:
     void start() override;
     /**
     * @brief Actualiza la posicion de la camara
-    * @param deltaTime Tiempo transcurrido desde el ultimo frame
     */
-    void update(const uint64_t deltaTime) override;
+    void fixedUpdate() override;
 };

@@ -21,9 +21,9 @@ scene  = {
 			CameraFollow = {
 				target = "Player",
 				offsetX = 0.0,
-				offsetY = 2.0,
-				offsetZ = 10.0,
-				smoothSpeed = 0.125,
+				offsetY = 3.0,
+				offsetZ = 7.0,
+				smoothSpeed = 0.04,
 				rotationSpeed = 0.1
 			},
 			
