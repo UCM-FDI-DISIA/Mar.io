@@ -1082,5 +1082,43 @@ scene  = {
 				}
 			}
 		}
+	},
+	{
+		Instantiate = {
+			NormalCoin = {
+				components = {
+					Transform = {
+						positionX = 0.0,
+						positionY = 26.8,
+						positionZ = -45.0,
+						scaleX = 1.5,
+						scaleY = 1.5,
+						scaleZ = 1.5,
+						rotationX = 0.0,
+						rotationY = 0.0,
+						rotationZ = 0.0
+					}
+				}
+			}
+		}
+	},
+	{
+		Instantiate = {
+			Turtle = {
+				components = {
+					Transform = {
+						positionX = -10.0,
+						positionY = 35.0,
+						positionZ = -47.0,
+						scaleX = 0.55,
+						scaleY = 0.55,
+						scaleZ = 0.55,
+						rotationX = 0.0,
+						rotationY = -90.0,
+						rotationZ = 0.0
+					}
+				}
+			}
+		}
 	}
 }

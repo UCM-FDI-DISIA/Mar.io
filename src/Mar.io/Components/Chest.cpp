@@ -27,30 +27,29 @@ void Chest::createCoins(int n) {
 
     float degree = 360.0f / n;
     for (int i = 0; i < n; ++i) {
-        if (Tapioca::PrefabManager::instance()->isPrefab("ChestCoin")) {
+        float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
+        // Calcular el seno y el coseno
+        float sinValue = std::sinf(angle);
+        float cosValue = std::cosf(angle);
+        Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 2, cosValue);
 
-            float angle = degree * i * (float)M_PI / 180.0f;   // Convertir a radianes
-            // Calcular el seno y el coseno
-            float sinValue = std::sinf(angle);
-            float cosValue = std::cosf(angle);
-            Tapioca::Vector3 posWithinCircle = Tapioca::Vector3(sinValue, 2, cosValue);
+        CompMap transformMap;
+        transformMap["positionX"] = pos.x + posWithinCircle.x;
+        transformMap["positionY"] = pos.y + posWithinCircle.y;
+        transformMap["positionZ"] = pos.z + posWithinCircle.z;
+        const float COIN_SCALE = 1.0f;
+        transformMap["scaleX"] = COIN_SCALE;
+        transformMap["scaleY"] = COIN_SCALE;
+        transformMap["scaleZ"] = COIN_SCALE;
 
-            CompMap transformMap;
-            transformMap["positionX"] = pos.x + posWithinCircle.x;
-            transformMap["positionY"] = pos.y + posWithinCircle.y;
-            transformMap["positionZ"] = pos.z + posWithinCircle.z;
-            const float COIN_SCALE = 1.0f;
-            transformMap["scaleX"] = COIN_SCALE;
-            transformMap["scaleY"] = COIN_SCALE;
-            transformMap["scaleZ"] = COIN_SCALE;
+        Tapioca::Transform* t = new Tapioca::Transform();
+        t->initComponent(transformMap);
 
-            Tapioca::Transform* t = new Tapioca::Transform();
-            t->initComponent(transformMap);
+        Tapioca::GameObject* coin =
+            Tapioca::PrefabManager::instance()->instantiate("ChestCoin", object->getScene(), t);
+        delete t;
 
-            Tapioca::GameObject* coin =
-                Tapioca::PrefabManager::instance()->instantiate("ChestCoin", object->getScene(), t);
-            delete t;
-
+        if (coin != nullptr) {
             Tapioca::RigidBody* coinRb = coin->getComponent<Tapioca::RigidBody>();
             if (coinRb != nullptr) {
                 coinRb->addForce(posWithinCircle * 100);
